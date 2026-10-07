@@ -1,0 +1,49 @@
+<view class="undo-container">
+  <view class="hud-bar">
+    <text class="hud-pill">COUNTDOWN: 4.0s</text>
+    <text class="hud-pill">RESTORE: ORIGIN INDEX</text>
+  </view>
+
+  <view class="todo-card">
+    <view class="card-header">
+      <text class="card-title">待办任务列表</text>
+      <text class="card-tip">点击右侧叉号测试撤销条</text>
+    </view>
+
+    <!-- 任务列表 -->
+    <view class="task-list">
+      <block wx:for="{{items}}" wx:key="id">
+        <view class="task-item">
+          <view class="task-left">
+            <view class="check-box"></view>
+            <view class="task-info">
+              <text class="task-name">{{item.title}}</text>
+              <view class="task-meta">
+                <text class="task-tag">{{item.tag}}</text>
+                <text class="task-time">{{item.time}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="delete-btn" bindtap="deleteItem" data-id="{{item.id}}">×</view>
+        </view>
+      </block>
+      <view wx:if="{{items.length === 0}}" class="empty-hint">全部任务已删除</view>
+    </view>
+
+    <!-- 底部悬浮/嵌入式撤销条 -->
+    <view class="undo-bar-wrap {{showUndo ? 'show' : ''}}">
+      <view class="undo-bar">
+        <view class="undo-bar-content">
+          <text class="undo-text">1 项任务已移除</text>
+          <view class="undo-action" bindtap="undoDelete">
+            <text class="undo-btn-text">撤销</text>
+          </view>
+        </view>
+        <!-- 倒计时进度条线 (走完才消失) -->
+        <view class="progress-track">
+          <view class="progress-fill" style="width: {{progress}}%;"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

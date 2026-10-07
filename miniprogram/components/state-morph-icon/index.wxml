@@ -1,0 +1,51 @@
+<view class="morph-icons-container">
+  <view class="hud-bar">
+    <text class="hud-pill">MORPHICONS: 60FPS CSS PATH</text>
+    <text class="hud-pill">FEEDBACK: HAPTIC SYNC</text>
+  </view>
+
+  <view class="icons-card">
+    <view class="card-header">
+      <text class="card-title">形变图标与动作即反馈</text>
+      <text class="card-tip">点按图标感受状态流体形变</text>
+    </view>
+
+    <view class="icons-grid">
+      <!-- 01 菜单变关闭 (三道杠 -> X) -->
+      <view class="icon-block" bindtap="toggleMenu">
+        <view class="icon-box {{menuOpen ? 'active' : ''}}">
+          <view class="morph-burger">
+            <view class="bar bar-1 {{menuOpen ? 'bar-open' : ''}}"></view>
+            <view class="bar bar-2 {{menuOpen ? 'bar-open' : ''}}"></view>
+            <view class="bar bar-3 {{menuOpen ? 'bar-open' : ''}}"></view>
+          </view>
+        </view>
+        <text class="icon-name">Menu ↔ Close</text>
+        <text class="icon-sub">{{menuOpen ? '已变为关闭' : '菜单汉堡'}}</text>
+      </view>
+
+      <!-- 02 播放变暂停 (三角形 -> 双竖杠) -->
+      <view class="icon-block" bindtap="togglePlay">
+        <view class="icon-box {{isPlaying ? 'playing' : ''}}">
+          <view class="play-pause-shape {{isPlaying ? 'paused' : ''}}">
+            <view class="pipe pipe-1"></view>
+            <view class="pipe pipe-2"></view>
+          </view>
+        </view>
+        <text class="icon-name">Play ↔ Pause</text>
+        <text class="icon-sub">{{isPlaying ? '播放中' : '暂停中'}}</text>
+      </view>
+
+      <!-- 03 纸飞机发射变对勾完成 (动作本身就是反馈) -->
+      <view class="icon-block" bindtap="handleSend">
+        <view class="icon-box send-box {{sendState}}">
+          <view wx:if="{{sendState === 'idle'}}" class="send-plane">✈</view>
+          <view wx:elif="{{sendState === 'sending'}}" class="send-spinner"></view>
+          <view wx:elif="{{sendState === 'sent'}}" class="send-check">✓</view>
+        </view>
+        <text class="icon-name">Send → Feedback</text>
+        <text class="icon-sub">{{sendState === 'idle' ? '点击发送' : (sendState === 'sending' ? '发射中...' : '已完成!')}}</text>
+      </view>
+    </view>
+  </view>
+</view>

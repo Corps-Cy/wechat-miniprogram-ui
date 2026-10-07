@@ -1,10 +1,10 @@
 # 组件库全景分类清单与智能推荐指南 (Component Catalog & Recommendation Guide)
 
-本文档是 AI Agent 与开发者的**核心选型决策树**。整合了来自四大工业级设计标准视频的 **20 款高端交互组件与微动效**，涵盖：
+本文档是 AI Agent 与开发者的**核心选型决策树**。整合了来自 7 大工业级设计标准视频的 **24 款高端交互组件与微动效**，涵盖：
 1. **01 凭证弹窗 (Popup Panels)**
 2. **02 质感微动效 (Tactile Motions)**
 3. **03 审美页面布局 (Aesthetic Layouts)**
-4. **04 触觉高级交互 (Advanced Touch Interactions)**
+4. **04 触觉高级交互与高级提示动效 (Advanced Interactions & Micro-Toasts)**
 
 ---
 
@@ -40,7 +40,7 @@
 
 ---
 
-### 分类 03：高级审美页面布局 (15~17 Aesthetic Layouts)
+### 分类 03：高级审美页面布局 (15~18 Aesthetic Layouts)
 源自 Apple、Linear、Raycast 等现代设计语言，打破传统平铺直叙的信息层级：
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
@@ -48,17 +48,21 @@
 | **15** | `bento-grid-wall` | **便当盒网格墙 (Bento Grid)** | `GAP: 20rpx`<br>`BLUR: 20px`<br>`ASPECT-RATIO` | 首页仪表盘、功能矩阵、多维度数据汇聚、品牌核心亮点概览。 |
 | **16** | `stacked-deck-view` | **层叠卡片牌组 (Stacked Deck)** | `PERSP: 1000px`<br>`SCALE: 0.88/0.94/1`<br>`SWIPE: -80px` | 精选推荐、每日卡片、特权探索，卡片如纸牌向上推走滑出。 |
 | **17** | `layered-exploded-panel` | **分层视差抽离面板 (Layered Exploded)** | `EXPLODE: 70rpx`<br>`TILT: -16deg / 22deg`<br>`MULTI-LAYER` | 硬件拆解、黑科技分层、复杂架构图解、VIP 权益分层透视展示。 |
+| **18** | `overlap-stagger-card` | **重叠咬合与阶梯错位排版 (Overlap & Stagger)** | `OVERLAP: 42px`<br>`STAGGER: 40rpx`<br>`Z-INDEX: 3-TIER` | 告别等高平铺，通过负外边距压住标签与左右不对称阶梯，制造设计秩序感。 |
 
 ---
 
-### 分类 04：触觉高级手势交互 (18~20 Advanced Touch Interactions)
-基于微信原生 WXS 运行于渲染层，实现 60fps 零延迟跟手交互：
+### 分类 04：触觉高级手势交互与高级提示动效 (19~24 Advanced Interactions & Micro-Toasts)
+基于微信原生 WXS 运行于渲染层，实现 60fps 零延迟跟手交互，以及“不抢戏但在对的时候出现、用对的方式消失”的高级提示机制：
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
 | :--- | :--- | :--- | :--- | :--- |
-| **18** | `swipe-card-stack` | **左右滑动堆叠 (Swipe Stack)** | `SWIPE: ±120px`<br>`ROT: (dx/160)*14°`<br>`WXS TOUCH` | 探索挑选、Tinder 模式卡片快速决策、活动卡片连续浏览。 |
-| **19** | `split-button-morph` | **裂变流体胶囊 (Split Button)** | `EXPAND: 420rpx`<br>`STAGGER: 0.12s`<br>`Haptic Medium` | 多功能快捷操作条、分享与收藏二合一、状态切换悬浮胶囊。 |
-| **20** | `scroll-spy-category` | **滚动联动分类 (Scroll Spy)** | `STICKY: 0`<br>`ACTIVE-TRACK`<br>`Smooth Scroll` | 外卖点餐、电商分类瀑布流、长文档大纲导航。 |
+| **19** | `swipe-card-stack` | **左右滑动堆叠 (Swipe Stack)** | `SWIPE: ±120px`<br>`ROT: (dx/160)*14°`<br>`WXS TOUCH` | 探索挑选、Tinder 模式卡片快速决策、活动卡片连续浏览。 |
+| **20** | `split-button-morph` | **裂变流体胶囊 (Split Button)** | `EXPAND: 420rpx`<br>`STAGGER: 0.12s`<br>`Haptic Medium` | 多功能快捷操作条、分享与收藏二合一、状态切换悬浮胶囊。 |
+| **21** | `scroll-spy-category` | **滚动联动分类 (Scroll Spy)** | `STICKY: 0`<br>`ACTIVE-TRACK`<br>`Smooth Scroll` | 外卖点餐、电商分类瀑布流、长文档大纲导航。 |
+| **22** | `undo-timer-bar` | **倒计时进度撤销条 (Undo Timer Bar)** | `COUNTDOWN: 4.0s`<br>`PROGRESS: 100->0`<br>`RESTORE INLINE` | 误删撤回、关键危险操作缓冲提示，倒计时看得到、走完才自然消失。 |
+| **23** | `dot-rebound-scatter` | **红点原位弧线回缩与三级联动消散 (Dot Rebound)** | `ARC: (-20rpx,-14rpx)`<br>`SCALE: 1->0`<br>`STAGGER: 4f (70ms)` | 消息已读消除，红点缩回它来的地方而非原地淡出，单行/分组/顶部总数三层联动。 |
+| **24** | `state-morph-icon` | **状态形变图标与动作即反馈 (State Morph Icon)** | `MORPH: PATH/CSS`<br>`ACTION AS FEEDBACK`<br>`HAPTIC SYNC` | 汉堡与叉号平滑形变、播放与暂停切换、点击发送自身变成飞行动作与完成状态。 |
 
 ---
 
@@ -68,36 +72,13 @@
 flowchart TD
     UserReq[用户交互需求] --> Type{需求类型?}
     
-    Type -->|凭证 / 核销 / 弹层| Voucher[分类 01: 凭证弹窗]
-    Type -->|按键 / 图表 / 物理触感| Motion[分类 02: 质感微动效]
-    Type -->|页面布局 / 仪表盘 / 展陈| Layout[分类 03: 审美页面布局]
-    Type -->|卡片手势 / 胶囊裂变 / 列表| Touch[分类 04: 触觉高级交互]
+    Type -->|凭证 / 核销 / 弹层| Voucher[分类 01: 凭证弹窗 6款]
+    Type -->|按键 / 图表 / 物理触感| Motion[分类 02: 质感微动效 8款]
+    Type -->|页面布局 / 仪表盘 / 错位排版| Layout[分类 03: 审美页面布局 4款]
+    Type -->|卡片手势 / 胶囊 / 撤销 / 红点 / 图标形变| Touch[分类 04: 触觉与提示交互 6款]
     
-    Voucher --> V1{主要展示重点?}
-    V1 -->|剩余天数/倒计时| Ring[02. ring-count-sheet]
-    V1 -->|月份/周期消耗| Glass[01. frosted-glass-sheet]
-    V1 -->|周记/隐藏提货码| Ruler[03. tick-ruler-sheet]
-    V1 -->|大图美食/酒店通兑| Photo[04. photo-drawer-sheet]
-    V1 -->|到场核销/双面防伪| Flip[05. flip-card-sheet]
-    V1 -->|就餐小票/下拉规则| Drag[06. drag-expand-sheet]
-    
-    Motion --> M1{动效表现形式?}
-    M1 -->|按钮点击手感| Press[14. press-scale-button]
-    M1 -->|3D触摸倾斜反光| Tilt[07. tilt-glare-card]
-    M1 -->|AI高光发光边框| Glow[12. conic-glow-card]
-    M1 -->|折线图滑动吸附| Odom[10. odometer-chart]
-    M1 -->|列表平滑加载| Stagger[13. stagger-cascade-grid]
-    M1 -->|胶囊按钮变弹窗| Morph[08. fluid-morph-sheet]
-    M1 -->|列表点开展开详情| Shared[09. shared-element-card]
-    M1 -->|三段多高度抽屉| Elastic[11. elastic-bottom-sheet]
-
-    Layout --> L1{视觉呈现结构?}
-    L1 -->|功能矩阵/多维信息| Bento[15. bento-grid-wall]
-    L1 -->|精选推荐/向上滑牌| Deck[16. stacked-deck-view]
-    L1 -->|硬件拆解/多层透视| Explode[17. layered-exploded-panel]
-
-    Touch --> T1{手势交互方式?}
-    Touch -->|左右滑动卡片决策| Swipe[18. swipe-card-stack]
-    Touch -->|胶囊分裂多功能按键| Split[19. split-button-morph]
-    Touch -->|左分类右列表滚动联动| Spy[20. scroll-spy-category]
+    Voucher --> V1[01 玻璃浮起 / 02 圆环计数 / 03 刻度扫到今天 / 04 照片抽屉 / 05 原地翻面 / 06 下拉展开]
+    Motion --> M1[07 3D倾斜 / 08 流体胶囊 / 09 共享元素 / 10 磁吸滚动 / 11 阻尼抽屉 / 12 弥散光晕 / 13 物理弹簧 / 14 弹性微缩]
+    Layout --> L1[15 便当盒网格 / 16 层叠卡片牌组 / 17 分层视差抽离 / 18 重叠错位排版]
+    Touch --> T1[19 左右滑动卡片 / 20 裂变流体胶囊 / 21 滚动联动列表 / 22 倒计时撤销条 / 23 红点弧线回缩 / 24 状态形变图标]
 ```

@@ -2,11 +2,11 @@
   <!-- 顶部分类导航 -->
   <view class="demo-header">
     <view class="header-badge">
-      <text class="badge-num">20</text>
+      <text class="badge-num">24</text>
       <text class="badge-sub">微信小程序 · 精品交互与高阶质感库</text>
     </view>
     <text class="page-title">Vibe Coding UI</text>
-    <text class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互</text>
+    <text class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互 · 高级提示动效</text>
 
     <!-- 分类 Segment 切换 -->
     <scroll-view class="tab-segment-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
@@ -33,7 +33,7 @@
           data-tab="layouts"
         >
           <text class="tab-label">03 审美页面布局</text>
-          <text class="tab-badge">3款</text>
+          <text class="tab-badge">4款</text>
         </view>
         <view 
           class="tab-item {{currentTab === 'interactions' ? 'active' : ''}}" 
@@ -41,7 +41,7 @@
           data-tab="interactions"
         >
           <text class="tab-label">04 触觉高级交互</text>
-          <text class="tab-badge">3款</text>
+          <text class="tab-badge">6款</text>
         </view>
       </view>
     </scroll-view>
@@ -151,7 +151,7 @@
     <!-- 06 三段阻尼弹性抽屉 -->
     <view class="motion-block">
       <text class="block-label">06 三段阻尼弹性抽屉 (ELASTIC SHEET)</text>
-      <button class="trigger-btn" bindtap="openElasticSheet">打开三段阻尼抽屉</button>
+      <button class="sheet-trigger-btn" bindtap="openElasticSheet">打开三段阻尼抽屉</button>
     </view>
 
     <!-- 07 物理弹簧交错流 (带重播与点击反馈) -->
@@ -171,7 +171,7 @@
   <view class="section-container" wx:if="{{currentTab === 'layouts'}}">
     <view class="section-title-wrap">
       <text class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS</text>
-      <text class="section-desc">源自前沿 App 视觉语言，打破传统平铺式陈列</text>
+      <text class="section-desc">源自前沿 App 视觉语言，打破模板化平铺陈列</text>
     </view>
 
     <!-- 便当盒网格墙 BENTO GRID -->
@@ -191,13 +191,19 @@
       <text class="block-label">03 分层视差抽离面板 (LAYERED EXPLODED)</text>
       <layered-exploded-panel />
     </view>
+
+    <!-- 高级排版：重叠咬合与阶梯错位 OVERLAP & STAGGER -->
+    <view class="motion-block">
+      <text class="block-label">04 重叠咬合与阶梯错位排版 (OVERLAP & STAGGER)</text>
+      <overlap-stagger-card />
+    </view>
   </view>
 
   <!-- ==================== 分类 4：触觉高级交互 ==================== -->
   <view class="section-container" wx:if="{{currentTab === 'interactions'}}">
     <view class="section-title-wrap">
       <text class="section-title">触觉高级交互 · ADVANCED INTERACTIONS</text>
-      <text class="section-desc">手一碰就有回应，基于 WXS 极致 60fps 零延迟跟手体验</text>
+      <text class="section-desc">手一碰就有回应，基于 WXS 60fps 手势、提示动效与流体形变</text>
     </view>
 
     <!-- 左右滑动卡片堆叠 SWIPE CARD STACK -->
@@ -216,6 +222,24 @@
     <view class="motion-block">
       <text class="block-label">03 滚动联动分类列表 (SCROLL SPY)</text>
       <scroll-spy-category />
+    </view>
+
+    <!-- 倒计时进度撤销条 UNDO TIMER BAR -->
+    <view class="motion-block">
+      <text class="block-label">04 倒计时进度撤销条 (UNDO TIMER BAR)</text>
+      <undo-timer-bar />
+    </view>
+
+    <!-- 红点原位弧线收回与三层联动消散 DOT REBOUND SCATTER -->
+    <view class="motion-block">
+      <text class="block-label">05 红点弧线回缩与三级联动消散 (DOT REBOUND)</text>
+      <dot-rebound-scatter />
+    </view>
+
+    <!-- 状态形变图标与动作即反馈 STATE MORPH ICON -->
+    <view class="motion-block">
+      <text class="block-label">06 状态形变图标与动作即反馈 (STATE MORPH ICON)</text>
+      <state-morph-icon />
     </view>
   </view>
 

@@ -1,0 +1,209 @@
+.morph-icons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hud-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.hud-pill {
+  font-family: monospace;
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.12);
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+.icons-card {
+  width: 100%;
+  background: #18181b;
+  border-radius: 36rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  padding: 36rpx 36rpx;
+  box-sizing: border-box;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.35);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card-tip {
+  font-size: 22rpx;
+  color: #71717a;
+}
+
+.icons-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-box {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 32rpx;
+  background: #27272a;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+
+.icon-box:active {
+  transform: scale(0.92);
+}
+
+.icon-box.active {
+  background: #3b82f6;
+  border-color: #60a5fa;
+}
+
+.icon-name {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #f4f4f5;
+}
+
+.icon-sub {
+  font-size: 18rpx;
+  color: #71717a;
+  margin-top: 4rpx;
+}
+
+/* 01 汉堡变叉号 */
+.morph-burger {
+  width: 36rpx;
+  height: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.bar {
+  width: 100%;
+  height: 4rpx;
+  background: #ffffff;
+  border-radius: 4rpx;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.bar-1.bar-open {
+  transform: translateY(12rpx) rotate(45deg);
+}
+
+.bar-2.bar-open {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.bar-3.bar-open {
+  transform: translateY(-12rpx) rotate(-45deg);
+}
+
+/* 02 播放变暂停 */
+.play-pause-shape {
+  width: 32rpx;
+  height: 32rpx;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.pipe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8rpx;
+  background: #ffffff;
+  border-radius: 4rpx;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pipe-1 {
+  left: 4rpx;
+}
+
+.pipe-2 {
+  right: 4rpx;
+}
+
+/* 处于播放状态时，变成三角微旋转 */
+.play-pause-shape.paused .pipe-1 {
+  transform: scaleY(1);
+}
+
+.play-pause-shape.paused .pipe-2 {
+  transform: scaleY(1);
+}
+
+.icon-box.playing {
+  background: #10b981;
+}
+
+/* 03 发送变完成 */
+.send-plane {
+  font-size: 40rpx;
+  color: #ffffff;
+  transform: rotate(-15deg);
+  transition: all 0.3s ease;
+}
+
+.send-box.sending {
+  background: #f59e0b;
+}
+
+.send-spinner {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.send-box.sent {
+  background: #22c55e;
+}
+
+.send-check {
+  font-size: 42rpx;
+  font-weight: 800;
+  color: #ffffff;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

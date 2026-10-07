@@ -20,8 +20,12 @@
     "bento-grid-wall": "../../components/bento-grid-wall/index",
     "stacked-deck-view": "../../components/stacked-deck-view/index",
     "layered-exploded-panel": "../../components/layered-exploded-panel/index",
+    "overlap-stagger-card": "../../components/overlap-stagger-card/index",
     "split-button-morph": "../../components/split-button-morph/index",
     "swipe-card-stack": "../../components/swipe-card-stack/index",
-    "scroll-spy-category": "../../components/scroll-spy-category/index"
+    "scroll-spy-category": "../../components/scroll-spy-category/index",
+    "undo-timer-bar": "../../components/undo-timer-bar/index",
+    "dot-rebound-scatter": "../../components/dot-rebound-scatter/index",
+    "state-morph-icon": "../../components/state-morph-icon/index"
   }
 }

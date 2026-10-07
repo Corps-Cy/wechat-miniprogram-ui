@@ -1,0 +1,77 @@
+<view class="layout-showcase-container">
+  <view class="hud-bar">
+    <text class="hud-pill">OVERLAP: 42px Z-INDEX</text>
+    <text class="hud-pill">ALIGNMENT: 3-TIER DELIBERATE</text>
+  </view>
+
+  <view class="showcase-card">
+    <view class="card-header">
+      <view>
+        <text class="card-title">高级排版审美：重叠与错位</text>
+        <text class="card-sub">告别模板式等高排列，制造呼吸与秩序感</text>
+      </view>
+
+      <view class="mode-toggle">
+        <view 
+          class="mode-btn {{activeMode === 'overlap' ? 'active' : ''}}" 
+          bindtap="setMode" 
+          data-mode="overlap"
+        >重叠</view>
+        <view 
+          class="mode-btn {{activeMode === 'stagger' ? 'active' : ''}}" 
+          bindtap="setMode" 
+          data-mode="stagger"
+        >错位</view>
+      </view>
+    </view>
+
+    <!-- 模式 1：叠重 (OVERLAP) - 负外边距压住上层标签与视差错层 -->
+    <view wx:if="{{activeMode === 'overlap'}}" class="overlap-stage">
+      <view class="hero-underlay">
+        <text class="underlay-tag">WEEKEND GETAWAY</text>
+        <text class="underlay-title">Escape The City</text>
+      </view>
+
+      <view class="cards-overlap-stack">
+        <block wx:for="{{cards}}" wx:key="id">
+          <view 
+            class="overlap-item" 
+            style="background: {{item.bg}}; z-index: {{10 - index}};"
+          >
+            <view class="item-head">
+              <text class="item-tag">{{item.tag}}</text>
+              <text class="item-price">{{item.price}}</text>
+            </view>
+            <view class="item-body">
+              <text class="item-title">{{item.title}}</text>
+              <text class="item-date">{{item.date}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 模式 2：卡片错位 (STAGGER) - 左右非均分交错阶梯流 -->
+    <view wx:if="{{activeMode === 'stagger'}}" class="stagger-stage">
+      <view class="stagger-col col-left">
+        <view class="stagger-card card-tall" style="background: {{cards[0].bg}};">
+          <text class="item-tag">{{cards[0].tag}}</text>
+          <text class="item-title">{{cards[0].title}}</text>
+          <text class="item-price">{{cards[0].price}}</text>
+        </view>
+      </view>
+      <view class="stagger-col col-right">
+        <view class="stagger-card card-short" style="background: {{cards[1].bg}};">
+          <text class="item-tag">{{cards[1].tag}}</text>
+          <text class="item-title">{{cards[1].title}}</text>
+          <text class="item-price">{{cards[1].price}}</text>
+        </view>
+        <view class="stagger-card card-medium" style="background: {{cards[2].bg}};">
+          <text class="item-tag">{{cards[2].tag}}</text>
+          <text class="item-title">{{cards[2].title}}</text>
+          <text class="item-price">{{cards[2].price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

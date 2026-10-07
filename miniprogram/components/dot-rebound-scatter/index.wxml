@@ -1,0 +1,53 @@
+<view class="scatter-container">
+  <view class="hud-bar">
+    <text class="hud-pill">MOTION: ARC REBOUND</text>
+    <text class="hud-pill">SYNC: 3-TIER DELAY 4f</text>
+  </view>
+
+  <view class="inbox-card">
+    <view class="card-header">
+      <view class="header-left">
+        <text class="card-title">消息收件箱</text>
+        <!-- 顶部总未读数 (随红点散落联动收缩) -->
+        <view class="total-badge {{unreadCount > 0 ? 'visible' : 'hidden'}}">
+          <text class="badge-num">{{unreadCount}}</text>
+        </view>
+      </view>
+      <view class="reset-btn" bindtap="resetAll">重置红点</view>
+    </view>
+
+    <!-- 分类胶囊栏 (第二层联动) -->
+    <view class="cat-bar">
+      <block wx:for="{{categories}}" wx:key="id">
+        <view class="cat-tab {{index === 0 ? 'active' : ''}}">
+          <text class="cat-name">{{item.name}}</text>
+          <view wx:if="{{unreadCount > 0 && index === 0}}" class="cat-dot"></view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 列表项 (第三层：点击触发弧线收缩消散) -->
+    <view class="msg-list">
+      <block wx:for="{{items}}" wx:key="id">
+        <view 
+          class="msg-item {{item.highlighted ? 'item-highlight' : ''}}" 
+          bindtap="handleRead" 
+          data-id="{{item.id}}"
+        >
+          <view class="msg-content">
+            <text class="msg-title {{item.unread ? 'unread-title' : 'read-title'}}">{{item.title}}</text>
+            <text class="msg-status">{{item.unread ? '点击消除红点' : '已读'}}</text>
+          </view>
+
+          <!-- 红点与消散动效 -->
+          <view class="dot-wrap">
+            <view 
+              wx:if="{{item.unread}}" 
+              class="rebound-dot {{item.dissipating ? 'dissipating' : ''}}"
+            ></view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
