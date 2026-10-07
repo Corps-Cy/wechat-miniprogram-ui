@@ -1,0 +1,103 @@
+var startY = 0;
+var currentY = 0;
+var isExpanded = false;
+var MAX_EXPAND = 260; // 展开高度 (px)
+
+function touchStart(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  startY = touch.clientY;
+  currentY = 0;
+  ins.selectComponent('.expandable-section').setStyle({
+    'transition': 'none'
+  });
+}
+
+function touchMove(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  var deltaY = touch.clientY - startY;
+
+  // 如果未展开，向下拉动（正值）展开下半部
+  if (!isExpanded) {
+    if (deltaY > 0) {
+      // 增加阻尼
+      var damped = Math.min(deltaY * 0.75, MAX_EXPAND);
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': (120 + damped) + 'px',
+        'opacity': 1
+      });
+      ins.selectComponent('.drag-handle').setStyle({
+        'transform': 'rotate(180deg) scale(1.1)'
+      });
+    }
+  } else {
+    // 若已展开，向上推动（负值）收起
+    if (deltaY < 0) {
+      var height = Math.max(MAX_EXPAND + 120 + deltaY, 120);
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': height + 'px'
+      });
+    }
+  }
+}
+
+function touchEnd(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  var deltaY = touch.clientY - startY;
+
+  ins.selectComponent('.expandable-section').setStyle({
+    'transition': 'max-height 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s'
+  });
+  ins.selectComponent('.drag-handle').setStyle({
+    'transition': 'transform 0.3s ease'
+  });
+
+  if (!isExpanded) {
+    if (deltaY > 60) {
+      // 超过阈值，展开
+      isExpanded = true;
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': (MAX_EXPAND + 120) + 'px',
+        'opacity': 1
+      });
+      ins.selectComponent('.drag-handle').setStyle({
+        'transform': 'rotate(180deg)'
+      });
+      ins.callMethod('onStateChange', { expanded: true });
+    } else {
+      // 未达阈值，吸附回初态
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': '120px'
+      });
+      ins.selectComponent('.drag-handle').setStyle({
+        'transform': 'rotate(0deg)'
+      });
+    }
+  } else {
+    if (deltaY < -60) {
+      // 向上推超过阈值，收起
+      isExpanded = false;
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': '120px'
+      });
+      ins.selectComponent('.drag-handle').setStyle({
+        'transform': 'rotate(0deg)'
+      });
+      ins.callMethod('onStateChange', { expanded: false });
+    } else {
+      // 保持展开
+      ins.selectComponent('.expandable-section').setStyle({
+        'max-height': (MAX_EXPAND + 120) + 'px',
+        'opacity': 1
+      });
+      ins.selectComponent('.drag-handle').setStyle({
+        'transform': 'rotate(180deg)'
+      });
+    }
+  }
+}
+
+module.exports = {
+  touchStart: touchStart,
+  touchMove: touchMove,
+  touchEnd: touchEnd
+};

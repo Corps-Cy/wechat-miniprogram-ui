@@ -1,0 +1,64 @@
+<view class="flip-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="flip-mask" bindtap="handleClose"></view>
+
+  <view class="flip-dialog">
+    <!-- 3D 景深翻转舞台 perspective: 1200px -->
+    <view class="flip-stage">
+      <view class="flip-card {{flipped ? 'is-flipped' : ''}}">
+        
+        <!-- 【正面】常规信息与凭证概要 -->
+        <view class="card-face card-front">
+          <view class="face-header">
+            <text class="tag">专属权益券</text>
+            <view class="flip-trigger-btn" bindtap="handleFlip">
+              <text class="trigger-text">出示核销码 ↷</text>
+            </view>
+          </view>
+
+          <view class="face-body">
+            <text class="card-title">{{title}}</text>
+            <text class="card-desc">{{desc}}</text>
+
+            <view class="validity-box">
+              <text class="valid-label">有效期限</text>
+              <text class="valid-val">{{validDate}}</text>
+            </view>
+          </view>
+
+          <view class="face-footer">
+            <button class="flip-main-btn" bindtap="handleFlip">点击翻转查看凭证码</button>
+          </view>
+        </view>
+
+        <!-- 【背面】到场要出示的内容 (二维码、条形码、核销数字) -->
+        <view class="card-face card-back">
+          <view class="face-header">
+            <text class="tag tag-back">请向工作人员出示</text>
+            <view class="flip-trigger-btn" bindtap="handleFlip">
+              <text class="trigger-text">返回正面 ↶</text>
+            </view>
+          </view>
+
+          <view class="face-body qr-body">
+            <!-- 模拟条形码 -->
+            <view class="barcode-box">
+              <view class="barcode-lines"></view>
+              <text class="barcode-num">{{verifyCode}}</text>
+            </view>
+
+            <!-- 模拟二维码 -->
+            <view class="qrcode-wrapper">
+              <image class="qrcode-img" src="{{qrCodeUrl}}" mode="aspectFit" />
+            </view>
+            <text class="qr-hint">动态防伪码 · 每 60 秒自动刷新</text>
+          </view>
+
+          <view class="face-footer">
+            <button class="back-close-btn" bindtap="handleFlip">翻回常规信息</button>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,157 @@
+.ring-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0.5s;
+}
+
+.ring-wrapper.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 背景压暗到 40% (0.4) */
+.ring-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ring-wrapper.active .ring-mask {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* 底部面板：从屏幕外升到位，耗时 0.5 秒 */
+.ring-panel {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 44rpx 44rpx 0 0;
+  padding: 24rpx 40rpx calc(48rpx + env(safe-area-inset-bottom));
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  box-shadow: 0 -12rpx 40rpx rgba(0, 0, 0, 0.08);
+}
+
+.ring-wrapper.active .ring-panel {
+  transform: translateY(0);
+}
+
+.drag-bar {
+  width: 72rpx;
+  height: 8rpx;
+  background: #e2e8f0;
+  border-radius: 4rpx;
+  margin: 0 auto 36rpx;
+}
+
+.header-box {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  display: block;
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.subtitle {
+  display: block;
+  font-size: 26rpx;
+  color: #64748b;
+  margin-top: 8rpx;
+}
+
+/* 圆环容器 */
+.ring-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0 40rpx;
+}
+
+.svg-ring-wrap {
+  position: relative;
+  width: 380rpx;
+  height: 380rpx;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: #f1f5f9;
+  stroke-width: 14;
+}
+
+/* 圆环进度：stroke-dashoffset 用 1.2 秒画到剩余比例 */
+.ring-progress {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 14;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* 中心计数内容 */
+.center-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.count-num {
+  font-size: 80rpx;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -2rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-unit {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #64748b;
+  margin-left: 6rpx;
+}
+
+.count-label {
+  font-size: 24rpx;
+  color: #94a3b8;
+  margin-top: 6rpx;
+}
+
+.action-box {
+  margin-top: 24rpx;
+}
+
+.primary-btn {
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 100rpx;
+  padding: 24rpx 0;
+  line-height: 1.4;
+  box-shadow: 0 8rpx 24rpx rgba(59, 130, 246, 0.35);
+}

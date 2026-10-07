@@ -1,0 +1,65 @@
+.demo-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 60rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.demo-header {
+  margin-bottom: 50rpx;
+}
+
+.page-title {
+  display: block;
+  font-size: 46rpx;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1rpx;
+}
+
+.page-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #64748b;
+  margin-top: 14rpx;
+  line-height: 1.5;
+}
+
+.demo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+}
+
+.demo-card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 36rpx 32rpx;
+  border: 1rpx solid #e2e8f0;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.demo-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.card-icon {
+  font-size: 44rpx;
+  margin-bottom: 16rpx;
+}
+
+.card-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.card-hint {
+  font-size: 24rpx;
+  color: #94a3b8;
+  margin-top: 8rpx;
+}

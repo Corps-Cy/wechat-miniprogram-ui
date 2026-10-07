@@ -1,0 +1,208 @@
+.ruler-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0.45s;
+}
+
+.ruler-wrapper.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ruler-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0);
+  transition: background 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ruler-wrapper.active .ruler-mask {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+/* 纸质票据质感面板滑入 */
+.ruler-panel {
+  position: relative;
+  z-index: 2;
+  background: #fbfbf9;
+  border-radius: 36rpx 36rpx 0 0;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  box-shadow: 0 -16rpx 48rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ruler-wrapper.active .ruler-panel {
+  transform: translateY(0);
+}
+
+.ticket-body {
+  padding: 40rpx 40rpx 20rpx;
+}
+
+.header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.badge {
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 18rpx;
+  border-radius: 8rpx;
+}
+
+.date-range {
+  font-size: 24rpx;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.voucher-title {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 36rpx;
+}
+
+/* 53 根刻度尺轴 */
+.ruler-container {
+  background: #ffffff;
+  border: 1rpx solid #f1f5f9;
+  border-radius: 20rpx;
+  padding: 50rpx 24rpx 24rpx;
+  margin-bottom: 36rpx;
+}
+
+.ruler-axis {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 90rpx;
+  position: relative;
+}
+
+.tick-bar {
+  flex: 0 0 4rpx;
+  width: 4rpx;
+  height: 28rpx;
+  background: #e2e8f0;
+  border-radius: 2rpx;
+  position: relative;
+  transition: background 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+              height 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--stagger-delay);
+}
+
+/* 扫过变深：错开 1 帧逐根变深 */
+.ruler-wrapper.active .tick-bar.passed {
+  background: #94a3b8;
+  height: 38rpx;
+}
+
+/* 到今天这一格：强调色（靛蓝）加长 */
+.ruler-wrapper.active .tick-bar.today {
+  background: #4f46e5;
+  height: 58rpx;
+  box-shadow: 0 0 12rpx rgba(79, 70, 229, 0.5);
+}
+
+.today-indicator {
+  position: absolute;
+  top: -44rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.today-text {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+}
+
+.indicator-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6rpx solid transparent;
+  border-right: 6rpx solid transparent;
+  border-top: 6rpx solid #4f46e5;
+}
+
+.ruler-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  color: #94a3b8;
+  margin-top: 16rpx;
+}
+
+/* 原地展开凭证编号，行高固定 */
+.code-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  margin-bottom: 24rpx;
+  border: 1rpx dashed #cbd5e1;
+}
+
+.code-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-label {
+  font-size: 22rpx;
+  color: #64748b;
+  margin-bottom: 6rpx;
+}
+
+.code-mono {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 4rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  display: block;
+}
+
+.toggle-btn {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 24rpx;
+  font-weight: 600;
+  padding: 12rpx 28rpx;
+  border-radius: 100rpx;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #64748b;
+  padding: 8rpx 4rpx;
+}

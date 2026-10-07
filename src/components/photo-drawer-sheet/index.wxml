@@ -1,0 +1,47 @@
+<view class="photo-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="photo-mask" bindtap="handleClose"></view>
+
+  <view class="photo-modal-card">
+    <!-- 上半部沉浸式照片：从 1.08 缩小至 1.0，暗角托住白色大字 -->
+    <view class="photo-hero">
+      <image class="hero-image" src="{{imageUrl}}" mode="aspectFill" />
+      <view class="hero-vignette">
+        <view class="vignette-content">
+          <text class="hero-badge">{{category}}</text>
+          <text class="hero-title">{{title}}</text>
+          <text class="hero-subtitle">{{subtitle}}</text>
+        </view>
+      </view>
+      <view class="close-icon" bindtap="handleClose">✕</view>
+    </view>
+
+    <!-- 下半部抽屉：margin-top: -44rpx (-22px) 压住照片底边 -->
+    <view class="content-drawer">
+      <view class="drawer-header">
+        <view class="meta-row">
+          <text class="label">权益状态</text>
+          <text class="status-tag">随时可兑</text>
+        </view>
+        <view class="digits-row">
+          <text class="num-large">{{remainingCount}}</text>
+          <text class="num-unit">/ {{totalCount}} 次剩余</text>
+        </view>
+      </view>
+
+      <!-- 进度条随后从 0 涨到剩余比例 -->
+      <view class="progress-box">
+        <view class="progress-track">
+          <view class="progress-fill" style="width: {{progressRatio}}%;"></view>
+        </view>
+        <view class="progress-label-row">
+          <text class="progress-text">使用进度</text>
+          <text class="progress-percent">{{progressRatio}}%</text>
+        </view>
+      </view>
+
+      <view class="drawer-actions">
+        <button class="primary-btn" bindtap="handleAction">立即出示核销</button>
+      </view>
+    </view>
+  </view>
+</view>

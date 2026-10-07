@@ -1,0 +1,44 @@
+<view class="ring-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <!-- 背景压暗至 40% -->
+  <view class="ring-mask" bindtap="handleClose"></view>
+
+  <!-- 底部升起面板 -->
+  <view class="ring-panel">
+    <view class="drag-bar"></view>
+
+    <view class="header-box">
+      <text class="title">{{title}}</text>
+      <text class="subtitle">{{subtitle}}</text>
+    </view>
+
+    <!-- 圆环与中心计数区 -->
+    <view class="ring-container">
+      <view class="svg-ring-wrap">
+        <!-- SVG 圆环 -->
+        <svg class="ring-svg" viewBox="0 0 160 160">
+          <circle class="ring-track" cx="80" cy="80" r="70" />
+          <circle 
+            class="ring-progress {{animatingRing ? 'draw' : ''}}" 
+            cx="80" 
+            cy="80" 
+            r="70" 
+            style="stroke-dasharray: 440; stroke-dashoffset: {{currentDashOffset}};" 
+          />
+        </svg>
+
+        <!-- 中心同步滚动计数 -->
+        <view class="center-content">
+          <view class="number-row">
+            <text class="count-num">{{displayCount}}</text>
+            <text class="count-unit">{{unit}}</text>
+          </view>
+          <text class="count-label">{{label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-box">
+      <button class="primary-btn" bindtap="handleAction">立即核销使用</button>
+    </view>
+  </view>
+</view>

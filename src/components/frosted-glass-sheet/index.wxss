@@ -1,0 +1,175 @@
+.frosted-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0.4s;
+}
+
+.frosted-wrapper.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 背景毛玻璃遮罩：模糊从 0 到 26px */
+.frosted-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+              backdrop-filter 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+              -webkit-backdrop-filter 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.frosted-wrapper.active .frosted-mask {
+  opacity: 1;
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+}
+
+/* 半透明浮起面板：从 0.94 放大至 1，底色 rgba(255, 255, 255, 0.42) */
+.frosted-panel {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1rpx solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.12),
+              inset 0 1rpx 2rpx rgba(255, 255, 255, 0.8);
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 40rpx 36rpx calc(40rpx + env(safe-area-inset-bottom));
+  transform: translateY(100%) scale(0.94);
+  transform-origin: bottom center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.frosted-wrapper.active .frosted-panel {
+  transform: translateY(0) scale(1);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36rpx;
+}
+
+.title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5rpx;
+}
+
+.subtitle {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 6rpx;
+}
+
+.close-btn {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 12 个月份网格 */
+.months-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20rpx 16rpx;
+  padding: 24rpx 0;
+}
+
+.month-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-track {
+  width: 100%;
+  height: 100rpx;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 12rpx;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* 底部填充条：Stagger 4 帧（~66ms），使用 cubic-bezier(0.2,0.7,0.2,1) 在 1s 内完成 */
+.bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border-radius: 12rpx;
+  height: 0%;
+  transform-origin: bottom;
+  transition: height 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--stagger-delay);
+}
+
+.frosted-wrapper:not(.active) .bar-fill {
+  height: 0% !important;
+  transition-duration: 0.2s;
+  transition-delay: 0s;
+}
+
+.month-label {
+  font-size: 22rpx;
+  color: #555;
+  margin-top: 10rpx;
+  font-weight: 500;
+}
+
+.panel-footer {
+  margin-top: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-badge {
+  display: flex;
+  align-items: baseline;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #059669;
+}
+
+.stat-text {
+  font-size: 24rpx;
+  color: #666;
+  margin-left: 8rpx;
+}
+
+.primary-btn {
+  background: #10b981;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 18rpx 36rpx;
+  border-radius: 100rpx;
+  line-height: 1.4;
+  margin: 0;
+}

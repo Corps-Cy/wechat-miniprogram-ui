@@ -1,0 +1,231 @@
+.photo-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0.5s;
+}
+
+.photo-wrapper.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.photo-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.photo-wrapper.active .photo-mask {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.photo-modal-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上半部照片：按原比例从 1.08 缩小到 1 铺满 */
+.photo-hero {
+  position: relative;
+  width: 100%;
+  height: 480rpx;
+  overflow: hidden;
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.08);
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.photo-wrapper.active .hero-image {
+  transform: scale(1);
+}
+
+/* 暗角托住白色大字 */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 40rpx 40rpx 64rpx; /* 留出被抽屉遮挡的底部余量 */
+}
+
+.vignette-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-badge {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 20rpx;
+  font-weight: 600;
+  padding: 4rpx 16rpx;
+  border-radius: 6rpx;
+  margin-bottom: 12rpx;
+  letter-spacing: 1rpx;
+}
+
+.hero-title {
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 6rpx;
+}
+
+.close-icon {
+  position: absolute;
+  top: 32rpx;
+  right: 32rpx;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+/* 抽屉：margin-top: -44rpx (-22px) 压住照片底边，从下方推入 */
+.content-drawer {
+  position: relative;
+  z-index: 5;
+  margin-top: -44rpx; /* 压住照片下沿 22px */
+  background: #ffffff;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 40rpx 40rpx calc(40rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: 0.1s;
+}
+
+.photo-wrapper.active .content-drawer {
+  transform: translateY(0);
+}
+
+.drawer-header {
+  margin-bottom: 32rpx;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-size: 24rpx;
+  color: #64748b;
+}
+
+.status-tag {
+  font-size: 22rpx;
+  color: #10b981;
+  font-weight: 600;
+  background: #ecfdf5;
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+.digits-row {
+  display: flex;
+  align-items: baseline;
+  margin-top: 10rpx;
+}
+
+.num-large {
+  font-size: 64rpx;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.num-unit {
+  font-size: 26rpx;
+  color: #64748b;
+  margin-left: 10rpx;
+}
+
+/* 进度条：从 0% 涨到剩余比例 */
+.progress-box {
+  background: #f8fafc;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  margin-bottom: 36rpx;
+}
+
+.progress-track {
+  width: 100%;
+  height: 16rpx;
+  background: #e2e8f0;
+  border-radius: 100rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+  border-radius: 100rpx;
+  transition: width 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: 0.35s; /* 抽屉推到位后再涨进度 */
+}
+
+.photo-wrapper:not(.active) .progress-fill {
+  width: 0% !important;
+  transition-delay: 0s;
+}
+
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14rpx;
+  font-size: 22rpx;
+  color: #64748b;
+}
+
+.progress-percent {
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.drawer-actions .primary-btn {
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 100rpx;
+  padding: 24rpx 0;
+  line-height: 1.4;
+}

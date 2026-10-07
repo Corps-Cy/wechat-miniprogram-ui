@@ -1,0 +1,57 @@
+<view class="ruler-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="ruler-mask" bindtap="handleClose"></view>
+
+  <view class="ruler-panel">
+    <!-- 纸质票据锯齿顶部装饰 -->
+    <view class="ticket-sawtooth"></view>
+
+    <view class="ticket-body">
+      <view class="header-line">
+        <text class="badge">{{tag}}</text>
+        <text class="date-range">第 {{currentWeek}} 周 / 共 53 周</text>
+      </view>
+
+      <view class="voucher-title">{{title}}</view>
+
+      <!-- 53 根周刻度尺 -->
+      <view class="ruler-container">
+        <view class="ruler-axis">
+          <block wx:for="{{ticks}}" wx:key="index">
+            <view 
+              class="tick-bar {{item.isPassed ? 'passed' : ''}} {{item.isToday ? 'today' : ''}}"
+              style="--stagger-delay: {{index * 16}}ms;"
+            >
+              <view wx:if="{{item.isToday}}" class="today-indicator">
+                <text class="today-text">今天</text>
+                <view class="indicator-arrow"></view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="ruler-labels">
+          <text>第1周</text>
+          <text class="center-label">第26周 (半年)</text>
+          <text>第53周</text>
+        </view>
+      </view>
+
+      <!-- 原地展开凭证编号区 -->
+      <view class="code-section">
+        <view class="code-info">
+          <text class="code-label">凭证兑换编号</text>
+          <view class="code-reveal-box {{revealed ? 'expanded' : ''}}">
+            <text class="code-mono">{{revealed ? fullCode : maskedCode}}</text>
+          </view>
+        </view>
+        <button class="toggle-btn" bindtap="handleToggleReveal">
+          {{revealed ? '隐藏编号' : '原地展开'}}
+        </button>
+      </view>
+
+      <view class="summary-line">
+        <text>已生效时间：{{daysPassed}} 天</text>
+        <text>剩余有效：{{daysRemaining}} 天</text>
+      </view>
+    </view>
+  </view>
+</view>

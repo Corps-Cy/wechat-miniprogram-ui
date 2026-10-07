@@ -1,0 +1,63 @@
+<wxs module="dragHandler" src="./drag.wxs"></wxs>
+
+<view class="drag-sheet-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="sheet-mask" bindtap="handleClose"></view>
+
+  <view class="sheet-panel">
+    <!-- 常驻核心摘要（上半部） -->
+    <view class="panel-primary">
+      <view class="top-row">
+        <view class="status-indicator">
+          <view class="pulsing-dot"></view>
+          <text class="status-text">待核销</text>
+        </view>
+        <view class="close-btn" bindtap="handleClose">✕</view>
+      </view>
+
+      <view class="title-row">
+        <text class="main-title">{{title}}</text>
+        <text class="sub-title">{{subtitle}}</text>
+      </view>
+    </view>
+
+    <!-- 可拖动手柄区域 (绑定 WXS 手势事件) -->
+    <view 
+      class="handle-zone"
+      bindtouchstart="{{dragHandler.touchStart}}"
+      bindtouchmove="{{dragHandler.touchMove}}"
+      bindtouchend="{{dragHandler.touchEnd}}"
+    >
+      <view class="drag-handle">
+        <view class="handle-bar"></view>
+        <text class="handle-tip">{{isExpanded ? '向上推动收起' : '向下拉动展开完整规则'}}</text>
+      </view>
+    </view>
+
+    <!-- 动态展开次级详细规则（下半部） -->
+    <view class="expandable-section">
+      <view class="rules-list">
+        <view class="rule-item">
+          <text class="rule-title">使用门店</text>
+          <text class="rule-val">全国 120+ 家直营及指定合作门店通用</text>
+        </view>
+        <view class="rule-item">
+          <text class="rule-title">核销时段</text>
+          <text class="rule-val">法定工作日 10:00 - 22:00（周末节假日不可用）</text>
+        </view>
+        <view class="rule-item">
+          <text class="rule-title">预约规则</text>
+          <text class="rule-val">需提前至少 24 小时联系管家电话预约排期</text>
+        </view>
+        <view class="rule-item">
+          <text class="rule-title">退改须知</text>
+          <text class="rule-val">核销前支持随时退款，一旦核销立即作废生效</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部常驻按钮 -->
+    <view class="sheet-footer">
+      <button class="primary-btn" bindtap="handleConfirm">确认使用凭证</button>
+    </view>
+  </view>
+</view>

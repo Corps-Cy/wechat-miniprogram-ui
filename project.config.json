@@ -1,0 +1,15 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "wechat-miniprogram-ui",
+  "description": "精美微信小程序 UI & 凭证组件库",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true
+  },
+  "compileType": "miniprogram"
+}

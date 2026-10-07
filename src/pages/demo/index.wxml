@@ -1,0 +1,75 @@
+<view class="demo-page">
+  <view class="demo-header">
+    <text class="page-title">精美凭证组件演示库</text>
+    <text class="page-desc">基于流体非线性动效与 750rpx 现代布局打造的 6 款高体验感组件</text>
+  </view>
+
+  <view class="demo-grid">
+    <view class="demo-card" bindtap="openModal" data-type="frosted">
+      <view class="card-icon">🪟</view>
+      <text class="card-name">1. 毛玻璃月份浮层</text>
+      <text class="card-hint">26px 模糊 / 12 格错帧动效</text>
+    </view>
+
+    <view class="demo-card" bindtap="openModal" data-type="ring">
+      <view class="card-icon">⭕️</view>
+      <text class="card-name">2. 圆环计数弹出</text>
+      <text class="card-hint">40% 压暗 / 环形画圈 + 数字同步滚</text>
+    </view>
+
+    <view class="demo-card" bindtap="openModal" data-type="ruler">
+      <view class="card-icon">📏</view>
+      <text class="card-name">3. 刻度尺进度弹出</text>
+      <text class="card-hint">53 周错帧变深 / 原地展开完整编号</text>
+    </view>
+
+    <view class="demo-card" bindtap="openModal" data-type="photo">
+      <view class="card-icon">🖼️</view>
+      <text class="card-name">4. 照片抽屉贴合</text>
+      <text class="card-hint">原比例缩放铺满 / -22px 抽屉紧密贴合</text>
+    </view>
+
+    <view class="demo-card" bindtap="openModal" data-type="flip">
+      <view class="card-icon">🃏</view>
+      <text class="card-name">5. 原地翻面面板</text>
+      <text class="card-hint">1200px 景深 / 3D 原地 180° 翻转核销</text>
+    </view>
+
+    <view class="demo-card" bindtap="openModal" data-type="drag">
+      <view class="card-icon">↕️</view>
+      <text class="card-name">6. 下拉展开面板</text>
+      <text class="card-hint">拖拽手柄 / WXS 60fps 跟手阻尼展开</text>
+    </view>
+  </view>
+
+  <!-- 6 个组件实例 -->
+  <frosted-glass-sheet 
+    visible="{{activeModal === 'frosted'}}" 
+    bind:close="closeModal" 
+  />
+
+  <ring-count-sheet 
+    visible="{{activeModal === 'ring'}}" 
+    bind:close="closeModal" 
+  />
+
+  <tick-ruler-sheet 
+    visible="{{activeModal === 'ruler'}}" 
+    bind:close="closeModal" 
+  />
+
+  <photo-drawer-sheet 
+    visible="{{activeModal === 'photo'}}" 
+    bind:close="closeModal" 
+  />
+
+  <flip-card-sheet 
+    visible="{{activeModal === 'flip'}}" 
+    bind:close="closeModal" 
+  />
+
+  <drag-expand-sheet 
+    visible="{{activeModal === 'drag'}}" 
+    bind:close="closeModal" 
+  />
+</view>

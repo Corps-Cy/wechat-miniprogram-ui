@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "微信小程序精美凭证组件库",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "frosted-glass-sheet": "/src/components/frosted-glass-sheet/index",
+    "ring-count-sheet": "/src/components/ring-count-sheet/index",
+    "tick-ruler-sheet": "/src/components/tick-ruler-sheet/index",
+    "photo-drawer-sheet": "/src/components/photo-drawer-sheet/index",
+    "flip-card-sheet": "/src/components/flip-card-sheet/index",
+    "drag-expand-sheet": "/src/components/drag-expand-sheet/index"
+  }
+}

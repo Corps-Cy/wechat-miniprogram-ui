@@ -1,0 +1,37 @@
+<view class="frosted-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <!-- 背景毛玻璃遮罩 -->
+  <view class="frosted-mask" bindtap="handleClose"></view>
+
+  <!-- 浮起面板 -->
+  <view class="frosted-panel">
+    <view class="panel-header">
+      <view class="title-wrap">
+        <text class="title">{{title}}</text>
+        <text class="subtitle">{{subtitle}}</text>
+      </view>
+      <view class="close-btn" bindtap="handleClose">✕</view>
+    </view>
+
+    <!-- 12 个月份格子容器 -->
+    <view class="months-grid">
+      <block wx:for="{{monthsData}}" wx:key="month">
+        <view class="month-cell" style="--stagger-delay: {{index * 66}}ms;">
+          <view class="bar-track">
+            <!-- 填充条，高度按已用比例填充 -->
+            <view class="bar-fill" style="height: {{item.ratio}}%;"></view>
+          </view>
+          <text class="month-label">{{item.label}}</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 底部状态与操作区 -->
+    <view class="panel-footer">
+      <view class="stat-badge">
+        <text class="stat-num">{{usedCount}}</text>
+        <text class="stat-text">/ 12 个月已核销</text>
+      </view>
+      <button class="primary-btn" bindtap="handleConfirm">查看凭证详情</button>
+    </view>
+  </view>
+</view>
