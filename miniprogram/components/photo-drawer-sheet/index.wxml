@@ -8,9 +8,12 @@
       <view class="hero-vignette">
         <view class="vignette-top">
           <text class="brand-text">FORAGE</text>
-          <view class="status-pill">
-            <text class="dot-green"></text>
-            <text class="status-name">有效中</text>
+          <view class="header-right">
+            <view class="status-pill">
+              <text class="dot-green"></text>
+              <text class="status-name">有效中</text>
+            </view>
+            <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
           </view>
         </view>
         <view class="vignette-bottom">
@@ -18,7 +21,6 @@
           <text class="recipe-sub">RECIPE BOOK</text>
         </view>
       </view>
-      <view class="close-corner" bindtap="handleClose">✕</view>
     </view>
 
     <!-- 下半部抽屉：margin-top: -44rpx (-22px) 压住照片底边，从下方推入 -->

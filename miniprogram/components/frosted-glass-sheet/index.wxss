@@ -48,30 +48,38 @@
   border-radius: 48rpx;
   padding: 44rpx 40rpx 40rpx;
   box-sizing: border-box;
-  transform: translateY(30rpx) scale(0.94);
+  transform: translateY(30rpx) scale(0.96) translateZ(0);
   opacity: 0;
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
               opacity 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .frosted-wrapper.active .frosted-panel {
-  transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1) translateZ(0);
   opacity: 1;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
 .close-corner {
-  position: absolute;
-  top: 36rpx;
-  right: 36rpx;
-  width: 48rpx;
-  height: 48rpx;
+  position: static;
+  width: 52rpx;
+  height: 52rpx;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22rpx;
-  color: #4b5563;
+  color: #374151;
+  flex-shrink: 0;
 }
 
 /* 顶部标题行 */

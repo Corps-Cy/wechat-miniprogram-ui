@@ -1,0 +1,95 @@
+.press-card {
+  width: 620rpx;
+  background: #fbfbf9;
+  border: 1rpx solid #e4e4e7;
+  border-radius: 36rpx;
+  padding: 36rpx 40rpx 44rpx;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.05);
+}
+
+.hud-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.hud-pill {
+  font-family: monospace;
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #71717a;
+  background: #f4f4f5;
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+.card-meta {
+  margin-bottom: 32rpx;
+}
+
+.meta-sub {
+  font-size: 20rpx;
+  color: #a1a1aa;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+}
+
+.meta-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #18181b;
+  margin-top: 4rpx;
+}
+
+/* 按钮物理按压与超调回弹 */
+.elastic-btn {
+  width: 100%;
+  height: 108rpx;
+  background: #18181b;
+  border-radius: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 44rpx;
+  box-sizing: border-box;
+  box-shadow: 0 8rpx 24rpx rgba(24, 24, 27, 0.25);
+  transform: scale(1);
+  transition: transform 0.12s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.12s ease;
+  will-change: transform;
+}
+
+/* 按下瞬间：Scale(0.96) 与深度内阴影 */
+.elastic-btn.pressed {
+  transform: scale(0.96);
+  box-shadow: inset 0 6rpx 16rpx rgba(0, 0, 0, 0.6),
+              0 2rpx 8rpx rgba(24, 24, 27, 0.15);
+}
+
+/* 释放瞬间：超调回弹 Overshoot +1.1% (1.011) */
+.elastic-btn.overshoot {
+  transform: scale(1.011);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-text {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1rpx;
+}
+
+.btn-arrow {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #ffffff;
+}

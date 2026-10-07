@@ -1,0 +1,56 @@
+// 12 个数据点的 X 坐标百分比及对应数值
+var POINTS = [
+  { x: 5, val: 38.0 },
+  { x: 14, val: 41.2 },
+  { x: 23, val: 36.5 },
+  { x: 32, val: 46.8 },
+  { x: 41, val: 42.1 },
+  { x: 50, val: 44.5 },
+  { x: 59, val: 58.0 },
+  { x: 68, val: 51.3 },
+  { x: 77, val: 48.7 },
+  { x: 86, val: 52.4 },
+  { x: 95, val: 50.1 }
+];
+
+function touchMove(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  var rectLeft = 40; // 估算图表左边距
+  var chartWidth = 260; // 图表宽度
+
+  var offsetX = touch.clientX - rectLeft;
+  var percent = Math.max(Math.min((offsetX / chartWidth) * 100, 95), 5);
+
+  // 磁吸寻找最近的数据点 (SNAP)
+  var closestIdx = 0;
+  var minDiff = 999;
+  for (var i = 0; i < POINTS.length; i++) {
+    var diff = Math.abs(POINTS[i].x - percent);
+    if (diff < minDiff) {
+      minDiff = diff;
+      closestIdx = i;
+    }
+  }
+
+  var snapPoint = POINTS[closestIdx];
+
+  // 移动游标到磁吸点
+  ins.selectComponent('.scrub-cursor').setStyle({
+    'left': snapPoint.x + '%',
+    'opacity': '1'
+  });
+
+  ins.callMethod('onSnap', {
+    index: closestIdx + 1,
+    value: snapPoint.val.toFixed(1)
+  });
+}
+
+function touchEnd(e, ins) {
+  // 保持吸附在最后停留的点
+}
+
+module.exports = {
+  touchMove: touchMove,
+  touchEnd: touchEnd
+};

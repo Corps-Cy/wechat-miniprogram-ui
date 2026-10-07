@@ -1,0 +1,36 @@
+<view class="morph-container">
+  <!-- HUD 实时参数 -->
+  <view class="hud-bar">
+    <text class="hud-pill">WIDTH: {{isExpanded ? '490px' : '176px'}}</text>
+    <text class="hud-pill">RADIUS: {{isExpanded ? '44px' : '30px'}}</text>
+  </view>
+
+  <!-- 形变主体：从未展开胶囊形变到卡片面板 -->
+  <view 
+    class="fluid-morph-panel {{isExpanded ? 'expanded' : ''}}"
+    bindtap="toggleMorph"
+  >
+    <!-- 胶囊初态内容 (展开时淡出) -->
+    <view class="capsule-content {{isExpanded ? 'fade-out' : ''}}">
+      <view class="dot-orange"></view>
+      <text class="capsule-text">46 cm</text>
+      <text class="expand-icon">↕</text>
+    </view>
+
+    <!-- 展开后全量卡片内容 (展开时淡入) -->
+    <view class="expanded-content {{isExpanded ? 'fade-in' : ''}}">
+      <view class="panel-header">
+        <view class="header-left">
+          <text class="badge-fresh">FRESH SNOW</text>
+          <text class="big-snow-num">46 <text class="unit-cm">cm fresh</text></text>
+        </view>
+        <view class="close-morph">✕</view>
+      </view>
+
+      <view class="panel-bottom">
+        <text class="loc-text">Nordkette</text>
+        <view class="orange-orb"></view>
+      </view>
+    </view>
+  </view>
+</view>

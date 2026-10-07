@@ -1,0 +1,21 @@
+<view class="press-card">
+  <view class="hud-bar">
+    <text class="hud-pill">SCALE: {{isPressed ? '0.960' : (isOvershooting ? '1.011' : '1.000')}}</text>
+    <text class="hud-pill">OVERSHOOT: {{isOvershooting ? '+1.1%' : '0.0%'}}</text>
+  </view>
+
+  <view class="card-meta">
+    <text class="meta-sub">READY TO RIDE</text>
+    <text class="meta-title">Nordkette · 46 cm</text>
+  </view>
+
+  <!-- 弹性微缩触觉按钮 -->
+  <view 
+    class="elastic-btn {{isPressed ? 'pressed' : ''}} {{isOvershooting ? 'overshoot' : ''}}"
+    bindtouchstart="onTouchStart"
+    bindtouchend="onTouchEnd"
+  >
+    <text class="btn-text">Start Run</text>
+    <view class="btn-arrow">→</view>
+  </view>
+</view>

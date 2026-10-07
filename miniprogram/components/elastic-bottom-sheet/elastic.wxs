@@ -1,0 +1,71 @@
+var startY = 0;
+var currentH = 380; // 中间位置 px
+var MIN_H = 180;
+var MAX_H = 560;
+
+function touchStart(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  startY = touch.clientY;
+  ins.selectComponent('.elastic-panel').setStyle({
+    'transition': 'none'
+  });
+}
+
+function touchMove(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  var deltaY = startY - touch.clientY; // 向上为正
+
+  var newH = currentH + deltaY;
+
+  // 超出边界产生橡皮筋阻尼拉伸 (STRETCH)
+  if (newH > MAX_H) {
+    var over = newH - MAX_H;
+    newH = MAX_H + over * 0.25;
+  } else if (newH < MIN_H) {
+    var under = MIN_H - newH;
+    newH = MIN_H - under * 0.25;
+  }
+
+  ins.selectComponent('.elastic-panel').setStyle({
+    'height': newH.toFixed(0) + 'px'
+  });
+
+  ins.callMethod('onHeightUpdate', {
+    height: Math.round(newH)
+  });
+}
+
+function touchEnd(e, ins) {
+  var touch = e.touches[0] || e.changedTouches[0];
+  var deltaY = startY - touch.clientY;
+  var finalH = currentH + deltaY;
+
+  ins.selectComponent('.elastic-panel').setStyle({
+    'transition': 'height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25)'
+  });
+
+  // 三段吸附锚点：LOW (180), MID (380), FULL (540)
+  var snapH = 380;
+  if (finalH > 460) {
+    snapH = 540;
+  } else if (finalH < 280) {
+    snapH = 180;
+  } else {
+    snapH = 380;
+  }
+
+  currentH = snapH;
+  ins.selectComponent('.elastic-panel').setStyle({
+    'height': snapH + 'px'
+  });
+
+  ins.callMethod('onSnapAnchor', {
+    snapHeight: snapH
+  });
+}
+
+module.exports = {
+  touchStart: touchStart,
+  touchMove: touchMove,
+  touchEnd: touchEnd
+};

@@ -1,0 +1,37 @@
+<view class="glow-container">
+  <!-- 弥散旋转光晕背景层 -->
+  <view class="diffuse-glow-bg"></view>
+
+  <!-- 2px 旋转锥形渐变微描边包裹卡片 -->
+  <view class="conic-border-box">
+    <view class="card-inner">
+      <view class="card-header">
+        <view class="coach-badge">
+          <text class="sparkle">✦</text>
+          <text class="badge-title">AI LINE COACH</text>
+        </view>
+        <view class="glow-tag">
+          <text class="glow-indicator"></text>
+          <text class="glow-txt">ACTIVE</text>
+        </view>
+      </view>
+
+      <view class="stat-group">
+        <text class="stat-caption">Best line</text>
+        <view class="stat-num-row">
+          <text class="stat-large">1.4</text>
+          <text class="stat-unit">min</text>
+        </view>
+      </view>
+
+      <!-- 优雅的折线与引导曲线 -->
+      <view class="chart-preview">
+        <view class="spark-line">
+          <view class="line-dot dot-1"></view>
+          <view class="line-dot dot-2"></view>
+          <view class="line-dot dot-3"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

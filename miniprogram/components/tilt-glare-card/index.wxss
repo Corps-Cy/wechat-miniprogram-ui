@@ -1,0 +1,126 @@
+.tilt-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.hud-readout {
+  display: flex;
+  gap: 32rpx;
+  background: #18181b;
+  border: 1rpx solid #27272a;
+  padding: 12rpx 28rpx;
+  border-radius: 100rpx;
+  margin-bottom: 24rpx;
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.hud-label {
+  font-family: monospace;
+  font-size: 18rpx;
+  color: #71717a;
+  letter-spacing: 1rpx;
+}
+
+.hud-val {
+  font-family: monospace;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #f4f4f5;
+  min-width: 60rpx;
+}
+
+.tilt-card-wrap {
+  width: 620rpx;
+  height: 320rpx;
+  perspective: 800px;
+}
+
+.tilt-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #18181b;
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
+  border-radius: 36rpx;
+  overflow: hidden;
+  box-shadow: 0 20rpx 50rpx rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.glare-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.2s;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 36rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 38rpx;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1rpx;
+}
+
+.card-desc {
+  display: block;
+  font-size: 20rpx;
+  color: #71717a;
+  margin-top: 6rpx;
+}
+
+.board-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snowboard-pill {
+  position: relative;
+  width: 440rpx;
+  height: 60rpx;
+  background: #27272a;
+  border-radius: 30rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.binding {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: #3f3f46;
+  border: 4rpx solid #f97316;
+}
+
+.board-stripe {
+  width: 140rpx;
+  height: 6rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3rpx;
+}

@@ -1,0 +1,36 @@
+<wxs module="scrubHandler" src="./scrub.wxs"></wxs>
+
+<view class="odometer-card">
+  <!-- 顶部 HUD 磁吸状态 -->
+  <view class="hud-bar">
+    <text class="hud-tag">SNAP → P{{snapIndex < 10 ? '0' : ''}}{{snapIndex}}</text>
+    <text class="hud-status">靠近自动吸附</text>
+  </view>
+
+  <view class="card-header">
+    <text class="caption">TOP SPEED</text>
+    <!-- 机械码表式滚动大数字 -->
+    <view class="speed-counter">
+      <text class="speed-num">{{currentValue}}</text>
+      <text class="speed-unit">km/h</text>
+    </view>
+  </view>
+
+  <!-- 折线图与磁吸滑动触摸层 -->
+  <view 
+    class="chart-area"
+    bindtouchmove="{{scrubHandler.touchMove}}"
+    bindtouchend="{{scrubHandler.touchEnd}}"
+  >
+    <!-- 背景多折线 -->
+    <view class="polyline-wrapper">
+      <view class="chart-polyline"></view>
+    </view>
+
+    <!-- 磁吸游标竖线与焦点光晕 -->
+    <view class="scrub-cursor" style="left: 60%;">
+      <view class="cursor-line"></view>
+      <view class="cursor-dot"></view>
+    </view>
+  </view>
+</view>

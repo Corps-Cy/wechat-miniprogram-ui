@@ -1,0 +1,46 @@
+<wxs module="tiltHandler" src="./tilt.wxs"></wxs>
+
+<view class="tilt-container">
+  <!-- 顶部 HUD 读数标牌 (与视频一致) -->
+  <view class="hud-readout">
+    <view class="hud-item">
+      <text class="hud-label">TILT_X</text>
+      <text class="hud-val">{{tiltX > 0 ? '+' : ''}}{{tiltX}}°</text>
+    </view>
+    <view class="hud-item">
+      <text class="hud-label">TILT_Y</text>
+      <text class="hud-val">{{tiltY > 0 ? '+' : ''}}{{tiltY}}°</text>
+    </view>
+    <view class="hud-item">
+      <text class="hud-label">GLARE</text>
+      <text class="hud-val">{{glare}}%</text>
+    </view>
+  </view>
+
+  <!-- 3D 倾斜卡片主体 -->
+  <view 
+    class="tilt-card-wrap"
+    bindtouchstart="{{tiltHandler.touchStart}}"
+    bindtouchmove="{{tiltHandler.touchMove}}"
+    bindtouchend="{{tiltHandler.touchEnd}}"
+  >
+    <view class="tilt-body">
+      <!-- 镜面反光流光层 -->
+      <view class="glare-layer"></view>
+
+      <view class="card-content">
+        <view class="card-top">
+          <text class="card-title">My Board</text>
+          <text class="card-desc">Carve Custom · 156 cm - 52 cm stance</text>
+        </view>
+        <view class="board-graphic">
+          <view class="snowboard-pill">
+            <view class="binding binding-left"></view>
+            <view class="board-stripe"></view>
+            <view class="binding binding-right"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

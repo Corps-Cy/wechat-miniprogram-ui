@@ -4,8 +4,6 @@
   <view class="pull-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
   <view class="ticket-container" catchtouchmove="preventTouchMove">
-    <view class="close-corner" bindtap="handleClose">✕</view>
-
     <!-- 上半截主凭证 -->
     <view class="upper-ticket">
       <!-- 顶部图片与标题 -->
@@ -14,9 +12,12 @@
         <view class="hero-info">
           <view class="brand-row">
             <text class="brand-name">FERN TABLE</text>
-            <view class="status-pill">
-              <text class="dot-green"></text>
-              <text class="status-text">有效中</text>
+            <view class="header-right">
+              <view class="status-pill">
+                <text class="dot-green"></text>
+                <text class="status-text">有效中</text>
+              </view>
+              <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
             </view>
           </view>
           <text class="pass-title">餐桌凭证 TABLE PASS</text>

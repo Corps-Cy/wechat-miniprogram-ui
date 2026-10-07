@@ -1,7 +1,8 @@
 .demo-page {
   min-height: 100vh;
-  background: #f4f4f5;
-  padding: 80rpx 40rpx 100rpx;
+  background: #09090b;
+  color: #f4f4f5;
+  padding: 80rpx 36rpx 120rpx;
   box-sizing: border-box;
 }
 
@@ -12,9 +13,8 @@
 .header-badge {
   display: inline-flex;
   align-items: center;
-  background: #18181b;
-  color: #ffffff;
-  padding: 6rpx 18rpx;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6rpx 20rpx;
   border-radius: 100rpx;
   margin-bottom: 20rpx;
 }
@@ -22,20 +22,21 @@
 .badge-num {
   font-size: 22rpx;
   font-weight: 800;
+  color: #f97316;
   margin-right: 10rpx;
 }
 
 .badge-sub {
   font-size: 20rpx;
   font-weight: 500;
-  color: #d4d4d8;
+  color: #a1a1aa;
 }
 
 .page-title {
   display: block;
-  font-size: 56rpx;
+  font-size: 60rpx;
   font-weight: 900;
-  color: #09090b;
+  color: #ffffff;
   letter-spacing: -2rpx;
   line-height: 1.1;
 }
@@ -48,6 +49,61 @@
   line-height: 1.5;
 }
 
+/* 分类 Segment 切换 */
+.tab-segment {
+  display: flex;
+  background: #18181b;
+  border: 1rpx solid #27272a;
+  border-radius: 100rpx;
+  padding: 8rpx;
+  margin-top: 36rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  border-radius: 100rpx;
+  transition: background 0.25s, color 0.25s;
+}
+
+.tab-item.active {
+  background: #27272a;
+}
+
+.tab-label {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #71717a;
+}
+
+.tab-item.active .tab-label {
+  color: #ffffff;
+}
+
+.section-container {
+  margin-top: 40rpx;
+}
+
+.section-title-wrap {
+  margin-bottom: 28rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 800;
+  color: #f4f4f5;
+  letter-spacing: 1rpx;
+}
+
+.section-desc {
+  display: block;
+  font-size: 20rpx;
+  color: #71717a;
+  margin-top: 6rpx;
+}
+
 .demo-grid {
   display: flex;
   flex-direction: column;
@@ -55,19 +111,18 @@
 }
 
 .demo-card {
-  background: #ffffff;
+  background: #18181b;
   border-radius: 32rpx;
   padding: 36rpx 36rpx;
-  border: 1rpx solid #e4e4e7;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
+  border: 1rpx solid #27272a;
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s;
 }
 
 .card-hover {
   transform: scale(0.985);
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  background: #202024;
 }
 
 .card-meta {
@@ -80,27 +135,52 @@
 .card-seq {
   font-size: 24rpx;
   font-weight: 800;
-  color: #a1a1aa;
+  color: #52525b;
 }
 
 .card-pill {
+  font-family: monospace;
   font-size: 18rpx;
   font-weight: 700;
-  color: #52525b;
-  background: #f4f4f5;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.1);
   padding: 4rpx 14rpx;
   border-radius: 6rpx;
-  letter-spacing: 0.5rpx;
 }
 
 .card-name {
   font-size: 34rpx;
   font-weight: 800;
-  color: #18181b;
+  color: #ffffff;
 }
 
 .card-sub {
   font-size: 22rpx;
   color: #71717a;
   margin-top: 6rpx;
+}
+
+/* 动效展示块 */
+.motion-block {
+  margin-bottom: 40rpx;
+}
+
+.block-label {
+  display: block;
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #a1a1aa;
+  margin-bottom: 16rpx;
+  letter-spacing: 1rpx;
+}
+
+.sheet-trigger-btn {
+  background: #27272a;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 700;
+  border-radius: 100rpx;
+  padding: 22rpx 0;
+  line-height: 1.4;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
 }

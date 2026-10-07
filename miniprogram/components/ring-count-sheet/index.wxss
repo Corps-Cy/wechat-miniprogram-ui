@@ -34,29 +34,36 @@
   background: #1c1c1e;
   border-radius: 44rpx 44rpx 0 0;
   padding: 40rpx 40rpx calc(40rpx + env(safe-area-inset-bottom));
-  transform: translateY(100%);
+  transform: translateY(100%) translateZ(0);
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   box-shadow: 0 -16rpx 60rpx rgba(0, 0, 0, 0.35);
   box-sizing: border-box;
 }
 
 .ring-wrapper.active .ring-panel {
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
 }
 
 .close-corner {
-  position: absolute;
-  top: 36rpx;
-  right: 36rpx;
-  width: 48rpx;
-  height: 48rpx;
+  position: static;
+  width: 52rpx;
+  height: 52rpx;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22rpx;
-  color: #a1a1aa;
+  color: #d4d4d8;
+  flex-shrink: 0;
 }
 
 .panel-header {

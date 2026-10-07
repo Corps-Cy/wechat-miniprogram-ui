@@ -2,17 +2,18 @@
   <view class="ruler-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
   <view class="ruler-panel" catchtouchmove="preventTouchMove">
-    <view class="close-corner" bindtap="handleClose">✕</view>
-
-    <!-- 顶部标题 -->
+    <!-- 顶部标题与关闭区 -->
     <view class="panel-header">
       <view class="brand-line">
         <text class="brand-name">ROAM</text>
         <text class="book-id">手册编号 N° 0417</text>
       </view>
-      <view class="tag-status">
-        <text class="dot-amber"></text>
-        <text class="tag-label">记录中 · 年轻就要去</text>
+      <view class="header-right">
+        <view class="tag-status">
+          <text class="dot-amber"></text>
+          <text class="tag-label">记录中 · 年轻就要去</text>
+        </view>
+        <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
       </view>
     </view>
 

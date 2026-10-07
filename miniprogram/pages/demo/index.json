@@ -1,13 +1,21 @@
 {
-  "navigationBarTitleText": "微信小程序精美凭证组件库",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "微信小程序精美组件与交互库",
+  "navigationBarBackgroundColor": "#18181b",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "frosted-glass-sheet": "../../components/frosted-glass-sheet/index",
     "ring-count-sheet": "../../components/ring-count-sheet/index",
     "tick-ruler-sheet": "../../components/tick-ruler-sheet/index",
     "photo-drawer-sheet": "../../components/photo-drawer-sheet/index",
     "flip-card-sheet": "../../components/flip-card-sheet/index",
-    "drag-expand-sheet": "../../components/drag-expand-sheet/index"
+    "drag-expand-sheet": "../../components/drag-expand-sheet/index",
+    "tilt-glare-card": "../../components/tilt-glare-card/index",
+    "conic-glow-card": "../../components/conic-glow-card/index",
+    "odometer-chart": "../../components/odometer-chart/index",
+    "press-scale-button": "../../components/press-scale-button/index",
+    "stagger-cascade-grid": "../../components/stagger-cascade-grid/index",
+    "fluid-morph-sheet": "../../components/fluid-morph-sheet/index",
+    "elastic-bottom-sheet": "../../components/elastic-bottom-sheet/index",
+    "shared-element-card": "../../components/shared-element-card/index"
   }
 }

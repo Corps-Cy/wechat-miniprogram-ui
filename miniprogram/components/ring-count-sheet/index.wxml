@@ -4,17 +4,18 @@
 
   <!-- 底部面板：0.5s 从屏幕外升起到位 -->
   <view class="ring-panel" catchtouchmove="preventTouchMove">
-    <view class="close-corner" bindtap="handleClose">✕</view>
-
-    <!-- 顶部标题 -->
+    <!-- 顶部标题与关闭区 -->
     <view class="panel-header">
       <view class="brand-wrap">
         <text class="brand-name">QUILL</text>
         <text class="pass-sub">通兑 READING PASS</text>
       </view>
-      <view class="status-tag">
-        <text class="dot-green"></text>
-        <text class="status-label">有效中</text>
+      <view class="header-right">
+        <view class="status-tag">
+          <text class="dot-green"></text>
+          <text class="status-label">有效中</text>
+        </view>
+        <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
       </view>
     </view>
 

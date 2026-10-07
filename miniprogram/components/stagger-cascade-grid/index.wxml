@@ -1,0 +1,22 @@
+<view class="stagger-wrap">
+  <view class="stagger-header">
+    <view class="title-group">
+      <text class="main-title">Spots</text>
+      <text class="sub-count">10 photos</text>
+    </view>
+    <view class="hud-pill">STAGGER: 0.10s</view>
+  </view>
+
+  <!-- 瀑布流网格，子项 Stagger 0.1s 弹入 -->
+  <view class="masonry-grid">
+    <block wx:for="{{photos}}" wx:key="id">
+      <view 
+        class="grid-item {{isEntered ? 'entered' : ''}}" 
+        style="--cascade-delay: {{index * 100}}ms;"
+      >
+        <image class="grid-img" src="{{item.url}}" mode="aspectFill" />
+        <text class="item-label">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</view>

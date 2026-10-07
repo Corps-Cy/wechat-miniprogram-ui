@@ -1,70 +1,153 @@
 <view class="demo-page">
+  <!-- 顶部分类导航 -->
   <view class="demo-header">
     <view class="header-badge">
-      <text class="badge-num">6</text>
-      <text class="badge-sub">App & 小程序 · 高级弹窗交互</text>
+      <text class="badge-num">14</text>
+      <text class="badge-sub">App & 小程序 · 高级交互合集</text>
     </view>
-    <text class="page-title">Popup Panels.</text>
-    <text class="page-desc">告别死板白框，以物理流体曲线与层次感重构现代凭证交互</text>
-  </view>
+    <text class="page-title">Vibe Coding UI</text>
+    <text class="page-desc">物理流体曲线、3D 光影与深度交互质感组件库</text>
 
-  <view class="demo-grid">
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="frosted">
-      <view class="card-meta">
-        <text class="card-seq">01</text>
-        <view class="card-pill">BLUR 26px · FILL .42 · 4f</view>
+    <!-- 分类 Segment 切换 -->
+    <view class="tab-segment">
+      <view 
+        class="tab-item {{currentTab === 'popups' ? 'active' : ''}}" 
+        bindtap="switchTab" 
+        data-tab="popups"
+      >
+        <text class="tab-label">01 凭证弹窗 (6款)</text>
       </view>
-      <text class="card-name">玻璃面板浮起</text>
-      <text class="card-sub">Frosted Glass Sheet · 12 月份格子错帧填充</text>
-    </view>
-
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ring">
-      <view class="card-meta">
-        <text class="card-seq">02</text>
-        <view class="card-pill">SCRM 40% · RING 1.2s</view>
+      <view 
+        class="tab-item {{currentTab === 'motions' ? 'active' : ''}}" 
+        bindtap="switchTab" 
+        data-tab="motions"
+      >
+        <text class="tab-label">02 质感微动效 (8款)</text>
       </view>
-      <text class="card-name">圆环计数弹出</text>
-      <text class="card-sub">Ring Count Sheet · 顺时针画圆与数字同步递增</text>
-    </view>
-
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ruler">
-      <view class="card-meta">
-        <text class="card-seq">03</text>
-        <view class="card-pill">TICKS 53 · 1f · INLINE</view>
-      </view>
-      <text class="card-name">刻度尺扫到今天</text>
-      <text class="card-sub">Tick Ruler Sheet · 53 周逐根变深与编号原地展开</text>
-    </view>
-
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="photo">
-      <view class="card-meta">
-        <text class="card-seq">04</text>
-        <view class="card-pill">ZOOM 1.08 · OVERLAP -22px</view>
-      </view>
-      <text class="card-name">照片抽屉贴合</text>
-      <text class="card-sub">Photo Drawer Sheet · 原比例铺满与底边紧贴推入</text>
-    </view>
-
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="flip">
-      <view class="card-meta">
-        <text class="card-seq">05</text>
-        <view class="card-pill">PERSP 1200px · SNAP 90°</view>
-      </view>
-      <text class="card-name">点击翻面凭证</text>
-      <text class="card-sub">Flip to Reveal · 3D 沿 Y 轴 180° 原地翻转出示</text>
-    </view>
-
-    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="drag">
-      <view class="card-meta">
-        <text class="card-seq">06</text>
-        <view class="card-pill">DASHED · SWING 2° · SNAP 40%</view>
-      </view>
-      <text class="card-name">下拉展开面板</text>
-      <text class="card-sub">Pull Down Reveal · 虚线折痕、手柄微摆动与吸附</text>
     </view>
   </view>
 
-  <!-- 6 个组件实例 -->
+  <!-- ==================== 分类 1：凭证与卡券类弹层 ==================== -->
+  <view class="section-container" wx:if="{{currentTab === 'popups'}}">
+    <view class="section-title-wrap">
+      <text class="section-title">凭证与权益弹层 · POPUP PANELS</text>
+      <text class="section-desc">告别生硬白框，层次感与沉浸感拉满的 6 种弹层</text>
+    </view>
+
+    <view class="demo-grid">
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="frosted">
+        <view class="card-meta">
+          <text class="card-seq">01</text>
+          <view class="card-pill">BLUR 26px · FILL .42 · 4f</view>
+        </view>
+        <text class="card-name">玻璃面板浮起</text>
+        <text class="card-sub">Frosted Glass Sheet · 12 月份格子错帧填充</text>
+      </view>
+
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ring">
+        <view class="card-meta">
+          <text class="card-seq">02</text>
+          <view class="card-pill">SCRM 40% · RING 1.2s</view>
+        </view>
+        <text class="card-name">圆环计数弹出</text>
+        <text class="card-sub">Ring Count Sheet · 顺时针画圆与数字同步递增</text>
+      </view>
+
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ruler">
+        <view class="card-meta">
+          <text class="card-seq">03</text>
+          <view class="card-pill">TICKS 53 · 1f · INLINE</view>
+        </view>
+        <text class="card-name">刻度尺扫到今天</text>
+        <text class="card-sub">Tick Ruler Sheet · 53 周逐根变深与编号原地展开</text>
+      </view>
+
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="photo">
+        <view class="card-meta">
+          <text class="card-seq">04</text>
+          <view class="card-pill">ZOOM 1.08 · OVERLAP -22px</view>
+        </view>
+        <text class="card-name">照片抽屉贴合</text>
+        <text class="card-sub">Photo Drawer Sheet · 原比例铺满与底边紧贴推入</text>
+      </view>
+
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="flip">
+        <view class="card-meta">
+          <text class="card-seq">05</text>
+          <view class="card-pill">PERSP 1200px · SNAP 90°</view>
+        </view>
+        <text class="card-name">点击翻面凭证</text>
+        <text class="card-sub">Flip to Reveal · 3D 沿 Y 轴 180° 原地翻转出示</text>
+      </view>
+
+      <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="drag">
+        <view class="card-meta">
+          <text class="card-seq">06</text>
+          <view class="card-pill">DASHED · SWING 2° · SNAP 40%</view>
+        </view>
+        <text class="card-name">下拉展开面板</text>
+        <text class="card-sub">Pull Down Reveal · 虚线折痕、手柄微摆动与吸附</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ==================== 分类 2：高级交互微动效 ==================== -->
+  <view class="section-container" wx:if="{{currentTab === 'motions'}}">
+    <view class="section-title-wrap">
+      <text class="section-title">触觉与微交互 · VIBE MOTIONS</text>
+      <text class="section-desc">直接嵌入界面的 8 种实体质感互动组件</text>
+    </view>
+
+    <!-- 01 3D倾斜光影面板 -->
+    <view class="motion-block">
+      <text class="block-label">01 3D 倾斜光影面板 (TILT GLARE)</text>
+      <tilt-glare-card />
+    </view>
+
+    <!-- 02 流体胶囊形变 -->
+    <view class="motion-block">
+      <text class="block-label">02 流体胶囊形变 (FLUID MORPH)</text>
+      <fluid-morph-sheet />
+    </view>
+
+    <!-- 03 共享元素无缝展开 -->
+    <view class="motion-block">
+      <text class="block-label">03 共享元素无缝展开 (SHARED ELEMENT)</text>
+      <shared-element-card />
+    </view>
+
+    <!-- 04 磁吸游标与滚动码表 -->
+    <view class="motion-block">
+      <text class="block-label">04 磁吸游标与滚动码表 (SNAP ODOMETER)</text>
+      <odometer-chart />
+    </view>
+
+    <!-- 05 阻尼弹性抽屉 -->
+    <view class="motion-block">
+      <text class="block-label">05 阻尼弹性抽屉 (BOTTOM SHEET)</text>
+      <button class="sheet-trigger-btn" bindtap="openElasticSheet">打开三段弹性抽屉</button>
+    </view>
+
+    <!-- 06 动态弥散光晕边框 -->
+    <view class="motion-block">
+      <text class="block-label">06 动态弥散光晕边框 (CONIC GLOW)</text>
+      <conic-glow-card />
+    </view>
+
+    <!-- 07 物理弹簧交错流 -->
+    <view class="motion-block">
+      <text class="block-label">07 物理弹簧交错流 (STAGGER CASCADE)</text>
+      <stagger-cascade-grid />
+    </view>
+
+    <!-- 08 弹性微缩触觉反馈按键 -->
+    <view class="motion-block">
+      <text class="block-label">08 弹性微缩触觉反馈 (PRESS SCALE)</text>
+      <press-scale-button />
+    </view>
+  </view>
+
+  <!-- 6 个弹层组件实例 -->
   <frosted-glass-sheet 
     visible="{{activeModal === 'frosted'}}" 
     bind:close="closeModal" 
@@ -93,5 +176,11 @@
   <drag-expand-sheet 
     visible="{{activeModal === 'drag'}}" 
     bind:close="closeModal" 
+  />
+
+  <!-- 弹性抽屉实例 -->
+  <elastic-bottom-sheet 
+    visible="{{elasticSheetVisible}}" 
+    bind:close="closeElasticSheet" 
   />
 </view>

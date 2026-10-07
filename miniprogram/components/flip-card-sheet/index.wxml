@@ -2,8 +2,6 @@
   <view class="flip-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
   <view class="flip-stage" catchtouchmove="preventTouchMove">
-    <view class="close-corner" bindtap="handleClose">✕</view>
-
     <!-- 3D 翻转卡片 perspective: 1200px -->
     <view class="flip-card {{flipped ? 'is-flipped' : ''}}">
       
@@ -14,9 +12,12 @@
             <text class="brand-title">NOMAD</text>
             <text class="brand-sub">ROAD PASS</text>
           </view>
-          <view class="status-pill">
-            <text class="dot-green"></text>
-            <text class="status-text">有效中</text>
+          <view class="header-right">
+            <view class="status-pill">
+              <text class="dot-green"></text>
+              <text class="status-text">有效中</text>
+            </view>
+            <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
           </view>
         </view>
 

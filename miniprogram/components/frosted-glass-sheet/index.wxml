@@ -4,17 +4,18 @@
 
   <!-- 浮起面板：从 0.94 放大至 1，底色 rgba(255,255,255,0.42) -->
   <view class="frosted-panel" catchtouchmove="preventTouchMove">
-    <view class="close-corner" bindtap="handleClose">✕</view>
-
-    <!-- 顶部标题与状态 -->
+    <!-- 顶部标题与状态及关闭按钮 -->
     <view class="card-header">
       <view class="header-left">
         <text class="title-en">LISBON</text>
         <text class="title-cn">里斯本 · 欧洲旅行计划</text>
       </view>
-      <view class="status-badge">
-        <text class="badge-dot"></text>
-        <text class="badge-text">进行中</text>
+      <view class="header-right">
+        <view class="status-badge">
+          <text class="badge-dot"></text>
+          <text class="badge-text">进行中</text>
+        </view>
+        <view class="close-corner" hover-class="btn-hover" bindtap="handleClose">✕</view>
       </view>
     </view>
 

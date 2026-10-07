@@ -1,0 +1,27 @@
+<view class="shared-container">
+  <view class="hud-bar">
+    <text class="hud-pill">STAGE: {{isExpanded ? 'DETAIL' : 'LIST'}}</text>
+    <text class="hud-pill">SCALE: {{isExpanded ? '1.09' : '1.00'}}</text>
+  </view>
+
+  <!-- 共享元素卡片主体 -->
+  <view class="shared-card {{isExpanded ? 'expanded' : ''}}">
+    <!-- 顶部大图容器 (做连续平滑缩放与宽高过渡) -->
+    <view class="hero-image-wrap" bindtap="handleToggle">
+      <image class="hero-img" src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=600&q=80" mode="aspectFill" />
+      <view class="back-btn-pill" wx:if="{{isExpanded}}" catchtap="handleToggle">←</view>
+    </view>
+
+    <!-- 详情内容区 (展开时平滑升起展开) -->
+    <view class="detail-body">
+      <view class="detail-header">
+        <text class="detail-title">Nordkette Ridge</text>
+        <text class="detail-meta">1.4 km · 61 km/h · 46 cm</text>
+      </view>
+
+      <view class="detail-action" wx:if="{{isExpanded}}">
+        <button class="primary-btn" hover-class="btn-hover">Start Trail</button>
+      </view>
+    </view>
+  </view>
+</view>

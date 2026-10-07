@@ -1,0 +1,49 @@
+<wxs module="elasticHandler" src="./elastic.wxs"></wxs>
+
+<view class="elastic-sheet-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="sheet-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
+
+  <!-- 阻尼弹性抽屉面板 -->
+  <view 
+    class="elastic-panel"
+    catchtouchmove="preventTouchMove"
+  >
+    <!-- 拖动手柄区 -->
+    <view 
+      class="drag-handle-bar"
+      bindtouchstart="{{elasticHandler.touchStart}}"
+      bindtouchmove="{{elasticHandler.touchMove}}"
+      bindtouchend="{{elasticHandler.touchEnd}}"
+    >
+      <view class="handle-line"></view>
+    </view>
+
+    <!-- 顶部 HUD 锚点指示 -->
+    <view class="hud-anchor-bar">
+      <text class="anchor-pill {{currentAnchor === 'LOW' ? 'active' : ''}}">LOW</text>
+      <text class="anchor-pill {{currentAnchor === 'MID' ? 'active' : ''}}">MID</text>
+      <text class="anchor-pill {{currentAnchor === 'FULL' ? 'active' : ''}}">FULL</text>
+    </view>
+
+    <!-- 抽屉主体设置内容 -->
+    <view class="sheet-inner">
+      <text class="sheet-title">Choose Your Setup</text>
+      <text class="sheet-subtitle">BOARD LENGTH</text>
+
+      <!-- 板长圆圈选择器 (152, 156, 160...) -->
+      <view class="size-selector">
+        <view class="size-circle">152</view>
+        <view class="size-circle active-circle">156</view>
+        <view class="size-circle">158</view>
+        <view class="size-circle">160</view>
+      </view>
+
+      <view class="angle-box">
+        <text class="sheet-subtitle">STANCE ANGLE</text>
+        <view class="angle-display">+15° / -9°</view>
+      </view>
+
+      <button class="save-btn" hover-class="btn-hover" bindtap="handleClose">Save Setup</button>
+    </view>
+  </view>
+</view>
