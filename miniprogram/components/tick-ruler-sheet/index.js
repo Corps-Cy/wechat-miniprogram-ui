@@ -3,7 +3,7 @@ Component({
     visible: {
       type: Boolean,
       value: false,
-      observer(newVal: boolean) {
+      observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
         } else {
@@ -48,7 +48,7 @@ Component({
     rendered: false,
     revealed: false,
     maskedCode: 'AGY-••••-••••',
-    ticks: [] as Array<{ index: number; isPassed: boolean; isToday: boolean }>
+    ticks: []
   },
 
   lifetimes: {

@@ -11,7 +11,7 @@ if [ -z "$1" ]; then
 fi
 
 NAME="$1"
-TARGET_DIR="src/components/${NAME}"
+TARGET_DIR="miniprogram/components/${NAME}"
 
 if [ -d "${TARGET_DIR}" ]; then
   echo "Error: Directory ${TARGET_DIR} already exists."
@@ -52,8 +52,8 @@ cat > "${TARGET_DIR}/index.wxss" <<EOF
 }
 EOF
 
-# 4. index.ts
-cat > "${TARGET_DIR}/index.ts" <<EOF
+# 4. index.js
+cat > "${TARGET_DIR}/index.js" <<EOF
 Component({
   properties: {
     title: {

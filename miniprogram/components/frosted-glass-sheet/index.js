@@ -3,7 +3,7 @@ Component({
     visible: {
       type: Boolean,
       value: false,
-      observer(newVal: boolean) {
+      observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
         } else {

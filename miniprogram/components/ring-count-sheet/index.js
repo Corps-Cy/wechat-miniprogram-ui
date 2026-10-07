@@ -3,7 +3,7 @@ Component({
     visible: {
       type: Boolean,
       value: false,
-      observer(newVal: boolean) {
+      observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
           this.startEntranceAnimation();
@@ -70,14 +70,13 @@ Component({
       }, 500);
     },
 
-    animateNumber(target: number, duration: number) {
+    animateNumber(target, duration) {
       const startTime = Date.now();
       const startVal = 0;
 
       const update = () => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // 使用与 CSS 类似的缓动计算 (1 - (1 - progress)^3)
         const ease = 1 - Math.pow(1 - progress, 3);
         const current = Math.round(startVal + (target - startVal) * ease);
 

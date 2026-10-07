@@ -3,7 +3,7 @@ Component({
     visible: {
       type: Boolean,
       value: false,
-      observer(newVal: boolean) {
+      observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
         } else {
@@ -32,7 +32,7 @@ Component({
 
   methods: {
     // 由 WXS 的 ins.callMethod 反向调用通知逻辑层
-    onStateChange(e: { expanded: boolean }) {
+    onStateChange(e) {
       this.setData({ isExpanded: e.expanded });
       this.triggerEvent('expandChange', { expanded: e.expanded });
     },

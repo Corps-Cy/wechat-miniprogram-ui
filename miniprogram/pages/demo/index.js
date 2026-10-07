@@ -1,9 +1,9 @@
 Page({
   data: {
-    activeModal: '' as '' | 'frosted' | 'ring' | 'ruler' | 'photo' | 'flip' | 'drag'
+    activeModal: ''
   },
 
-  openModal(e: WechatMiniprogram.CustomEvent) {
+  openModal(e) {
     const type = e.currentTarget.dataset.type;
     this.setData({ activeModal: type });
   },

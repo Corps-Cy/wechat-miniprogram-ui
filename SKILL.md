@@ -32,12 +32,12 @@ A specialized skill for building high-quality, performant, and accessible WeChat
 
 | 组件名称 | 目录路径 | 核心特性与动效 |
 | :--- | :--- | :--- |
-| **毛玻璃月份浮层** | `src/components/frosted-glass-sheet` | 26px 背景模糊过渡，底色 `rgba(255,255,255,0.42)`，Scale 0.94->1.0 浮起；12 个月份格子错开 4 帧（~66ms）自底向上填充。 |
-| **圆环计数弹出** | `src/components/ring-count-sheet` | 面板 0.5s 升起，背景压暗 40%；落定后圆环 `stroke-dashoffset` 1.2s 画完，中心数值同步递增。 |
-| **刻度尺进度弹出** | `src/components/tick-ruler-sheet` | 纸质票据质感滑入，53 根周刻度错开 1 帧逐根变深，扫至“今天”切换强调色；点击支持原地展开完整凭据编号（保持行高不变）。 |
-| **照片抽屉贴合** | `src/components/photo-drawer-sheet` | 沉浸式海报从 1.08 缩小到 1.0 铺满，暗角渐变托大字；抽屉通过 `margin-top: -44rpx` (-22px) 向上紧贴照片底边推入，水平进度条随后展开。 |
-| **原地翻面面板** | `src/components/flip-card-sheet` | `perspective: 1200px`，卡片沿 Y 轴 180° 原地翻转，正面为常规信息，背面为到场核销二维码/条形码，不丢失上下文。 |
-| **下拉展开面板** | `src/components/drag-expand-sheet` | 底部半高面板，居中阻尼拖拽手柄，配合 **WXS** 实现 60fps 跟手拖拽，支持向下拉动顺滑展开下半部完整规则。 |
+| **毛玻璃月份浮层** | `miniprogram/components/frosted-glass-sheet` | 26px 背景模糊过渡，底色 `rgba(255,255,255,0.42)`，Scale 0.94->1.0 浮起；12 个月份格子错开 4 帧（~66ms）自底向上填充。 |
+| **圆环计数弹出** | `miniprogram/components/ring-count-sheet` | 面板 0.5s 升起，背景压暗 40%；落定后圆环 `stroke-dashoffset` 1.2s 画完，中心数值同步递增。 |
+| **刻度尺进度弹出** | `miniprogram/components/tick-ruler-sheet` | 纸质票据质感滑入，53 根周刻度错开 1 帧逐根变深，扫至“今天”切换强调色；点击支持原地展开完整凭据编号（保持行高不变）。 |
+| **照片抽屉贴合** | `miniprogram/components/photo-drawer-sheet` | 沉浸式海报从 1.08 缩小到 1.0 铺满，暗角渐变托大字；抽屉通过 `margin-top: -44rpx` (-22px) 向上紧贴照片底边推入，水平进度条随后展开。 |
+| **原地翻面面板** | `miniprogram/components/flip-card-sheet` | `perspective: 1200px`，卡片沿 Y 轴 180° 原地翻转，正面为常规信息，背面为到场核销二维码/条形码，不丢失上下文。 |
+| **下拉展开面板** | `miniprogram/components/drag-expand-sheet` | 底部半高面板，居中阻尼拖拽手柄，配合 **WXS** 实现 60fps 跟手拖拽，支持向下拉动顺滑展开下半部完整规则。 |
 
 ---
 
@@ -55,4 +55,4 @@ A specialized skill for building high-quality, performant, and accessible WeChat
 ## 4. 辅助开发与脚手架工具
 
 - **组件快速生成脚手架**：[scripts/create-component.sh](./scripts/create-component.sh)
-- **组件预览体验工程**：[src/pages/demo/index.wxml](./src/pages/demo/index.wxml)
+- **组件预览体验工程**：[miniprogram/pages/demo/index.wxml](./miniprogram/pages/demo/index.wxml)

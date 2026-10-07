@@ -1,11 +1,11 @@
 {
   "pages": [
-    "src/pages/demo/index"
+    "pages/demo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "微信小程序精美组件库",
+    "navigationBarTitleText": "微信小程序精美凭证组件库",
     "navigationBarTextStyle": "black"
   },
   "lazyCodeLoading": "requiredComponents",
