@@ -9,7 +9,7 @@ Component({
     formattedTime: '00:00'
   },
 
-  timerId: null as any,
+  timerId: null,
 
   methods: {
     handleStart() {

@@ -8,8 +8,8 @@ Component({
       { id: 3, title: 'Pine loop', sub: '3 NIGHTS', url: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80' }
     ],
     currentIndex: 0,
-    currentCard: null as any,
-    nextCard: null as any
+    currentCard: null,
+    nextCard: null
   },
 
   lifetimes: {
