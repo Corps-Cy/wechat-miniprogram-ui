@@ -1,10 +1,10 @@
 .bento-container {
-  width: 620rpx;
+  width: 100%;
   background: #fbfbf9;
   border-radius: 40rpx;
   padding: 40rpx 36rpx;
   box-sizing: border-box;
-  margin: 20rpx auto;
+  margin: 0;
   border: 1rpx solid #e4e4e7;
   box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.04);
 }

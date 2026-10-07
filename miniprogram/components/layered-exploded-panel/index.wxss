@@ -1,8 +1,10 @@
 .exploded-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30rpx 0;
+  padding: 20rpx 0;
+  box-sizing: border-box;
 }
 
 .hud-bar {
@@ -26,7 +28,8 @@
 .exploded-stage {
   perspective: 1200px;
   position: relative;
-  width: 580rpx;
+  width: 100%;
+  max-width: 620rpx;
   height: 280rpx;
   transform-style: preserve-3d;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);

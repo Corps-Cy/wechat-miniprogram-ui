@@ -1,11 +1,11 @@
 .press-card {
-  width: 620rpx;
+  width: 100%;
   background: #fbfbf9;
   border: 1rpx solid #e4e4e7;
   border-radius: 36rpx;
   padding: 36rpx 40rpx 44rpx;
   box-sizing: border-box;
-  margin: 20rpx auto;
+  margin: 0;
   box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.05);
 }
 

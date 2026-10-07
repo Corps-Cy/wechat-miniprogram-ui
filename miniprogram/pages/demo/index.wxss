@@ -1,9 +1,12 @@
 .demo-page {
+  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background: #09090b;
   color: #f4f4f5;
-  padding: 80rpx 36rpx 120rpx;
+  padding: 80rpx 36rpx calc(120rpx + env(safe-area-inset-bottom));
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .demo-header {
@@ -104,7 +107,10 @@
 }
 
 .section-container {
+  width: 100%;
+  max-width: 100%;
   margin-top: 40rpx;
+  overflow: hidden;
 }
 
 .section-title-wrap {
@@ -127,12 +133,16 @@
 }
 
 .demo-grid {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24rpx;
 }
 
 .demo-card {
+  width: 100%;
+  box-sizing: border-box;
   background: #18181b;
   border-radius: 32rpx;
   padding: 36rpx 36rpx;
@@ -184,7 +194,11 @@
 
 /* 动效展示块 */
 .motion-block {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-bottom: 40rpx;
+  overflow: hidden;
 }
 
 .block-label {

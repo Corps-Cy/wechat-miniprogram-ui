@@ -1,8 +1,10 @@
 .swipe-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rpx 0;
+  padding: 10rpx 0;
+  box-sizing: border-box;
 }
 
 .hud-bar {
@@ -23,7 +25,8 @@
 
 .stack-stage {
   position: relative;
-  width: 580rpx;
+  width: 100%;
+  max-width: 620rpx;
   height: 520rpx;
 }
 

@@ -38,7 +38,8 @@
 }
 
 .tilt-card-wrap {
-  width: 620rpx;
+  width: 100%;
+  max-width: 620rpx;
   height: 320rpx;
   perspective: 800px;
 }
