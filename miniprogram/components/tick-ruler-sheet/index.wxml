@@ -1,57 +1,84 @@
 <view class="ruler-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
-  <view class="ruler-mask" bindtap="handleClose"></view>
+  <view class="ruler-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <view class="ruler-panel">
-    <!-- 纸质票据锯齿顶部装饰 -->
-    <view class="ticket-sawtooth"></view>
+  <view class="ruler-panel" catchtouchmove="preventTouchMove">
+    <view class="close-corner" bindtap="handleClose">✕</view>
 
-    <view class="ticket-body">
-      <view class="header-line">
-        <text class="badge">{{tag}}</text>
-        <text class="date-range">第 {{currentWeek}} 周 / 共 53 周</text>
+    <!-- 顶部标题 -->
+    <view class="panel-header">
+      <view class="brand-line">
+        <text class="brand-name">ROAM</text>
+        <text class="book-id">手册编号 N° 0417</text>
       </view>
+      <view class="tag-status">
+        <text class="dot-amber"></text>
+        <text class="tag-label">记录中 · 年轻就要去</text>
+      </view>
+    </view>
 
-      <view class="voucher-title">{{title}}</view>
+    <!-- 剩余天数大字 -->
+    <view class="hero-stat">
+      <view class="days-row">
+        <text class="giant-num">{{displayDays}}</text>
+        <text class="unit-text">天</text>
+      </view>
+      <text class="sub-label">剩余天数</text>
+    </view>
 
-      <!-- 53 根周刻度尺 -->
-      <view class="ruler-container">
-        <view class="ruler-axis">
-          <block wx:for="{{ticks}}" wx:key="index">
-            <view 
-              class="tick-bar {{item.isPassed ? 'passed' : ''}} {{item.isToday ? 'today' : ''}}"
-              style="--stagger-delay: {{index * 16}}ms;"
-            >
-              <view wx:if="{{item.isToday}}" class="today-indicator">
-                <text class="today-text">今天</text>
-                <view class="indicator-arrow"></view>
-              </view>
+    <!-- 日期起止区间 -->
+    <view class="date-bounds">
+      <text>2026.03.10</text>
+      <text>2027.03.10</text>
+    </view>
+
+    <!-- 53 根周刻度尺轴 -->
+    <view class="ruler-container">
+      <view class="ruler-axis">
+        <block wx:for="{{ticks}}" wx:key="index">
+          <view 
+            class="tick-bar {{item.isPassed ? 'passed' : ''}} {{item.isToday ? 'today' : ''}}"
+            style="--stagger-delay: {{index * 16}}ms;"
+          >
+            <view wx:if="{{item.isToday}}" class="today-badge">
+              <text class="today-text">今天</text>
+              <view class="today-arrow"></view>
             </view>
-          </block>
-        </view>
-        <view class="ruler-labels">
-          <text>第1周</text>
-          <text class="center-label">第26周 (半年)</text>
-          <text>第53周</text>
-        </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 详情条目表格 -->
+    <view class="details-table">
+      <view class="detail-row">
+        <text class="k-label">有效期至</text>
+        <text class="v-val">2027年3月10日</text>
+      </view>
+      <view class="detail-row">
+        <text class="k-label">上一站</text>
+        <text class="v-val">布拉格茶城</text>
+      </view>
+      <view class="detail-row">
+        <text class="k-label">已记</text>
+        <text class="v-val">5 条图文</text>
       </view>
 
-      <!-- 原地展开凭证编号区 -->
-      <view class="code-section">
-        <view class="code-info">
-          <text class="code-label">凭证兑换编号</text>
-          <view class="code-reveal-box {{revealed ? 'expanded' : ''}}">
-            <text class="code-mono">{{revealed ? fullCode : maskedCode}}</text>
+      <!-- 手账编号：原地展开 -->
+      <view class="detail-row code-row">
+        <text class="k-label">手账编号</text>
+        <view class="code-expand-wrap">
+          <text class="code-text {{revealed ? 'revealed' : ''}}">{{revealed ? fullCode : maskedCode}}</text>
+          <view class="reveal-btn" hover-class="btn-hover" bindtap="handleToggleReveal">
+            {{revealed ? '隐藏' : '显示'}}
           </view>
         </view>
-        <button class="toggle-btn" bindtap="handleToggleReveal">
-          {{revealed ? '隐藏编号' : '原地展开'}}
-        </button>
       </view>
+    </view>
 
-      <view class="summary-line">
-        <text>已生效时间：{{daysPassed}} 天</text>
-        <text>剩余有效：{{daysRemaining}} 天</text>
-      </view>
+    <!-- 底部按钮 -->
+    <view class="action-row">
+      <button class="btn-secondary" hover-class="btn-hover" bindtap="handleRefresh">继续刷新</button>
+      <button class="btn-primary" hover-class="btn-hover" bindtap="handleWrite">写一篇</button>
     </view>
   </view>
 </view>

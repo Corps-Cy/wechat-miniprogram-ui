@@ -6,69 +6,69 @@ Component({
       observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
+          this.startAnimation();
         } else {
           setTimeout(() => {
             if (!this.data.visible) {
-              this.setData({ rendered: false });
+              this.setData({ rendered: false, progressRatio: 0 });
             }
           }, 500);
         }
-      }
-    },
-    imageUrl: {
-      type: String,
-      value: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'
-    },
-    category: {
-      type: String,
-      value: '奢享度假·专属通兑'
-    },
-    title: {
-      type: String,
-      value: '三亚亚特兰蒂斯酒店'
-    },
-    subtitle: {
-      type: String,
-      value: '海景套房 2 晚连住通兑凭证'
-    },
-    totalCount: {
-      type: Number,
-      value: 5
-    },
-    remainingCount: {
-      type: Number,
-      value: 3,
-      observer() {
-        this.calcProgress();
       }
     }
   },
 
   data: {
     rendered: false,
-    progressRatio: 60
-  },
-
-  lifetimes: {
-    attached() {
-      this.calcProgress();
-    }
+    displayDays: 0,
+    targetDays: 163,
+    progressRatio: 0,
+    targetRatio: 45, // 45% 剩余
+    imageUrl: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
   },
 
   methods: {
-    calcProgress() {
-      const { totalCount, remainingCount } = this.data;
-      if (!totalCount) return;
-      const progressRatio = Math.round((remainingCount / totalCount) * 100);
-      this.setData({ progressRatio });
+    startAnimation() {
+      // 抽屉推入后涨进度条
+      setTimeout(() => {
+        if (this.data.visible) {
+          this.setData({ progressRatio: this.data.targetRatio });
+        }
+      }, 400);
+
+      // 数字滚动
+      const target = this.data.targetDays;
+      const duration = 700;
+      const startTime = Date.now();
+
+      const timer = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+
+        this.setData({ displayDays: current });
+
+        if (progress < 1 && this.data.visible) {
+          setTimeout(timer, 16);
+        }
+      };
+
+      timer();
     },
+
+    preventTouchMove() {},
 
     handleClose() {
       this.triggerEvent('close');
     },
 
-    handleAction() {
-      this.triggerEvent('action');
+    handleChange() {
+      this.triggerEvent('change');
+    },
+
+    handleUse() {
+      this.triggerEvent('use');
     }
   }
 });

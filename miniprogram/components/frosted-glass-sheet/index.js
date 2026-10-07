@@ -6,6 +6,7 @@ Component({
       observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
+          this.startAnimation();
         } else {
           setTimeout(() => {
             if (!this.data.visible) {
@@ -14,46 +15,59 @@ Component({
           }, 450);
         }
       }
-    },
-    title: {
-      type: String,
-      value: '年度权益凭证使用记录'
-    },
-    subtitle: {
-      type: String,
-      value: '每个月按配额使用，已用月份高亮标注'
-    },
-    monthsData: {
-      type: Array,
-      value: [
-        { month: 1, label: '1月', ratio: 100 },
-        { month: 2, label: '2月', ratio: 100 },
-        { month: 3, label: '3月', ratio: 80 },
-        { month: 4, label: '4月', ratio: 100 },
-        { month: 5, label: '5月', ratio: 60 },
-        { month: 6, label: '6月', ratio: 40 },
-        { month: 7, label: '7月', ratio: 0 },
-        { month: 8, label: '8月', ratio: 0 },
-        { month: 9, label: '9月', ratio: 0 },
-        { month: 10, label: '10月', ratio: 0 },
-        { month: 11, label: '11月', ratio: 0 },
-        { month: 12, label: '12月', ratio: 0 }
-      ]
-    },
-    usedCount: {
-      type: Number,
-      value: 6
     }
   },
 
   data: {
-    rendered: false
+    rendered: false,
+    displayDays: 0,
+    activeMonthIndex: 5, // 第 6 个月（即 6 月/9 月标点）
+    monthsData: [
+      { month: 1, ratio: 100 },
+      { month: 2, ratio: 100 },
+      { month: 3, ratio: 100 },
+      { month: 4, ratio: 100 },
+      { month: 5, ratio: 100 },
+      { month: 6, ratio: 65 }, // 当前今天月
+      { month: 7, ratio: 0 },
+      { month: 8, ratio: 0 },
+      { month: 9, ratio: 0 },
+      { month: 10, ratio: 0 },
+      { month: 11, ratio: 0 },
+      { month: 12, ratio: 0 }
+    ]
   },
 
   methods: {
+    startAnimation() {
+      const target = 163;
+      const duration = 800;
+      const startTime = Date.now();
+
+      const timer = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+
+        this.setData({ displayDays: current });
+
+        if (progress < 1 && this.data.visible) {
+          setTimeout(timer, 16);
+        }
+      };
+
+      timer();
+    },
+
+    preventTouchMove() {
+      // 阻断底层滚动穿透
+    },
+
     handleClose() {
       this.triggerEvent('close');
     },
+
     handleConfirm() {
       this.triggerEvent('confirm');
     }

@@ -1,44 +1,66 @@
 <view class="demo-page">
   <view class="demo-header">
-    <text class="page-title">精美凭证组件演示库</text>
-    <text class="page-desc">基于流体非线性动效与 750rpx 现代布局打造的 6 款高体验感组件</text>
+    <view class="header-badge">
+      <text class="badge-num">6</text>
+      <text class="badge-sub">App & 小程序 · 高级弹窗交互</text>
+    </view>
+    <text class="page-title">Popup Panels.</text>
+    <text class="page-desc">告别死板白框，以物理流体曲线与层次感重构现代凭证交互</text>
   </view>
 
   <view class="demo-grid">
-    <view class="demo-card" bindtap="openModal" data-type="frosted">
-      <view class="card-icon">🪟</view>
-      <text class="card-name">1. 毛玻璃月份浮层</text>
-      <text class="card-hint">26px 模糊 / 12 格错帧动效</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="frosted">
+      <view class="card-meta">
+        <text class="card-seq">01</text>
+        <view class="card-pill">BLUR 26px · FILL .42 · 4f</view>
+      </view>
+      <text class="card-name">玻璃面板浮起</text>
+      <text class="card-sub">Frosted Glass Sheet · 12 月份格子错帧填充</text>
     </view>
 
-    <view class="demo-card" bindtap="openModal" data-type="ring">
-      <view class="card-icon">⭕️</view>
-      <text class="card-name">2. 圆环计数弹出</text>
-      <text class="card-hint">40% 压暗 / 环形画圈 + 数字同步滚</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ring">
+      <view class="card-meta">
+        <text class="card-seq">02</text>
+        <view class="card-pill">SCRM 40% · RING 1.2s</view>
+      </view>
+      <text class="card-name">圆环计数弹出</text>
+      <text class="card-sub">Ring Count Sheet · 顺时针画圆与数字同步递增</text>
     </view>
 
-    <view class="demo-card" bindtap="openModal" data-type="ruler">
-      <view class="card-icon">📏</view>
-      <text class="card-name">3. 刻度尺进度弹出</text>
-      <text class="card-hint">53 周错帧变深 / 原地展开完整编号</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ruler">
+      <view class="card-meta">
+        <text class="card-seq">03</text>
+        <view class="card-pill">TICKS 53 · 1f · INLINE</view>
+      </view>
+      <text class="card-name">刻度尺扫到今天</text>
+      <text class="card-sub">Tick Ruler Sheet · 53 周逐根变深与编号原地展开</text>
     </view>
 
-    <view class="demo-card" bindtap="openModal" data-type="photo">
-      <view class="card-icon">🖼️</view>
-      <text class="card-name">4. 照片抽屉贴合</text>
-      <text class="card-hint">原比例缩放铺满 / -22px 抽屉紧密贴合</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="photo">
+      <view class="card-meta">
+        <text class="card-seq">04</text>
+        <view class="card-pill">ZOOM 1.08 · OVERLAP -22px</view>
+      </view>
+      <text class="card-name">照片抽屉贴合</text>
+      <text class="card-sub">Photo Drawer Sheet · 原比例铺满与底边紧贴推入</text>
     </view>
 
-    <view class="demo-card" bindtap="openModal" data-type="flip">
-      <view class="card-icon">🃏</view>
-      <text class="card-name">5. 原地翻面面板</text>
-      <text class="card-hint">1200px 景深 / 3D 原地 180° 翻转核销</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="flip">
+      <view class="card-meta">
+        <text class="card-seq">05</text>
+        <view class="card-pill">PERSP 1200px · SNAP 90°</view>
+      </view>
+      <text class="card-name">点击翻面凭证</text>
+      <text class="card-sub">Flip to Reveal · 3D 沿 Y 轴 180° 原地翻转出示</text>
     </view>
 
-    <view class="demo-card" bindtap="openModal" data-type="drag">
-      <view class="card-icon">↕️</view>
-      <text class="card-name">6. 下拉展开面板</text>
-      <text class="card-hint">拖拽手柄 / WXS 60fps 跟手阻尼展开</text>
+    <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="drag">
+      <view class="card-meta">
+        <text class="card-seq">06</text>
+        <view class="card-pill">DASHED · SWING 2° · SNAP 40%</view>
+      </view>
+      <text class="card-name">下拉展开面板</text>
+      <text class="card-sub">Pull Down Reveal · 虚线折痕、手柄微摆动与吸附</text>
     </view>
   </view>
 

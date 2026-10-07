@@ -16,38 +16,15 @@ Component({
           }, 500);
         }
       }
-    },
-    title: {
-      type: String,
-      value: '会员专属额度剩余'
-    },
-    subtitle: {
-      type: String,
-      value: '当前账期将于本月最后一日结清'
-    },
-    total: {
-      type: Number,
-      value: 100
-    },
-    remaining: {
-      type: Number,
-      value: 68
-    },
-    unit: {
-      type: String,
-      value: '天'
-    },
-    label: {
-      type: String,
-      value: '剩余有效时间'
     }
   },
 
   data: {
     rendered: false,
     displayCount: 0,
-    currentDashOffset: 440,
-    animatingRing: false
+    displayPercent: 0,
+    targetDays: 163,
+    totalDays: 365
   },
 
   methods: {
@@ -55,55 +32,58 @@ Component({
       // 0.5 秒底部面板升起到位后，落定瞬间开始画圆环并同步滚数字
       setTimeout(() => {
         if (!this.data.visible) return;
-        
-        // 440 是周长 (2 * PI * 70 = 439.82)
-        const circumference = 440;
-        const ratio = Math.min(Math.max(this.data.remaining / this.data.total, 0), 1);
-        const targetOffset = circumference * (1 - ratio);
 
-        this.setData({
-          currentDashOffset: targetOffset,
-          animatingRing: true
-        });
+        const targetDays = this.data.targetDays;
+        const totalDays = this.data.totalDays;
+        const targetPercent = (targetDays / totalDays) * 100;
+        const duration = 1200; // 1.2 秒
+        const startTime = Date.now();
 
-        this.animateNumber(this.data.remaining, 1200);
+        const animate = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // cubic-bezier(0.2, 0.7, 0.2, 1) 近似缓动
+          const ease = 1 - Math.pow(1 - progress, 3);
+
+          const currentCount = Math.round(targetDays * ease);
+          const currentPercent = (targetPercent * ease).toFixed(1);
+
+          this.setData({
+            displayCount: currentCount,
+            displayPercent: currentPercent
+          });
+
+          if (progress < 1 && this.data.visible) {
+            setTimeout(animate, 16);
+          } else if (progress >= 1) {
+            // 完成时触发轻微震动增强物理反馈
+            wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+          }
+        };
+
+        animate();
       }, 500);
-    },
-
-    animateNumber(target, duration) {
-      const startTime = Date.now();
-      const startVal = 0;
-
-      const update = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(startVal + (target - startVal) * ease);
-
-        this.setData({ displayCount: current });
-
-        if (progress < 1 && this.data.visible) {
-          setTimeout(update, 16);
-        }
-      };
-
-      update();
     },
 
     resetAnimation() {
       this.setData({
         displayCount: 0,
-        currentDashOffset: 440,
-        animatingRing: false
+        displayPercent: 0
       });
     },
+
+    preventTouchMove() {},
 
     handleClose() {
       this.triggerEvent('close');
     },
 
-    handleAction() {
-      this.triggerEvent('action', { remaining: this.data.remaining });
+    handleShelf() {
+      this.triggerEvent('shelf');
+    },
+
+    handleContinue() {
+      this.triggerEvent('continue');
     }
   }
 });

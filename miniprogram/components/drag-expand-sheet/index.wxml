@@ -1,63 +1,92 @@
 <wxs module="dragHandler" src="./drag.wxs"></wxs>
 
-<view class="drag-sheet-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
-  <view class="sheet-mask" bindtap="handleClose"></view>
+<view class="pull-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
+  <view class="pull-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <view class="sheet-panel">
-    <!-- 常驻核心摘要（上半部） -->
-    <view class="panel-primary">
-      <view class="top-row">
-        <view class="status-indicator">
-          <view class="pulsing-dot"></view>
-          <text class="status-text">待核销</text>
+  <view class="ticket-container" catchtouchmove="preventTouchMove">
+    <view class="close-corner" bindtap="handleClose">✕</view>
+
+    <!-- 上半截主凭证 -->
+    <view class="upper-ticket">
+      <!-- 顶部图片与标题 -->
+      <view class="food-hero">
+        <image class="hero-thumb" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80" mode="aspectFill" />
+        <view class="hero-info">
+          <view class="brand-row">
+            <text class="brand-name">FERN TABLE</text>
+            <view class="status-pill">
+              <text class="dot-green"></text>
+              <text class="status-text">有效中</text>
+            </view>
+          </view>
+          <text class="pass-title">餐桌凭证 TABLE PASS</text>
         </view>
-        <view class="close-btn" bindtap="handleClose">✕</view>
       </view>
 
-      <view class="title-row">
-        <text class="main-title">{{title}}</text>
-        <text class="sub-title">{{subtitle}}</text>
+      <!-- 核心数字展示 -->
+      <view class="days-box">
+        <view class="digits-row">
+          <text class="giant-num">{{displayDays}}</text>
+          <text class="unit-text">天</text>
+        </view>
+        <text class="days-sub">剩余有效天数</text>
+      </view>
+
+      <!-- 凭证细则 -->
+      <view class="ticket-meta">
+        <view class="meta-row">
+          <text class="meta-k">有效期至</text>
+          <text class="meta-v">2027.03.10</text>
+        </view>
+        <view class="meta-row">
+          <text class="meta-k">餐段</text>
+          <text class="meta-v">早餐</text>
+        </view>
+        <view class="meta-row">
+          <text class="meta-k">年限</text>
+          <text class="meta-v">1 年</text>
+        </view>
+        <view class="meta-row benefit-row">
+          <text class="meta-k">凭证权益</text>
+          <text class="meta-v">一份精选早餐</text>
+        </view>
       </view>
     </view>
 
-    <!-- 可拖动手柄区域 (绑定 WXS 手势事件) -->
+    <!-- 虚线折痕与拖拽把手 (LINE: DASHED, SNAP: 40%) -->
     <view 
-      class="handle-zone"
+      class="tear-boundary"
       bindtouchstart="{{dragHandler.touchStart}}"
       bindtouchmove="{{dragHandler.touchMove}}"
       bindtouchend="{{dragHandler.touchEnd}}"
     >
-      <view class="drag-handle">
-        <view class="handle-bar"></view>
-        <text class="handle-tip">{{isExpanded ? '向上推动收起' : '向下拉动展开完整规则'}}</text>
+      <view class="ticket-notch notch-left"></view>
+      <view class="dashed-tear-line"></view>
+      <view class="ticket-notch notch-right"></view>
+
+      <!-- 可拖动的手柄 -->
+      <view class="pull-handle">
+        <view class="handle-pill"></view>
+        <view class="handle-chevron">↓</view>
+        <text class="handle-text">{{isExpanded ? '向上推动收起' : '向下拉动展开完整凭证'}}</text>
       </view>
     </view>
 
-    <!-- 动态展开次级详细规则（下半部） -->
-    <view class="expandable-section">
-      <view class="rules-list">
-        <view class="rule-item">
-          <text class="rule-title">使用门店</text>
-          <text class="rule-val">全国 120+ 家直营及指定合作门店通用</text>
+    <!-- 下半截可折叠/展开收据小票 (从 0 展开到 MAX_EXPAND) -->
+    <view class="unfold-receipt">
+      <view class="receipt-inner">
+        <view class="code-banner">
+          <text class="code-title">入座编号</text>
+          <text class="code-val">LF7K-2QXP</text>
+          <text class="code-tip">到场核销专用 · 领位时出示此码</text>
         </view>
-        <view class="rule-item">
-          <text class="rule-title">核销时段</text>
-          <text class="rule-val">法定工作日 10:00 - 22:00（周末节假日不可用）</text>
-        </view>
-        <view class="rule-item">
-          <text class="rule-title">预约规则</text>
-          <text class="rule-val">需提前至少 24 小时联系管家电话预约排期</text>
-        </view>
-        <view class="rule-item">
-          <text class="rule-title">退改须知</text>
-          <text class="rule-val">核销前支持随时退款，一旦核销立即作废生效</text>
+
+        <view class="receipt-barcode">
+          <view class="barcode-graphic"></view>
+          <text class="barcode-str">9842 1092 8419</text>
         </view>
       </view>
     </view>
 
-    <!-- 底部常驻按钮 -->
-    <view class="sheet-footer">
-      <button class="primary-btn" bindtap="handleConfirm">确认使用凭证</button>
-    </view>
   </view>
 </view>

@@ -6,6 +6,7 @@ Component({
       observer(newVal) {
         if (newVal) {
           this.setData({ rendered: true });
+          this.startAnimation();
         } else {
           setTimeout(() => {
             if (!this.data.visible) {
@@ -14,40 +15,17 @@ Component({
           }, 450);
         }
       }
-    },
-    title: {
-      type: String,
-      value: '2026 年度大师课兑换凭证'
-    },
-    tag: {
-      type: String,
-      value: '生效中'
-    },
-    currentWeek: {
-      type: Number,
-      value: 28,
-      observer() {
-        this.buildTicks();
-      }
-    },
-    fullCode: {
-      type: String,
-      value: 'AGY-8892-K92X'
-    },
-    daysPassed: {
-      type: Number,
-      value: 196
-    },
-    daysRemaining: {
-      type: Number,
-      value: 169
     }
   },
 
   data: {
     rendered: false,
     revealed: false,
-    maskedCode: 'AGY-••••-••••',
+    displayDays: 0,
+    targetDays: 163,
+    todayWeek: 24, // 53 周中的第 24 周
+    maskedCode: 'LF......',
+    fullCode: 'LFTK-2QXP',
     ticks: []
   },
 
@@ -59,28 +37,64 @@ Component({
 
   methods: {
     buildTicks() {
-      const totalWeeks = 53;
-      const todayWeek = this.data.currentWeek;
+      const total = 53;
+      const today = this.data.todayWeek;
       const ticks = [];
-
-      for (let i = 1; i <= totalWeeks; i++) {
+      for (let i = 1; i <= total; i++) {
         ticks.push({
           index: i,
-          isPassed: i < todayWeek,
-          isToday: i === todayWeek
+          isPassed: i < today,
+          isToday: i === today
         });
       }
-
       this.setData({ ticks });
     },
 
-    handleToggleReveal() {
-      this.setData({ revealed: !this.data.revealed });
-      this.triggerEvent('reveal', { revealed: this.data.revealed });
+    startAnimation() {
+      const target = this.data.targetDays;
+      const duration = 600;
+      const startTime = Date.now();
+
+      const timer = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+
+        this.setData({ displayDays: current });
+
+        if (progress < 1 && this.data.visible) {
+          setTimeout(timer, 16);
+        } else if (progress >= 1) {
+          // 刻度扫到今天停住时触发轻微震动
+          setTimeout(() => {
+            wx.vibrateShort && wx.vibrateShort({ type: 'medium' });
+          }, this.data.todayWeek * 16);
+        }
+      };
+
+      timer();
     },
+
+    handleToggleReveal() {
+      const next = !this.data.revealed;
+      this.setData({ revealed: next });
+      wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+      this.triggerEvent('toggleReveal', { revealed: next });
+    },
+
+    preventTouchMove() {},
 
     handleClose() {
       this.triggerEvent('close');
+    },
+
+    handleRefresh() {
+      this.triggerEvent('refresh');
+    },
+
+    handleWrite() {
+      this.triggerEvent('write');
     }
   }
 });

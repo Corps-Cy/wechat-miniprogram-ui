@@ -1,37 +1,72 @@
 <view class="frosted-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
-  <!-- 背景毛玻璃遮罩 -->
-  <view class="frosted-mask" bindtap="handleClose"></view>
+  <!-- 背景遮罩：模糊从 0 到 26px -->
+  <view class="frosted-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <!-- 浮起面板 -->
-  <view class="frosted-panel">
-    <view class="panel-header">
-      <view class="title-wrap">
-        <text class="title">{{title}}</text>
-        <text class="subtitle">{{subtitle}}</text>
+  <!-- 浮起面板：从 0.94 放大至 1，底色 rgba(255,255,255,0.42) -->
+  <view class="frosted-panel" catchtouchmove="preventTouchMove">
+    <view class="close-corner" bindtap="handleClose">✕</view>
+
+    <!-- 顶部标题与状态 -->
+    <view class="card-header">
+      <view class="header-left">
+        <text class="title-en">LISBON</text>
+        <text class="title-cn">里斯本 · 欧洲旅行计划</text>
       </view>
-      <view class="close-btn" bindtap="handleClose">✕</view>
+      <view class="status-badge">
+        <text class="badge-dot"></text>
+        <text class="badge-text">进行中</text>
+      </view>
     </view>
 
-    <!-- 12 个月份格子容器 -->
-    <view class="months-grid">
-      <block wx:for="{{monthsData}}" wx:key="month">
-        <view class="month-cell" style="--stagger-delay: {{index * 66}}ms;">
-          <view class="bar-track">
-            <!-- 填充条，高度按已用比例填充 -->
-            <view class="bar-fill" style="height: {{item.ratio}}%;"></view>
+    <!-- 核心数字展示 -->
+    <view class="stat-hero">
+      <view class="number-wrap">
+        <text class="giant-num">{{displayDays}}</text>
+      </view>
+      <text class="stat-desc">剩余天数 · 2027年3月10日到期</text>
+    </view>
+
+    <!-- 12 个月份格子胶囊行 -->
+    <view class="months-timeline">
+      <view class="today-bubble" style="left: {{activeMonthIndex * 46 + 18}}rpx;">
+        <text class="bubble-text">09.20 今天</text>
+        <view class="bubble-arrow"></view>
+      </view>
+
+      <view class="capsules-row">
+        <block wx:for="{{monthsData}}" wx:key="month">
+          <view class="capsule-track" style="--stagger-delay: {{index * 66}}ms;">
+            <view class="capsule-fill" style="height: {{item.ratio}}%;"></view>
           </view>
-          <text class="month-label">{{item.label}}</text>
-        </view>
-      </block>
+        </block>
+      </view>
     </view>
 
-    <!-- 底部状态与操作区 -->
-    <view class="panel-footer">
-      <view class="stat-badge">
-        <text class="stat-num">{{usedCount}}</text>
-        <text class="stat-text">/ 12 个月已核销</text>
+    <!-- 2x2 信息矩阵 -->
+    <view class="meta-grid">
+      <view class="meta-item">
+        <text class="meta-label">下一站</text>
+        <text class="meta-val">里斯本</text>
       </view>
-      <button class="primary-btn" bindtap="handleConfirm">查看凭证详情</button>
+      <view class="meta-item">
+        <text class="meta-label">会期</text>
+        <text class="meta-val">1 年</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">起始日期</text>
+        <text class="meta-val">2026.03.10</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">有效截至</text>
+        <text class="meta-val">2027.03.10</text>
+      </view>
+    </view>
+
+    <!-- 底部主按钮 -->
+    <view class="action-footer">
+      <button class="primary-btn" hover-class="btn-hover" bindtap="handleConfirm">
+        查看行程 →
+      </button>
     </view>
   </view>
 </view>

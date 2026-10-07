@@ -23,7 +23,7 @@
 }
 
 .photo-wrapper.active .photo-mask {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .photo-modal-card {
@@ -32,15 +32,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* 上半部照片：按原比例从 1.08 缩小到 1 铺满 */
+/* 上半部照片：从 1.08 缩小至 1.0 铺满 */
 .photo-hero {
   position: relative;
-  width: 100%;
-  height: 480rpx;
-  overflow: hidden;
+  width: 680rpx;
+  height: 440rpx;
   border-radius: 40rpx 40rpx 0 0;
+  overflow: hidden;
+  background: #27272a;
 }
 
 .hero-image {
@@ -55,77 +57,101 @@
   transform: scale(1);
 }
 
-/* 暗角托住白色大字 */
+/* 暗角渐变托住白色大字 */
 .hero-vignette {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0.85) 100%
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.75) 100%
   );
   display: flex;
-  align-items: flex-end;
-  padding: 40rpx 40rpx 64rpx; /* 留出被抽屉遮挡的底部余量 */
-}
-
-.vignette-content {
-  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 32rpx 36rpx 60rpx;
+  box-sizing: border-box;
 }
 
-.hero-badge {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.25);
+.vignette-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-text {
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2rpx;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #ffffff;
-  font-size: 20rpx;
-  font-weight: 600;
-  padding: 4rpx 16rpx;
-  border-radius: 6rpx;
-  margin-bottom: 12rpx;
-  letter-spacing: 1rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 100rpx;
 }
 
-.hero-title {
+.dot-green {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-right: 8rpx;
+}
+
+.status-name {
+  font-size: 18rpx;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.recipe-title {
   font-size: 44rpx;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.4);
+  letter-spacing: 2rpx;
 }
 
-.hero-subtitle {
-  font-size: 24rpx;
+.recipe-sub {
+  font-size: 20rpx;
   color: rgba(255, 255, 255, 0.8);
-  margin-top: 6rpx;
+  letter-spacing: 2rpx;
+  margin-top: 4rpx;
+  display: block;
 }
 
-.close-icon {
+.close-corner {
   position: absolute;
-  top: 32rpx;
-  right: 32rpx;
-  width: 56rpx;
-  height: 56rpx;
+  top: 28rpx;
+  right: 28rpx;
+  width: 44rpx;
+  height: 44rpx;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24rpx;
+  font-size: 20rpx;
+  color: #ffffff;
 }
 
-/* 抽屉：margin-top: -44rpx (-22px) 压住照片底边，从下方推入 */
+/* 下半部抽屉：margin-top: -44rpx (-22px) 压住照片底边，从下方推入 */
 .content-drawer {
   position: relative;
   z-index: 5;
-  margin-top: -44rpx; /* 压住照片下沿 22px */
-  background: #ffffff;
-  border-radius: 40rpx 40rpx 0 0;
-  padding: 40rpx 40rpx calc(40rpx + env(safe-area-inset-bottom));
-  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.15);
+  width: 680rpx;
+  margin-top: -44rpx; /* 向上压住照片下沿 22px */
+  background: #fbfbf9;
+  border-radius: 36rpx;
+  padding: 36rpx 36rpx calc(36rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  box-shadow: 0 -8rpx 36rpx rgba(0, 0, 0, 0.12);
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: 0.1s;
@@ -135,60 +161,60 @@
   transform: translateY(0);
 }
 
-.drawer-header {
-  margin-bottom: 32rpx;
-}
-
-.meta-row {
+.drawer-hero {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 24rpx;
 }
 
-.label {
-  font-size: 24rpx;
-  color: #64748b;
+.days-caption {
+  font-size: 20rpx;
+  color: #71717a;
 }
 
-.status-tag {
-  font-size: 22rpx;
-  color: #10b981;
-  font-weight: 600;
-  background: #ecfdf5;
-  padding: 4rpx 14rpx;
-  border-radius: 6rpx;
-}
-
-.digits-row {
+.digits-line {
   display: flex;
   align-items: baseline;
-  margin-top: 10rpx;
+  margin-top: 4rpx;
 }
 
-.num-large {
-  font-size: 64rpx;
-  font-weight: 800;
-  color: #0f172a;
+.giant-num {
+  font-size: 76rpx;
+  font-weight: 900;
+  color: #18181b;
+  letter-spacing: -2rpx;
+  line-height: 1;
 }
 
-.num-unit {
-  font-size: 26rpx;
-  color: #64748b;
-  margin-left: 10rpx;
+.unit-text {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #18181b;
+  margin-left: 8rpx;
 }
 
-/* 进度条：从 0% 涨到剩余比例 */
-.progress-box {
-  background: #f8fafc;
-  padding: 24rpx;
-  border-radius: 20rpx;
-  margin-bottom: 36rpx;
+.days-meta {
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  color: #a1a1aa;
+  margin-top: 8rpx;
+}
+
+.meta-dot {
+  margin: 0 8rpx;
+}
+
+/* 进度条：随后从 0 涨到 45% */
+.progress-container {
+  width: 100%;
+  margin-bottom: 32rpx;
 }
 
 .progress-track {
   width: 100%;
-  height: 16rpx;
-  background: #e2e8f0;
+  height: 12rpx;
+  background: #e4e4e7;
   border-radius: 100rpx;
   overflow: hidden;
 }
@@ -196,10 +222,10 @@
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+  background: #18181b;
   border-radius: 100rpx;
   transition: width 1s cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: 0.35s; /* 抽屉推到位后再涨进度 */
+  transition-delay: 0.35s;
 }
 
 .photo-wrapper:not(.active) .progress-fill {
@@ -207,25 +233,66 @@
   transition-delay: 0s;
 }
 
-.progress-label-row {
+/* 2x2 元信息 */
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx 20rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx 24rpx;
+  margin-bottom: 32rpx;
+  border: 1rpx solid #f4f4f5;
+}
+
+.meta-item {
   display: flex;
-  justify-content: space-between;
-  margin-top: 14rpx;
+  flex-direction: column;
+}
+
+.meta-k {
+  font-size: 18rpx;
+  color: #a1a1aa;
+}
+
+.meta-v {
   font-size: 22rpx;
-  color: #64748b;
+  font-weight: 600;
+  color: #27272a;
+  margin-top: 4rpx;
 }
 
-.progress-percent {
-  font-weight: 700;
-  color: #4f46e5;
+/* 底部按钮 */
+.action-row {
+  display: flex;
+  gap: 18rpx;
 }
 
-.drawer-actions .primary-btn {
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 30rpx;
+.btn-secondary {
+  flex: 1;
+  background: #f4f4f5;
+  color: #18181b;
+  font-size: 26rpx;
   font-weight: 600;
   border-radius: 100rpx;
-  padding: 24rpx 0;
+  padding: 20rpx 0;
   line-height: 1.4;
+  margin: 0;
+}
+
+.btn-primary {
+  flex: 1;
+  background: #18181b;
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 700;
+  border-radius: 100rpx;
+  padding: 20rpx 0;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.btn-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
 }

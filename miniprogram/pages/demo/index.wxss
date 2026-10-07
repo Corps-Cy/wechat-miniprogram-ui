@@ -1,7 +1,7 @@
 .demo-page {
   min-height: 100vh;
-  background: #f8fafc;
-  padding: 60rpx 40rpx;
+  background: #f4f4f5;
+  padding: 80rpx 40rpx 100rpx;
   box-sizing: border-box;
 }
 
@@ -9,18 +9,41 @@
   margin-bottom: 50rpx;
 }
 
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #18181b;
+  color: #ffffff;
+  padding: 6rpx 18rpx;
+  border-radius: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.badge-num {
+  font-size: 22rpx;
+  font-weight: 800;
+  margin-right: 10rpx;
+}
+
+.badge-sub {
+  font-size: 20rpx;
+  font-weight: 500;
+  color: #d4d4d8;
+}
+
 .page-title {
   display: block;
-  font-size: 46rpx;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -1rpx;
+  font-size: 56rpx;
+  font-weight: 900;
+  color: #09090b;
+  letter-spacing: -2rpx;
+  line-height: 1.1;
 }
 
 .page-desc {
   display: block;
-  font-size: 26rpx;
-  color: #64748b;
+  font-size: 24rpx;
+  color: #71717a;
   margin-top: 14rpx;
   line-height: 1.5;
 }
@@ -28,38 +51,56 @@
 .demo-grid {
   display: flex;
   flex-direction: column;
-  gap: 28rpx;
+  gap: 24rpx;
 }
 
 .demo-card {
   background: #ffffff;
-  border-radius: 28rpx;
-  padding: 36rpx 32rpx;
-  border: 1rpx solid #e2e8f0;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.03);
+  border-radius: 32rpx;
+  padding: 36rpx 36rpx;
+  border: 1rpx solid #e4e4e7;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   transition: transform 0.15s, box-shadow 0.15s;
 }
 
-.demo-card:active {
-  transform: scale(0.98);
+.card-hover {
+  transform: scale(0.985);
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
 }
 
-.card-icon {
-  font-size: 44rpx;
-  margin-bottom: 16rpx;
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+
+.card-seq {
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #a1a1aa;
+}
+
+.card-pill {
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #52525b;
+  background: #f4f4f5;
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+  letter-spacing: 0.5rpx;
 }
 
 .card-name {
-  font-size: 32rpx;
-  font-weight: 700;
-  color: #1e293b;
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #18181b;
 }
 
-.card-hint {
-  font-size: 24rpx;
-  color: #94a3b8;
-  margin-top: 8rpx;
+.card-sub {
+  font-size: 22rpx;
+  color: #71717a;
+  margin-top: 6rpx;
 }

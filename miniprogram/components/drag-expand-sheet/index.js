@@ -5,7 +5,8 @@ Component({
       value: false,
       observer(newVal) {
         if (newVal) {
-          this.setData({ rendered: true });
+          this.setData({ rendered: true, isExpanded: false });
+          this.startAnimation();
         } else {
           setTimeout(() => {
             if (!this.data.visible) {
@@ -14,35 +15,48 @@ Component({
           }, 450);
         }
       }
-    },
-    title: {
-      type: String,
-      value: '周末双人自助晚餐凭证'
-    },
-    subtitle: {
-      type: String,
-      value: '希尔顿国际酒店 · 豪华全日制餐厅'
     }
   },
 
   data: {
     rendered: false,
-    isExpanded: false
+    isExpanded: false,
+    displayDays: 0,
+    targetDays: 163
   },
 
   methods: {
-    // 由 WXS 的 ins.callMethod 反向调用通知逻辑层
+    startAnimation() {
+      const target = this.data.targetDays;
+      const duration = 600;
+      const startTime = Date.now();
+
+      const timer = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+
+        this.setData({ displayDays: current });
+
+        if (progress < 1 && this.data.visible) {
+          setTimeout(timer, 16);
+        }
+      };
+
+      timer();
+    },
+
     onStateChange(e) {
       this.setData({ isExpanded: e.expanded });
+      wx.vibrateShort && wx.vibrateShort({ type: 'medium' });
       this.triggerEvent('expandChange', { expanded: e.expanded });
     },
 
+    preventTouchMove() {},
+
     handleClose() {
       this.triggerEvent('close');
-    },
-
-    handleConfirm() {
-      this.triggerEvent('confirm');
     }
   }
 });

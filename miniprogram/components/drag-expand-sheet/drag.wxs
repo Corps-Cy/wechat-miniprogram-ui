@@ -1,13 +1,15 @@
 var startY = 0;
-var currentY = 0;
 var isExpanded = false;
-var MAX_EXPAND = 260; // 展开高度 (px)
+var MAX_EXPAND = 240; // 最大展开高度 px
+var SNAP_THRESHOLD = 70; // 40% 吸附阈值
 
 function touchStart(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   startY = touch.clientY;
-  currentY = 0;
-  ins.selectComponent('.expandable-section').setStyle({
+  ins.selectComponent('.unfold-receipt').setStyle({
+    'transition': 'none'
+  });
+  ins.selectComponent('.pull-handle').setStyle({
     'transition': 'none'
   });
 }
@@ -16,25 +18,26 @@ function touchMove(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   var deltaY = touch.clientY - startY;
 
-  // 如果未展开，向下拉动（正值）展开下半部
   if (!isExpanded) {
     if (deltaY > 0) {
-      // 增加阻尼
-      var damped = Math.min(deltaY * 0.75, MAX_EXPAND);
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': (120 + damped) + 'px',
-        'opacity': 1
+      var height = Math.min(deltaY * 0.85, MAX_EXPAND);
+      // 增加 2° 物理微摆动 (SWING: 2°)
+      var swing = Math.sin(deltaY / 15) * 2;
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': height + 'px',
+        'opacity': Math.min(height / 60, 1),
+        'transform': 'rotate(' + swing + 'deg)'
       });
-      ins.selectComponent('.drag-handle').setStyle({
-        'transform': 'rotate(180deg) scale(1.1)'
+      ins.selectComponent('.handle-chevron').setStyle({
+        'transform': 'rotate(180deg) scale(1.15)'
       });
     }
   } else {
-    // 若已展开，向上推动（负值）收起
+    // 已展开时向上推收起
     if (deltaY < 0) {
-      var height = Math.max(MAX_EXPAND + 120 + deltaY, 120);
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': height + 'px'
+      var height = Math.max(MAX_EXPAND + deltaY, 0);
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': height + 'px'
       });
     }
   }
@@ -44,52 +47,58 @@ function touchEnd(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   var deltaY = touch.clientY - startY;
 
-  ins.selectComponent('.expandable-section').setStyle({
-    'transition': 'max-height 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s'
+  ins.selectComponent('.unfold-receipt').setStyle({
+    'transition': 'height 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s, transform 0.3s ease'
   });
-  ins.selectComponent('.drag-handle').setStyle({
+  ins.selectComponent('.pull-handle').setStyle({
     'transition': 'transform 0.3s ease'
   });
 
   if (!isExpanded) {
-    if (deltaY > 60) {
-      // 超过阈值，展开
+    if (deltaY > SNAP_THRESHOLD) {
+      // 超过 40% 阈值吸附完全展开
       isExpanded = true;
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': (MAX_EXPAND + 120) + 'px',
-        'opacity': 1
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': MAX_EXPAND + 'px',
+        'opacity': '1',
+        'transform': 'rotate(0deg)'
       });
-      ins.selectComponent('.drag-handle').setStyle({
+      ins.selectComponent('.handle-chevron').setStyle({
         'transform': 'rotate(180deg)'
       });
       ins.callMethod('onStateChange', { expanded: true });
     } else {
-      // 未达阈值，吸附回初态
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': '120px'
+      // 回弹收起
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': '0px',
+        'opacity': '0',
+        'transform': 'rotate(0deg)'
       });
-      ins.selectComponent('.drag-handle').setStyle({
+      ins.selectComponent('.handle-chevron').setStyle({
         'transform': 'rotate(0deg)'
       });
     }
   } else {
-    if (deltaY < -60) {
+    if (deltaY < -SNAP_THRESHOLD) {
       // 向上推超过阈值，收起
       isExpanded = false;
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': '120px'
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': '0px',
+        'opacity': '0',
+        'transform': 'rotate(0deg)'
       });
-      ins.selectComponent('.drag-handle').setStyle({
+      ins.selectComponent('.handle-chevron').setStyle({
         'transform': 'rotate(0deg)'
       });
       ins.callMethod('onStateChange', { expanded: false });
     } else {
       // 保持展开
-      ins.selectComponent('.expandable-section').setStyle({
-        'max-height': (MAX_EXPAND + 120) + 'px',
-        'opacity': 1
+      ins.selectComponent('.unfold-receipt').setStyle({
+        'height': MAX_EXPAND + 'px',
+        'opacity': '1',
+        'transform': 'rotate(0deg)'
       });
-      ins.selectComponent('.drag-handle').setStyle({
+      ins.selectComponent('.handle-chevron').setStyle({
         'transform': 'rotate(180deg)'
       });
     }

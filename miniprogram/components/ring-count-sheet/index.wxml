@@ -1,44 +1,75 @@
 <view class="ring-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
-  <!-- 背景压暗至 40% -->
-  <view class="ring-mask" bindtap="handleClose"></view>
+  <!-- 背景遮罩：压暗到 40% (0.4) -->
+  <view class="ring-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <!-- 底部升起面板 -->
-  <view class="ring-panel">
-    <view class="drag-bar"></view>
+  <!-- 底部面板：0.5s 从屏幕外升起到位 -->
+  <view class="ring-panel" catchtouchmove="preventTouchMove">
+    <view class="close-corner" bindtap="handleClose">✕</view>
 
-    <view class="header-box">
-      <text class="title">{{title}}</text>
-      <text class="subtitle">{{subtitle}}</text>
+    <!-- 顶部标题 -->
+    <view class="panel-header">
+      <view class="brand-wrap">
+        <text class="brand-name">QUILL</text>
+        <text class="pass-sub">通兑 READING PASS</text>
+      </view>
+      <view class="status-tag">
+        <text class="dot-green"></text>
+        <text class="status-label">有效中</text>
+      </view>
     </view>
 
-    <!-- 圆环与中心计数区 -->
-    <view class="ring-container">
-      <view class="svg-ring-wrap">
-        <!-- SVG 圆环 -->
-        <svg class="ring-svg" viewBox="0 0 160 160">
-          <circle class="ring-track" cx="80" cy="80" r="70" />
-          <circle 
-            class="ring-progress {{animatingRing ? 'draw' : ''}}" 
-            cx="80" 
-            cy="80" 
-            r="70" 
-            style="stroke-dasharray: 440; stroke-dashoffset: {{currentDashOffset}};" 
-          />
-        </svg>
-
-        <!-- 中心同步滚动计数 -->
-        <view class="center-content">
-          <view class="number-row">
-            <text class="count-num">{{displayCount}}</text>
-            <text class="count-unit">{{unit}}</text>
+    <!-- 中部双列布局：左圆环，右卡片信息 -->
+    <view class="main-body">
+      <!-- 左侧圆环 -->
+      <view class="ring-box">
+        <view class="conic-ring" style="--percent: {{displayPercent}};">
+          <view class="ring-hole">
+            <text class="ring-num">{{displayCount}}</text>
+            <text class="ring-caption">剩余天数</text>
           </view>
-          <text class="count-label">{{label}}</text>
+        </view>
+      </view>
+
+      <!-- 右侧细则 -->
+      <view class="info-box">
+        <view class="info-group">
+          <text class="info-k">有效期至</text>
+          <text class="info-v date-strong">2027.03.10</text>
+        </view>
+        <view class="info-group">
+          <text class="info-k">在读</text>
+          <text class="info-v highlight-text">百年孤独</text>
+        </view>
+        <view class="info-group">
+          <text class="info-k">编号</text>
+          <text class="info-v mono-text">N° 0417</text>
         </view>
       </view>
     </view>
 
-    <view class="action-box">
-      <button class="primary-btn" bindtap="handleAction">立即核销使用</button>
+    <!-- 虚线分割线 -->
+    <view class="dashed-divider"></view>
+
+    <!-- 底部 3 字段元数据 -->
+    <view class="meta-row">
+      <view class="meta-col">
+        <text class="meta-k">信用编码</text>
+        <text class="meta-v">最新 LF......</text>
+      </view>
+      <view class="meta-col">
+        <text class="meta-k">开卡日期</text>
+        <text class="meta-v">2026.03.10</text>
+      </view>
+      <view class="meta-col">
+        <text class="meta-k">年限</text>
+        <text class="meta-v">1 年</text>
+      </view>
+    </view>
+
+    <!-- 底部双操作按钮 -->
+    <view class="action-row">
+      <button class="btn-secondary" hover-class="btn-hover" bindtap="handleShelf">我的书架</button>
+      <button class="btn-primary" hover-class="btn-hover" bindtap="handleContinue">继续阅读</button>
     </view>
   </view>
 </view>

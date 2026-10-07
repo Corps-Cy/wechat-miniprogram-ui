@@ -1,64 +1,93 @@
 <view class="flip-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
-  <view class="flip-mask" bindtap="handleClose"></view>
+  <view class="flip-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <view class="flip-dialog">
-    <!-- 3D 景深翻转舞台 perspective: 1200px -->
-    <view class="flip-stage">
-      <view class="flip-card {{flipped ? 'is-flipped' : ''}}">
-        
-        <!-- 【正面】常规信息与凭证概要 -->
-        <view class="card-face card-front">
-          <view class="face-header">
-            <text class="tag">专属权益券</text>
-            <view class="flip-trigger-btn" bindtap="handleFlip">
-              <text class="trigger-text">出示核销码 ↷</text>
-            </view>
+  <view class="flip-stage" catchtouchmove="preventTouchMove">
+    <view class="close-corner" bindtap="handleClose">✕</view>
+
+    <!-- 3D 翻转卡片 perspective: 1200px -->
+    <view class="flip-card {{flipped ? 'is-flipped' : ''}}">
+      
+      <!-- 【正面】常规凭证信息 -->
+      <view class="card-face card-front">
+        <view class="face-top">
+          <view class="brand-group">
+            <text class="brand-title">NOMAD</text>
+            <text class="brand-sub">ROAD PASS</text>
           </view>
-
-          <view class="face-body">
-            <text class="card-title">{{title}}</text>
-            <text class="card-desc">{{desc}}</text>
-
-            <view class="validity-box">
-              <text class="valid-label">有效期限</text>
-              <text class="valid-val">{{validDate}}</text>
-            </view>
-          </view>
-
-          <view class="face-footer">
-            <button class="flip-main-btn" bindtap="handleFlip">点击翻转查看凭证码</button>
+          <view class="status-pill">
+            <text class="dot-green"></text>
+            <text class="status-text">有效中</text>
           </view>
         </view>
 
-        <!-- 【背面】到场要出示的内容 (二维码、条形码、核销数字) -->
-        <view class="card-face card-back">
-          <view class="face-header">
-            <text class="tag tag-back">请向工作人员出示</text>
-            <view class="flip-trigger-btn" bindtap="handleFlip">
-              <text class="trigger-text">返回正面 ↶</text>
-            </view>
+        <view class="face-center">
+          <view class="days-row">
+            <text class="giant-num">163</text>
+            <text class="days-unit">天 · 剩余天数</text>
           </view>
 
-          <view class="face-body qr-body">
-            <!-- 模拟条形码 -->
-            <view class="barcode-box">
-              <view class="barcode-lines"></view>
-              <text class="barcode-num">{{verifyCode}}</text>
+          <view class="info-block">
+            <view class="info-item">
+              <text class="k-text">有效截至</text>
+              <text class="v-text">2027.03.10</text>
             </view>
-
-            <!-- 模拟二维码 -->
-            <view class="qrcode-wrapper">
-              <image class="qrcode-img" src="{{qrCodeUrl}}" mode="aspectFit" />
+            <view class="info-item">
+              <text class="k-text">上一站</text>
+              <text class="v-text">柏林营地</text>
             </view>
-            <text class="qr-hint">动态防伪码 · 每 60 秒自动刷新</text>
-          </view>
-
-          <view class="face-footer">
-            <button class="back-close-btn" bindtap="handleFlip">翻回常规信息</button>
           </view>
         </view>
 
+        <view class="face-bottom">
+          <button class="flip-action-btn" hover-class="btn-hover" bindtap="handleFlip">
+            查看凭证 ↷
+          </button>
+        </view>
       </view>
+
+      <!-- 【背面】到场需要出示的信息 -->
+      <view class="card-face card-back">
+        <view class="face-top">
+          <view class="brand-group">
+            <text class="brand-title">NOMAD</text>
+            <text class="brand-sub">到场出示凭证</text>
+          </view>
+        </view>
+
+        <view class="face-center">
+          <view class="verify-box">
+            <text class="verify-label">入营编号</text>
+            <text class="verify-code">LF7K-2QXP</text>
+            <text class="verify-tip">到场向工作人员出示此编号核销</text>
+          </view>
+
+          <view class="back-grid">
+            <view class="grid-cell">
+              <text class="k-text">车型</text>
+              <text class="v-text">双人房车</text>
+            </view>
+            <view class="grid-cell">
+              <text class="k-text">生效日期</text>
+              <text class="v-text">2026.03.10</text>
+            </view>
+            <view class="grid-cell">
+              <text class="k-text">上一站</text>
+              <text class="v-text">柏林营地</text>
+            </view>
+            <view class="grid-cell">
+              <text class="k-text">年限</text>
+              <text class="v-text">1 年</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="face-bottom">
+          <button class="flip-action-btn back-btn" hover-class="btn-hover" bindtap="handleFlip">
+            返回 ↶
+          </button>
+        </view>
+      </view>
+
     </view>
   </view>
 </view>
