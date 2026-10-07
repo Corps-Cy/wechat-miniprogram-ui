@@ -1,0 +1,51 @@
+<view class="spy-container">
+  <view class="hud-bar">
+    <text class="hud-pill">ACTIVE: {{categories[activeCategoryIndex].name}}</text>
+    <text class="hud-pill">INDEX: {{activeCategoryIndex + 1}}/{{categories.length}}</text>
+  </view>
+
+  <view class="spy-card">
+    <view class="card-head">
+      <text class="head-k">KITCHEN</text>
+      <text class="head-v">Menu</text>
+    </view>
+
+    <view class="spy-body">
+      <!-- 左侧分类侧边栏 -->
+      <view class="sidebar-col">
+        <block wx:for="{{categories}}" wx:key="id">
+          <view 
+            class="cat-item {{activeCategoryIndex === index ? 'active-cat' : ''}}"
+            bindtap="selectCategory" 
+            data-index="{{index}}"
+          >
+            <text class="cat-label">{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+
+      <!-- 右侧商品双联动可滚动列表 -->
+      <scroll-view 
+        class="menu-scroll"
+        scroll-y
+        scroll-into-view="{{scrollToId}}"
+        scroll-with-animation
+        bindscroll="onMenuScroll"
+      >
+        <block wx:for="{{categories}}" wx:key="id">
+          <view class="section-group" id="cat-{{item.id}}">
+            <text class="group-title">{{item.name}}</text>
+            <view class="items-list">
+              <block wx:for="{{item.items}}" wx:for-item="dish" wx:key="name">
+                <view class="dish-item" hover-class="dish-hover">
+                  <text class="dish-name">{{dish.name}}</text>
+                  <text class="dish-price">{{dish.price}}</text>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>

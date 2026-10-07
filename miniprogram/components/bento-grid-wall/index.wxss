@@ -1,0 +1,183 @@
+.bento-container {
+  width: 620rpx;
+  background: #fbfbf9;
+  border-radius: 40rpx;
+  padding: 40rpx 36rpx;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+  border: 1rpx solid #e4e4e7;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.04);
+}
+
+.bento-header {
+  margin-bottom: 32rpx;
+}
+
+.title-cn {
+  display: block;
+  font-size: 52rpx;
+  font-weight: 900;
+  color: #18181b;
+  letter-spacing: -1rpx;
+  line-height: 1.1;
+}
+
+.title-en {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #71717a;
+  letter-spacing: -0.5rpx;
+}
+
+/* 亮黄主角大色块 */
+.hero-bento {
+  background: #facc15;
+  border-radius: 32rpx;
+  padding: 32rpx 32rpx 28rpx;
+  box-sizing: border-box;
+  margin-bottom: 28rpx;
+  box-shadow: 0 12rpx 32rpx rgba(250, 204, 21, 0.35);
+}
+
+.bento-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.giant-num-wrap {
+  display: flex;
+  align-items: baseline;
+}
+
+.num-large {
+  font-size: 76rpx;
+  font-weight: 900;
+  color: #18181b;
+  line-height: 1;
+}
+
+.num-slash {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #713f12;
+}
+
+.stat-summary {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #854d0e;
+  margin-top: 8rpx;
+}
+
+/* 73% 环形 */
+.ring-73 {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  background: conic-gradient(#18181b 0deg, #18181b 263deg, rgba(24, 24, 27, 0.15) 263deg);
+  padding: 12rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-num {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #facc15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-weight: 800;
+  color: #18181b;
+}
+
+.pills-row {
+  display: flex;
+  gap: 14rpx;
+}
+
+.pill-item {
+  background: rgba(24, 24, 27, 0.1);
+  padding: 6rpx 18rpx;
+  border-radius: 100rpx;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #713f12;
+}
+
+.active-pill {
+  background: #18181b;
+  color: #ffffff;
+}
+
+/* 四列等宽小格网格 (4COL) */
+.four-col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+}
+
+.habit-box {
+  background: #ffffff;
+  border-radius: 24rpx;
+  border: 1rpx solid #e4e4e7;
+  padding: 24rpx 12rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.15s, border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.box-hover {
+  transform: scale(0.95);
+}
+
+.habit-box.is-done {
+  background: #fefce8;
+  border-color: #fde047;
+}
+
+.habit-icon {
+  font-size: 38rpx;
+  margin-bottom: 8rpx;
+}
+
+.habit-name {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.habit-time {
+  font-size: 18rpx;
+  color: #a1a1aa;
+  margin-top: 4rpx;
+}
+
+.check-dot {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: #f4f4f5;
+  color: #18181b;
+  font-size: 20rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14rpx;
+}
+
+.habit-box.is-done .check-dot {
+  background: #18181b;
+  color: #ffffff;
+}

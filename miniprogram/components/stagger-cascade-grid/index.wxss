@@ -32,6 +32,23 @@
   color: #71717a;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.replay-btn {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #f4f4f5;
+  background: #27272a;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  padding: 6rpx 18rpx;
+  border-radius: 100rpx;
+  cursor: pointer;
+}
+
 .hud-pill {
   font-family: monospace;
   font-size: 18rpx;
@@ -66,6 +83,12 @@
 .grid-item.entered {
   transform: translateY(0) scale(1);
   opacity: 1;
+}
+
+.item-hover {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease !important;
+  opacity: 0.9;
 }
 
 .grid-img {

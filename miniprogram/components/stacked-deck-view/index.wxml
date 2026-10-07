@@ -1,0 +1,52 @@
+<wxs module="deck" src="./deck.wxs"></wxs>
+
+<view class="deck-container">
+  <view class="deck-header">
+    <view class="deck-title-box">
+      <text class="deck-title">{{title}}</text>
+      <text class="deck-sub">上滑切换卡片 · 层叠视差透视</text>
+    </view>
+    <view class="deck-next-btn" bindtap="onNextTap">下一张</view>
+  </view>
+
+  <view class="deck-stage">
+    <!-- 后底卡 3 (层深透视) -->
+    <view wx:if="{{list.length > 2}}" class="deck-card deck-card-back-2" style="background: {{list[2].bgGradient}};">
+      <view class="card-inner-blur"></view>
+    </view>
+
+    <!-- 后底卡 2 (层深透视) -->
+    <view wx:if="{{list.length > 1}}" class="deck-card deck-card-back-1" style="background: {{list[1].bgGradient}};">
+      <view class="card-inner-blur"></view>
+    </view>
+
+    <!-- 顶层主卡 (支持向上拖动与飞离交互) -->
+    <view 
+      wx:if="{{list.length > 0}}" 
+      class="deck-card deck-main-card" 
+      style="background: {{list[0].bgGradient}};"
+      data-id="{{list[0].id}}"
+      bindtouchstart="{{deck.touchStart}}"
+      bindtouchmove="{{deck.touchMove}}"
+      bindtouchend="{{deck.touchEnd}}"
+    >
+      <view class="card-header">
+        <text class="card-tag">{{list[0].tag}}</text>
+        <text class="card-badge">{{list[0].badge}}</text>
+      </view>
+
+      <view class="card-body">
+        <text class="card-name">{{list[0].title}}</text>
+        <text class="card-desc">{{list[0].subtitle}}</text>
+      </view>
+
+      <view class="card-footer">
+        <text class="card-price">{{list[0].price}}</text>
+        <view class="card-action">
+          <text class="action-text">查看细节</text>
+          <text class="action-arrow">→</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

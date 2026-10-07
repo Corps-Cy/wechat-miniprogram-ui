@@ -1,0 +1,144 @@
+.exploded-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.hud-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.hud-pill {
+  font-family: monospace;
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #71717a;
+  background: #18181b;
+  border: 1rpx solid #27272a;
+  padding: 6rpx 16rpx;
+  border-radius: 6rpx;
+}
+
+/* 3D 舞台：perspective: 1200px */
+.exploded-stage {
+  perspective: 1200px;
+  position: relative;
+  width: 580rpx;
+  height: 280rpx;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transition: transform 0.6s cubic-bezier(0.34, 1.36, 0.5, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.exploded-stage.exploded {
+  transform: rotateX(50deg) rotateY(-20deg) rotateZ(15deg);
+}
+
+/* 各图层共有基础 */
+.layer-base, .layer-image, .layer-text, .layer-button {
+  position: absolute;
+  inset: 0;
+  border-radius: 36rpx;
+  transition: transform 0.6s cubic-bezier(0.34, 1.36, 0.5, 1),
+              box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+/* 第 1 层：底壳 */
+.layer-base {
+  background: #18181b;
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.4);
+  transform: translateZ(0px);
+}
+
+.exploded-stage.exploded .layer-base {
+  box-shadow: 0 30rpx 80rpx rgba(0, 0, 0, 0.7);
+}
+
+/* 第 2 层：图片 (浮出 35px) */
+.layer-image {
+  transform: translateZ(0px);
+  overflow: hidden;
+  border-radius: 36rpx;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+}
+
+.exploded-stage.exploded .layer-image {
+  transform: translateZ(35px);
+  box-shadow: 0 16rpx 40rpx rgba(0, 0, 0, 0.5);
+}
+
+/* 第 3 层：文字标题 (浮出 60px) */
+.layer-text {
+  transform: translateZ(0px);
+  padding: 36rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.meta-tag {
+  font-size: 20rpx;
+  font-weight: 800;
+  color: #f97316;
+  letter-spacing: 2rpx;
+}
+
+.main-title {
+  font-size: 42rpx;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1rpx;
+  margin-top: 6rpx;
+}
+
+.exploded-stage.exploded .layer-text {
+  transform: translateZ(60px);
+}
+
+/* 第 4 层：按钮 (浮出 85px) */
+.layer-button {
+  transform: translateZ(0px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 40rpx;
+  pointer-events: none;
+}
+
+.open-pill {
+  background: #f97316;
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 800;
+  padding: 16rpx 36rpx;
+  border-radius: 100rpx;
+  box-shadow: 0 4rpx 16rpx rgba(249, 115, 22, 0.3);
+}
+
+.exploded-stage.exploded .layer-button {
+  transform: translateZ(85px);
+}
+
+.exploded-stage.exploded .open-pill {
+  box-shadow: 0 16rpx 32rpx rgba(249, 115, 22, 0.6);
+}
+
+.hint-text {
+  font-size: 22rpx;
+  color: #71717a;
+  margin-top: 40rpx;
+}

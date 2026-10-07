@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "微信小程序精美组件与交互库",
-  "navigationBarBackgroundColor": "#18181b",
+  "navigationBarBackgroundColor": "#0f172a",
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "frosted-glass-sheet": "../../components/frosted-glass-sheet/index",
@@ -16,6 +16,12 @@
     "stagger-cascade-grid": "../../components/stagger-cascade-grid/index",
     "fluid-morph-sheet": "../../components/fluid-morph-sheet/index",
     "elastic-bottom-sheet": "../../components/elastic-bottom-sheet/index",
-    "shared-element-card": "../../components/shared-element-card/index"
+    "shared-element-card": "../../components/shared-element-card/index",
+    "bento-grid-wall": "../../components/bento-grid-wall/index",
+    "stacked-deck-view": "../../components/stacked-deck-view/index",
+    "layered-exploded-panel": "../../components/layered-exploded-panel/index",
+    "split-button-morph": "../../components/split-button-morph/index",
+    "swipe-card-stack": "../../components/swipe-card-stack/index",
+    "scroll-spy-category": "../../components/scroll-spy-category/index"
   }
 }

@@ -1,6 +1,6 @@
 Page({
   data: {
-    currentTab: 'popups', // 'popups' | 'motions'
+    currentTab: 'popups', // 'popups' | 'motions' | 'layouts' | 'interactions'
     activeModal: '',
     elasticSheetVisible: false
   },
@@ -8,7 +8,9 @@ Page({
   switchTab(e) {
     const tab = e.currentTarget.dataset.tab;
     this.setData({ currentTab: tab });
-    wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+    if (wx.vibrateShort) {
+      wx.vibrateShort({ type: 'light' });
+    }
   },
 
   openModal(e) {

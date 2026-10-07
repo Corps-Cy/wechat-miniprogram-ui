@@ -1,0 +1,49 @@
+<view class="split-card">
+  <view class="hud-bar">
+    <text class="hud-pill">STATE: {{state}}</text>
+    <text class="hud-pill">GAP: {{isSplit ? '16px' : '0px'}}</text>
+  </view>
+
+  <view class="timer-meta">
+    <text class="carry-tag">CARRY</text>
+    <text class="timer-title">Pack timer</text>
+  </view>
+
+  <!-- 中心计时码表 -->
+  <view class="timer-display">
+    <text class="timer-num">{{formattedTime}}</text>
+    <text class="timer-state-tag">{{state}}</text>
+  </view>
+
+  <!-- 按钮分裂容器 -->
+  <view class="button-split-wrapper {{isSplit ? 'is-split' : ''}}">
+    <!-- 初态：单个 Start 按钮 (未分裂时铺满) -->
+    <view 
+      wx:if="{{!isSplit}}" 
+      class="btn-single-start"
+      hover-class="btn-hover"
+      bindtap="handleStart"
+    >
+      <text class="btn-label">Start</text>
+      <view class="dot-play"></view>
+    </view>
+
+    <!-- 分裂态：左暂停，右结束 -->
+    <view wx:else class="split-twins">
+      <view 
+        class="btn-pause" 
+        hover-class="btn-hover" 
+        bindtap="handlePause"
+      >
+        {{isPaused ? 'Resume' : 'Pause'}}
+      </view>
+      <view 
+        class="btn-end" 
+        hover-class="btn-hover" 
+        bindtap="handleEnd"
+      >
+        End
+      </view>
+    </view>
+  </view>
+</view>

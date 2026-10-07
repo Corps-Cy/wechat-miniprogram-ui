@@ -2,29 +2,49 @@
   <!-- 顶部分类导航 -->
   <view class="demo-header">
     <view class="header-badge">
-      <text class="badge-num">14</text>
-      <text class="badge-sub">App & 小程序 · 高级交互合集</text>
+      <text class="badge-num">20</text>
+      <text class="badge-sub">微信小程序 · 精品交互与高阶质感库</text>
     </view>
     <text class="page-title">Vibe Coding UI</text>
-    <text class="page-desc">物理流体曲线、3D 光影与深度交互质感组件库</text>
+    <text class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互</text>
 
     <!-- 分类 Segment 切换 -->
-    <view class="tab-segment">
-      <view 
-        class="tab-item {{currentTab === 'popups' ? 'active' : ''}}" 
-        bindtap="switchTab" 
-        data-tab="popups"
-      >
-        <text class="tab-label">01 凭证弹窗 (6款)</text>
+    <scroll-view class="tab-segment-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+      <view class="tab-segment">
+        <view 
+          class="tab-item {{currentTab === 'popups' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="popups"
+        >
+          <text class="tab-label">01 凭证弹窗</text>
+          <text class="tab-badge">6款</text>
+        </view>
+        <view 
+          class="tab-item {{currentTab === 'motions' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="motions"
+        >
+          <text class="tab-label">02 质感微动效</text>
+          <text class="tab-badge">8款</text>
+        </view>
+        <view 
+          class="tab-item {{currentTab === 'layouts' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="layouts"
+        >
+          <text class="tab-label">03 审美页面布局</text>
+          <text class="tab-badge">3款</text>
+        </view>
+        <view 
+          class="tab-item {{currentTab === 'interactions' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="interactions"
+        >
+          <text class="tab-label">04 触觉高级交互</text>
+          <text class="tab-badge">3款</text>
+        </view>
       </view>
-      <view 
-        class="tab-item {{currentTab === 'motions' ? 'active' : ''}}" 
-        bindtap="switchTab" 
-        data-tab="motions"
-      >
-        <text class="tab-label">02 质感微动效 (8款)</text>
-      </view>
-    </view>
+    </scroll-view>
   </view>
 
   <!-- ==================== 分类 1：凭证与卡券类弹层 ==================== -->
@@ -58,83 +78,83 @@
           <text class="card-seq">03</text>
           <view class="card-pill">TICKS 53 · 1f · INLINE</view>
         </view>
-        <text class="card-name">刻度尺扫到今天</text>
-        <text class="card-sub">Tick Ruler Sheet · 53 周逐根变深与编号原地展开</text>
+        <text class="card-name">刻度扫到今天</text>
+        <text class="card-sub">Tick Ruler Sheet · 53周刻度点亮 + 行内字号平滑展开</text>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="photo">
         <view class="card-meta">
           <text class="card-seq">04</text>
-          <view class="card-pill">ZOOM 1.08 · OVERLAP -22px</view>
+          <view class="card-pill">IMG 1.08→1 · MT -22px</view>
         </view>
         <text class="card-name">照片抽屉贴合</text>
-        <text class="card-sub">Photo Drawer Sheet · 原比例铺满与底边紧贴推入</text>
+        <text class="card-sub">Photo Drawer Sheet · 暗角大字 + 负外边距无缝卡位</text>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="flip">
         <view class="card-meta">
           <text class="card-seq">05</text>
-          <view class="card-pill">PERSP 1200px · SNAP 90°</view>
+          <view class="card-pill">PERSP 1200 · Y180 · BACK</view>
         </view>
-        <text class="card-name">点击翻面凭证</text>
-        <text class="card-sub">Flip to Reveal · 3D 沿 Y 轴 180° 原地翻转出示</text>
+        <text class="card-name">原地翻面面板</text>
+        <text class="card-sub">Flip Card Sheet · 3D 立体翻转 + 背面暗色防伪核销</text>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="drag">
         <view class="card-meta">
           <text class="card-seq">06</text>
-          <view class="card-pill">DASHED · SWING 2° · SNAP 40%</view>
+          <view class="card-pill">SPRING DAMP · DRAG</view>
         </view>
-        <text class="card-name">下拉展开面板</text>
-        <text class="card-sub">Pull Down Reveal · 虚线折痕、手柄微摆动与吸附</text>
+        <text class="card-name">下拉展开抽屉</text>
+        <text class="card-sub">Drag Expand Sheet · 拖动手柄阻尼展开细节</text>
       </view>
     </view>
   </view>
 
-  <!-- ==================== 分类 2：高级交互微动效 ==================== -->
+  <!-- ==================== 分类 2：质感微动效 ==================== -->
   <view class="section-container" wx:if="{{currentTab === 'motions'}}">
     <view class="section-title-wrap">
-      <text class="section-title">触觉与微交互 · VIBE MOTIONS</text>
-      <text class="section-desc">直接嵌入界面的 8 种实体质感互动组件</text>
+      <text class="section-title">质感微动效 · TACTILE MOTIONS</text>
+      <text class="section-desc">8 种高质感光影与物理弹性反馈组件</text>
     </view>
 
-    <!-- 01 3D倾斜光影面板 -->
+    <!-- 01 陀螺仪 3D 倾斜光影卡片 -->
     <view class="motion-block">
-      <text class="block-label">01 3D 倾斜光影面板 (TILT GLARE)</text>
+      <text class="block-label">01 3D 倾斜光影卡片 (TILT GLARE)</text>
       <tilt-glare-card />
     </view>
 
-    <!-- 02 流体胶囊形变 -->
+    <!-- 02 动态弥散锥形光晕 -->
     <view class="motion-block">
-      <text class="block-label">02 流体胶囊形变 (FLUID MORPH)</text>
-      <fluid-morph-sheet />
-    </view>
-
-    <!-- 03 共享元素无缝展开 -->
-    <view class="motion-block">
-      <text class="block-label">03 共享元素无缝展开 (SHARED ELEMENT)</text>
-      <shared-element-card />
-    </view>
-
-    <!-- 04 磁吸游标与滚动码表 -->
-    <view class="motion-block">
-      <text class="block-label">04 磁吸游标与滚动码表 (SNAP ODOMETER)</text>
-      <odometer-chart />
-    </view>
-
-    <!-- 05 阻尼弹性抽屉 -->
-    <view class="motion-block">
-      <text class="block-label">05 阻尼弹性抽屉 (BOTTOM SHEET)</text>
-      <button class="sheet-trigger-btn" bindtap="openElasticSheet">打开三段弹性抽屉</button>
-    </view>
-
-    <!-- 06 动态弥散光晕边框 -->
-    <view class="motion-block">
-      <text class="block-label">06 动态弥散光晕边框 (CONIC GLOW)</text>
+      <text class="block-label">02 动态弥散光晕卡片 (CONIC GLOW)</text>
       <conic-glow-card />
     </view>
 
-    <!-- 07 物理弹簧交错流 -->
+    <!-- 03 磁吸游标与滚动码表 -->
+    <view class="motion-block">
+      <text class="block-label">03 磁吸游标与滚动码表 (ODOMETER CHART)</text>
+      <odometer-chart />
+    </view>
+
+    <!-- 04 流体胶囊形变面板 -->
+    <view class="motion-block">
+      <text class="block-label">04 流体胶囊形变面板 (FLUID MORPH)</text>
+      <fluid-morph-sheet />
+    </view>
+
+    <!-- 05 共享元素无缝展开卡片 -->
+    <view class="motion-block">
+      <text class="block-label">05 共享元素卡片展开 (SHARED ELEMENT)</text>
+      <shared-element-card />
+    </view>
+
+    <!-- 06 三段阻尼弹性抽屉 -->
+    <view class="motion-block">
+      <text class="block-label">06 三段阻尼弹性抽屉 (ELASTIC SHEET)</text>
+      <button class="trigger-btn" bindtap="openElasticSheet">打开三段阻尼抽屉</button>
+    </view>
+
+    <!-- 07 物理弹簧交错流 (带重播与点击反馈) -->
     <view class="motion-block">
       <text class="block-label">07 物理弹簧交错流 (STAGGER CASCADE)</text>
       <stagger-cascade-grid />
@@ -147,7 +167,53 @@
     </view>
   </view>
 
-  <!-- 6 个弹层组件实例 -->
+  <!-- ==================== 分类 3：审美页面布局 ==================== -->
+  <view class="section-container" wx:if="{{currentTab === 'layouts'}}">
+    <view class="section-title-wrap">
+      <text class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS</text>
+      <text class="section-desc">源自前沿 App 视觉语言，打破传统平铺式陈列</text>
+    </view>
+
+    <!-- 便当盒网格墙 BENTO GRID -->
+    <view class="motion-block">
+      <bento-grid-wall />
+    </view>
+
+    <!-- 层叠卡片牌组 STACKED DECK -->
+    <view class="motion-block">
+      <stacked-deck-view />
+    </view>
+
+    <!-- 分层视差抽离面板 LAYERED EXPLODED -->
+    <view class="motion-block">
+      <layered-exploded-panel />
+    </view>
+  </view>
+
+  <!-- ==================== 分类 4：触觉高级交互 ==================== -->
+  <view class="section-container" wx:if="{{currentTab === 'interactions'}}">
+    <view class="section-title-wrap">
+      <text class="section-title">触觉高级交互 · ADVANCED INTERACTIONS</text>
+      <text class="section-desc">手一碰就有回应，基于 WXS 极致 60fps 零延迟跟手体验</text>
+    </view>
+
+    <!-- 左右滑动卡片堆叠 SWIPE CARD STACK -->
+    <view class="motion-block">
+      <swipe-card-stack />
+    </view>
+
+    <!-- 裂变流体胶囊按键 SPLIT BUTTON MORPH -->
+    <view class="motion-block">
+      <split-button-morph />
+    </view>
+
+    <!-- 滚动联动联动列表 SCROLL SPY CATEGORY -->
+    <view class="motion-block">
+      <scroll-spy-category />
+    </view>
+  </view>
+
+  <!-- ==================== 弹层组件实体挂载 ==================== -->
   <frosted-glass-sheet 
     visible="{{activeModal === 'frosted'}}" 
     bind:close="closeModal" 

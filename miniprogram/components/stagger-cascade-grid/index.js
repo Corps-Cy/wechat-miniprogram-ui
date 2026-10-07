@@ -13,9 +13,26 @@ Component({
 
   lifetimes: {
     attached() {
+      this.playCascade();
+    }
+  },
+
+  methods: {
+    playCascade() {
+      this.setData({ isEntered: false });
       setTimeout(() => {
         this.setData({ isEntered: true });
-      }, 100);
+        wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+      }, 50);
+    },
+
+    replayCascade() {
+      this.playCascade();
+    },
+
+    onItemTap(e) {
+      wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+      this.triggerEvent('itemTap', { id: e.currentTarget.dataset.id });
     }
   }
 });

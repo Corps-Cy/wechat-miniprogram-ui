@@ -1,6 +1,10 @@
 # 组件库全景分类清单与智能推荐指南 (Component Catalog & Recommendation Guide)
 
-本文档是 AI Agent 与开发者的**核心选型决策树**。整合了来自两大工业级视频标准的 **14 种高端交互组件与微动效**，涵盖凭证弹窗与实体交互两大领域。
+本文档是 AI Agent 与开发者的**核心选型决策树**。整合了来自四大工业级设计标准视频的 **20 款高端交互组件与微动效**，涵盖：
+1. **01 凭证弹窗 (Popup Panels)**
+2. **02 质感微动效 (Tactile Motions)**
+3. **03 审美页面布局 (Aesthetic Layouts)**
+4. **04 触觉高级交互 (Advanced Touch Interactions)**
 
 ---
 
@@ -31,8 +35,30 @@
 | **10** | `odometer-chart` | **磁吸游标与滚动码表** | `SNAP: P01->P12`<br>`TICKER: ODOMETER`<br>`Haptic` | 运动速度折线图、股票走势，手指滑动自动磁吸节点，数字机械码表滚动。 |
 | **11** | `elastic-bottom-sheet` | **阻尼弹性抽屉** | `STRETCH: 44px`<br>`LOW / MID / FULL`<br>`Velocity Snap` | 参数配置面板、多段式抽屉，拉到底/顶带橡皮筋阻尼拉伸，松手速度吸附。 |
 | **12** | `conic-glow-card` | **动态弥散光晕边框** | `CONIC: 360° 4s`<br>`GLOW: 100%`<br>`2px Border` | AI 核心推荐卡片、高光功能区，2px 慢速旋转流光描边 + 呼吸弥散背光。 |
-| **13** | `stagger-cascade-grid` | **物理弹簧交错流** | `STAGGER: 0.10s`<br>`SPRING CASCADE`<br>`0.6s Overshoot` | 照片墙、商品列表加载，各子元素错开 0.1s 带有微弱弹性向上滑入。 |
+| **13** | `stagger-cascade-grid` | **物理弹簧交错流** | `STAGGER: 0.10s`<br>`SPRING CASCADE`<br>`0.6s Overshoot` | 照片墙、商品列表加载，各子元素错开 0.1s 带有微弱弹性向上滑入。支持点击重播与按压反馈。 |
 | **14** | `press-scale-button` | **弹性微缩触觉反馈** | `SCALE: 0.96`<br>`OVERSHOOT: +1.1%`<br>`Inner Shadow` | 关键行动按钮（CTA），按下深凹压缩与内阴影，松手超调回弹 + 原生微震动。 |
+
+---
+
+### 分类 03：高级审美页面布局 (15~17 Aesthetic Layouts)
+源自 Apple、Linear、Raycast 等现代设计语言，打破传统平铺直叙的信息层级：
+
+| 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
+| :--- | :--- | :--- | :--- | :--- |
+| **15** | `bento-grid-wall` | **便当盒网格墙 (Bento Grid)** | `GAP: 20rpx`<br>`BLUR: 20px`<br>`ASPECT-RATIO` | 首页仪表盘、功能矩阵、多维度数据汇聚、品牌核心亮点概览。 |
+| **16** | `stacked-deck-view` | **层叠卡片牌组 (Stacked Deck)** | `PERSP: 1000px`<br>`SCALE: 0.88/0.94/1`<br>`SWIPE: -80px` | 精选推荐、每日卡片、特权探索，卡片如纸牌向上推走滑出。 |
+| **17** | `layered-exploded-panel` | **分层视差抽离面板 (Layered Exploded)** | `EXPLODE: 70rpx`<br>`TILT: -16deg / 22deg`<br>`MULTI-LAYER` | 硬件拆解、黑科技分层、复杂架构图解、VIP 权益分层透视展示。 |
+
+---
+
+### 分类 04：触觉高级手势交互 (18~20 Advanced Touch Interactions)
+基于微信原生 WXS 运行于渲染层，实现 60fps 零延迟跟手交互：
+
+| 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
+| :--- | :--- | :--- | :--- | :--- |
+| **18** | `swipe-card-stack` | **左右滑动堆叠 (Swipe Stack)** | `SWIPE: ±120px`<br>`ROT: (dx/160)*14°`<br>`WXS TOUCH` | 探索挑选、Tinder 模式卡片快速决策、活动卡片连续浏览。 |
+| **19** | `split-button-morph` | **裂变流体胶囊 (Split Button)** | `EXPAND: 420rpx`<br>`STAGGER: 0.12s`<br>`Haptic Medium` | 多功能快捷操作条、分享与收藏二合一、状态切换悬浮胶囊。 |
+| **20** | `scroll-spy-category` | **滚动联动分类 (Scroll Spy)** | `STICKY: 0`<br>`ACTIVE-TRACK`<br>`Smooth Scroll` | 外卖点餐、电商分类瀑布流、长文档大纲导航。 |
 
 ---
 
@@ -42,8 +68,10 @@
 flowchart TD
     UserReq[用户交互需求] --> Type{需求类型?}
     
-    Type -->|弹窗/凭证/卡券| Voucher[分类 01: 凭证弹窗]
-    Type -->|按键/图表/卡片动效| Motion[分类 02: 质感微动效]
+    Type -->|凭证 / 核销 / 弹层| Voucher[分类 01: 凭证弹窗]
+    Type -->|按键 / 图表 / 物理触感| Motion[分类 02: 质感微动效]
+    Type -->|页面布局 / 仪表盘 / 展陈| Layout[分类 03: 审美页面布局]
+    Type -->|卡片手势 / 胶囊裂变 / 列表| Touch[分类 04: 触觉高级交互]
     
     Voucher --> V1{主要展示重点?}
     V1 -->|剩余天数/倒计时| Ring[02. ring-count-sheet]
@@ -62,4 +90,14 @@ flowchart TD
     M1 -->|胶囊按钮变弹窗| Morph[08. fluid-morph-sheet]
     M1 -->|列表点开展开详情| Shared[09. shared-element-card]
     M1 -->|三段多高度抽屉| Elastic[11. elastic-bottom-sheet]
+
+    Layout --> L1{视觉呈现结构?}
+    L1 -->|功能矩阵/多维信息| Bento[15. bento-grid-wall]
+    L1 -->|精选推荐/向上滑牌| Deck[16. stacked-deck-view]
+    L1 -->|硬件拆解/多层透视| Explode[17. layered-exploded-panel]
+
+    Touch --> T1{手势交互方式?}
+    Touch -->|左右滑动卡片决策| Swipe[18. swipe-card-stack]
+    Touch -->|胶囊分裂多功能按键| Split[19. split-button-morph]
+    Touch -->|左分类右列表滚动联动| Spy[20. scroll-spy-category]
 ```

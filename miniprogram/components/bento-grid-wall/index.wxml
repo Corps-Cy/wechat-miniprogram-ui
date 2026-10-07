@@ -1,0 +1,49 @@
+<view class="bento-container">
+  <!-- 顶部超粗两行标题 -->
+  <view class="bento-header">
+    <text class="title-cn">习惯墙</text>
+    <text class="title-en">Habit Wall.</text>
+  </view>
+
+  <!-- 亮黄大色块主角卡片 (HERO BENTO) -->
+  <view class="hero-bento">
+    <view class="bento-top">
+      <view class="stat-left">
+        <view class="giant-num-wrap">
+          <text class="num-large">8</text>
+          <text class="num-slash">/11</text>
+        </view>
+        <text class="stat-summary">今日完成 · 还有 3 个没做 · 1 个跳过</text>
+      </view>
+
+      <!-- 环形完成度 73% -->
+      <view class="ring-73">
+        <text class="ring-num">73%</text>
+      </view>
+    </view>
+
+    <!-- 状态小胶囊 -->
+    <view class="pills-row">
+      <view class="pill-item active-pill">全部 11</view>
+      <view class="pill-item">待打卡 3</view>
+      <view class="pill-item">已完成 8</view>
+    </view>
+  </view>
+
+  <!-- 四列等宽小格打卡项 (4COL GRID) -->
+  <view class="four-col-grid">
+    <block wx:for="{{habits}}" wx:key="id">
+      <view 
+        class="habit-box {{item.done ? 'is-done' : ''}}" 
+        hover-class="box-hover"
+        bindtap="toggleHabit" 
+        data-id="{{item.id}}"
+      >
+        <text class="habit-icon">{{item.icon}}</text>
+        <text class="habit-name">{{item.name}}</text>
+        <text class="habit-time">{{item.time}}</text>
+        <view class="check-dot">{{item.done ? '✓' : ''}}</view>
+      </view>
+    </block>
+  </view>
+</view>

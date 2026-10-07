@@ -1,0 +1,153 @@
+.deck-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 0;
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36rpx;
+  padding: 0 8rpx;
+}
+
+.deck-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.deck-sub {
+  display: block;
+  font-size: 24rpx;
+  color: #64748b;
+  margin-top: 6rpx;
+}
+
+.deck-next-btn {
+  padding: 10rpx 24rpx;
+  background: #f1f5f9;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #334155;
+}
+
+.deck-stage {
+  position: relative;
+  width: 100%;
+  height: 480rpx;
+  perspective: 1000px;
+}
+
+.deck-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 440rpx;
+  border-radius: 36rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  color: #ffffff;
+  box-shadow: 0 20rpx 40rpx rgba(15, 23, 42, 0.16);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 后底卡 2 (最底层) */
+.deck-card-back-2 {
+  transform: translate3d(0, 48rpx, -120px) scale(0.88);
+  opacity: 0.45;
+  z-index: 1;
+}
+
+/* 后底卡 1 (中间层) */
+.deck-card-back-1 {
+  transform: translate3d(0, 24rpx, -60px) scale(0.94);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+/* 顶层主卡 */
+.deck-main-card {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  touch-action: pan-y;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-tag {
+  font-size: 22rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card-badge {
+  padding: 6rpx 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999rpx;
+  font-size: 20rpx;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.card-body {
+  margin: 30rpx 0;
+}
+
+.card-name {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 800;
+  letter-spacing: -0.5rpx;
+}
+
+.card-desc {
+  display: block;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10rpx;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 12rpx 24rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999rpx;
+  backdrop-filter: blur(10px);
+}
+
+.action-text {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.action-arrow {
+  font-size: 26rpx;
+}

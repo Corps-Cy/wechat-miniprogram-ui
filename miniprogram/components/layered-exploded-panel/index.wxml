@@ -1,0 +1,35 @@
+<view class="exploded-container">
+  <!-- 顶部 HUD 读数 -->
+  <view class="hud-bar">
+    <text class="hud-pill">TILT: {{isExploded ? '52.0°' : '0.0°'}}</text>
+    <text class="hud-pill">LAYER_GAP: {{isExploded ? '70px' : '0px'}}</text>
+    <text class="hud-pill">LAYERS: {{isExploded ? '4/4' : '1/4'}}</text>
+  </view>
+
+  <view 
+    class="exploded-stage {{isExploded ? 'exploded' : ''}}"
+    bindtouchstart="onTouchStart"
+    bindtouchend="onTouchEnd"
+  >
+    <!-- 第 1 层：底层壳体容器 -->
+    <view class="layer-base"></view>
+
+    <!-- 第 2 层：图片图层 (浮起 +30px) -->
+    <view class="layer-image">
+      <image class="hero-img" src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80" mode="aspectFill" />
+    </view>
+
+    <!-- 第 3 层：文字标题层 (浮起 +50px) -->
+    <view class="layer-text">
+      <text class="meta-tag">RIDGE CAMP</text>
+      <text class="main-title">2 NIGHTS</text>
+    </view>
+
+    <!-- 第 4 层：高光按钮层 (浮起 +70px) -->
+    <view class="layer-button">
+      <view class="open-pill">Open</view>
+    </view>
+  </view>
+
+  <text class="hint-text">{{isExploded ? '松手平滑闭合' : '长按感受 52° 四层 3D 纵深爆炸浮起'}}</text>
+</view>

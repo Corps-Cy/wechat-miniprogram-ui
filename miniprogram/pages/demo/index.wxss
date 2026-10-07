@@ -50,25 +50,33 @@
 }
 
 /* 分类 Segment 切换 */
+.tab-segment-scroll {
+  width: 100%;
+  white-space: nowrap;
+  margin-top: 36rpx;
+}
+
 .tab-segment {
-  display: flex;
+  display: inline-flex;
   background: #18181b;
   border: 1rpx solid #27272a;
   border-radius: 100rpx;
   padding: 8rpx;
-  margin-top: 36rpx;
+  gap: 8rpx;
 }
 
 .tab-item {
-  flex: 1;
-  text-align: center;
-  padding: 16rpx 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 16rpx 28rpx;
   border-radius: 100rpx;
-  transition: background 0.25s, color 0.25s;
+  transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .tab-item.active {
   background: #27272a;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.3);
 }
 
 .tab-label {
@@ -77,8 +85,22 @@
   color: #71717a;
 }
 
+.tab-badge {
+  font-size: 18rpx;
+  font-weight: 800;
+  padding: 2rpx 10rpx;
+  border-radius: 100rpx;
+  background: rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+}
+
 .tab-item.active .tab-label {
   color: #ffffff;
+}
+
+.tab-item.active .tab-badge {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
 }
 
 .section-container {
