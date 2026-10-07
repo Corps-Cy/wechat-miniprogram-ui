@@ -176,16 +176,19 @@
 
     <!-- 便当盒网格墙 BENTO GRID -->
     <view class="motion-block">
+      <text class="block-label">01 便当盒网格墙 (BENTO GRID WALL)</text>
       <bento-grid-wall />
     </view>
 
     <!-- 层叠卡片牌组 STACKED DECK -->
     <view class="motion-block">
+      <text class="block-label">02 层叠卡片牌组 (STACKED DECK)</text>
       <stacked-deck-view />
     </view>
 
     <!-- 分层视差抽离面板 LAYERED EXPLODED -->
     <view class="motion-block">
+      <text class="block-label">03 分层视差抽离面板 (LAYERED EXPLODED)</text>
       <layered-exploded-panel />
     </view>
   </view>
@@ -199,16 +202,19 @@
 
     <!-- 左右滑动卡片堆叠 SWIPE CARD STACK -->
     <view class="motion-block">
+      <text class="block-label">01 左右滑动卡片堆叠 (SWIPE STACK)</text>
       <swipe-card-stack />
     </view>
 
     <!-- 裂变流体胶囊按键 SPLIT BUTTON MORPH -->
     <view class="motion-block">
+      <text class="block-label">02 裂变流体胶囊按键 (SPLIT BUTTON)</text>
       <split-button-morph />
     </view>
 
-    <!-- 滚动联动联动列表 SCROLL SPY CATEGORY -->
+    <!-- 滚动联动分类列表 SCROLL SPY CATEGORY -->
     <view class="motion-block">
+      <text class="block-label">03 滚动联动分类列表 (SCROLL SPY)</text>
       <scroll-spy-category />
     </view>
   </view>
