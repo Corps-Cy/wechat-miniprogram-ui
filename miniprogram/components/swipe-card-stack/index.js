@@ -37,6 +37,13 @@ Component({
         this.setData({ currentIndex: nextIdx });
         this.updateCardPair();
       }, 350);
+    },
+
+    nextCard() {
+      wx.vibrateShort && wx.vibrateShort({ type: 'light' });
+      const nextIdx = (this.data.currentIndex + 1) % this.data.cards.length;
+      this.setData({ currentIndex: nextIdx });
+      this.updateCardPair();
     }
   }
 });

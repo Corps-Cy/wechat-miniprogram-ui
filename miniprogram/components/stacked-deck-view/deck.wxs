@@ -3,9 +3,12 @@ var startY = 0;
 function touchStart(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   startY = touch.clientY;
-  ins.selectComponent('.deck-main-card').setStyle({
-    'transition': 'none'
-  });
+  var card = ins.selectComponent('.deck-main-card');
+  if (card) {
+    card.setStyle({
+      'transition': 'none'
+    });
+  }
 }
 
 function touchMove(e, ins) {
@@ -15,19 +18,24 @@ function touchMove(e, ins) {
   // 只允许向上推
   if (deltaY < 0) {
     var rot = (deltaY / 200) * 8;
-    ins.selectComponent('.deck-main-card').setStyle({
-      'transform': 'translate3d(0, ' + deltaY + 'px, 0) rotate(' + rot.toFixed(1) + 'deg)'
-    });
+    var card = ins.selectComponent('.deck-main-card');
+    if (card) {
+      card.setStyle({
+        'transform': 'translate3d(0, ' + deltaY + 'px, 0) rotate(' + rot.toFixed(1) + 'deg)'
+      });
+    }
   }
 }
 
 function touchEnd(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   var deltaY = touch.clientY - startY;
+  var card = ins.selectComponent('.deck-main-card');
+  if (!card) return;
 
   if (deltaY < -80) {
     // 向上飞走
-    ins.selectComponent('.deck-main-card').setStyle({
+    card.setStyle({
       'transition': 'transform 0.35s ease-out, opacity 0.3s',
       'transform': 'translate3d(0, -600px, 0) rotate(-15deg)',
       'opacity': '0'
@@ -35,9 +43,20 @@ function touchEnd(e, ins) {
     ins.callMethod('onDeckSwiped');
   } else {
     // 回弹
-    ins.selectComponent('.deck-main-card').setStyle({
+    card.setStyle({
       'transition': 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25)',
       'transform': 'translate3d(0, 0, 0) rotate(0deg)'
+    });
+  }
+}
+
+function onListChange(newValue, oldValue, ownerInstance, ins) {
+  var card = ownerInstance.selectComponent('.deck-main-card');
+  if (card) {
+    card.setStyle({
+      'transition': 'none',
+      'transform': 'translate3d(0, 0, 0) rotate(0deg)',
+      'opacity': '1'
     });
   }
 }
@@ -45,5 +64,6 @@ function touchEnd(e, ins) {
 module.exports = {
   touchStart: touchStart,
   touchMove: touchMove,
-  touchEnd: touchEnd
+  touchEnd: touchEnd,
+  onListChange: onListChange
 };

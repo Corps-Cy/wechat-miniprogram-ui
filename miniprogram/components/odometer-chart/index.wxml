@@ -19,6 +19,7 @@
   <!-- 折线图与磁吸滑动触摸层 -->
   <view 
     class="chart-area"
+    bindtouchstart="{{scrubHandler.touchStart}}"
     bindtouchmove="{{scrubHandler.touchMove}}"
     bindtouchend="{{scrubHandler.touchEnd}}"
   >

@@ -192,6 +192,30 @@
   margin-top: 6rpx;
 }
 
+.card-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.06);
+}
+
+.action-hint {
+  font-size: 20rpx;
+  color: #a1a1aa;
+}
+
+.open-badge {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  padding: 6rpx 18rpx;
+  border-radius: 100rpx;
+  border: 1rpx solid rgba(249, 115, 22, 0.25);
+}
+
 /* 动效展示块 */
 .motion-block {
   width: 100%;
@@ -210,13 +234,44 @@
   letter-spacing: 1rpx;
 }
 
-.sheet-trigger-btn {
-  background: #27272a;
+.elastic-demo-card {
+  width: 100%;
+  background: #18181b;
+  border-radius: 32rpx;
+  border: 1rpx solid #27272a;
+  padding: 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.elastic-title {
+  font-size: 30rpx;
+  font-weight: 800;
   color: #ffffff;
-  font-size: 28rpx;
+}
+
+.elastic-desc {
+  font-size: 22rpx;
+  color: #71717a;
+  line-height: 1.4;
+  margin-top: 6rpx;
+}
+
+.sheet-trigger-btn {
+  background: #f97316;
+  color: #ffffff;
+  font-size: 26rpx;
   font-weight: 700;
   border-radius: 100rpx;
-  padding: 22rpx 0;
+  padding: 18rpx 0;
   line-height: 1.4;
-  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  border: none;
+  box-shadow: 0 4rpx 16rpx rgba(249, 115, 22, 0.3);
+}
+
+.btn-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
 }

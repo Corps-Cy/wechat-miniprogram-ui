@@ -62,6 +62,10 @@
         </view>
         <text class="card-name">玻璃面板浮起</text>
         <text class="card-sub">Frosted Glass Sheet · 12 月份格子错帧填充</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ring">
@@ -71,6 +75,10 @@
         </view>
         <text class="card-name">圆环计数弹出</text>
         <text class="card-sub">Ring Count Sheet · 顺时针画圆与数字同步递增</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="ruler">
@@ -80,6 +88,10 @@
         </view>
         <text class="card-name">刻度扫到今天</text>
         <text class="card-sub">Tick Ruler Sheet · 53周刻度点亮 + 行内字号平滑展开</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="photo">
@@ -89,6 +101,10 @@
         </view>
         <text class="card-name">照片抽屉贴合</text>
         <text class="card-sub">Photo Drawer Sheet · 暗角大字 + 负外边距无缝卡位</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="flip">
@@ -98,6 +114,10 @@
         </view>
         <text class="card-name">原地翻面面板</text>
         <text class="card-sub">Flip Card Sheet · 3D 立体翻转 + 背面暗色防伪核销</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
 
       <view class="demo-card" hover-class="card-hover" bindtap="openModal" data-type="drag">
@@ -107,6 +127,10 @@
         </view>
         <text class="card-name">下拉展开抽屉</text>
         <text class="card-sub">Drag Expand Sheet · 拖动手柄阻尼展开细节</text>
+        <view class="card-action-bar">
+          <text class="action-hint">轻触打开全量弹层体验</text>
+          <view class="open-badge">打开演示 ➔</view>
+        </view>
       </view>
     </view>
   </view>
@@ -151,7 +175,13 @@
     <!-- 06 三段阻尼弹性抽屉 -->
     <view class="motion-block">
       <text class="block-label">06 三段阻尼弹性抽屉 (ELASTIC SHEET)</text>
-      <button class="sheet-trigger-btn" bindtap="openElasticSheet">打开三段阻尼抽屉</button>
+      <view class="elastic-demo-card">
+        <view class="elastic-info">
+          <text class="elastic-title">三段自适应阻尼吸附抽屉</text>
+          <text class="elastic-desc">支持橡皮筋阻尼拉伸与 LOW / MID / FULL 档位自动吸附停靠</text>
+        </view>
+        <button class="sheet-trigger-btn" hover-class="btn-hover" bindtap="openElasticSheet">打开抽屉演示 ➔</button>
+      </view>
     </view>
 
     <!-- 07 物理弹簧交错流 (带重播与点击反馈) -->

@@ -71,7 +71,7 @@
   height: 180rpx;
   border-radius: 20rpx;
   overflow: hidden;
-  background: #27272a;
+  background: linear-gradient(135deg, #27272a 0%, #3f3f46 100%);
   transform: translateY(60rpx) scale(0.92);
   opacity: 0;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2),

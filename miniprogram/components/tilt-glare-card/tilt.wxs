@@ -1,25 +1,36 @@
-var rect = null;
+var startX = 0;
+var startY = 0;
 
 function touchStart(e, ins) {
-  ins.selectComponent('.glare-layer').setStyle({
-    'opacity': '1'
-  });
-  ins.selectComponent('.tilt-body').setStyle({
-    'transition': 'none'
-  });
+  var touch = e.touches[0] || e.changedTouches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+
+  var glare = ins.selectComponent('.glare-layer');
+  if (glare) {
+    glare.setStyle({
+      'opacity': '1'
+    });
+  }
+  var card = ins.selectComponent('.tilt-body');
+  if (card) {
+    card.setStyle({
+      'transition': 'none'
+    });
+  }
 }
 
 function touchMove(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   var card = ins.selectComponent('.tilt-body');
+  if (!card) return;
 
-  // 动态根据触摸坐标计算相对于卡片中心的百分比偏移
-  var clientX = touch.clientX;
-  var clientY = touch.clientY;
+  var deltaX = touch.clientX - startX;
+  var deltaY = touch.clientY - startY;
 
-  // 限制最大旋转角度 ±8deg
-  var rx = ((clientY - 300) / 150) * -8;
-  var ry = ((clientX - 190) / 150) * 8;
+  // 限制最大旋转角度 ±8deg (相对位移计算，适配任意滚动位置)
+  var rx = -(deltaY / 60) * 8;
+  var ry = (deltaX / 60) * 8;
   rx = Math.max(Math.min(rx, 8), -8);
   ry = Math.max(Math.min(ry, 8), -8);
 
@@ -28,12 +39,15 @@ function touchMove(e, ins) {
   });
 
   // 更新镜面反光流光位置
-  var glareX = Math.max(Math.min(((clientX - 40) / 300) * 100, 100), 0);
-  var glareY = Math.max(Math.min(((clientY - 200) / 200) * 100, 100), 0);
-  ins.selectComponent('.glare-layer').setStyle({
-    'background': 'radial-gradient(circle at ' + glareX.toFixed(0) + '% ' + glareY.toFixed(0) + '%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%)',
-    'opacity': '1'
-  });
+  var glareX = 50 + (ry / 8) * 45;
+  var glareY = 50 - (rx / 8) * 45;
+  var glare = ins.selectComponent('.glare-layer');
+  if (glare) {
+    glare.setStyle({
+      'background': 'radial-gradient(circle at ' + glareX.toFixed(0) + '% ' + glareY.toFixed(0) + '%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%)',
+      'opacity': '1'
+    });
+  }
 
   ins.callMethod('onTiltUpdate', {
     tiltX: rx.toFixed(1),
@@ -43,15 +57,20 @@ function touchMove(e, ins) {
 }
 
 function touchEnd(e, ins) {
-  // 松手 Spring 阻尼回正
-  ins.selectComponent('.tilt-body').setStyle({
-    'transition': 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-    'transform': 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
-  });
-  ins.selectComponent('.glare-layer').setStyle({
-    'transition': 'opacity 0.4s ease',
-    'opacity': '0'
-  });
+  var card = ins.selectComponent('.tilt-body');
+  if (card) {
+    card.setStyle({
+      'transition': 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+      'transform': 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
+    });
+  }
+  var glare = ins.selectComponent('.glare-layer');
+  if (glare) {
+    glare.setStyle({
+      'transition': 'opacity 0.4s ease',
+      'opacity': '0'
+    });
+  }
 
   ins.callMethod('onTiltUpdate', {
     tiltX: '0.0',

@@ -6,8 +6,11 @@
 
   <view class="todo-card">
     <view class="card-header">
-      <text class="card-title">待办任务列表</text>
-      <text class="card-tip">点击右侧叉号测试撤销条</text>
+      <view class="header-left">
+        <text class="card-title">待办任务列表</text>
+        <text class="card-tip">点击右侧叉号测试 4s 撤销条</text>
+      </view>
+      <view class="reset-link" bindtap="resetItems">重置任务</view>
     </view>
 
     <!-- 任务列表 -->

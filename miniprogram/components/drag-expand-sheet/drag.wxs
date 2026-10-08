@@ -105,8 +105,29 @@ function touchEnd(e, ins) {
   }
 }
 
+function onVisibleChange(newVal, oldVal, ownerInstance, ins) {
+  if (newVal) {
+    isExpanded = false;
+    var receipt = ownerInstance.selectComponent('.unfold-receipt');
+    var chevron = ownerInstance.selectComponent('.handle-chevron');
+    if (receipt) {
+      receipt.setStyle({
+        'height': '0px',
+        'opacity': '0',
+        'transform': 'rotate(0deg)'
+      });
+    }
+    if (chevron) {
+      chevron.setStyle({
+        'transform': 'rotate(0deg)'
+      });
+    }
+  }
+}
+
 module.exports = {
   touchStart: touchStart,
   touchMove: touchMove,
-  touchEnd: touchEnd
+  touchEnd: touchEnd,
+  onVisibleChange: onVisibleChange
 };

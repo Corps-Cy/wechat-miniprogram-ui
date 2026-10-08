@@ -3,7 +3,7 @@
 <view class="pull-wrapper {{visible ? 'active' : ''}}" wx:if="{{rendered}}">
   <view class="pull-mask" catchtouchmove="preventTouchMove" bindtap="handleClose"></view>
 
-  <view class="ticket-container" catchtouchmove="preventTouchMove">
+  <view class="ticket-container" catchtouchmove="preventTouchMove" change:visible="{{dragHandler.onVisibleChange}}" visible="{{visible}}">
     <!-- 上半截主凭证 -->
     <view class="upper-ticket">
       <!-- 顶部图片与标题 -->

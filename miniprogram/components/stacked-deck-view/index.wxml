@@ -9,7 +9,7 @@
     <view class="deck-next-btn" bindtap="onNextTap">下一张</view>
   </view>
 
-  <view class="deck-stage">
+  <view class="deck-stage" change:list="{{deck.onListChange}}" list="{{list}}">
     <!-- 后底卡 3 (层深透视) -->
     <view wx:if="{{list.length > 2}}" class="deck-card deck-card-back-2" style="background: {{list[2].bgGradient}};">
       <view class="card-inner-blur"></view>

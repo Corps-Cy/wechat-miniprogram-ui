@@ -37,8 +37,23 @@
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 24rpx;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-link {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  padding: 6rpx 16rpx;
+  border-radius: 100rpx;
+  cursor: pointer;
 }
 
 .card-title {

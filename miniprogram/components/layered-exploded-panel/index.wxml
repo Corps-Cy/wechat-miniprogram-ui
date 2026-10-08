@@ -8,6 +8,7 @@
 
   <view 
     class="exploded-stage {{isExploded ? 'exploded' : ''}}"
+    bindtap="toggleExplode"
     bindtouchstart="onTouchStart"
     bindtouchend="onTouchEnd"
   >
@@ -31,5 +32,5 @@
     </view>
   </view>
 
-  <text class="hint-text">{{isExploded ? '松手平滑闭合' : '长按感受 52° 四层 3D 纵深爆炸浮起'}}</text>
+  <text class="hint-text">{{isExploded ? '点击/松手平滑闭合' : '点击或长按感受 52° 四层 3D 纵深爆炸浮起'}}</text>
 </view>

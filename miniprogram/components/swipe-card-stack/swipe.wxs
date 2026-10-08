@@ -4,9 +4,12 @@ var THRESHOLD = 100;
 function touchStart(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   startX = touch.clientX;
-  ins.selectComponent('.top-card').setStyle({
-    'transition': 'none'
-  });
+  var card = ins.selectComponent('.top-card');
+  if (card) {
+    card.setStyle({
+      'transition': 'none'
+    });
+  }
 }
 
 function touchMove(e, ins) {
@@ -14,43 +17,74 @@ function touchMove(e, ins) {
   var deltaX = touch.clientX - startX;
   var rot = (deltaX / 150) * 12; // 随位移旋转角度
 
-  ins.selectComponent('.top-card').setStyle({
-    'transform': 'translate3d(' + deltaX + 'px, 0, 0) rotate(' + rot.toFixed(1) + 'deg)'
-  });
+  var topCard = ins.selectComponent('.top-card');
+  if (topCard) {
+    topCard.setStyle({
+      'transform': 'translate3d(' + deltaX + 'px, 0, 0) rotate(' + rot.toFixed(1) + 'deg)'
+    });
+  }
 
   // 底层卡片从 0.94 逐渐放大至 1.0
-  var progress = Math.min(Math.abs(deltaX) / THRESHOLD, 1);
-  var nextScale = 0.94 + progress * 0.06;
-  ins.selectComponent('.under-card').setStyle({
-    'transform': 'scale(' + nextScale.toFixed(2) + ')'
-  });
+  var underCard = ins.selectComponent('.under-card');
+  if (underCard) {
+    var progress = Math.min(Math.abs(deltaX) / THRESHOLD, 1);
+    var nextScale = 0.94 + progress * 0.06;
+    underCard.setStyle({
+      'transform': 'scale(' + nextScale.toFixed(2) + ')'
+    });
+  }
 }
 
 function touchEnd(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
   var deltaX = touch.clientX - startX;
+  var topCard = ins.selectComponent('.top-card');
+  var underCard = ins.selectComponent('.under-card');
+  if (!topCard) return;
 
   if (Math.abs(deltaX) > THRESHOLD) {
     // 飞走
     var flyX = deltaX > 0 ? 500 : -500;
-    ins.selectComponent('.top-card').setStyle({
+    topCard.setStyle({
       'transition': 'transform 0.35s ease-out, opacity 0.3s',
       'transform': 'translate3d(' + flyX + 'px, 0, 0) rotate(' + (flyX > 0 ? 25 : -25) + 'deg)',
       'opacity': '0'
     });
-    ins.selectComponent('.under-card').setStyle({
-      'transition': 'transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1)',
-      'transform': 'scale(1.0)'
-    });
+    if (underCard) {
+      underCard.setStyle({
+        'transition': 'transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1)',
+        'transform': 'scale(1.0)'
+      });
+    }
     ins.callMethod('onCardSwiped');
   } else {
     // 回弹复位
-    ins.selectComponent('.top-card').setStyle({
+    topCard.setStyle({
       'transition': 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25)',
       'transform': 'translate3d(0, 0, 0) rotate(0deg)'
     });
-    ins.selectComponent('.under-card').setStyle({
-      'transition': 'transform 0.4s ease',
+    if (underCard) {
+      underCard.setStyle({
+        'transition': 'transform 0.4s ease',
+        'transform': 'scale(0.94)'
+      });
+    }
+  }
+}
+
+function onCardChange(newValue, oldValue, ownerInstance, ins) {
+  var topCard = ownerInstance.selectComponent('.top-card');
+  var underCard = ownerInstance.selectComponent('.under-card');
+  if (topCard) {
+    topCard.setStyle({
+      'transition': 'none',
+      'transform': 'translate3d(0, 0, 0) rotate(0deg)',
+      'opacity': '1'
+    });
+  }
+  if (underCard) {
+    underCard.setStyle({
+      'transition': 'none',
       'transform': 'scale(0.94)'
     });
   }
@@ -59,5 +93,6 @@ function touchEnd(e, ins) {
 module.exports = {
   touchStart: touchStart,
   touchMove: touchMove,
-  touchEnd: touchEnd
+  touchEnd: touchEnd,
+  onCardChange: onCardChange
 };

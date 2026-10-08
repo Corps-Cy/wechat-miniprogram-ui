@@ -143,6 +143,7 @@
   width: 130rpx;
   height: 180rpx;
   border-radius: 16rpx;
+  background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
   box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.5);
   flex-shrink: 0;
 }

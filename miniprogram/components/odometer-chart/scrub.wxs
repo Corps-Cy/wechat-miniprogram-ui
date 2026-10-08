@@ -1,4 +1,3 @@
-// 12 个数据点的 X 坐标百分比及对应数值
 var POINTS = [
   { x: 5, val: 38.0 },
   { x: 14, val: 41.2 },
@@ -13,15 +12,14 @@ var POINTS = [
   { x: 95, val: 50.1 }
 ];
 
-function touchMove(e, ins) {
+function handleScrub(e, ins) {
   var touch = e.touches[0] || e.changedTouches[0];
-  var rectLeft = 40; // 估算图表左边距
-  var chartWidth = 260; // 图表宽度
+  if (!touch) return;
 
-  var offsetX = touch.clientX - rectLeft;
-  var percent = Math.max(Math.min((offsetX / chartWidth) * 100, 95), 5);
+  var clientX = touch.clientX;
+  var percent = ((clientX - 24) / 320) * 100;
+  percent = Math.max(Math.min(percent, 95), 5);
 
-  // 磁吸寻找最近的数据点 (SNAP)
   var closestIdx = 0;
   var minDiff = 999;
   for (var i = 0; i < POINTS.length; i++) {
@@ -33,12 +31,13 @@ function touchMove(e, ins) {
   }
 
   var snapPoint = POINTS[closestIdx];
-
-  // 移动游标到磁吸点
-  ins.selectComponent('.scrub-cursor').setStyle({
-    'left': snapPoint.x + '%',
-    'opacity': '1'
-  });
+  var cursor = ins.selectComponent('.scrub-cursor');
+  if (cursor) {
+    cursor.setStyle({
+      'left': snapPoint.x + '%',
+      'opacity': '1'
+    });
+  }
 
   ins.callMethod('onSnap', {
     index: closestIdx + 1,
@@ -46,11 +45,18 @@ function touchMove(e, ins) {
   });
 }
 
-function touchEnd(e, ins) {
-  // 保持吸附在最后停留的点
+function touchStart(e, ins) {
+  handleScrub(e, ins);
 }
 
+function touchMove(e, ins) {
+  handleScrub(e, ins);
+}
+
+function touchEnd(e, ins) {}
+
 module.exports = {
+  touchStart: touchStart,
   touchMove: touchMove,
   touchEnd: touchEnd
 };

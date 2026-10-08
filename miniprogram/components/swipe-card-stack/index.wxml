@@ -4,11 +4,13 @@
   <view class="hud-bar">
     <text class="hud-pill">ROTATE: ±12°</text>
     <text class="hud-pill">NEXT_SCALE: 0.94 → 1.00</text>
+    <view class="next-btn-pill" bindtap="nextCard">下一张 ➔</view>
   </view>
 
-  <view class="stack-stage">
+  <view class="stack-stage" change:currentCard="{{swipeHandler.onCardChange}}" currentCard="{{currentCard}}">
     <!-- 底层卡片 (scale 0.94) -->
     <view class="stack-card under-card">
+      <view class="card-img-placeholder" wx:if="{{!nextCard.url}}"></view>
       <image class="card-img" src="{{nextCard.url}}" mode="aspectFill" />
       <view class="card-foot">
         <text class="foot-title">{{nextCard.title}}</text>
@@ -23,6 +25,7 @@
       bindtouchmove="{{swipeHandler.touchMove}}"
       bindtouchend="{{swipeHandler.touchEnd}}"
     >
+      <view class="card-img-placeholder" wx:if="{{!currentCard.url}}"></view>
       <image class="card-img" src="{{currentCard.url}}" mode="aspectFill" />
       <view class="card-foot">
         <text class="foot-title">{{currentCard.title}}</text>
@@ -31,5 +34,5 @@
     </view>
   </view>
 
-  <text class="hint-text">左右划动单手连续切卡，松手弹性回弹</text>
+  <text class="hint-text">左右划动单手连续切卡，或点击上方按钮切卡</text>
 </view>

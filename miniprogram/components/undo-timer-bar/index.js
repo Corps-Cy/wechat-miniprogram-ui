@@ -80,6 +80,23 @@ Component({
       });
 
       if (wx.vibrateShort) wx.vibrateShort({ type: 'light' });
+    },
+
+    resetItems() {
+      if (this.data.timer) clearTimeout(this.data.timer);
+      if (this.data.stepTimer) clearInterval(this.data.stepTimer);
+      this.setData({
+        items: [
+          { id: 1, title: 'Swap the H5 cover to portrait', tag: 'Work', time: '18:00' },
+          { id: 2, title: 'Book Thursday train to Chengdu', tag: 'Life', time: 'Tomorrow' },
+          { id: 3, title: 'Finish Designing Design ch.4', tag: 'Read', time: 'This week' }
+        ],
+        showUndo: false,
+        deletedItem: null,
+        deletedIndex: -1,
+        progress: 100
+      });
+      if (wx.vibrateShort) wx.vibrateShort({ type: 'medium' });
     }
   }
 });
