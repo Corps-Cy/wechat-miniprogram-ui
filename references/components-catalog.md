@@ -13,6 +13,10 @@
 ### 分类 01：凭证与卡券流体弹层 (01~06 Popup Panels)
 专为会员卡、年卡、消费券、到场核销凭据、预订小票等场景打造的高沉浸度弹窗体系。
 
+<p align="center">
+  <img src="../assets/previews/01-voucher-sheets.gif" width="320" alt="凭证与卡券流体弹层演示" />
+</p>
+
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
 | :--- | :--- | :--- | :--- | :--- |
 | **01** | `frosted-glass-sheet` | **玻璃面板浮起** | `BLUR: 26px`<br>`FILL: .42`<br>`STAGGER: 4f` | 12 个月年度计划、配额消耗打卡、保留底层上下文的轻量抽屉。 |
@@ -26,6 +30,10 @@
 
 ### 分类 02：质感微交互与核心组件 (07~14 Tactile Motions)
 专为提升 App 和小程序界面“物理实体感”与“手感体验”打造的微互动效。
+
+<p align="center">
+  <img src="../assets/previews/02-micro-motion.gif" width="320" alt="质感微交互核心动效演示" />
+</p>
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -43,6 +51,10 @@
 ### 分类 03：高级审美页面布局 (15~22 Aesthetic Layouts - 8款)
 涵盖经典高级审美布局与高级排版几何原理，彻底打破模板化流水线排版：
 
+<p align="center">
+  <img src="../assets/previews/03-aesthetic-layouts.gif" width="320" alt="高级审美页面布局演示" />
+</p>
+
 | 序号 | 组件标识 | 中文名称 | 核心设计参数与 HUD 标准 | 最佳适用场景 |
 | :--- | :--- | :--- | :--- | :--- |
 | **15** | `wide-list-view` | **宽体标题整宽大图列表 (Wide List)** | `TYPE: WIDE CAPS`<br>`IMG: 16:10 FULL`<br>`ROW: META + CIRCLE` | 房车露营、度假胜地、建筑摄影等重画面感的高端电商列表。 |
@@ -58,6 +70,12 @@
 
 ### 分类 04：触觉高级手势交互与高级提示动效 (23~28 Advanced Interactions & Micro-Toasts - 6款)
 基于微信原生 WXS 运行于渲染层，实现 60fps 零延迟跟手交互，以及“不抢戏但在对的时候出现、用对的方式消失”的高级提示机制：
+
+<p align="center">
+  <img src="../assets/previews/04-tactile-feedback.gif" width="320" alt="触觉高级手势与交互演示" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../assets/previews/05-state-morph.gif" width="320" alt="状态形变图标与动作即反馈" />
+</p>
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
 | :--- | :--- | :--- | :--- | :--- |

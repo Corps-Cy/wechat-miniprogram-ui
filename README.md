@@ -4,32 +4,71 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![WeChat MiniProgram](https://img.shields.io/badge/Platform-WeChat%20MiniProgram-07c160?logo=wechat)](https://mp.weixin.qq.com/)
 [![Pure Native](https://img.shields.io/badge/Zero%20Dependency-Pure%20JS%20%7C%20WXS-ff69b4)]()
-[![Live Web Demo](https://img.shields.io/badge/Online%20Playground-Live%20Demo-6366f1?style=for-the-badge&logo=safari)](https://corps-cy.github.io/wechat-miniprogram-ui/)
+[![60fps WXS Native](https://img.shields.io/badge/Render%20Engine-WXS%2060fps-07c160?style=for-the-badge&logo=wechat)]()
+[![Physics Animation](https://img.shields.io/badge/Motion-Authentic%20Physics-ff69b4?style=for-the-badge)]()
 
 专门用于微信小程序 UI 设计、精美动效凭证组件库与页面开发的 **AI Agent Skill & 生产级开源组件库**（适配 Antigravity / Claude Code / Cursor / 微信开发者工具）。
 
 已完整收录并重构 **28 款现代工业级设计水准组件**，涵盖 4 大核心维度：**凭证流体弹层**、**质感微动效**、**高级审美页面布局**与**触觉高级手势交互**。
 
-> 💡 **无需本地安装微信模拟器！** 访问 [**🌐 在线 Web 模拟器 (Live Interactive Playground)**](https://corps-cy.github.io/wechat-miniprogram-ui/) 即可在浏览器中直接体验 3D 景深倾斜、动效弹窗、便当盒网格与撤销倒计时等组件的高保真实时交互！
+---
+
+## 📱 动效与交互效果全景演示 (Live Animations & Showcase)
+
+> 💡 **告别平庸静态页面，体验 60fps 原生微交互质感！**
+> 下方为微信小程序原生渲染录制的真实动画演示，完全由 **WXS (WeiXin Script)** 在视图层独立驱动，具备真实跟手性、iOS 级弹性物理与触觉反馈。
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>01. 凭证与卡券流体弹层 (Popup Panels)</b><br/><br/>
+      <img src="./assets/previews/01-voucher-sheets.gif" width="300" alt="凭证卡券流体弹层" /><br/><br/>
+      <sub>26px 磨砂毛玻璃浮起 · 12月格子错帧填充 · 1.2s 顺时针圆环 · 180° 原地翻面</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>02. 质感微动效核心组件 (Tactile Motions)</b><br/><br/>
+      <img src="./assets/previews/02-micro-motion.gif" width="300" alt="质感微动效" /><br/><br/>
+      <sub>3D 跟手倾斜与光影 · 动态弥散光晕边框 · 码表机械滚动 · 物理弹簧交错流</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>03. 高级审美页面布局 (Aesthetic Layouts)</b><br/><br/>
+      <img src="./assets/previews/03-aesthetic-layouts.gif" width="300" alt="高级审美页面布局" /><br/><br/>
+      <sub>便当盒 Bento Grid · 3D 轴测透视爆炸展开 · 层叠滑卡 · 海报半圆拨盘</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>04. 触觉高级手势与交互 (Advanced Gestures)</b><br/><br/>
+      <img src="./assets/previews/04-tactile-feedback.gif" width="300" alt="触觉高级交互" /><br/><br/>
+      <sub>WXS 60fps 左右滑牌 · 裂变流体胶囊按钮 · 4秒倒计时撤销条 · 真实震动反馈</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>05. 状态形变图标动效 (State Morph Icons)</b><br/><br/>
+      <img src="./assets/previews/05-state-morph.gif" width="300" alt="状态形变图标" /><br/><br/>
+      <sub>汉堡与叉号平滑变形 · 播放/暂停流体切换 · 发送转对勾成功反馈</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>06. 轻量触觉提示与微动效 (Micro Toasts & Dot)</b><br/><br/>
+      <img src="./assets/previews/06-micro-toasts.gif" width="300" alt="触觉提示动效" /><br/><br/>
+      <sub>红点弧线回弹消散 · 错帧上级角标递减 · 不打扰用户的微提示机制</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 📱 核心 Demo 交互体验与效果矩阵 (Live Demo Preview)
+## 🗂️ 核心 Demo 效果矩阵 (Component Matrix)
 
-> 💡 **无需安装微信开发者工具！**
-> 
-> 点击访问 👉 [**🌐 在线 Web 模拟器 (Live Interactive Playground)**](https://corps-cy.github.io/wechat-miniprogram-ui/)
->
-> 即可在浏览器中直接体验 **3D 景深倾斜、动效凭证弹窗、Bento 便当盒联动、4 秒倒计时撤销、流体裂变胶囊** 等高保真实时交互！
+本项目在微信小程序真机与模拟器中均提供全量 28 款组件的高保真交互体验：
 
-本项目在微信小程序真机与 Web 模拟器中均提供全量 28 款组件的交互体验：
-
-| 模块大类 | 包含组件 | 核心动效响应标准与手势物理机制 | Web 模拟器状态 |
+| 模块大类 | 包含组件 | 核心动效响应标准与手势物理机制 | 动效预览 |
 | :--- | :--- | :--- | :---: |
-| **01. 凭证与卡券流体弹层**<br>*(Voucher Sheets)* | • `frosted-glass-sheet`<br>• `ring-count-sheet`<br>• `tick-ruler-sheet`<br>• `photo-drawer-sheet`<br>• `flip-card-sheet`<br>• `drag-expand-sheet` | • **毛玻璃浮起**：26px 高斯模糊遮罩 + 12月格子错帧自底向上平滑填充<br>• **圆环计数**：背景平滑压暗 + 1.2s 顺时针环形进度绘制与数字递增<br>• **刻度尺扫动**：53 根周刻度逐帧扫描至“今天”+ 原地等宽无抖动编号展开<br>• **照片抽屉咬合**：海报 1.08→1.0 铺满 + `-44rpx` 负边距抽屉紧密推入<br>• **180° 原地翻面**：1200px 3D 空间景深，绕 Y 轴原地翻转出示核销二维码<br>• **下拉展开小票**：虚线齿孔与阻尼手柄，下拉超 40% 吸附展开账单 | 🟢 **已支持实时体验**<br>(弹窗/刻度/模糊遮罩) |
-| **02. 质感微动效核心组件**<br>*(Tactile Motions)* | • `tilt-glare-card`<br>• `fluid-morph-sheet`<br>• `shared-element-card`<br>• `odometer-chart`<br>• `elastic-bottom-sheet`<br>• `conic-glow-card`<br>• `stagger-cascade-grid`<br>• `press-scale-button` | • **3D 跟手倾斜面板**：触摸跟随 ±5° 视差浮动 + 径向高光反射 + 物理 Spring 回正<br>• **流体胶囊形变**：顶栏小胶囊点击如水滴般流畅延展为完整操作面板<br>• **共享元素无缝过渡**：列表卡片点击原地膨胀全屏，无白屏与跳变感<br>• **磁吸游标与滚动码表**：折线图拖拽自动磁吸节点 + 机械数字翻滚 + 轻量微震<br>• **阻尼弹性抽屉**：橡皮筋拉伸物理阻尼 + LOW / MID / FULL 档位吸附<br>• **动态弥散光晕边框**：GPU 加速 360° 流光锥形描边 + 呼吸式背光晕染<br>• **瀑布流弹簧交错流**：0.1s 错开交错弹性滑入 + 支持重播与点击反馈<br>• **触觉微缩按钮**：按压 Scale 0.96 深度凹陷 + 松手 +1.1% 超调弹跳与微震 | 🟢 **已支持实时体验**<br>(3D倾斜/流光/弹性按压) |
-| **03. 高级审美页面布局**<br>*(Aesthetic Layouts)* | • `wide-list-view`<br>• `hero-overlay-card`<br>• `black-hero-contrast`<br>• `bento-grid-wall`<br>• `poster-dial-picker`<br>• `stacked-deck-view`<br>• `layered-exploded-panel`<br>• `overlap-stagger-card` | • **宽体标题整宽大图列表**：两行宽体大写标题 + 16:10 宽幅卡片 + 圆形操作联动<br>• **大图头块叠加与温度曲线**：1/3 屏幕大图压暗 + 曲线光晕跟踪与日期切换<br>• **黑白两档主次架构**：浅灰底色 + 纯黑卡片视觉焦点 + 快速展开章节<br>• **便当盒网格墙 (Bento Grid)**：品牌黄主视觉卡片 + 环形进度 + 四列打卡方块联动<br>• **海报大字半圆转盘**：超粗海报标题 + 半圆弧形指针吸附 + 专注流切换<br>• **层叠卡片牌组 (Stacked Deck)**：3D 景深层叠，向上滑牌飞离与循环补位<br>• **分层视差抽离面板**：3D 轴测透视 + 四层硬件视差爆炸展开与阴影扩散<br>• **重叠咬合阶梯排版**：负外边距卡片咬合压住底图标签 + 错位视觉节奏 | 🟢 **已支持实时体验**<br>(Bento网格/进度联动) |
-| **04. 触觉高级手势与交互**<br>*(Advanced Gestures)* | • `swipe-card-stack`<br>• `split-button-morph`<br>• `scroll-spy-category`<br>• `undo-timer-bar`<br>• `dot-rebound-scatter`<br>• `state-morph-icon` | • **WXS 左右滑牌堆叠**：WXS 视图层 60fps 物理旋转阻尼，左滑忽略/右滑喜欢<br>• **裂变流体胶囊按钮**：悬浮胶囊一分为二平滑分裂为控制按钮，触觉震动<br>• **双向联动分类 (Scroll Spy)**：左侧锚点侧栏与右侧内容流 60fps 双向丝滑定位<br>• **4秒倒计时撤销条**：线性进度条倒计时，提供手滑后悔机制，自然平滑隐退<br>• **红点弧线回弹消散**：点击红点沿原位弧线微缩消散，错开4帧联动上级角标递减<br>• **状态形变图标**：汉堡与叉号平滑变形、播放与暂停、发送转对勾动画 | 🟢 **已支持实时体验**<br>(4s撤销条/胶囊裂变) |
+| **01. 凭证与卡券流体弹层**<br>*(Voucher Sheets)* | • `frosted-glass-sheet`<br>• `ring-count-sheet`<br>• `tick-ruler-sheet`<br>• `photo-drawer-sheet`<br>• `flip-card-sheet`<br>• `drag-expand-sheet` | • **毛玻璃浮起**：26px 高斯模糊遮罩 + 12月格子错帧自底向上平滑填充<br>• **圆环计数**：背景平滑压暗 + 1.2s 顺时针环形进度绘制与数字递增<br>• **刻度尺扫动**：53 根周刻度逐帧扫描至“今天”+ 原地等宽无抖动编号展开<br>• **照片抽屉咬合**：海报 1.08→1.0 铺满 + `-44rpx` 负边距抽屉紧密推入<br>• **180° 原地翻面**：1200px 3D 空间景深，绕 Y 轴原地翻转出示核销二维码<br>• **下拉展开小票**：虚线齿孔与阻尼手柄，下拉超 40% 吸附展开账单 | [🎬 弹层动效](#01-凭证与卡券流体弹层-popup-panels) |
+| **02. 质感微动效核心组件**<br>*(Tactile Motions)* | • `tilt-glare-card`<br>• `fluid-morph-sheet`<br>• `shared-element-card`<br>• `odometer-chart`<br>• `elastic-bottom-sheet`<br>• `conic-glow-card`<br>• `stagger-cascade-grid`<br>• `press-scale-button` | • **3D 跟手倾斜面板**：触摸跟随 ±5° 视差浮动 + 径向高光反射 + 物理 Spring 回正<br>• **流体胶囊形变**：顶栏小胶囊点击如水滴般流畅延展为完整操作面板<br>• **共享元素无缝过渡**：列表卡片点击原地膨胀全屏，无白屏与跳变感<br>• **磁吸游标与滚动码表**：折线图拖拽自动磁吸节点 + 机械数字翻滚 + 轻量微震<br>• **阻尼弹性抽屉**：橡皮筋拉伸物理阻尼 + LOW / MID / FULL 档位吸附<br>• **动态弥散光晕边框**：GPU 加速 360° 流光锥形描边 + 呼吸式背光晕染<br>• **瀑布流弹簧交错流**：0.1s 错开交错弹性滑入 + 支持重播与点击反馈<br>• **触觉微缩按钮**：按压 Scale 0.96 深度凹陷 + 松手 +1.1% 超调弹跳与微震 | [🎬 微动效](#02-质感微动效核心组件-tactile-motions) |
+| **03. 高级审美页面布局**<br>*(Aesthetic Layouts)* | • `wide-list-view`<br>• `hero-overlay-card`<br>• `black-hero-contrast`<br>• `bento-grid-wall`<br>• `poster-dial-picker`<br>• `stacked-deck-view`<br>• `layered-exploded-panel`<br>• `overlap-stagger-card` | • **宽体标题整宽大图列表**：两行宽体大写标题 + 16:10 宽幅卡片 + 圆形操作联动<br>• **大图头块叠加与温度曲线**：1/3 屏幕大图压暗 + 曲线光晕跟踪与日期切换<br>• **黑白两档主次架构**：浅灰底色 + 纯黑卡片视觉焦点 + 快速展开章节<br>• **便当盒网格墙 (Bento Grid)**：品牌黄主视觉卡片 + 环形进度 + 四列打卡方块联动<br>• **海报大字半圆转盘**：超粗海报标题 + 半圆弧形指针吸附 + 专注流切换<br>• **层叠卡片牌组 (Stacked Deck)**：3D 景深层叠，向上滑牌飞离与循环补位<br>• **分层视差抽离面板**：3D 轴测透视 + 四层硬件视差爆炸展开与阴影扩散<br>• **重叠咬合阶梯排版**：负外边距卡片咬合压住底图标签 + 错位视觉节奏 | [🎬 布局动效](#03-高级审美页面布局-aesthetic-layouts) |
+| **04. 触觉高级手势与交互**<br>*(Advanced Gestures)* | • `swipe-card-stack`<br>• `split-button-morph`<br>• `scroll-spy-category`<br>• `undo-timer-bar`<br>• `dot-rebound-scatter`<br>• `state-morph-icon` | • **WXS 左右滑牌堆叠**：WXS 视图层 60fps 物理旋转阻尼，左滑忽略/右滑喜欢<br>• **裂变流体胶囊按钮**：悬浮胶囊一分为二平滑分裂为控制按钮，触觉震动<br>• **双向联动分类 (Scroll Spy)**：左侧锚点侧栏与右侧内容流 60fps 双向丝滑定位<br>• **4秒倒计时撤销条**：线性进度条倒计时，提供手滑后悔机制，自然平滑隐退<br>• **红点弧线回弹消散**：点击红点沿原位弧线微缩消散，错开4帧联动上级角标递减<br>• **状态形变图标**：汉堡与叉号平滑变形、播放与暂停、发送转对勾动画 | [🎬 交互动效](#04-触觉高级手势与交互-advanced-gestures) |
 
 ---
 
@@ -110,13 +149,24 @@
 
 ## 🛠️ 快速接入与体验 (Quick Start)
 
-### 1. 微信开发者工具中预览 Demo
-1. 打开 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)；
-2. 点击 **导入项目**，选择本项目根目录（包含 `project.config.json`）；
-3. AppID 填入您的小程序 AppID 或使用测试号；
-4. 编译后即可在模拟器中体验全部 28 款组件的交互 Demo（支持 4 大分类 Segment 切换）。
+### 1. 本地启动微信开发者工具预览 Demo
+本项目已配置好完整的模拟器工程环境，直接在本地打开即可获得与真实真机一致的 60fps 原生手势与物理动效：
+- **终端一键唤起**：
+  ```bash
+  open -a wechatwebdevtools .
+  ```
+- **手动导入**：打开 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)，点击 **导入项目**，选择本项目根目录（已包含 `project.config.json`），AppID 填入您的小程序 AppID 或测试号即可实时编译预览。
 
-### 2. 在业务项目中引入组件
+### 2. 动效录制与导出为高清 GIF
+若需录制新组件或调整物理参数后更新预览动图：
+1. 在微信模拟器中进行交互，按 Mac 快捷键 `Cmd + Shift + 5` 选择模拟器区域录制为 `.mov` 或 `.mp4`；
+2. 运行本项目提供的双通道高保真转 GIF 脚本（基于 ffmpeg Lanczos + Bayer Dither 算法）：
+   ```bash
+   # 用法: ./scripts/mov-to-gif.sh <录屏文件> <目标gif> [帧率fps] [宽度px]
+   ./scripts/mov-to-gif.sh my-recording.mov assets/previews/my-feature.gif 30 300
+   ```
+
+### 3. 在业务项目中引入组件
 例如使用便当盒网格布局 [`bento-grid-wall`](miniprogram/components/bento-grid-wall/)：
 
 **在页面 `page.json` 中注册：**
@@ -133,7 +183,7 @@
 <bento-grid-wall bind:itemtap="onBentoItemTap" />
 ```
 
-### 3. 作为 AI 编程助手 Skill 安装与使用
+### 4. 作为 AI 编程助手 Skill 安装与使用
 本项目遵循标准的 AI Agent Skill 架构规范（含 `SKILL.md` 与技术指引），支持在 Antigravity、Claude Code、Cursor 等 AI 开发环境中一键作为专业 Skill 调用。
 
 #### 方式 A：运行一键安装脚本（推荐）
