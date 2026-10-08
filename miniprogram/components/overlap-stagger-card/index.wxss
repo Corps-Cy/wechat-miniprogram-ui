@@ -118,10 +118,22 @@
   margin-top: -24rpx; /* 卡片相互叠咬 24px */
   box-shadow: 0 16rpx 32rpx rgba(0, 0, 0, 0.4);
   border: 1rpx solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.25s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25), box-shadow 0.3s;
 }
 
-.overlap-item:active {
+.overlap-item.is-selected {
+  transform: translateY(-16rpx) scale(1.02);
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.6);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.card-press-active {
+  transform: scale(0.96) !important;
+}
+
+.stagger-card.is-active-stagger {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 16rpx 36rpx rgba(56, 189, 248, 0.25);
   transform: translateY(-8rpx);
 }
 

@@ -153,11 +153,28 @@
   background: #ffffff;
   border-radius: 32rpx;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s;
+  animation: cardSlideUp 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.van-card:nth-child(1) { animation-delay: 0.05s; }
+.van-card:nth-child(2) { animation-delay: 0.15s; }
+.van-card:nth-child(3) { animation-delay: 0.25s; }
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .van-card-hover {
-  transform: scale(0.985);
+  transform: scale(0.975);
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
 }
 
 .img-wrapper {

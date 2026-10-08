@@ -25,7 +25,7 @@
       </view>
     </view>
 
-    <!-- 模式 1：叠重 (OVERLAP) - 负外边距压住上层标签与视差错层 -->
+    <!-- 模式 1：叠重 (OVERLAP) - 负外边距压住上层标签与视差错层，点击浮起到最顶层 -->
     <view wx:if="{{activeMode === 'overlap'}}" class="overlap-stage">
       <view class="hero-underlay">
         <text class="underlay-tag">WEEKEND GETAWAY</text>
@@ -35,8 +35,11 @@
       <view class="cards-overlap-stack">
         <block wx:for="{{cards}}" wx:key="id">
           <view 
-            class="overlap-item" 
-            style="background: {{item.bg}}; z-index: {{10 - index}};"
+            class="overlap-item {{selectedId === item.id ? 'is-selected' : ''}}" 
+            style="background: {{item.bg}}; z-index: {{selectedId === item.id ? 20 : (10 - index)}};"
+            bindtap="onCardTap"
+            data-id="{{item.id}}"
+            hover-class="card-press-active"
           >
             <view class="item-head">
               <text class="item-tag">{{item.tag}}</text>
@@ -51,22 +54,40 @@
       </view>
     </view>
 
-    <!-- 模式 2：卡片错位 (STAGGER) - 左右非均分交错阶梯流 -->
+    <!-- 模式 2：卡片错位 (STAGGER) - 左右非均分交错阶梯流，点击微缩弹跳 -->
     <view wx:if="{{activeMode === 'stagger'}}" class="stagger-stage">
       <view class="stagger-col col-left">
-        <view class="stagger-card card-tall" style="background: {{cards[0].bg}};">
+        <view 
+          class="stagger-card card-tall {{selectedId === cards[0].id ? 'is-active-stagger' : ''}}" 
+          style="background: {{cards[0].bg}};"
+          bindtap="onCardTap"
+          data-id="{{cards[0].id}}"
+          hover-class="card-press-active"
+        >
           <text class="item-tag">{{cards[0].tag}}</text>
           <text class="item-title">{{cards[0].title}}</text>
           <text class="item-price">{{cards[0].price}}</text>
         </view>
       </view>
       <view class="stagger-col col-right">
-        <view class="stagger-card card-short" style="background: {{cards[1].bg}};">
+        <view 
+          class="stagger-card card-short {{selectedId === cards[1].id ? 'is-active-stagger' : ''}}" 
+          style="background: {{cards[1].bg}};"
+          bindtap="onCardTap"
+          data-id="{{cards[1].id}}"
+          hover-class="card-press-active"
+        >
           <text class="item-tag">{{cards[1].tag}}</text>
           <text class="item-title">{{cards[1].title}}</text>
           <text class="item-price">{{cards[1].price}}</text>
         </view>
-        <view class="stagger-card card-medium" style="background: {{cards[2].bg}};">
+        <view 
+          class="stagger-card card-medium {{selectedId === cards[2].id ? 'is-active-stagger' : ''}}" 
+          style="background: {{cards[2].bg}};"
+          bindtap="onCardTap"
+          data-id="{{cards[2].id}}"
+          hover-class="card-press-active"
+        >
           <text class="item-tag">{{cards[2].tag}}</text>
           <text class="item-title">{{cards[2].title}}</text>
           <text class="item-price">{{cards[2].price}}</text>
