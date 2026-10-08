@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wechat-miniprogram-ui | 微信小程序高端 UI & 动效组件库 在线交互体验</title>
+  <title>wechat-miniprogram-ui | 微信小程序高端 UI & 动效组件库 在线全量交互体验</title>
   <style>
     :root {
       --bg: #09090b;
@@ -23,7 +23,7 @@
     body {
       background: #020617;
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -38,13 +38,13 @@
       align-items: center;
       gap: 48px;
       padding: 40px 20px;
-      max-width: 1200px;
+      max-width: 1260px;
       width: 100%;
       justify-content: center;
     }
 
     .info-pane {
-      max-width: 420px;
+      max-width: 440px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -66,7 +66,7 @@
     }
 
     .repo-title {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 900;
       line-height: 1.15;
       color: #ffffff;
@@ -83,7 +83,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       font-size: 14px;
       color: #cbd5e1;
     }
@@ -112,8 +112,8 @@
 
     /* iPhone Frame */
     .phone-frame {
-      width: 390px;
-      height: 844px;
+      width: 410px;
+      height: 864px;
       background: #000000;
       border-radius: 54px;
       box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 0 12px #1e293b, 0 0 0 14px #334155;
@@ -130,7 +130,7 @@
       top: 11px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
+      width: 126px;
       height: 32px;
       background: #000000;
       border-radius: 20px;
@@ -138,43 +138,44 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
+      padding: 0 12px;
     }
     .island-cam { width: 10px; height: 10px; border-radius: 50%; background: #0f172a; border: 1px solid #1e293b; }
     .island-sensor { width: 8px; height: 8px; border-radius: 50%; background: #052e16; }
 
-    /* Screen Container */
+    /* Screen Container (Matching miniprogram/pages/demo/index.wxss exactly) */
     .screen {
       width: 100%;
       height: 100%;
-      background: var(--bg);
+      background: #09090b;
+      color: #f4f4f5;
       overflow-y: auto;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      padding: 55px 18px 40px;
+      padding: 56px 18px 48px;
       position: relative;
       scroll-behavior: smooth;
     }
     .screen::-webkit-scrollbar { display: none; }
 
-    /* Header */
-    .demo-header { margin-bottom: 24px; }
+    /* Demo Header */
+    .demo-header { margin-bottom: 26px; }
     .header-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
       padding: 4px 12px;
       border-radius: 100px;
       margin-bottom: 12px;
     }
-    .badge-num { font-size: 12px; font-weight: 800; color: var(--accent-orange); }
-    .badge-sub { font-size: 11px; color: #a1a1aa; }
-    .page-title { font-size: 32px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; }
-    .page-desc { font-size: 12px; color: #71717a; margin-top: 6px; }
+    .badge-num { font-size: 12px; font-weight: 800; color: #f97316; }
+    .badge-sub { font-size: 11px; font-weight: 500; color: #a1a1aa; }
+    .page-title { font-size: 32px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: #fff; }
+    .page-desc { font-size: 12px; color: #71717a; margin-top: 8px; line-height: 1.5; }
 
-    /* Tabs Segment */
+    /* 分类 Segment 切换 */
     .tab-segment-scroll {
       width: 100%;
       overflow-x: auto;
@@ -186,7 +187,7 @@
     .tab-segment {
       display: inline-flex;
       background: #18181b;
-      border: 1px solid var(--border);
+      border: 1px solid #27272a;
       border-radius: 100px;
       padding: 4px;
       gap: 4px;
@@ -206,19 +207,24 @@
     .tab-item.active .tab-label { color: #ffffff; }
     .tab-item.active .tab-badge { background: rgba(249, 115, 22, 0.2); color: var(--accent-orange); }
 
-    /* Section Content */
-    .section-view { display: none; flex-direction: column; gap: 20px; animation: fadeIn 0.3s ease; }
+    /* Section Views */
+    .section-view { display: none; flex-direction: column; gap: 24px; animation: fadeIn 0.3s ease; }
     .section-view.active { display: flex; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
+    .section-title-wrap { margin-bottom: 6px; }
     .section-title { font-size: 14px; font-weight: 800; letter-spacing: 0.5px; color: #e4e4e7; }
-    .section-desc { font-size: 11px; color: #71717a; margin-top: 2px; }
+    .section-desc { font-size: 11px; color: #71717a; margin-top: 3px; }
 
-    /* Card Item (Popup trigger & motion card) */
+    /* Motion Block & Demo Card */
+    .motion-block { display: flex; flex-direction: column; gap: 10px; }
+    .block-label { font-size: 11px; font-weight: 700; color: #a1a1aa; font-family: monospace; letter-spacing: 0.5px; }
+
+    .demo-grid { display: flex; flex-direction: column; gap: 14px; }
     .demo-card {
-      background: var(--card-bg);
+      background: #18181b;
       border-radius: 20px;
-      border: 1px solid var(--border);
+      border: 1px solid #27272a;
       padding: 18px;
       display: flex;
       flex-direction: column;
@@ -236,224 +242,382 @@
     .action-hint { font-size: 11px; color: #a1a1aa; }
     .open-badge { font-size: 11px; font-weight: 700; color: var(--accent-orange); background: rgba(249, 115, 22, 0.15); padding: 4px 10px; border-radius: 100px; border: 1px solid rgba(249, 115, 22, 0.3); }
 
-    /* Interactive Component Mockups */
-    /* 1. 3D Tilt Glare Card */
-    .tilt-box-wrap {
-      perspective: 800px;
-      height: 190px;
-      width: 100%;
-      cursor: grab;
-    }
+    /* HUD Bar Generic */
+    .hud-bar { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .hud-pill { font-family: monospace; font-size: 9px; font-weight: 700; color: #71717a; background: #18181b; border: 1px solid #27272a; padding: 3px 8px; border-radius: 4px; }
+    .hud-pill-orange { color: #f97316; background: rgba(249, 115, 22, 0.1); border-color: rgba(249, 115, 22, 0.2); }
+    .hud-pill-blue { color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.2); }
+    .hud-pill-red { color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); }
+
+    /* 02 Motions Components */
+    /* 1. Tilt Glare Card (Exact 1:1) */
+    .tilt-box-wrap { perspective: 800px; height: 160px; width: 100%; cursor: grab; }
     .tilt-card {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: relative; width: 100%; height: 100%;
+      background: #18181b; border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transform-style: preserve-3d; will-change: transform;
       transition: transform 0.1s ease-out;
-      transform-style: preserve-3d;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 18px 20px;
     }
-    .glare-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 60%);
-      pointer-events: none;
-      opacity: 0.8;
-      transition: opacity 0.3s;
+    .glare-overlay { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 5; }
+    .snowboard-pill {
+      position: relative; width: 100%; height: 32px; background: #27272a;
+      border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
     }
+    .binding { width: 16px; height: 16px; border-radius: 50%; background: #3f3f46; border: 2px solid #f97316; }
+    .board-stripe { width: 80px; height: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 2px; }
 
     /* 2. Conic Glow */
     .conic-glow-box {
-      position: relative;
-      border-radius: 20px;
-      padding: 2px;
-      overflow: hidden;
-      background: #18181b;
+      width: 100%; height: 140px; border-radius: 20px; position: relative;
+      display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 2px;
+      background: conic-gradient(from 0deg, #f97316, #38bdf8, #a855f7, #f97316);
+      animation: rotateGlow 6s linear infinite;
     }
-    .conic-glow-box::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: conic-gradient(transparent 0deg, transparent 270deg, #f97316 330deg, #f43f5e 360deg);
-      animation: rotateConic 4s linear infinite;
-    }
-    @keyframes rotateConic { to { transform: rotate(360deg); } }
+    @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
     .conic-inner {
-      position: relative;
-      background: #0f172a;
-      border-radius: 18px;
+      width: 100%; height: 100%; background: #18181b; border-radius: 18px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
       padding: 16px;
-      z-index: 2;
     }
 
-    /* 3. Bento Grid */
-    .bento-card {
-      background: #facc15;
-      color: #0f172a;
-      border-radius: 22px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    /* 3. Odometer Chart */
+    .odometer-card {
+      background: #18181b; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;
     }
-    .habit-row { display: flex; gap: 8px; }
+    .chart-area {
+      position: relative; height: 70px; background: #111113; border-radius: 12px;
+      overflow: hidden; cursor: crosshair; display: flex; align-items: center;
+    }
+    .chart-polyline {
+      width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(249, 115, 22, 0.2) 0%, transparent 100%);
+      clip-path: polygon(0 80%, 15% 65%, 35% 85%, 55% 25%, 75% 45%, 90% 15%, 100% 40%, 100% 100%, 0 100%);
+    }
+    .scrub-cursor {
+      position: absolute; top: 0; bottom: 0; width: 2px; background: #f97316;
+      transition: left 0.1s ease-out; pointer-events: none;
+    }
+    .cursor-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: #f97316;
+      position: absolute; top: 30%; left: -4px; box-shadow: 0 0 10px #f97316;
+    }
+
+    /* 4. Fluid Morph */
+    .fluid-morph-box {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .morph-btn {
+      width: 120px; height: 38px; border-radius: 100px; background: #27272a;
+      border: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center;
+      justify-content: center; gap: 8px; cursor: pointer; transition: all 0.4s var(--ease-fluid);
+      color: #fff; font-size: 13px; font-weight: 700; overflow: hidden;
+    }
+    .morph-btn.expanded { width: 100%; height: 90px; border-radius: 18px; background: #27272a; flex-direction: column; padding: 12px; }
+
+    /* 5. Shared Element */
+    .shared-card {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      overflow: hidden; cursor: pointer; transition: all 0.35s var(--ease-fluid);
+    }
+    .shared-img {
+      width: 100%; height: 110px; background: linear-gradient(135deg, #1e293b, #0f172a);
+      transition: height 0.35s var(--ease-fluid); display: flex; align-items: flex-end; padding: 12px;
+    }
+    .shared-card.expanded .shared-img { height: 180px; }
+    .shared-card-body { padding: 14px 16px; }
+
+    /* 6. Stagger Cascade Grid */
+    .masonry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-item {
+      background: #27272a; border-radius: 14px; padding: 14px; height: 75px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.2s;
+    }
+    .grid-item:active { transform: scale(0.96); }
+
+    /* 7. Press Scale Button */
+    .press-card {
+      background: #fbfbf9; border-radius: 20px; padding: 20px; color: #18181b;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .elastic-btn {
+      width: 100%; height: 52px; background: #18181b; border-radius: 100px;
+      color: #fff; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 22px; cursor: pointer; transform: scale(1);
+      transition: transform 0.12s var(--ease-fluid), box-shadow 0.12s;
+    }
+    .elastic-btn:active, .elastic-btn.pressed { transform: scale(0.96); }
+    .elastic-btn.overshoot { transform: scale(1.011); }
+
+    /* 03 Layouts Components */
+    /* 1. Wide List View */
+    .wide-card {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 20px 18px; display: flex; flex-direction: column; gap: 14px;
+    }
+    .wide-banner {
+      width: 100%; height: 140px; border-radius: 14px;
+      background: linear-gradient(135deg, #0284c7, #0f172a);
+      position: relative; overflow: hidden; padding: 14px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .van-tag { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; width: fit-content; }
+
+    /* 2. Hero Overlay Card */
+    .hero-card {
+      background: #fbfbf9; border-radius: 20px; color: #0f172a; overflow: hidden;
+    }
+    .hero-cover {
+      height: 150px; background: linear-gradient(180deg, #334155 0%, #0f172a 100%);
+      position: relative; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; color: #fff;
+    }
+    .days-row { display: flex; gap: 6px; padding: 14px 16px; background: #fff; }
+    .day-col {
+      flex: 1; padding: 10px 4px; border-radius: 10px; background: #f4f4f5;
+      text-align: center; cursor: pointer; transition: all 0.2s;
+    }
+    .day-col.active { background: #18181b; color: #fff; }
+
+    /* 3. Black Hero Contrast */
+    .reader-shell {
+      background: #f4f3f4; border-radius: 20px; padding: 18px; color: #18181b;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .black-hero-card {
+      background: #0b0708; border-radius: 16px; padding: 16px; color: #fff;
+      display: flex; flex-direction: column; gap: 12px; cursor: pointer;
+    }
+
+    /* 4. Bento Grid Wall */
+    .bento-card {
+      background: #facc15; border-radius: 20px; padding: 18px; color: #18181b;
+      display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+    }
+    .habit-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 4px; }
     .habit-chip {
-      flex: 1;
-      height: 38px;
-      border-radius: 10px;
-      background: #fef08a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      cursor: pointer;
+      background: rgba(255, 255, 255, 0.6); border-radius: 12px; padding: 10px 4px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 14px; cursor: pointer;
       transition: all 0.2s;
     }
-    .habit-chip.done { background: #ca8a04; color: #fff; }
+    .habit-chip.done { background: #18181b; color: #fff; }
 
-    /* 4. Undo Bar */
-    .undo-bar-box {
-      background: #18181b;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    /* 5. Poster Dial Picker */
+    .poster-card {
+      background: #4c1d95; border-radius: 20px; padding: 18px; color: #fff;
+      display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;
+    }
+    .dial-semi {
+      width: 100%; height: 70px; border-radius: 100px 100px 0 0;
+      border: 2px dashed rgba(255, 255, 255, 0.3); border-bottom: none;
+      display: flex; justify-content: space-around; align-items: flex-end; padding-bottom: 8px;
+    }
+
+    /* 6. Stacked Deck View */
+    .deck-stage { position: relative; height: 160px; width: 100%; cursor: pointer; }
+    .deck-item {
+      position: absolute; left: 0; right: 0; top: 0; height: 140px; border-radius: 18px;
+      padding: 16px; color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.4s var(--ease-fluid), opacity 0.4s;
+    }
+    .deck-item-3 { background: #1e293b; transform: translateY(24px) scale(0.9); opacity: 0.5; z-index: 1; }
+    .deck-item-2 { background: #334155; transform: translateY(12px) scale(0.95); opacity: 0.8; z-index: 2; }
+    .deck-item-1 { background: linear-gradient(135deg, #f97316, #ea580c); transform: translateY(0) scale(1); z-index: 3; }
+
+    /* 7. Layered Exploded Panel */
+    .exploded-stage {
+      perspective: 1000px; height: 150px; width: 100%; cursor: pointer;
+      position: relative; transform-style: preserve-3d;
+      transition: transform 0.6s var(--ease-spring);
+    }
+    .exploded-stage.exploded { transform: rotateX(50deg) rotateY(-20deg) rotateZ(15deg); }
+    .exp-layer {
+      position: absolute; inset: 0; border-radius: 18px; padding: 16px;
+      transition: transform 0.6s var(--ease-spring);
+    }
+    .exp-base { background: #18181b; border: 1px solid rgba(255, 255, 255, 0.12); transform: translateZ(0); }
+    .exp-img { background: linear-gradient(135deg, #0284c7, #0369a1); transform: translateZ(0); }
+    .exploded-stage.exploded .exp-img { transform: translateZ(30px); }
+    .exp-txt { transform: translateZ(0); color: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+    .exploded-stage.exploded .exp-txt { transform: translateZ(55px); }
+
+    /* 8. Overlap & Stagger */
+    .overlap-box {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 18px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .overlap-stack { position: relative; height: 110px; margin-top: 10px; }
+    .overlap-layer {
+      position: absolute; left: 0; right: 0; height: 75px; border-radius: 14px;
+      padding: 12px 16px; color: #fff; cursor: pointer; transition: all 0.3s;
+    }
+
+    /* 04 Interactions Components */
+    /* 1. Swipe Card Stack */
+    .swipe-stage { position: relative; height: 150px; width: 100%; cursor: grab; }
+    .swipe-card-el {
+      position: absolute; inset: 0; border-radius: 18px; padding: 16px;
+      color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.3s var(--ease-fluid), opacity 0.3s;
+    }
+    .swipe-under { background: #27272a; transform: scale(0.95); z-index: 1; }
+    .swipe-top { background: linear-gradient(135deg, #3b82f6, #1d4ed8); z-index: 2; }
+
+    /* 2. Split Button */
+    .split-btn-wrap {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 18px; display: flex; flex-direction: column; gap: 14px; align-items: center;
+    }
+
+    /* 3. Scroll Spy Category */
+    .spy-box {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      height: 180px; display: flex; overflow: hidden;
+    }
+    .spy-sidebar {
+      width: 75px; background: #111113; border-right: 1px solid #27272a;
+      display: flex; flex-direction: column;
+    }
+    .spy-tab {
+      padding: 12px 8px; font-size: 11px; color: #71717a; text-align: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .spy-tab.active { background: #18181b; color: #fff; font-weight: 700; border-left: 2px solid #f97316; }
+    .spy-content { flex: 1; overflow-y: auto; padding: 12px 14px; }
+    .spy-content::-webkit-scrollbar { display: none; }
+
+    /* 4. Undo Timer Bar */
+    .undo-box {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 18px; display: flex; flex-direction: column; gap: 12px;
     }
     .task-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #09090b;
-      padding: 10px 14px;
-      border-radius: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: #27272a; padding: 12px 14px; border-radius: 12px;
     }
     .undo-toast {
-      background: #27272a;
-      border: 1px solid var(--accent-blue);
-      border-radius: 12px;
-      padding: 10px 14px;
-      display: none;
-      flex-direction: column;
-      gap: 6px;
+      background: #0f172a; border: 1px solid #334155; border-radius: 12px;
+      padding: 12px 14px; display: none; flex-direction: column; gap: 8px;
     }
     .undo-toast.show { display: flex; }
-    .toast-line {
-      height: 3px;
-      background: var(--accent-blue);
-      width: 100%;
-      border-radius: 2px;
-      transition: width 4s linear;
-    }
+    .toast-line { height: 3px; background: var(--accent-blue); border-radius: 2px; width: 100%; transition: width 4s linear; }
 
-    /* Modal Sheet Overlay */
-    .modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-      display: none;
-      align-items: flex-end;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    /* 5. Dot Rebound Scatter */
+    .scatter-box {
+      background: #18181b; border-radius: 20px; border: 1px solid #27272a;
+      padding: 18px; display: flex; flex-direction: column; gap: 12px;
     }
-    .modal-overlay.open { display: flex; opacity: 1; }
+    .dot-item {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #27272a; padding: 12px 14px; border-radius: 12px; cursor: pointer;
+    }
+    .red-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: #ef4444;
+      transition: all 0.3s var(--ease-spring);
+    }
+    .red-dot.dissipated { transform: scale(0); opacity: 0; }
+
+    /* 6. State Morph Icon */
+    .icons-row { display: flex; justify-content: space-around; padding: 10px 0; }
+    .icon-box {
+      width: 50px; height: 50px; border-radius: 14px; background: #27272a;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+      cursor: pointer; transition: all 0.25s var(--ease-spring);
+    }
+    .icon-box:active { transform: scale(0.9); }
+
+    /* 全局 6 大弹窗体系 (Popups Sheet System) */
+    .modal-overlay {
+      position: absolute; inset: 0; background: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+      z-index: 10000; display: flex; flex-direction: column;
+      justify-content: flex-end; visibility: hidden; pointer-events: none;
+      transition: all 0.45s var(--ease-fluid);
+    }
+    .modal-overlay.open {
+      visibility: visible; pointer-events: auto; background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
     .modal-panel {
-      width: 100%;
-      background: #18181b;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      border-radius: 28px 28px 0 0;
-      padding: 24px 20px 40px;
-      transform: translateY(100%);
-      transition: transform 0.4s var(--ease-fluid);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-height: 85%;
-      overflow-y: auto;
+      width: 100%; max-height: 88%; background: #18181b;
+      border-radius: 36px 36px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 24px 20px 36px; box-sizing: border-box;
+      transform: translateY(100%); transition: transform 0.45s var(--ease-fluid);
+      display: flex; flex-direction: column; gap: 16px; overflow-y: auto;
     }
     .modal-overlay.open .modal-panel { transform: translateY(0); }
-    .modal-handle { width: 44px; height: 5px; background: #3f3f46; border-radius: 10px; align-self: center; margin-bottom: 6px; }
+    .modal-handle { width: 44px; height: 5px; background: #3f3f46; border-radius: 10px; align-self: center; margin-bottom: 4px; }
     .modal-close-btn {
-      background: #27272a;
-      color: #fff;
-      border: none;
-      border-radius: 100px;
-      padding: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 10px;
+      background: #27272a; color: #fff; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px; padding: 12px; font-weight: 700; cursor: pointer; margin-top: 8px;
     }
 
-    /* Flip Card 3D Stage */
-    .flip-stage { perspective: 1000px; width: 100%; height: 200px; }
+    /* 3D Flip Card Modal Stage */
+    .flip-stage { perspective: 1000px; width: 100%; height: 210px; cursor: pointer; }
     .flip-inner {
-      width: 100%; height: 100%;
-      transition: transform 0.7s var(--ease-fluid);
-      transform-style: preserve-3d;
-      position: relative;
-      cursor: pointer;
+      width: 100%; height: 100%; transition: transform 0.7s var(--ease-fluid);
+      transform-style: preserve-3d; position: relative;
     }
     .flip-inner.flipped { transform: rotateY(180deg); }
     .flip-front, .flip-back {
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      border-radius: 18px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px;
+      padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
     }
     .flip-front { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; }
     .flip-back { background: #000000; border: 1px solid var(--accent-purple); transform: rotateY(180deg); }
 
-    /* Mobile media query */
+    /* Drag Expand Receipt Modal */
+    .receipt-fold {
+      background: #27272a; border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .receipt-upper { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .dashed-line { border-bottom: 2px dashed #52525b; margin: 4px 0; }
+    .receipt-lower {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-fluid);
+      background: #1e1e24; padding: 0 16px;
+    }
+    .receipt-fold.expanded .receipt-lower { max-height: 180px; padding: 16px; }
+
+    /* Mobile Responsive */
     @media (max-width: 860px) {
       .desktop-wrap { flex-direction: column; padding: 0; gap: 0; }
       .info-pane { display: none; }
-      .phone-frame {
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-      }
+      .phone-frame { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; }
       .dynamic-island { display: none; }
-      .screen { padding: 48px 16px 20px; }
+      .screen { padding: 48px 16px 24px; }
     }
   </style>
 </head>
 <body>
 
 <div class="desktop-wrap">
-  <!-- Left Side Info Pane -->
+  <!-- Left Side Project Intro & Skill Info -->
   <div class="info-pane">
     <div class="repo-badge">PROD-GRADE UI &amp; SKILL</div>
     <h1 class="repo-title">WeChat MiniProgram UI</h1>
     <p class="repo-desc">
-      微信小程序高端 UI &amp; 精美动效组件库（28款工业级设计组件）。基于 WXS 60fps 原生手势加速，支持作为 AI Agent Skill 或直接引入小程序项目。
+      专为微信小程序打造的高端 UI &amp; 精美微动效组件库（已完整收录 28 款现代工业级组件）。基于 WXS 60fps 原生手势加速，适配 Antigravity / Claude Code / Cursor 或直接导入小程序项目。
     </p>
     <ul class="feature-list">
-      <li>⚡ <b>60fps WXS 手势跟手</b>：杜绝跨线程频繁 setData 掉帧</li>
-      <li>🌊 <b>统一流体物理动效</b>：iOS 级自然减速与 Stagger 错帧</li>
-      <li>📳 <b>触觉微震动反馈</b>：关键操作与吸附智能微震</li>
-      <li>📐 <b>100vw 全机型适配</b>：完美适配全面屏底部安全区</li>
-      <li>🧩 <b>28款完整矩阵</b>：凭证弹层、微动效、审美排版、高级手势</li>
+      <li>⚡ <b>60fps WXS 原生视图层加速</b>：杜绝跨线程频繁 setData 掉帧</li>
+      <li>🌊 <b>统一物理动效规范</b>：iOS 级自然减速、Spring 回弹与 Stagger 错帧</li>
+      <li>📳 <b>触觉微震动反馈体系</b>：关键操作与节点吸附提供轻量触觉微震</li>
+      <li>📐 <b>100vw 全面屏安全区适配</b>：严谨盒模型彻底消除白边与横向晃动</li>
+      <li>🧩 <b>4 大分类 28 款组件全收录</b>：右侧模拟器即可体验与小程序 1:1 对应的全部功能</li>
     </ul>
     <a href="https://github.com/Corps-Cy/wechat-miniprogram-ui" class="btn-github" target="_blank">
       ★ GitHub 仓库源码
     </a>
   </div>
 
-  <!-- Right Side Interactive iPhone 16 Pro Mockup -->
+  <!-- Right Side Interactive iPhone 16 Pro Web Simulator (1:1 with MiniProgram) -->
   <div class="phone-frame">
     <div class="dynamic-island">
       <div class="island-cam"></div>
@@ -461,16 +625,16 @@
     </div>
 
     <div class="screen" id="phoneScreen">
-      <!-- Top Header -->
+      <!-- 顶部分类导航 (与 miniprogram/pages/demo 完全一致) -->
       <div class="demo-header">
         <div class="header-badge">
           <span class="badge-num">28</span>
-          <span class="badge-sub">微信小程序 · 精品交互库</span>
+          <span class="badge-sub">微信小程序 · 精品交互与高阶审美库</span>
         </div>
-        <div class="page-title">Vibe UI</div>
-        <div class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互</div>
+        <div class="page-title">Vibe Coding UI</div>
+        <div class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互 · 高级排版审美</div>
 
-        <!-- 4 Tabs Segment -->
+        <!-- 4 分类 Segment 切换 -->
         <div class="tab-segment-scroll">
           <div class="tab-segment">
             <div class="tab-item active" onclick="switchTab('popups')">
@@ -493,215 +657,534 @@
         </div>
       </div>
 
-      <!-- ==================== TAB 01: POPUPS ==================== -->
+      <!-- ==================== 分类 1：凭证与卡券类弹层 (6款) ==================== -->
       <div class="section-view active" id="view-popups">
-        <div>
+        <div class="section-title-wrap">
           <div class="section-title">凭证与权益弹层 · POPUP PANELS</div>
           <div class="section-desc">告别生硬白框，层次感与沉浸感拉满的 6 种弹层</div>
         </div>
 
-        <div class="demo-card" onclick="openModal('frosted')">
-          <div class="card-meta">
-            <span class="card-seq">01</span>
-            <span class="card-pill">BLUR 26px · 4f</span>
+        <div class="demo-grid">
+          <div class="demo-card" onclick="openModal('frosted')">
+            <div class="card-meta">
+              <span class="card-seq">01</span>
+              <span class="card-pill">BLUR 26px · FILL .42 · 4f</span>
+            </div>
+            <div class="card-name">玻璃面板浮起</div>
+            <div class="card-sub">Frosted Glass Sheet · 12 月份格子错帧填充</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
           </div>
-          <div class="card-name">玻璃面板浮起</div>
-          <div class="card-sub">Frosted Glass Sheet · 12月份格子错帧梯次自底向上填充</div>
-          <div class="card-action-bar">
-            <span class="action-hint">轻触打开全量弹层体验</span>
-            <span class="open-badge">打开演示 ➔</span>
-          </div>
-        </div>
 
-        <div class="demo-card" onclick="openModal('ring')">
-          <div class="card-meta">
-            <span class="card-seq">02</span>
-            <span class="card-pill">RING 1.2s · SCRM 40%</span>
+          <div class="demo-card" onclick="openModal('ring')">
+            <div class="card-meta">
+              <span class="card-seq">02</span>
+              <span class="card-pill">SCRM 40% · RING 1.2s</span>
+            </div>
+            <div class="card-name">圆环计数弹出</div>
+            <div class="card-sub">Ring Count Sheet · 顺时针画圆与数字同步递增</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
           </div>
-          <div class="card-name">圆环计数弹出</div>
-          <div class="card-sub">Ring Count Sheet · 顺时针顺滑画圆与数字线性同步递增</div>
-          <div class="card-action-bar">
-            <span class="action-hint">轻触打开全量弹层体验</span>
-            <span class="open-badge">打开演示 ➔</span>
-          </div>
-        </div>
 
-        <div class="demo-card" onclick="openModal('flip')">
-          <div class="card-meta">
-            <span class="card-seq">03</span>
-            <span class="card-pill">PERSP 1200 · Y180°</span>
+          <div class="demo-card" onclick="openModal('ruler')">
+            <div class="card-meta">
+              <span class="card-seq">03</span>
+              <span class="card-pill">TICKS 53 · 1f · INLINE</span>
+            </div>
+            <div class="card-name">刻度扫到今天</div>
+            <div class="card-sub">Tick Ruler Sheet · 53周刻度点亮 + 行内字号平滑展开</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
           </div>
-          <div class="card-name">点击翻面凭证</div>
-          <div class="card-sub">Flip Card Sheet · 沿 Y 轴 180° 原地翻转出示动态核销码</div>
-          <div class="card-action-bar">
-            <span class="action-hint">轻触打开全量弹层体验</span>
-            <span class="open-badge">打开演示 ➔</span>
-          </div>
-        </div>
 
-        <div class="demo-card" onclick="openModal('ruler')">
-          <div class="card-meta">
-            <span class="card-seq">04</span>
-            <span class="card-pill">TICKS 53 · STAGGER 1f</span>
+          <div class="demo-card" onclick="openModal('photo')">
+            <div class="card-meta">
+              <span class="card-seq">04</span>
+              <span class="card-pill">IMG 1.08→1 · MT -22px</span>
+            </div>
+            <div class="card-name">照片抽屉贴合</div>
+            <div class="card-sub">Photo Drawer Sheet · 暗角大字 + 负外边距无缝卡位</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
           </div>
-          <div class="card-name">刻度尺扫到今天</div>
-          <div class="card-sub">Tick Ruler Sheet · 53周刻度点亮 + 原地无抖动展开防伪编码</div>
-          <div class="card-action-bar">
-            <span class="action-hint">轻触打开全量弹层体验</span>
-            <span class="open-badge">打开演示 ➔</span>
+
+          <div class="demo-card" onclick="openModal('flip')">
+            <div class="card-meta">
+              <span class="card-seq">05</span>
+              <span class="card-pill">PERSP 1200 · Y180 · BACK</span>
+            </div>
+            <div class="card-name">原地翻面面板</div>
+            <div class="card-sub">Flip Card Sheet · 3D 立体翻转 + 背面暗色防伪核销</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
+          </div>
+
+          <div class="demo-card" onclick="openModal('drag')">
+            <div class="card-meta">
+              <span class="card-seq">06</span>
+              <span class="card-pill">SPRING DAMP · DRAG</span>
+            </div>
+            <div class="card-name">下拉展开抽屉</div>
+            <div class="card-sub">Drag Expand Sheet · 拖动手柄阻尼展开细节小票</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开全量弹层体验</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ==================== TAB 02: MOTIONS ==================== -->
+      <!-- ==================== 分类 2：质感微动效 (8款) ==================== -->
       <div class="section-view" id="view-motions">
-        <div>
+        <div class="section-title-wrap">
           <div class="section-title">质感微动效 · TACTILE MOTIONS</div>
           <div class="section-desc">8 种高质感光影与物理弹性反馈组件</div>
         </div>
 
-        <!-- 3D Tilt Card -->
-        <div class="demo-card">
-          <div class="card-meta">
-            <span class="card-seq">01</span>
-            <span class="card-pill" id="tiltHud">TILT: ±0.0°</span>
-          </div>
-          <div class="card-name">3D 倾斜光影面板</div>
-          <div class="card-sub">手指触摸在卡片上移动，感受 3D 视差浮动与高光反射</div>
-          <div class="tilt-box-wrap" id="tiltWrap">
-            <div class="tilt-card" id="tiltCard">
-              <div class="glare-overlay" id="glareOverlay"></div>
-              <div>
-                <div style="font-size:18px; font-weight:800; color:#fff;">My Board</div>
-                <div style="font-size:11px; color:#94a3b8;">Carve Custom · 156 cm</div>
+        <!-- 01 陀螺仪 3D 倾斜光影卡片 -->
+        <div class="motion-block">
+          <div class="block-label">01 3D 倾斜光影卡片 (TILT GLARE)</div>
+          <div class="demo-card" style="padding:14px;">
+            <div class="hud-bar">
+              <span class="hud-pill hud-pill-orange" id="tiltHud">TILT: ±0.0°</span>
+              <span class="hud-pill" id="glareHud">GLARE: 0%</span>
+            </div>
+            <div class="tilt-box-wrap" id="tiltWrap">
+              <div class="tilt-card" id="tiltCard">
+                <div class="glare-overlay" id="glareOverlay"></div>
+                <div>
+                  <div style="font-size:17px; font-weight:800; color:#fff;">My Board</div>
+                  <div style="font-size:11px; color:#71717a; margin-top:3px;">Carve Custom · 156 cm - 52 cm stance</div>
+                </div>
+                <div class="snowboard-pill">
+                  <div class="binding"></div>
+                  <div class="board-stripe"></div>
+                  <div class="binding"></div>
+                </div>
               </div>
-              <div style="font-size:12px; color:var(--accent-orange); font-weight:700;">TOUCH &amp; MOVE ❖</div>
             </div>
           </div>
         </div>
 
-        <!-- Conic Glow -->
-        <div class="demo-card">
-          <div class="card-meta">
-            <span class="card-seq">02</span>
-            <span class="card-pill">GPU 360° GLOW</span>
-          </div>
-          <div class="card-name">动态弥散光晕边框</div>
+        <!-- 02 动态弥散锥形光晕 -->
+        <div class="motion-block">
+          <div class="block-label">02 动态弥散光晕卡片 (CONIC GLOW)</div>
           <div class="conic-glow-box">
             <div class="conic-inner">
-              <div style="font-size:12px; font-weight:700; color:#cbd5e1; letter-spacing:1px;">AI LINE COACH ✦</div>
-              <div style="font-size:38px; font-weight:900; color:#fff; margin-top:6px;">1.4 <span style="font-size:14px; color:var(--accent-orange);">min</span></div>
-              <div style="font-size:11px; color:#94a3b8;">360° 旋转锥形渐变微描边</div>
+              <div style="font-size:11px; font-weight:700; color:#cbd5e1; letter-spacing:1px;">AI LINE COACH ✦</div>
+              <div style="font-size:36px; font-weight:900; color:#fff; margin-top:4px;">1.4 <span style="font-size:14px; color:var(--accent-orange);">min</span></div>
+              <div style="font-size:11px; color:#94a3b8;">GPU 硬件加速 360° 流光描边</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 磁吸游标与滚动码表 -->
+        <div class="motion-block">
+          <div class="block-label">03 磁吸游标与滚动码表 (ODOMETER CHART)</div>
+          <div class="odometer-card">
+            <div class="hud-bar">
+              <span class="hud-pill hud-pill-orange" id="odometerHud">SNAP → P04</span>
+              <span class="hud-pill">靠近节点自动吸附</span>
+            </div>
+            <div style="display:flex; align-items:baseline; gap:8px;">
+              <span style="font-size:42px; font-weight:900; font-family:monospace; color:#fff;" id="odometerVal">68.4</span>
+              <span style="font-size:14px; color:#a1a1aa;">km/h</span>
+            </div>
+            <div class="chart-area" id="chartArea">
+              <div class="chart-polyline"></div>
+              <div class="scrub-cursor" id="scrubCursor" style="left:55%;">
+                <div class="cursor-dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 流体胶囊形变面板 -->
+        <div class="motion-block">
+          <div class="block-label">04 流体胶囊形变面板 (FLUID MORPH)</div>
+          <div class="fluid-morph-box">
+            <div class="hud-bar">
+              <span class="hud-pill" id="morphHud">WIDTH: 120px</span>
+              <span class="hud-pill">点击感受水滴流体形变</span>
+            </div>
+            <div class="morph-btn" id="morphBtn" onclick="toggleMorph()">
+              <span id="morphContent">Order ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 共享元素无缝展开卡片 -->
+        <div class="motion-block">
+          <div class="block-label">05 共享元素卡片展开 (SHARED ELEMENT)</div>
+          <div class="shared-card" id="sharedCard" onclick="this.classList.toggle('expanded')">
+            <div class="shared-img">
+              <span style="font-size:12px; font-weight:800; background:rgba(0,0,0,0.6); padding:4px 10px; border-radius:100px;">点击卡片无缝膨胀展开</span>
+            </div>
+            <div class="shared-card-body">
+              <div style="font-size:16px; font-weight:800; color:#fff;">Alpine Explorer</div>
+              <div style="font-size:12px; color:#71717a; margin-top:4px;">原地无白屏平滑过渡至全屏视觉细节</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 三段阻尼弹性抽屉 -->
+        <div class="motion-block">
+          <div class="block-label">06 三段阻尼弹性抽屉 (ELASTIC SHEET)</div>
+          <div class="demo-card" onclick="openModal('elastic')">
+            <div class="card-meta">
+              <span class="card-seq">06</span>
+              <span class="card-pill">LOW · MID · FULL</span>
+            </div>
+            <div class="card-name">阻尼自适应弹性抽屉</div>
+            <div class="card-sub">橡皮筋阻尼拉伸与三档吸附停靠</div>
+            <div class="card-action-bar">
+              <span class="action-hint">轻触打开抽屉演示</span>
+              <span class="open-badge">打开演示 ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 物理弹簧交错流 -->
+        <div class="motion-block">
+          <div class="block-label">07 物理弹簧交错流 (STAGGER CASCADE)</div>
+          <div class="demo-card" style="padding:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span style="font-size:15px; font-weight:800; color:#fff;">瀑布流画廊</span>
+              <button onclick="replayCascade()" style="background:#27272a; color:#fff; border:none; padding:4px 12px; border-radius:100px; font-size:11px; cursor:pointer;">↻ 重新弹入</button>
+            </div>
+            <div class="masonry-grid" id="cascadeGrid">
+              <div class="grid-item"><span>01 Powder</span><span style="font-size:10px; color:#71717a;">STAGGER 0ms</span></div>
+              <div class="grid-item"><span>02 Glacier</span><span style="font-size:10px; color:#71717a;">STAGGER 100ms</span></div>
+              <div class="grid-item"><span>03 Alpine</span><span style="font-size:10px; color:#71717a;">STAGGER 200ms</span></div>
+              <div class="grid-item"><span>04 Summit</span><span style="font-size:10px; color:#71717a;">STAGGER 300ms</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 弹性微缩触觉反馈 -->
+        <div class="motion-block">
+          <div class="block-label">08 弹性微缩触觉反馈 (PRESS SCALE)</div>
+          <div class="press-card">
+            <div class="hud-bar">
+              <span class="hud-pill" id="scaleHud">SCALE: 1.000</span>
+              <span class="hud-pill">按压凹陷 · 松手超调弹跳</span>
+            </div>
+            <div>
+              <div style="font-size:11px; color:#a1a1aa; font-weight:700;">READY TO RIDE</div>
+              <div style="font-size:20px; font-weight:800; color:#18181b;">Nordkette · 46 cm</div>
+            </div>
+            <div class="elastic-btn" id="elasticBtn" onmousedown="pressBtn()" onmouseup="releaseBtn()" ontouchstart="pressBtn()" ontouchend="releaseBtn()">
+              <span style="font-weight:700; font-size:15px;">Start Run</span>
+              <span style="font-size:18px;">➔</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ==================== TAB 03: LAYOUTS ==================== -->
+      <!-- ==================== 分类 3：审美页面布局 (8款) ==================== -->
       <div class="section-view" id="view-layouts">
-        <div>
-          <div class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS</div>
-          <div class="section-desc">源自前沿设计语言，打破千篇一律流水线排版</div>
+        <div class="section-title-wrap">
+          <div class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS (8款)</div>
+          <div class="section-desc">源自前沿 App 视觉语言，打破模板化平铺陈列，主次分明</div>
         </div>
 
-        <!-- Bento Grid Wall -->
-        <div class="bento-card">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:1px;">BENTO GRID HABITS</span>
-            <span style="font-size:12px; font-weight:800; background:#0f172a; color:#fff; padding:2px 8px; border-radius:100px;" id="bentoPercent">75% 完成</span>
-          </div>
-          <div style="font-size:24px; font-weight:900;">便当盒网格习惯墙</div>
-          <div style="font-size:12px; color:#713f12;">点击小方块体验打卡与环形进度实时联动</div>
-          <div class="habit-row">
-            <div class="habit-chip done" onclick="toggleHabit(this)">💧</div>
-            <div class="habit-chip done" onclick="toggleHabit(this)">📖</div>
-            <div class="habit-chip done" onclick="toggleHabit(this)">🧘</div>
-            <div class="habit-chip" onclick="toggleHabit(this)">🚶</div>
-          </div>
-        </div>
-
-        <!-- Black Hero -->
-        <div class="demo-card" style="background:#000000; border:1px solid #334155;">
-          <div class="card-meta">
-            <span class="card-seq">02</span>
-            <span class="card-pill" style="color:#38bdf8; background:rgba(56,189,248,0.1);">BLACK HERO</span>
-          </div>
-          <div class="card-name">黑白两档主次架构</div>
-          <div class="card-sub" style="color:#94a3b8;">浅底聚焦极黑主卡，信息强弱对比分明</div>
-          <div style="display:flex; gap:12px; align-items:center; margin-top:8px;">
-            <div style="width:50px; height:68px; background:linear-gradient(135deg, #334155, #1e293b); border-radius:8px;"></div>
+        <!-- 01 宽体标题整宽大图列表 -->
+        <div class="motion-block">
+          <div class="block-label">01 宽体标题整宽大图列表 (WIDE CAPS LIST)</div>
+          <div class="wide-card">
+            <div class="hud-bar">
+              <span class="hud-pill">TYPE: WIDE CAPS</span>
+              <span class="hud-pill">IMAGE: 16:10 FULL</span>
+            </div>
             <div>
-              <div style="font-size:15px; font-weight:800; color:#fff;">百年孤独</div>
-              <div style="font-size:11px; color:#64748b;">加西亚·马尔克斯</div>
-              <div style="font-size:12px; color:#38bdf8; font-weight:700; margin-top:4px;">59% 已读 · 第 212 页</div>
+              <div style="font-size:10px; color:var(--accent-orange); font-weight:800; letter-spacing:1px;">NOMAD CAMPERS</div>
+              <div style="font-size:24px; font-weight:900; line-height:1.15; letter-spacing:-0.5px;">FIND THE VAN FOR YOUR ROAD</div>
+            </div>
+            <div class="wide-banner">
+              <div class="van-tag">CUSTOM CAMPER · 4X4</div>
+              <div>
+                <div style="font-size:17px; font-weight:800; color:#fff;">Desert Roamer XL</div>
+                <div style="font-size:11px; color:#cbd5e1;">2-4 Berths · Off-grid solar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 大图头块叠加信息与温度曲线 -->
+        <div class="motion-block">
+          <div class="block-label">02 大图头块叠信息与温度曲线 (HERO OVERLAY)</div>
+          <div class="hero-card">
+            <div class="hero-cover">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11px; font-weight:700; color:#cbd5e1;">下一次出发 · 当地 03:38</span>
+                <span style="font-size:11px; background:rgba(0,0,0,0.5); padding:2px 8px; border-radius:100px;">0 天后出发</span>
+              </div>
+              <div>
+                <div style="font-size:32px; font-weight:900;">里斯本</div>
+                <div style="font-size:12px; color:#cbd5e1;">PVG ➔ LIS · 行李已就绪</div>
+              </div>
+            </div>
+            <div class="days-row">
+              <div class="day-col active" onclick="selectDay(this, '24°C')"><div style="font-size:11px; font-weight:700;">周一</div><div style="font-size:15px; margin:4px 0;">☀</div><div style="font-size:11px;">24°C</div></div>
+              <div class="day-col" onclick="selectDay(this, '26°C')"><div style="font-size:11px; font-weight:700;">周二</div><div style="font-size:15px; margin:4px 0;">🌤</div><div style="font-size:11px;">26°C</div></div>
+              <div class="day-col" onclick="selectDay(this, '22°C')"><div style="font-size:11px; font-weight:700;">周三</div><div style="font-size:15px; margin:4px 0;">🌧</div><div style="font-size:11px;">22°C</div></div>
+              <div class="day-col" onclick="selectDay(this, '25°C')"><div style="font-size:11px; font-weight:700;">周四</div><div style="font-size:15px; margin:4px 0;">☀</div><div style="font-size:11px;">25°C</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 黑白两档主次架构 -->
+        <div class="motion-block">
+          <div class="block-label">03 黑白两档主次架构 (BLACK HERO CONTRAST)</div>
+          <div class="reader-shell">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-size:10px; color:#71717a; font-weight:700;">阅读 · 第38周</div>
+                <div style="font-size:20px; font-weight:900;">我的书房</div>
+              </div>
+              <span style="font-size:11px; background:#e4e4e7; padding:4px 10px; border-radius:100px; font-weight:700;">米</span>
+            </div>
+            <div class="black-hero-card">
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#a1a1aa;">
+                <span>阅读中</span>
+                <span style="color:#38bdf8; font-weight:700;">59% 已读</span>
+              </div>
+              <div style="display:flex; gap:12px; align-items:center;">
+                <div style="width:48px; height:64px; background:linear-gradient(135deg, #334155, #1e293b); border-radius:6px; flex-shrink:0;"></div>
+                <div>
+                  <div style="font-size:16px; font-weight:800; color:#fff;">百年孤独</div>
+                  <div style="font-size:11px; color:#94a3b8; margin-top:2px;">加西亚·马尔克斯</div>
+                  <div style="font-size:11px; color:#64748b; margin-top:4px;">第 8 章 · 还有 25 分钟</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 便当盒网格墙 -->
+        <div class="motion-block">
+          <div class="block-label">04 便当盒网格墙 (BENTO GRID WALL)</div>
+          <div class="bento-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:11px; font-weight:800; letter-spacing:1px;">HABIT WALL · 习惯打卡</span>
+              <span style="font-size:12px; font-weight:800; background:#18181b; color:#fff; padding:3px 10px; border-radius:100px;" id="bentoPercent">75% 完成</span>
+            </div>
+            <div>
+              <div style="font-size:26px; font-weight:900; line-height:1.1;">今日打卡清单</div>
+              <div style="font-size:12px; color:#713f12; margin-top:2px;">点击方块体验与圆环完成度联动</div>
+            </div>
+            <div class="habit-row">
+              <div class="habit-chip done" onclick="toggleBentoHabit(this)"><span>💧</span><span style="font-size:10px; font-weight:700;">喝水</span></div>
+              <div class="habit-chip done" onclick="toggleBentoHabit(this)"><span>📖</span><span style="font-size:10px; font-weight:700;">阅读</span></div>
+              <div class="habit-chip done" onclick="toggleBentoHabit(this)"><span>🧘</span><span style="font-size:10px; font-weight:700;">冥想</span></div>
+              <div class="habit-chip" onclick="toggleBentoHabit(this)"><span>🚶</span><span style="font-size:10px; font-weight:700;">散步</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 海报大字半圆转盘 -->
+        <div class="motion-block">
+          <div class="block-label">05 海报大字半圆转盘 (POSTER DIAL)</div>
+          <div class="poster-card">
+            <div style="font-size:11px; letter-spacing:1px; color:#c4b5fd; font-weight:700;">FOCUS ROOM</div>
+            <div style="font-size:32px; font-weight:900; line-height:1.1;">ROUND 4 · 25:00</div>
+            <div class="dial-semi">
+              <span style="font-size:12px; opacity:0.5;">Code</span>
+              <span style="font-size:14px; font-weight:800; color:#fff; border-bottom:2px solid #fff;">Focus</span>
+              <span style="font-size:12px; opacity:0.5;">Read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 层叠卡片牌组 -->
+        <div class="motion-block">
+          <div class="block-label">06 层叠卡片牌组 (STACKED DECK)</div>
+          <div class="demo-card" style="padding:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:12px; color:#a1a1aa;">点击飞牌切入下一张</span>
+              <span style="font-size:11px; background:#27272a; padding:3px 10px; border-radius:100px; color:#fff;" onclick="nextDeckCard()">下一张 ➔</span>
+            </div>
+            <div class="deck-stage" onclick="nextDeckCard()">
+              <div class="deck-item deck-item-3" id="deck3"><span>Card 03</span><span>深邃景深层</span></div>
+              <div class="deck-item deck-item-2" id="deck2"><span>Card 02</span><span>中间透视层</span></div>
+              <div class="deck-item deck-item-1" id="deck1"><span>Card 01</span><span style="font-size:20px; font-weight:900;">顶层交互卡片</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 分层视差抽离面板 -->
+        <div class="motion-block">
+          <div class="block-label">07 分层视差抽离面板 (LAYERED EXPLODED)</div>
+          <div class="demo-card" style="padding:16px;">
+            <div class="hud-bar">
+              <span class="hud-pill" id="expHud">TILT: 0.0° · 点击展开 52° 爆炸视差</span>
+            </div>
+            <div class="exploded-stage" id="expStage" onclick="toggleExploded()">
+              <div class="exp-layer exp-base"></div>
+              <div class="exp-layer exp-img"></div>
+              <div class="exp-layer exp-txt">
+                <span style="font-size:11px; font-weight:800; letter-spacing:1px;">RIDGE CAMP</span>
+                <span style="font-size:22px; font-weight:900;">2 NIGHTS ❖</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 重叠咬合与阶梯错位 -->
+        <div class="motion-block">
+          <div class="block-label">08 重叠咬合与阶梯错位 (OVERLAP & STAGGER)</div>
+          <div class="overlap-box">
+            <div style="font-size:13px; font-weight:800; color:#fff;">错位视觉节奏</div>
+            <div class="overlap-stack">
+              <div class="overlap-layer" style="top:0; background:#334155; z-index:1;">
+                <span style="font-size:11px; color:#94a3b8;">WEEKEND #01</span>
+                <div style="font-size:14px; font-weight:700;">Mountain Cabin</div>
+              </div>
+              <div class="overlap-layer" style="top:28px; background:linear-gradient(135deg, #f97316, #ea580c); z-index:2;" onclick="this.style.zIndex=10">
+                <span style="font-size:11px; color:#fed7aa;">WEEKEND #02 · 点击浮升顶层</span>
+                <div style="font-size:14px; font-weight:800;">Lakeside Camp</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ==================== TAB 04: INTERACTIONS ==================== -->
+      <!-- ==================== 分类 4：触觉高级手势交互 (6款) ==================== -->
       <div class="section-view" id="view-interactions">
-        <div>
-          <div class="section-title">触觉高级交互 · ADVANCED INTERACTIONS</div>
-          <div class="section-desc">手一碰就有回应，视图层流畅微交互与撤销保护</div>
+        <div class="section-title-wrap">
+          <div class="section-title">触觉高级交互 · ADVANCED INTERACTIONS (6款)</div>
+          <div class="section-desc">手一碰就有回应，基于 WXS 60fps 手势、提示动效与流体形变</div>
         </div>
 
-        <!-- Undo Bar -->
-        <div class="undo-bar-box">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div class="card-name" style="font-size:15px;">倒计时进度撤销条</div>
-            <span class="card-pill">UNDO 4.0s</span>
-          </div>
-          <div class="card-sub">点击右侧叉号测试 4 秒手滑防误删撤销机制</div>
-
-          <div class="task-row" id="demoTask">
-            <div>
-              <div style="font-size:13px; font-weight:700; color:#fff;">提交新版组件库 PR</div>
-              <div style="font-size:10px; color:#64748b;">工作待办 · 18:00</div>
+        <!-- 01 左右滑动卡片堆叠 -->
+        <div class="motion-block">
+          <div class="block-label">01 左右滑动卡片堆叠 (SWIPE STACK)</div>
+          <div class="demo-card" style="padding:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:11px; color:#a1a1aa;">点击切卡 / 体验堆叠飞入</span>
+              <span style="font-size:11px; background:#27272a; padding:3px 10px; border-radius:100px; color:#fff;" onclick="nextSwipeCard()">切卡 ➔</span>
             </div>
-            <span style="font-size:18px; color:#ef4444; cursor:pointer;" onclick="triggerDeleteTask()">×</span>
-          </div>
-
-          <div class="undo-toast" id="undoToast">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span style="font-size:12px; color:#fff;">1 项任务已移除</span>
-              <span style="font-size:11px; font-weight:800; color:var(--accent-blue); cursor:pointer;" onclick="undoDeleteTask()">撤销 ↺</span>
+            <div class="swipe-stage" onclick="nextSwipeCard()">
+              <div class="swipe-card-el swipe-under" id="swipeUnder"><span>Next Card</span><span style="font-size:11px; color:#71717a;">等待顶层飞出</span></div>
+              <div class="swipe-card-el swipe-top" id="swipeTop"><span>Active Card</span><span style="font-size:18px; font-weight:900;">滑动切卡 ↺</span></div>
             </div>
-            <div class="toast-line" id="toastProgress"></div>
           </div>
         </div>
 
-        <!-- State Morph Button -->
-        <div class="demo-card">
-          <div class="card-meta">
-            <span class="card-seq">02</span>
-            <span class="card-pill">SPLIT MORPH</span>
-          </div>
-          <div class="card-name">裂变流体胶囊</div>
-          <div class="card-sub">单体播放胶囊点击平滑一分为二裂变为控制组</div>
-          <div style="display:flex; justify-content:center; margin-top:10px;">
-            <button id="splitBtn" onclick="toggleSplit(this)" style="background:var(--accent-orange); color:#fff; border:none; padding:10px 24px; border-radius:100px; font-weight:700; cursor:pointer; transition:all 0.3s;">
+        <!-- 02 裂变流体胶囊 -->
+        <div class="motion-block">
+          <div class="block-label">02 裂变流体胶囊按键 (SPLIT BUTTON)</div>
+          <div class="split-btn-wrap">
+            <div style="font-size:32px; font-weight:900; font-family:monospace; color:#fff;" id="splitTimer">00:14.8</div>
+            <button id="splitBtn" onclick="toggleSplitBtn()" style="background:var(--accent-orange); color:#fff; border:none; padding:12px 28px; border-radius:100px; font-weight:800; font-size:14px; cursor:pointer; transition:all 0.3s var(--ease-fluid);">
               Start ➔
             </button>
+          </div>
+        </div>
+
+        <!-- 03 滚动联动分类列表 -->
+        <div class="motion-block">
+          <div class="block-label">03 滚动联动分类列表 (SCROLL SPY)</div>
+          <div class="spy-box">
+            <div class="spy-sidebar">
+              <div class="spy-tab active" onclick="jumpSpy(0, this)">热销</div>
+              <div class="spy-tab" onclick="jumpSpy(1, this)">套餐</div>
+              <div class="spy-tab" onclick="jumpSpy(2, this)">主食</div>
+              <div class="spy-tab" onclick="jumpSpy(3, this)">饮品</div>
+            </div>
+            <div class="spy-content" id="spyContent">
+              <div style="font-size:11px; color:#f97316; font-weight:800; margin-bottom:6px;">HOT · 热销推荐</div>
+              <div style="padding:8px 0; border-bottom:1px solid #27272a; font-size:13px;">招牌三文鱼碗 ¥48</div>
+              <div style="padding:8px 0; border-bottom:1px solid #27272a; font-size:13px;">牛油果波奇饭 ¥42</div>
+              <div style="font-size:11px; color:#f97316; font-weight:800; margin:14px 0 6px;">COMBO · 精选套餐</div>
+              <div style="padding:8px 0; border-bottom:1px solid #27272a; font-size:13px;">双人能量午餐 ¥88</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 倒计时进度撤销条 -->
+        <div class="motion-block">
+          <div class="block-label">04 倒计时进度撤销条 (UNDO TIMER BAR)</div>
+          <div class="undo-box">
+            <div class="hud-bar">
+              <span class="hud-pill hud-pill-orange">COUNTDOWN: 4.0s</span>
+              <span class="hud-pill">手滑后悔保护机制</span>
+            </div>
+            <div class="task-row" id="undoTask">
+              <div>
+                <div style="font-size:14px; font-weight:700; color:#fff;">完成 Antigravity UI Skill 部署</div>
+                <div style="font-size:11px; color:#71717a; margin-top:2px;">工作待办 · 刚刚</div>
+              </div>
+              <span style="font-size:20px; color:#ef4444; cursor:pointer;" onclick="deleteUndoTask()">×</span>
+            </div>
+            <div class="undo-toast" id="undoToast">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:12px; color:#fff;">1 项任务已移除</span>
+                <span style="font-size:12px; font-weight:800; color:var(--accent-blue); cursor:pointer;" onclick="restoreUndoTask()">撤销 ↺</span>
+              </div>
+              <div class="toast-line" id="toastProgress"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 红点弧线回弹消散 -->
+        <div class="motion-block">
+          <div class="block-label">05 红点弧线回缩与三级联动消散 (DOT REBOUND)</div>
+          <div class="scatter-box">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:14px; font-weight:800; color:#fff;">收件箱</span>
+              <button onclick="resetDots()" style="background:#27272a; color:#fff; border:none; padding:4px 10px; border-radius:100px; font-size:10px; cursor:pointer;">重置红点</button>
+            </div>
+            <div class="dot-item" onclick="clearDot(this)">
+              <span style="font-size:13px; color:#fff;">系统通知：组件库已更新</span>
+              <div class="red-dot"></div>
+            </div>
+            <div class="dot-item" onclick="clearDot(this)">
+              <span style="font-size:13px; color:#fff;">安全提醒：登录状态确认</span>
+              <div class="red-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 状态形变图标 -->
+        <div class="motion-block">
+          <div class="block-label">06 状态形变图标与动作即反馈 (STATE MORPH ICON)</div>
+          <div class="demo-card" style="padding:16px;">
+            <div class="icons-row">
+              <div class="icon-box" onclick="this.innerText = this.innerText === '☰' ? '✕' : '☰'">☰</div>
+              <div class="icon-box" onclick="this.innerText = this.innerText === '▶' ? '❚❚' : '▶'">▶</div>
+              <div class="icon-box" onclick="morphSend(this)">✈</div>
+            </div>
           </div>
         </div>
       </div>
 
     </div><!-- /screen -->
 
-    <!-- Global Modal Sheet -->
+    <!-- 全局多模态高保真弹层组件实体 (Popup Sheets System) -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
       <div class="modal-panel" id="modalPanel" onclick="event.stopPropagation()">
         <div class="modal-handle"></div>
         <div id="modalContent"></div>
-        <button class="modal-close-btn" onclick="hideModal()">关闭面板</button>
+        <button class="modal-close-btn" onclick="hideModal()">关闭面板 ✕</button>
       </div>
     </div>
   </div><!-- /phone-frame -->
 </div>
 
 <script>
-  // Tab Switch
+  // 1. Tab Switch
   function switchTab(tabId) {
     document.querySelectorAll('.tab-item').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.section-view').forEach(el => el.classList.remove('active'));
@@ -711,49 +1194,90 @@
     document.getElementById('phoneScreen').scrollTop = 0;
   }
 
-  // Modals Content Map
+  // 2. Modals Content Templates (Exact 1:1 with 6 popup components)
   const modalTemplates = {
     frosted: `
-      <div style="font-size:12px; color:var(--accent-orange); font-weight:800;">BLUR 26px · STAGGER 4f</div>
-      <div style="font-size:24px; font-weight:900; color:#fff;">玻璃面板浮起</div>
-      <div style="font-size:48px; font-weight:900; color:#fff;">163 <span style="font-size:14px; color:var(--accent-orange);">天剩余</span></div>
-      <div style="font-size:12px; color:#71717a;">年度会员权益打卡统计 · 2027年到期</div>
-      <div style="display:flex; gap:4px; height:36px; align-items:flex-end;">
-        ${Array.from({length:12}).map((_, i) => `<div style="flex:1; height:${i < 6 ? 100 : (i === 6 ? 60 : 0)}%; background:${i < 6 ? '#f97316' : '#27272a'}; border-radius:4px;"></div>`).join('')}
+      <div style="font-size:11px; color:var(--accent-orange); font-weight:800; font-family:monospace;">FROSTED GLASS SHEET · BLUR 26px</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">里斯本 · 欧洲旅行计划</div>
+      <div style="font-size:44px; font-weight:900; color:#fff; line-height:1; margin:8px 0;">326 <span style="font-size:13px; color:var(--accent-orange);">天剩余</span></div>
+      <div style="font-size:12px; color:#71717a;">12 个月份格子错帧自底向上平滑填充</div>
+      <div style="display:flex; gap:5px; height:42px; align-items:flex-end; margin-top:8px;">
+        ${Array.from({length:12}).map((_, i) => `<div style="flex:1; height:${i < 7 ? 100 : (i === 7 ? 50 : 0)}%; background:${i < 7 ? '#f97316' : '#27272a'}; border-radius:4px;"></div>`).join('')}
       </div>
     `,
     ring: `
-      <div style="font-size:12px; color:var(--accent-orange); font-weight:800;">RING 1.2s · SCRM 40%</div>
-      <div style="font-size:24px; font-weight:900; color:#fff;">圆环计数弹出</div>
-      <div style="text-align:center; padding:20px 0;">
-        <div style="font-size:52px; font-weight:900; color:var(--accent-orange);">72%</div>
-        <div style="font-size:12px; color:#94a3b8;">1.2秒 顺时针顺滑画圆完成</div>
+      <div style="font-size:11px; color:var(--accent-orange); font-weight:800; font-family:monospace;">RING COUNT SHEET · SCRM 40%</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">QUILL 通兑 READING PASS</div>
+      <div style="text-align:center; padding:18px 0;">
+        <div style="font-size:56px; font-weight:900; color:var(--accent-orange); font-family:monospace;">82%</div>
+        <div style="font-size:12px; color:#94a3b8; margin-top:4px;">1.2秒 顺时针顺滑画圆与数字线性同步递增</div>
       </div>
     `,
+    ruler: `
+      <div style="font-size:11px; color:var(--accent-blue); font-weight:800; font-family:monospace;">TICK RULER SHEET · TICKS 53</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">ROAM 手册编号 N° 0417</div>
+      <div style="font-size:12px; color:#71717a;">53 周刻度逐根变深，扫至“今天”切换强调色</div>
+      <div style="display:flex; gap:2px; height:42px; align-items:center; background:#111113; padding:10px; border-radius:12px; margin-top:8px;">
+        ${Array.from({length:36}).map((_, i) => `<div style="flex:1; height:${i === 22 ? '100%' : '50%'}; background:${i === 22 ? '#38bdf8' : (i < 22 ? '#64748b' : '#27272a')}; border-radius:2px;"></div>`).join('')}
+      </div>
+    `,
+    photo: `
+      <div style="font-size:11px; color:var(--accent-green); font-weight:800; font-family:monospace;">PHOTO DRAWER SHEET · -44rpx BITE</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">FORAGE 拾味 RECIPE BOOK</div>
+      <div style="height:110px; border-radius:14px; background:linear-gradient(135deg, #065f46, #022c22); display:flex; align-items:flex-end; padding:12px; margin:8px 0;">
+        <span style="font-size:16px; font-weight:800; color:#fff;">三文鱼什锦夏威夷碗</span>
+      </div>
+      <div style="font-size:12px; color:#71717a;">负外边距无缝卡位抽屉，水平进度条延时展开</div>
+    `,
     flip: `
-      <div style="font-size:12px; color:var(--accent-purple); font-weight:800;">PERSP 1200 · Y180°</div>
-      <div style="font-size:22px; font-weight:900; color:#fff;">点击翻面凭证</div>
+      <div style="font-size:11px; color:var(--accent-purple); font-weight:800; font-family:monospace;">FLIP CARD SHEET · PERSP 1200 · Y180°</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">点击原地 180° 翻面凭证</div>
       <div class="flip-stage" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-front">
-            <span style="font-weight:800; font-size:16px; color:#fff;">特权入场通行券</span>
-            <span style="font-size:12px; color:var(--accent-purple);">点击卡片原地 180° 翻转 ↺</span>
+            <div>
+              <div style="font-size:16px; font-weight:800; color:#fff;">NOMAD ROAD PASS</div>
+              <div style="font-size:11px; color:#94a3b8;">剩余 163 天有效</div>
+            </div>
+            <div style="font-size:12px; color:var(--accent-purple); font-weight:700;">点击翻转到背面 ↷</div>
           </div>
           <div class="flip-back">
-            <span style="font-weight:800; font-size:14px; color:#fff;">核销二维码凭证</span>
-            <div style="text-align:center; font-size:28px;">▦ ▣ ▤</div>
-            <span style="font-size:11px; color:#64748b;">防伪编码: TK-9812-QX</span>
+            <div style="font-size:14px; font-weight:800; color:#fff;">到场核销二维码</div>
+            <div style="text-align:center; font-size:32px;">▦ ▣ ▤</div>
+            <div style="font-size:11px; color:#64748b; font-family:monospace;">防伪序列号: TK-9812-QX</div>
           </div>
         </div>
       </div>
     `,
-    ruler: `
-      <div style="font-size:12px; color:var(--accent-blue); font-weight:800;">TICKS 53 · 1f STAGGER</div>
-      <div style="font-size:22px; font-weight:900; color:#fff;">刻度尺扫到今天</div>
-      <div style="font-size:12px; color:#71717a;">53 周刻度自左至右逐根点亮，扫至“今天”切换强调色</div>
-      <div style="display:flex; gap:2px; height:40px; align-items:center; background:#09090b; padding:10px; border-radius:12px;">
-        ${Array.from({length:32}).map((_, i) => `<div style="flex:1; height:${i === 20 ? '100%' : '50%'}; background:${i === 20 ? '#38bdf8' : (i < 20 ? '#64748b' : '#27272a')}; border-radius:2px;"></div>`).join('')}
+    drag: `
+      <div style="font-size:11px; color:var(--accent-orange); font-weight:800; font-family:monospace;">DRAG EXPAND SHEET · SNAP 40%</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">FERN TABLE 餐桌凭证</div>
+      <div class="receipt-fold" id="receiptFold">
+        <div class="receipt-upper">
+          <div style="display:flex; justify-content:space-between;">
+            <span style="font-weight:800; font-size:15px; color:#fff;">入座凭证 · 2人位</span>
+            <span style="font-size:12px; color:#10b981;">有效中</span>
+          </div>
+          <div class="dashed-line"></div>
+          <div style="font-size:12px; color:var(--accent-orange); cursor:pointer; text-align:center; font-weight:700;" onclick="toggleReceiptFold()">
+            ▼ 点击展开完整单据明细
+          </div>
+        </div>
+        <div class="receipt-lower">
+          <div style="font-size:11px; color:#94a3b8;">领位编号: LF7K-2QXP</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:4px;">条形码: 9842 1092 8419</div>
+        </div>
       </div>
+    `,
+    elastic: `
+      <div style="font-size:11px; color:var(--accent-orange); font-weight:800; font-family:monospace;">ELASTIC BOTTOM SHEET · 3 ANCHORS</div>
+      <div style="font-size:22px; font-weight:900; color:#fff;">Choose Your Setup</div>
+      <div style="display:flex; gap:8px; margin:10px 0;">
+        <span style="background:#27272a; padding:6px 14px; border-radius:100px; font-size:12px; color:#fff;">152 cm</span>
+        <span style="background:var(--accent-orange); padding:6px 14px; border-radius:100px; font-size:12px; color:#fff; font-weight:700;">156 cm</span>
+        <span style="background:#27272a; padding:6px 14px; border-radius:100px; font-size:12px; color:#fff;">160 cm</span>
+      </div>
+      <div style="font-size:12px; color:#71717a;">支持橡皮筋阻尼拉伸与 LOW / MID / FULL 档位自动吸附停靠</div>
     `
   };
 
@@ -772,21 +1296,30 @@
     if (e.target.id === 'modalOverlay') hideModal();
   }
 
-  // 3D Tilt Card Touch & Mouse handler
+  function toggleReceiptFold() {
+    document.getElementById('receiptFold').classList.toggle('expanded');
+  }
+
+  // 3. 3D Tilt Glare Card (Precision calculation matching tilt.wxs)
   const tiltWrap = document.getElementById('tiltWrap');
   const tiltCard = document.getElementById('tiltCard');
   const glare = document.getElementById('glareOverlay');
   const tiltHud = document.getElementById('tiltHud');
+  const glareHud = document.getElementById('glareHud');
 
   function handleMove(clientX, clientY) {
     const rect = tiltWrap.getBoundingClientRect();
     const x = clientX - rect.left - rect.width / 2;
     const y = clientY - rect.top - rect.height / 2;
-    const rx = -(y / (rect.height / 2)) * 8;
-    const ry = (x / (rect.width / 2)) * 8;
+    const rx = -(y / (rect.height / 2)) * 6.5;
+    const ry = (x / (rect.width / 2)) * 6.5;
+    const intensity = Math.min(100, Math.round(Math.hypot(x, y) / (rect.width / 2) * 100));
+
     tiltCard.style.transform = `rotateX(${rx.toFixed(1)}deg) rotateY(${ry.toFixed(1)}deg) scale(1.02)`;
-    tiltHud.innerText = `TILT: ${ry.toFixed(1)}°`;
-    glare.style.background = `radial-gradient(circle at ${50 + ry*5}% ${50 - rx*5}%, rgba(255,255,255,0.45) 0%, transparent 60%)`;
+    tiltHud.innerText = `TILT: ${ry > 0 ? '+' : ''}${ry.toFixed(1)}°`;
+    glareHud.innerText = `GLARE: ${intensity}%`;
+    glare.style.opacity = '1';
+    glare.style.background = `radial-gradient(circle at ${50 + ry*6}% ${50 - rx*6}%, rgba(255,255,255,0.4) 0%, transparent 60%)`;
   }
 
   tiltWrap.addEventListener('mousemove', e => handleMove(e.clientX, e.clientY));
@@ -796,51 +1329,185 @@
   function resetTilt() {
     tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
     tiltHud.innerText = 'TILT: ±0.0°';
+    glareHud.innerText = 'GLARE: 0%';
+    glare.style.opacity = '0';
   }
   tiltWrap.addEventListener('mouseleave', resetTilt);
   tiltWrap.addEventListener('touchend', resetTilt);
 
-  // Bento habit toggle
-  function toggleHabit(el) {
+  // 4. Odometer Scrub
+  const chartArea = document.getElementById('chartArea');
+  const scrubCursor = document.getElementById('scrubCursor');
+  const odometerVal = document.getElementById('odometerVal');
+  const odometerHud = document.getElementById('odometerHud');
+
+  chartArea.addEventListener('mousemove', e => {
+    const rect = chartArea.getBoundingClientRect();
+    const pct = Math.max(5, Math.min(95, ((e.clientX - rect.left) / rect.width) * 100));
+    scrubCursor.style.left = pct + '%';
+    const val = (45 + (pct / 100) * 35).toFixed(1);
+    odometerVal.innerText = val;
+    odometerHud.innerText = `SNAP → P0${Math.round(pct / 12)}`;
+  });
+
+  // 5. Fluid Morph
+  let isMorphed = false;
+  function toggleMorph() {
+    isMorphed = !isMorphed;
+    const btn = document.getElementById('morphBtn');
+    const hud = document.getElementById('morphHud');
+    if (isMorphed) {
+      btn.classList.add('expanded');
+      btn.innerHTML = '<div><b>Quick Order Panel</b><div style="font-size:11px; color:#cbd5e1; margin-top:4px;">流体水滴般展开至完整卡片</div></div>';
+      hud.innerText = 'WIDTH: 100% · EXPANDED';
+    } else {
+      btn.classList.remove('expanded');
+      btn.innerHTML = '<span>Order ➔</span>';
+      hud.innerText = 'WIDTH: 120px';
+    }
+  }
+
+  // 6. Stagger Replay
+  function replayCascade() {
+    const items = document.querySelectorAll('#cascadeGrid .grid-item');
+    items.forEach((item, i) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(15px)';
+      setTimeout(() => {
+        item.style.transition = 'all 0.35s var(--ease-spring)';
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, i * 100);
+    });
+  }
+
+  // 7. Press Scale Button
+  const scaleBtn = document.getElementById('elasticBtn');
+  const scaleHud = document.getElementById('scaleHud');
+  function pressBtn() {
+    scaleBtn.classList.add('pressed');
+    scaleBtn.classList.remove('overshoot');
+    scaleHud.innerText = 'SCALE: 0.960 · 按压深度';
+  }
+  function releaseBtn() {
+    scaleBtn.classList.remove('pressed');
+    scaleBtn.classList.add('overshoot');
+    scaleHud.innerText = 'SCALE: 1.011 · +1.1% 弹跳';
+    setTimeout(() => {
+      scaleBtn.classList.remove('overshoot');
+      scaleHud.innerText = 'SCALE: 1.000';
+    }, 200);
+  }
+
+  // 8. Day select
+  function selectDay(el, temp) {
+    document.querySelectorAll('.day-col').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // 9. Bento toggle
+  function toggleBentoHabit(el) {
     el.classList.toggle('done');
-    const done = document.querySelectorAll('.habit-chip.done').length;
+    const done = document.querySelectorAll('.bento-card .habit-chip.done').length;
     const pct = Math.round((done / 4) * 100);
     document.getElementById('bentoPercent').innerText = pct + '% 完成';
   }
 
-  // Undo Timer
-  let undoTimeout = null;
-  function triggerDeleteTask() {
-    document.getElementById('demoTask').style.display = 'none';
-    const toast = document.getElementById('undoToast');
-    const prog = document.getElementById('toastProgress');
-    toast.classList.add('show');
-    prog.style.width = '100%';
-    setTimeout(() => { prog.style.width = '0%'; }, 20);
-
-    clearTimeout(undoTimeout);
-    undoTimeout = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 4000);
+  // 10. Stacked Deck
+  let deckIndex = 0;
+  const deckColors = ['linear-gradient(135deg, #f97316, #ea580c)', 'linear-gradient(135deg, #0284c7, #0369a1)', 'linear-gradient(135deg, #7c3aed, #6d28d9)'];
+  function nextDeckCard() {
+    deckIndex = (deckIndex + 1) % 3;
+    document.getElementById('deck1').style.background = deckColors[deckIndex];
   }
 
-  function undoDeleteTask() {
-    clearTimeout(undoTimeout);
-    document.getElementById('undoToast').classList.remove('show');
-    document.getElementById('demoTask').style.display = 'flex';
+  // 11. Layered Exploded
+  let isExploded = false;
+  function toggleExploded() {
+    isExploded = !isExploded;
+    const stage = document.getElementById('expStage');
+    const hud = document.getElementById('expHud');
+    if (isExploded) {
+      stage.classList.add('exploded');
+      hud.innerText = 'TILT: 52.0° · 4 层视差爆炸展开';
+    } else {
+      stage.classList.remove('exploded');
+      hud.innerText = 'TILT: 0.0° · 点击展开 52° 爆炸视差';
+    }
   }
 
-  // Split Morph Button
-  let isSplit = false;
-  function toggleSplit(btn) {
-    isSplit = !isSplit;
-    if (isSplit) {
+  // 12. Swipe Card Stack
+  let swipeIdx = 0;
+  const swipeGradients = ['linear-gradient(135deg, #3b82f6, #1d4ed8)', 'linear-gradient(135deg, #10b981, #047857)', 'linear-gradient(135deg, #f59e0b, #d97706)'];
+  function nextSwipeCard() {
+    swipeIdx = (swipeIdx + 1) % swipeGradients.length;
+    const top = document.getElementById('swipeTop');
+    top.style.transform = 'translateX(100px) rotate(15deg)';
+    top.style.opacity = '0';
+    setTimeout(() => {
+      top.style.background = swipeGradients[swipeIdx];
+      top.style.transform = 'translateX(0) rotate(0deg)';
+      top.style.opacity = '1';
+    }, 250);
+  }
+
+  // 13. Split Button
+  let isSplitActive = false;
+  function toggleSplitBtn() {
+    isSplitActive = !isSplitActive;
+    const btn = document.getElementById('splitBtn');
+    if (isSplitActive) {
       btn.style.background = '#ef4444';
       btn.innerText = 'Pause ❚❚  |  End ◼';
     } else {
       btn.style.background = 'var(--accent-orange)';
       btn.innerText = 'Start ➔';
     }
+  }
+
+  // 14. Scroll Spy
+  function jumpSpy(idx, el) {
+    document.querySelectorAll('.spy-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // 15. Undo Timer
+  let undoTimer = null;
+  function deleteUndoTask() {
+    document.getElementById('undoTask').style.display = 'none';
+    const toast = document.getElementById('undoToast');
+    const prog = document.getElementById('toastProgress');
+    toast.classList.add('show');
+    prog.style.width = '100%';
+    setTimeout(() => { prog.style.width = '0%'; }, 20);
+
+    clearTimeout(undoTimer);
+    undoTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }
+  function restoreUndoTask() {
+    clearTimeout(undoTimer);
+    document.getElementById('undoToast').classList.remove('show');
+    document.getElementById('undoTask').style.display = 'flex';
+  }
+
+  // 16. Red Dot
+  function clearDot(el) {
+    const dot = el.querySelector('.red-dot');
+    if (dot) dot.classList.add('dissipated');
+  }
+  function resetDots() {
+    document.querySelectorAll('.red-dot').forEach(d => d.classList.remove('dissipated'));
+  }
+
+  // 17. Send icon
+  function morphSend(el) {
+    el.innerText = '...';
+    setTimeout(() => {
+      el.innerText = '✓';
+      setTimeout(() => { el.innerText = '✈'; }, 1200);
+    }, 600);
   }
 </script>
 
