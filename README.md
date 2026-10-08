@@ -15,34 +15,47 @@
 
 ## 📱 动效与交互效果全景演示 (Live Animations & Showcase)
 
-> 💡 **无需视频或录屏，纯矢量 SVG 动态代码动画！**
-> 下方为采用纯矢量 SVG + CSS Keyframes 构建的四大维度核心微交互动画。纯代码驱动、无限放大不失真、极速秒开、自循环播放，真实再现微信小程序 WXS 物理渲染质感。
+> 💡 **100% 真实微信小程序原生真机/模拟器交互动效！**
+> 下方为微信小程序原生渲染录制的真实 60fps 动效，完全由 **WXS (WeiXin Script)** 在渲染层独立驱动，具备真实跟手性、iOS 级弹性物理与触觉反馈（已接入国内极速 CDN 加速，全平台秒开不卡顿）。
 
-### 01. 凭证与卡券流体弹层 (Popup Panels)
-> 26px 毛玻璃浮起 · 12月格子错帧填充 · 1.2s 顺时针圆环递增 · 180° 原地翻面核销
-
-![01 凭证与卡券流体弹层](assets/previews/01-voucher-sheets.svg)
-
----
-
-### 02. 质感微动效核心组件 (Tactile Motions)
-> 3D 跟手倾斜与光影 · 动态弥散光晕边框 · 机械滚动码表 · 弹性微缩触觉反馈
-
-![02 质感微动效核心组件](assets/previews/02-tactile-motions.svg)
-
----
-
-### 03. 高级审美页面布局 (Aesthetic Layouts)
-> 便当盒 Bento Grid 几何分区 · 3D 轴测透视爆炸展开 · 纸牌层叠滑卡补位
-
-![03 高级审美页面布局](assets/previews/03-aesthetic-layouts.svg)
-
----
-
-### 04. 触觉高级手势与交互 (Advanced Gestures)
-> WXS 60fps 左右滑牌切卡 · 4秒倒计时进度撤销条 · 红点原位弧线消散 · 状态形变图标
-
-![04 触觉高级手势与交互](assets/previews/04-advanced-interactions.svg)
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>01. 凭证与卡券流体弹层 (Popup Panels)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/01-voucher-sheets.gif" width="300" alt="凭证卡券流体弹层" /><br/><br/>
+      <sub>26px 磨砂毛玻璃浮起 · 12月格子错帧填充 · 1.2s 顺时针圆环 · 180° 原地翻面</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>02. 质感微动效核心组件 (Tactile Motions)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/02-micro-motion.gif" width="300" alt="质感微动效" /><br/><br/>
+      <sub>3D 跟手倾斜与光影 · 动态弥散光晕边框 · 码表机械滚动 · 物理弹簧交错流</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>03. 高级审美页面布局 (Aesthetic Layouts)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/03-aesthetic-layouts.gif" width="300" alt="高级审美页面布局" /><br/><br/>
+      <sub>便当盒 Bento Grid · 3D 轴测透视爆炸展开 · 层叠滑卡 · 海报半圆拨盘</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>04. 触觉高级手势与交互 (Advanced Gestures)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/04-tactile-feedback.gif" width="300" alt="触觉高级交互" /><br/><br/>
+      <sub>WXS 60fps 左右滑牌 · 裂变流体胶囊按钮 · 4秒倒计时撤销条 · 真实震动反馈</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>05. 状态形变图标动效 (State Morph Icons)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/05-state-morph.gif" width="300" alt="状态形变图标" /><br/><br/>
+      <sub>汉堡与叉号平滑变形 · 播放/暂停流体切换 · 发送转对勾成功反馈</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>06. 轻量触觉提示与微动效 (Micro Toasts & Dot)</b><br/><br/>
+      <img src="https://fastly.jsdelivr.net/gh/Corps-Cy/wechat-miniprogram-ui@main/docs/previews/06-micro-toasts.gif" width="300" alt="触觉提示动效" /><br/><br/>
+      <sub>红点弧线回弹消散 · 错帧上级角标递减 · 不打扰用户的微提示机制</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
