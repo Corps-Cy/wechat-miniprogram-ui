@@ -1,65 +1,164 @@
-# wechat-miniprogram-ui (微信小程序 UI & 组件 Skill)
+# wechat-miniprogram-ui (微信小程序高端 UI & 动效组件库)
 
-专门用于微信小程序 UI 设计、精美动效凭证组件库与页面开发的 AI Agent Skill（支持 Antigravity / Claude Code / Cursor / WeChat DevTools）。
+[![GitHub Stars](https://img.shields.io/github/stars/Corps-Cy/wechat-miniprogram-ui?style=social)](https://github.com/Corps-Cy/wechat-miniprogram-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![WeChat MiniProgram](https://img.shields.io/badge/Platform-WeChat%20MiniProgram-07c160?logo=wechat)](https://mp.weixin.qq.com/)
+[![Pure Native](https://img.shields.io/badge/Zero%20Dependency-Pure%20JS%20%7C%20WXS-ff69b4)]()
 
-## ✨ 项目特性 (Features)
-- 📱 **原生小程序最佳实践**：严格遵循微信小程序原生标准（WXML / WXSS / TS & JS / JSON 四件套与 WXS 高性能响应）。
-- 🌊 **物理流体动效**：核心统一采用 `cubic-bezier(0.2, 0.7, 0.2, 1)` 非线性减速曲线与 Stagger 错帧进场机制。
-- 📐 **750rpx 现代布局**：移动端响应式基准、全面屏安全区适配与 CSS 变量令牌。
-- ⚡️ **60fps 手势跟手**：拖拽手势全部通过 WXS 视图层加速，杜绝跨线程 `setData` 掉帧。
-- 🧩 **高度模块化**：开箱即用，已内置 6 款高体验感凭证/卡片组件与演示 Demo 页面，可轻松扩展页面（Pages）级开发。
+专门用于微信小程序 UI 设计、精美动效凭证组件库与页面开发的 **AI Agent Skill & 生产级开源组件库**（适配 Antigravity / Claude Code / Cursor / 微信开发者工具）。
 
----
-
-## 🎨 已内置 6 大精美组件 (Components)
-
-| 组件名称 | 目录 | 效果描述 |
-| :--- | :--- | :--- |
-| **1. 毛玻璃月份浮层** | `src/components/frosted-glass-sheet` | 26px 模糊渐变，半透明面板从 0.94 放大浮起；12 个月格子按比例错开 4 帧（~66ms）自底向上平滑填充。 |
-| **2. 圆环计数弹出** | `src/components/ring-count-sheet` | 底部面板 0.5s 升起，背景压暗 40%；落定后圆环 stroke-dashoffset 1.2s 顺滑绘制，中心数字同步平滑递增。 |
-| **3. 刻度尺进度弹出** | `src/components/tick-ruler-sheet` | 纸质票据质感滑入，53 根周刻度错开 1 帧逐根变深，扫至“今天”切换强调色；支持原地展开完整凭据编号（保持行高不变）。 |
-| **4. 照片抽屉贴合** | `src/components/photo-drawer-sheet` | 沉浸式海报从 1.08 缩小到 1.0 铺满，暗角渐变托大字；抽屉通过 `margin-top: -44rpx` (-22px) 向上紧贴照片底边推入，水平进度条随后展开。 |
-| **5. 原地翻面面板** | `src/components/flip-card-sheet` | `perspective: 1200px`，卡片沿 Y 轴 180° 原地翻转，正面常规信息，背面到场核销二维码/条形码，不丢上下文。 |
-| **6. 下拉展开面板** | `src/components/drag-expand-sheet` | 底部半高面板，居中阻尼拖拽手柄，配合 **WXS** 实现 60fps 跟手拖拽，支持向下拉动顺滑展开下半部完整规则。 |
+已完整收录并重构 **28 款现代工业级设计水准组件**，涵盖 4 大核心维度：**凭证流体弹层**、**质感微动效**、**高级审美页面布局**与**触觉高级手势交互**。
 
 ---
 
-## 📁 目录结构 (Structure)
+## 📱 动效与交互效果演示 (Live Previews)
 
-```text
-wechat-miniprogram-ui/
-├── app.json                 # 小程序全局配置（含 demo 页面路由与 lazyCodeLoading）
-├── app.ts / app.wxss        # 全局入口与基础样式
-├── project.config.json      # 微信开发者工具工程配置（可直接导入预览）
-├── install.sh               # 一键软链接至 ~/.gemini/config/skills 的安装脚本
-├── SKILL.md                 # 技能核心指令与触发定义（Agent 读取的核心）
-├── references/              # 专业技术规范与扩展阅读
-│   ├── component-specs.md   # 自定义组件规范（构造器、生命周期、属性）
-│   ├── motion-curves.md     # 核心贝塞尔曲线与时序编排参数
-│   ├── styling-standards.md # WXSS 与 rpx 布局标准
-│   ├── animation-guide.md   # 动效与 WXS 手势交互指南
-│   ├── performance-checklist.md # setData 性能与按需注入清单
-│   └── page-architecture.md # 为后续页面级开发预留的工程规范
-├── src/
-│   ├── components/          # 6 大核心凭证组件源码
-│   └── pages/
-│       └── demo/            # 完整的全组件交互演示页面
-└── scripts/
-    └── create-component.sh  # 快速脚手架脚本：./scripts/create-component.sh <name>
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>01. 凭证与卡券流体弹层 (Popup Panels)</b><br/><br/>
+      <img src="./assets/previews/01-voucher-sheets.gif" width="300" alt="凭证卡券弹层" /><br/>
+      <sub>26px 磨砂毛玻璃浮起 · 12月格子错帧4f填充 · 1.2s 顺时针圆环 · 180° 原地翻转</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>02. 质感微动效核心组件 (Tactile Motions)</b><br/><br/>
+      <img src="./assets/previews/02-micro-motion.gif" width="300" alt="质感微动效" /><br/>
+      <sub>3D 跟手倾斜与光影 · 动态弥散光晕边框 · 码表滚动 · 物理弹簧交错流</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>03. 高级审美页面布局 (Aesthetic Layouts)</b><br/><br/>
+      <img src="./assets/previews/03-aesthetic-layouts.gif" width="300" alt="高级审美页面布局" /><br/>
+      <sub>便当盒 Bento Grid · 3D 轴测透视爆炸展开 · 层叠滑卡 · 海报半圆拨盘</sub>
+    </td>
+    <td width="50%" align="center">
+      <b>04. 触觉高级手势与提示 (Advanced Interactions)</b><br/><br/>
+      <img src="./assets/previews/04-tactile-feedback.gif" width="300" alt="触觉高级交互" /><br/>
+      <sub>WXS 60fps 左右滑牌 · 裂变流体胶囊按钮 · 4秒倒计时撤销条 · 红点弧线回弹消散</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+## ✨ 核心亮点 (Core Advantages)
+
+- ⚡️ **60fps 极限流畅跟手**：所有拖拽、滑动切卡、抽屉升降均由 **WXS (WeiXin Script)** 在视图渲染层独立计算，杜绝跨线程频繁 `setData` 引起的卡顿与掉帧。
+- 🌊 **统一物理动效规范**：
+  - 核心减速曲线：`cubic-bezier(0.2, 0.7, 0.2, 1)`（平滑柔和的物理减速）
+  - 弹性回弹曲线：`cubic-bezier(0.175, 0.885, 0.32, 1.25)`（具备有机回弹特质）
+  - 错帧进场机制（Stagger）：子元素错开 16ms ~ 66ms 梯次入场。
+- 📳 **多级触觉物理反馈 (Tactile Haptics)**：在卡位吸附、圆环闭合、撤销倒计时、胶囊裂变时智能触发微信轻量震动 (`wx.vibrateShort({ type: 'light' })`)。
+- 📐 **100vw 全面屏自适应**：严谨的盒模型设计，彻底消除屏幕横向滚动溢出与白边隐患，完美贴合底部安全区 `env(safe-area-inset-bottom)`。
+- 🧩 **零构建负担**：纯原生 JavaScript、WXML、WXSS 与 WXS，**无需 TypeScript 编译配置**，开箱即用无语法报错。
+
+---
+
+## 🗂️ 28 款核心组件矩阵与分类清单 (Component Catalog)
+
+### 📂 分类 01：凭证与卡券流体弹层 (01~06 Popup Panels)
+专为会员年卡、消费券、到场核销凭据、预订小票等场景打造的高沉浸度弹窗体系：
+
+| 组件标识 | 中文名称 | 核心动效与参数标准 | 最佳应用场景 |
+| :--- | :--- | :--- | :--- |
+| [`frosted-glass-sheet`](miniprogram/components/frosted-glass-sheet/) | **玻璃面板浮起** | `26px 高斯模糊` + 0.94 放大微浮 + 12 个月份格子错开 4 帧（~66ms）自底向上平滑填充 | 年度会员打卡、权益消耗统计 |
+| [`ring-count-sheet`](miniprogram/components/ring-count-sheet/) | **圆环计数弹出** | 背景压暗 40% + 底部面板升起后，1.2s 顺时针绘制圆环 + 数字平滑滚动至 326 | 剩余天数倒计时、到期提醒 |
+| [`tick-ruler-sheet`](miniprogram/components/tick-ruler-sheet/) | **刻度尺扫到今天** | 纸质票据质感滑入 + 53 周刻度逐根变深 + 原地等宽无抖动展开完整防伪编号 | 手账式凭证、周计划达成度 |
+| [`photo-drawer-sheet`](miniprogram/components/photo-drawer-sheet/) | **照片抽屉贴合** | 沉浸式海报 1.08 -> 1 缩放铺满 + `-44rpx` 负边距抽屉咬合推入 + 水平进度条延时展开 | 美食/度假酒店通兑、海报票据 |
+| [`flip-card-sheet`](miniprogram/components/flip-card-sheet/) | **点击翻面凭证** | `1200px 景深` + 沿 Y 轴 180° 原地翻转，正面常规展示，背面翻出动态核销二维码 | 演出入场门票、特权卡核销 |
+| [`drag-expand-sheet`](miniprogram/components/drag-expand-sheet/) | **下拉展开面板** | 虚线齿孔折痕设计 + 2° 物理微晃 + 向下拉动超过 40% 顺滑展开完整就餐明细小票 | 预订排队凭据、点餐明细单 |
+
+---
+
+### 📂 分类 02：质感微交互与核心组件 (07~14 Tactile Motions)
+提升 App 与小程序界面“物理实体质感”与“细腻手感”的交互组件：
+
+| 组件标识 | 中文名称 | 核心动效与参数标准 | 最佳应用场景 |
+| :--- | :--- | :--- | :--- |
+| [`tilt-glare-card`](miniprogram/components/tilt-glare-card/) | **3D倾斜光影面板** | 跟随触摸坐标 ±5° 3D 浮动倾斜 + 径向流光高光反射 + 松手物理 Spring 回正 | 高端装备展示、贵宾卡券展示 |
+| [`fluid-morph-sheet`](miniprogram/components/fluid-morph-sheet/) | **流体胶囊形变** | 顶栏小胶囊按钮点击后如水滴般流畅延展为完整卡片面板，无突兀弹窗感 | 快捷下单浮窗、临时购物车 |
+| [`shared-element-card`](miniprogram/components/shared-element-card/) | **共享元素无缝展开** | 列表小卡片点击后原地膨胀过渡至全屏高度详情，无缝衔接无白屏推屏感 | 社区相册、商品详情顺畅过渡 |
+| [`odometer-chart`](miniprogram/components/odometer-chart/) | **磁吸游标与滚动码表**| 折线图滑动自动磁吸最近节点 + 数字机械码表式滚动翻页 + 实时轻量震动 | 运动配速监控、资产走势看板 |
+| [`elastic-bottom-sheet`](miniprogram/components/elastic-bottom-sheet/)| **阻尼弹性抽屉** | 橡皮筋阻尼拉伸物理引擎 + LOW / MID / FULL 三档速度自动吸附停靠 | 多段式参数面板、详情抽屉 |
+| [`conic-glow-card`](miniprogram/components/conic-glow-card/) | **动态弥散光晕边框** | 2px 慢速旋转流光锥形描边 + 呼吸弥散彩色光晕，纯 CSS GPU 加速 | AI 核心推荐区、VIP 高光卡片 |
+| [`stagger-cascade-grid`](miniprogram/components/stagger-cascade-grid/)| **物理弹簧交错流** | 瀑布流卡片错开 0.1s 弹性滑入 + 支持重播与点击弹性微缩反馈 | 瀑布流画廊、商品列表入场 |
+| [`press-scale-button`](miniprogram/components/press-scale-button/) | **弹性微缩触觉反馈** | Scale 0.96 物理下凹压缩 + 深度内阴影 + 松手超调 +1.1% 弹跳与原生微震 | 关键行动按钮 (CTA)、收藏购买 |
+
+---
+
+### 📂 分类 03：高级审美页面布局 (15~22 Aesthetic Layouts)
+彻底打破千篇一律模板化首页，融入极简美学、便当盒与 3D 视差透视：
+
+| 组件标识 | 中文名称 | 交互与设计特点 | 最佳应用场景 |
+| :--- | :--- | :--- | :--- |
+| [`wide-list-view`](miniprogram/components/wide-list-view/) | **宽体标题整宽大图列表 (Wide List)** | 两行宽体大写标题 + 分类胶囊横向切换 + 16:10 宽幅卡片按压弹性微缩与点赞联动 | 房车露营、高端电商、摄影社区 |
+| [`hero-overlay-card`](miniprogram/components/hero-overlay-card/) | **大图头块叠信息与温度曲线 (Hero Overlay)** | 顶部大图占 1/3 屏幕 + 倒计时压图 + 5 个日期块自由点击切换 + 贝塞尔曲线光晕跟踪 | 城市出行、天气日程、活动大厅 |
+| [`black-hero-contrast`](miniprogram/components/black-hero-contrast/) | **黑白两档主次架构 (Black Hero)** | 整页浅灰底色 + 纯黑大卡片突出核心 + 标签切换高亮 + 点击展开章节面板 | 读书书房、极简知识库、音乐播放 |
+| [`bento-grid-wall`](miniprogram/components/bento-grid-wall/) | **便当盒网格墙 (Bento Grid)** | 亮黄大卡片当主角 + 全部/待办/已完成三胶囊筛选 + 小方块打卡动态重算圆环百分比 | 习惯打卡墙、多维健康看板 |
+| [`poster-dial-picker`](miniprogram/components/poster-dial-picker/) | **海报大字半圆转盘 (Poster Dial)** | 海报级超粗标题 + 半圆弧形转盘 + 点击或前后步进吸附于正上方指针 + 专注状态流 | 番茄钟专注、工作流切换 |
+| [`stacked-deck-view`](miniprogram/components/stacked-deck-view/) | **层叠卡片牌组 (Stacked Deck)** | 3D 景深透视层叠 + 向上滑动飞离飞入 + 物理回弹与循环补牌机制 | 每日灵感探索、特权卡片抽选 |
+| [`layered-exploded-panel`](miniprogram/components/layered-exploded-panel/)| **分层视差抽离面板 (Layered Exploded)** | 3D 轴测透视 + 点击/长按触发 52° 四层抽离爆炸展开 + 阴影动态扩散与复原 | 硬件拆解展示、技术架构透视 |
+| [`overlap-stagger-card`](miniprogram/components/overlap-stagger-card/) | **重叠咬合与阶梯排版 (Overlap & Stagger)** | 重叠/错位双模式平滑切换 + 重叠卡片点击自动浮升至最顶层 (提升 z-index 与微缩) | 故事线流、图文穿插展示 |
+
+---
+
+### 📂 分类 04：触觉高级手势交互与高级提示动效 (23~28 Advanced Interactions)
+基于 WXS 实现原生 60fps 跟手交互，以及“不抢戏但在对的时候出现、用对的方式消失”的提示动效：
+
+| 组件标识 | 中文名称 | 交互与设计特点 | 最佳应用场景 |
+| :--- | :--- | :--- | :--- |
+| [`swipe-card-stack`](miniprogram/components/swipe-card-stack/) | **左右滑动卡片堆叠 (Swipe Stack)** | WXS 物理阻尼旋转跟随，左滑忽视 / 右滑喜欢，飞出自动补位切卡 | 社交匹配、推荐流快速筛选 |
+| [`split-button-morph`](miniprogram/components/split-button-morph/) | **裂变流体胶囊 (Split Button)** | 悬浮胶囊一分为二裂变为暂停与完成按钮，平滑形变与触觉回弹 | 计时器控制、录音工作条 |
+| [`scroll-spy-category`](miniprogram/components/scroll-spy-category/) | **滚动联动分类 (Scroll Spy)** | 左侧粘性锚点侧栏与右侧商品内容流 60fps 双向丝滑联动定位 | 点餐外卖、长分类商品列表 |
+| [`undo-timer-bar`](miniprogram/components/undo-timer-bar/) | **倒计时进度撤销条 (Undo Timer Bar)** | 4 秒匀速缩短进度条，在用户手滑删除时提供反悔机会，走完自然平滑隐退 | 消息防误删、草稿撤销保存 |
+| [`dot-rebound-scatter`](miniprogram/components/dot-rebound-scatter/) | **红点弧线回缩与联动消散 (Dot Rebound)** | 点击红点沿原位弧线微缩消散，错开 4 帧联动上级角标数字平滑递减 | 未读通知清理、徽标状态反馈 |
+| [`state-morph-icon`](miniprogram/components/state-morph-icon/) | **状态形变图标 (State Morph Icon)** | 汉堡与叉号旋转平移形变、播放与暂停形变、纸飞机发射后转为成功对勾反馈 | 导航栏图标、提交发送按钮 |
+
+---
+
+## 🛠️ 快速接入与体验 (Quick Start)
+
+### 1. 微信开发者工具直接打开
+1. 打开 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)；
+2. 点击 **导入项目**，选择本项目目录：[`wechat-miniprogram-ui`](file:///Users/kechangchang/wechat-miniprogram-ui)；
+3. AppID 填入您的小程序 AppID 或测试号，即可在模拟器中体验全部 28 款组件的交互 Demo。
+
+### 2. 在业务页面中引入组件
+例如使用便当盒网格布局 [`bento-grid-wall`](miniprogram/components/bento-grid-wall/)：
+
+**在页面 `page.json` 中注册：**
+```json
+{
+  "usingComponents": {
+    "bento-grid-wall": "/components/bento-grid-wall/index"
+  }
+}
 ```
 
+**在页面 `page.wxml` 中使用：**
+```xml
+<bento-grid-wall bind:itemtap="onBentoItemTap" />
+```
+
+### 3. 作为 AI 编程助手 Skill 运行
+本项目原生遵循 Antigravity / Claude Code Skill 规范。项目根目录已通过软链接注入至全局 Skill 目录：
+```bash
+~/.gemini/config/skills/wechat-miniprogram-ui -> /Users/kechangchang/wechat-miniprogram-ui
+```
+在与 AI 助手沟通时，直接提问“*帮我用这个 skill 做一个带 3D 光影的会员卡页面*”或“*设计一个带 4 秒撤销条的删除反馈*”，AI 将自动检索规范并输出高质量生产代码。
+
 ---
 
-## 🚀 预览与使用 (Getting Started)
+## 📖 技术规范与进阶文档 (References)
 
-### 1. 微信开发者工具中预览
-直接使用微信开发者工具打开当前项目目录 [`wechat-miniprogram-ui`](file:///Users/kechangchang/wechat-miniprogram-ui)，即可在模拟器中体验全部 6 个组件的流畅动效。
-
-### 2. 作为全局 Skill 运行
-项目已自动软链接至 `~/.gemini/config/skills/wechat-miniprogram-ui`。在任何 Antigravity 会话中，对 Agent 发送需求即可自动调用本套规范生产组件或页面。
+- 📋 [**组件全景分类清单与智能选型指南 (references/components-catalog.md)**](./references/components-catalog.md)：核心选型决策树与详细参数
+- 🌊 [**动效曲线与物理参数规范 (references/motion-curves.md)**](./references/motion-curves.md)：贝塞尔曲线与帧率调优
+- 📐 [**WXSS 布局与 100vw 规范 (references/styling-standards.md)**](./references/styling-standards.md)：防横滑与全面屏安全区适配
+- ⚡️ [**WXS 手势交互与性能指南 (references/animation-guide.md)**](./references/animation-guide.md)：视图层 60fps 动效实践
 
 ---
 
 ## 📄 开源协议 (License)
 
-[MIT License](./LICENSE)
+本项目遵循 [MIT License](./LICENSE) 开源。欢迎 Star 与 Fork！
