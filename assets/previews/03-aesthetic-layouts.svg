@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bg03" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#06080e"/>
+      <stop offset="100%" stop-color="#030408"/>
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <style>
+      /* CSS Keyframes */
+      @keyframes explodeLayer1 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(-32px, -32px); }
+      }
+      @keyframes explodeLayer2 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(-16px, -16px); }
+      }
+      @keyframes explodeLayer3 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(16px, 16px); }
+      }
+      @keyframes explodeLayer4 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(32px, 32px); }
+      }
+
+      @keyframes swipeDeck {
+        0%, 20% { transform: translateY(0) scale(1); opacity: 1; }
+        35% { transform: translateY(-70px) scale(0.96) rotate(-4deg); opacity: 0; }
+        40% { transform: translateY(40px) scale(0.85); opacity: 0; }
+        55%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+      @keyframes bentoCheck {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+
+      .layer-1 { animation: explodeLayer1 4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite; }
+      .layer-2 { animation: explodeLayer2 4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite; }
+      .layer-3 { animation: explodeLayer3 4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite; }
+      .layer-4 { animation: explodeLayer4 4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite; }
+
+      .deck-card-top {
+        animation: swipeDeck 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+        transform-origin: center;
+      }
+      .check-box { animation: bentoCheck 2.5s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="840" height="500" rx="20" fill="url(#bg03)"/>
+  <rect x="1" y="1" width="838" height="498" rx="19" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Category Title Header -->
+  <g transform="translate(40, 36)">
+    <rect width="112" height="26" rx="13" fill="#eab308" fill-opacity="0.15" stroke="#eab308" stroke-opacity="0.35"/>
+    <text x="56" y="17" fill="#facc15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">CATEGORY 03</text>
+    
+    <text x="0" y="56" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800">高级审美页面布局 · 结构秩序美学</text>
+    <text x="0" y="80" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Bento 便当盒网格墙 · 3D 轴测透视分层爆炸 · 纸牌层叠滑起补位 · 海报半圆转盘</text>
+  </g>
+
+  <!-- ================= CARD 1: Bento Grid Wall ================= -->
+  <g transform="translate(40, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad3)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="76" height="20" rx="5" fill="#facc15" fill-opacity="0.15"/>
+    <text x="54" y="30" fill="#facc15" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">BENTO GRID</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">便当盒网格墙</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">bento-grid-wall · 几何分区</text>
+
+    <!-- Yellow Hero Card -->
+    <g transform="translate(16, 95)">
+      <rect width="198" height="74" rx="14" fill="url(#yellowGrad)"/>
+      <text x="16" y="30" fill="#78350f" font-family="-apple-system, sans-serif" font-size="10" font-weight="700">WEEKLY FOCUS</text>
+      <text x="16" y="54" fill="#451a03" font-family="-apple-system, sans-serif" font-size="20" font-weight="900">73% 目标达成</text>
+      <circle cx="165" cy="37" r="22" fill="#451a03" fill-opacity="0.1"/>
+      <circle cx="165" cy="37" r="18" fill="none" stroke="#451a03" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="30"/>
+    </g>
+
+    <!-- Bento 4-Col Grid Matrix -->
+    <g transform="translate(16, 180)">
+      <rect width="92" height="52" rx="10" fill="#0f172a" stroke="#1e293b"/>
+      <text x="12" y="24" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="9">阅读进度</text>
+      <text x="12" y="42" fill="#ffffff" font-family="monospace" font-size="14" font-weight="800">42 / 50</text>
+
+      <rect x="106" y="0" width="92" height="52" rx="10" fill="#0f172a" stroke="#1e293b"/>
+      <text x="118" y="24" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="9">打卡状态</text>
+      <circle class="check-box" cx="130" cy="38" r="6" fill="#10b981"/>
+      <text x="142" y="42" fill="#10b981" font-family="-apple-system, sans-serif" font-size="10" font-weight="700">DONE</text>
+    </g>
+
+    <!-- Bottom Action Pill -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="#f59e0b"/>
+    <text x="115" y="276" fill="#451a03" font-family="-apple-system, sans-serif" font-size="12" font-weight="800" text-anchor="middle">多维习惯矩阵 ➔</text>
+  </g>
+
+  <!-- ================= CARD 2: Layered Exploded Panel (3D Exploded) ================= -->
+  <g transform="translate(305, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad3)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="80" height="20" rx="5" fill="#38bdf8" fill-opacity="0.15"/>
+    <text x="56" y="30" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">EXPLODED 3D</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">分层视差抽离</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">layered-exploded-panel · 52° 展开</text>
+
+    <!-- Isometric Exploded Slices -->
+    <g transform="translate(115, 165)">
+      <!-- Layer 4 (Bottom) -->
+      <g class="layer-4">
+        <polygon points="-50,-5 30,-25 50,5 -30,25" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+      </g>
+      <!-- Layer 3 -->
+      <g class="layer-3">
+        <polygon points="-50,-15 30,-35 50,-5 -30,15" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.6" stroke-width="1.5"/>
+      </g>
+      <!-- Layer 2 -->
+      <g class="layer-2">
+        <polygon points="-50,-25 30,-45 50,-15 -30,5" fill="#0284c7" fill-opacity="0.4" stroke="#38bdf8" stroke-width="1.5"/>
+      </g>
+      <!-- Layer 1 (Top Glass) -->
+      <g class="layer-1">
+        <polygon points="-50,-35 30,-55 50,-25 -30,-5" fill="#38bdf8" fill-opacity="0.7" stroke="#ffffff" stroke-width="1.5"/>
+        <circle cx="0" cy="-30" r="8" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <text x="115" y="235" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">4层硬件视差爆炸抽离</text>
+
+    <!-- Bottom Button -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="#0284c7"/>
+    <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">轴测透视展开 ↻</text>
+  </g>
+
+  <!-- ================= CARD 3: Stacked Deck View ================= -->
+  <g transform="translate(570, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad3)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="80" height="20" rx="5" fill="#ec4899" fill-opacity="0.15"/>
+    <text x="56" y="30" fill="#f472b6" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">STACKED DECK</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">层叠卡片牌组</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">stacked-deck-view · 飞牌补位</text>
+
+    <!-- 3 Layered Deck Cards -->
+    <g transform="translate(30, 105)">
+      <!-- Card 3 (Bottom) -->
+      <rect x="20" y="32" width="130" height="90" rx="12" fill="#0f172a" stroke="#1e293b"/>
+      <!-- Card 2 (Middle) -->
+      <rect x="10" y="16" width="150" height="95" rx="12" fill="#1e293b" stroke="#334155"/>
+      <!-- Card 1 (Top Animated) -->
+      <g class="deck-card-top">
+        <rect x="0" y="0" width="170" height="100" rx="12" fill="#ec4899" stroke="#f472b6" stroke-width="1.5"/>
+        <text x="16" y="32" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="14" font-weight="800">Card #01 探索</text>
+        <text x="16" y="52" fill="#fdf2f8" font-family="-apple-system, sans-serif" font-size="10">向上滑动即飞牌切卡</text>
+        <circle cx="145" cy="26" r="12" fill="#ffffff" fill-opacity="0.2"/>
+      </g>
+    </g>
+
+    <text x="115" y="235" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">3D 景深循环补牌</text>
+
+    <!-- Bottom Button -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="#db2777"/>
+    <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">上滑切牌 ⇡</text>
+  </g>
+</svg>

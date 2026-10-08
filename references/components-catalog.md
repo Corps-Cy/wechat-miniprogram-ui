@@ -14,7 +14,7 @@
 专为会员卡、年卡、消费券、到场核销凭据、预订小票等场景打造的高沉浸度弹窗体系。
 
 <p align="center">
-  <img src="../assets/previews/01-voucher-sheets.gif" width="320" alt="凭证与卡券流体弹层演示" />
+  <img src="../assets/previews/01-voucher-sheets.svg" width="100%" alt="凭证与卡券流体弹层演示" />
 </p>
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
@@ -32,7 +32,7 @@
 专为提升 App 和小程序界面“物理实体感”与“手感体验”打造的微互动效。
 
 <p align="center">
-  <img src="../assets/previews/02-micro-motion.gif" width="320" alt="质感微交互核心动效演示" />
+  <img src="../assets/previews/02-tactile-motions.svg" width="100%" alt="质感微交互核心动效演示" />
 </p>
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |
@@ -52,7 +52,7 @@
 涵盖经典高级审美布局与高级排版几何原理，彻底打破模板化流水线排版：
 
 <p align="center">
-  <img src="../assets/previews/03-aesthetic-layouts.gif" width="320" alt="高级审美页面布局演示" />
+  <img src="../assets/previews/03-aesthetic-layouts.svg" width="100%" alt="高级审美页面布局演示" />
 </p>
 
 | 序号 | 组件标识 | 中文名称 | 核心设计参数与 HUD 标准 | 最佳适用场景 |
@@ -72,9 +72,7 @@
 基于微信原生 WXS 运行于渲染层，实现 60fps 零延迟跟手交互，以及“不抢戏但在对的时候出现、用对的方式消失”的高级提示机制：
 
 <p align="center">
-  <img src="../assets/previews/04-tactile-feedback.gif" width="320" alt="触觉高级手势与交互演示" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="../assets/previews/05-state-morph.gif" width="320" alt="状态形变图标与动作即反馈" />
+  <img src="../assets/previews/04-advanced-interactions.svg" width="100%" alt="触觉高级手势与交互演示" />
 </p>
 
 | 序号 | 组件标识 | 中文名称 | 核心物理参数 | 最佳适用场景 |

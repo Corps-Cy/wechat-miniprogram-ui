@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bg02" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c14"/>
+      <stop offset="50%" stop-color="#07080f"/>
+      <stop offset="100%" stop-color="#030408"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="purplePink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glowConic" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      /* CSS Keyframes */
+      @keyframes tilt3D {
+        0% { transform: perspective(800px) rotateX(0deg) rotateY(0deg); }
+        25% { transform: perspective(800px) rotateX(6deg) rotateY(-8deg); }
+        50% { transform: perspective(800px) rotateX(-5deg) rotateY(6deg); }
+        75% { transform: perspective(800px) rotateX(4deg) rotateY(4deg); }
+        100% { transform: perspective(800px) rotateX(0deg) rotateY(0deg); }
+      }
+      @keyframes glareMove {
+        0% { transform: translate(-80px, -80px); opacity: 0.1; }
+        30% { transform: translate(70px, 60px); opacity: 0.7; }
+        60% { transform: translate(140px, 120px); opacity: 0.8; }
+        100% { transform: translate(250px, 220px); opacity: 0; }
+      }
+      @keyframes rotateRing {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes rollOdometer {
+        0%, 15% { transform: translateY(0); }
+        35%, 50% { transform: translateY(-44px); }
+        70%, 85% { transform: translateY(-88px); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes buttonBounce {
+        0%, 60%, 100% { transform: scale(1); }
+        70% { transform: scale(0.94); }
+        80% { transform: scale(1.02); }
+      }
+
+      .tilt-card {
+        animation: tilt3D 5s ease-in-out infinite;
+        transform-origin: center center;
+      }
+      .glare-spot {
+        animation: glareMove 5s ease-in-out infinite;
+      }
+      .conic-rotator {
+        animation: rotateRing 4s linear infinite;
+        transform-origin: 115px 155px;
+      }
+      .odometer-reel {
+        animation: rollOdometer 4.5s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+      }
+      .press-btn {
+        animation: buttonBounce 3s ease-in-out infinite;
+        transform-origin: center center;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="840" height="500" rx="20" fill="url(#bg02)"/>
+  <rect x="1" y="1" width="838" height="498" rx="19" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Category Title Header -->
+  <g transform="translate(40, 36)">
+    <rect width="112" height="26" rx="13" fill="#a855f7" fill-opacity="0.15" stroke="#a855f7" stroke-opacity="0.35"/>
+    <text x="56" y="17" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">CATEGORY 02</text>
+    
+    <text x="0" y="56" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800">质感微交互与核心微动效 · 原生物理手感</text>
+    <text x="0" y="80" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">3D 跟手倾斜光影 · 动态弥散光晕边框 · 滚动码表与游标磁吸 · 弹性微缩触觉反馈</text>
+  </g>
+
+  <!-- ================= CARD 1: 3D Tilt Glare Card ================= -->
+  <g transform="translate(40, 150)">
+    <g class="tilt-card">
+      <rect width="230" height="310" rx="20" fill="url(#cardGrad2)" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5"/>
+      
+      <!-- Glare Light Sheen (Masked) -->
+      <g clip-path="url(#cardClip1)">
+        <clipPath id="cardClip1">
+          <rect width="230" height="310" rx="20"/>
+        </clipPath>
+        <circle class="glare-spot" cx="0" cy="0" r="90" fill="#ffffff" fill-opacity="0.25" filter="url(#glowConic)"/>
+      </g>
+
+      <rect x="16" y="16" width="76" height="20" rx="5" fill="#38bdf8" fill-opacity="0.15"/>
+      <text x="54" y="30" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">TILT ±05°</text>
+      <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">3D倾斜光影面板</text>
+      <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">tilt-glare-card · 跟手物理</text>
+
+      <!-- 3D Holographic Graphics -->
+      <g transform="translate(30, 110)">
+        <polygon points="85,15 150,55 85,95 20,55" fill="#0284c7" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.5"/>
+        <polygon points="85,35 130,65 85,95 40,65" fill="#38bdf8" fill-opacity="0.5" stroke="#ffffff" stroke-width="1"/>
+        <circle cx="85" cy="55" r="16" fill="#ffffff" fill-opacity="0.8" filter="url(#glowConic)"/>
+        <text x="85" y="125" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">光影跟随手指浮动</text>
+      </g>
+
+      <!-- Bottom Button -->
+      <rect x="16" y="252" width="198" height="38" rx="19" fill="url(#cyanBlue)"/>
+      <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">感受 3D 景深 ➔</text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 2: Conic Glow Card ================= -->
+  <g transform="translate(305, 150)">
+    <!-- Rotating Glow Halo in Background -->
+    <g class="conic-rotator" filter="url(#glowConic)">
+      <circle cx="115" cy="155" r="110" fill="none" stroke="url(#purplePink)" stroke-width="6" stroke-dasharray="140 100"/>
+    </g>
+    <!-- Real Card Frame -->
+    <rect width="230" height="310" rx="20" fill="#0a0f1d" stroke="#6366f1" stroke-width="1.5"/>
+
+    <rect x="16" y="16" width="80" height="20" rx="5" fill="#a855f7" fill-opacity="0.15"/>
+    <text x="56" y="30" fill="#c084fc" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">CONIC 360°</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">动态弥散光晕</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">conic-glow-card · 360° 流光</text>
+
+    <!-- Center AI Badge -->
+    <g transform="translate(115, 160)">
+      <circle cx="0" cy="0" r="44" fill="#1e1b4b" stroke="#a855f7" stroke-width="2"/>
+      <path d="M-12,-12 L12,12 M12,-12 L-12,12" stroke="#c084fc" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="8" fill="#ec4899"/>
+      <text x="0" y="62" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">GPU 加速流光描边</text>
+    </g>
+
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="url(#purplePink)"/>
+    <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">高光推荐激活 ✦</text>
+  </g>
+
+  <!-- ================= CARD 3: Odometer & Press Bounce ================= -->
+  <g transform="translate(570, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad2)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="84" height="20" rx="5" fill="#10b981" fill-opacity="0.15"/>
+    <text x="58" y="30" fill="#34d399" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">ODOMETER</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">码表滚动与按压</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">odometer-chart · 机械翻滚</text>
+
+    <!-- Rolling Number Reel (Window clip) -->
+    <g transform="translate(30, 115)">
+      <rect width="170" height="52" rx="10" fill="#0b101b" stroke="#1e293b"/>
+      <g clip-path="url(#reelClip)">
+        <clipPath id="reelClip">
+          <rect width="170" height="50" rx="10"/>
+        </clipPath>
+        <!-- Reel Column -->
+        <g class="odometer-reel" transform="translate(30, 36)">
+          <text x="0" y="0" fill="#10b981" font-family="monospace" font-size="36" font-weight="900">4,280</text>
+          <text x="0" y="44" fill="#38bdf8" font-family="monospace" font-size="36" font-weight="900">5,892</text>
+          <text x="0" y="88" fill="#f59e0b" font-family="monospace" font-size="36" font-weight="900">8,640</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Animated Bouncing Press Button -->
+    <g transform="translate(16, 252)" class="press-btn">
+      <rect width="198" height="38" rx="19" fill="#10b981"/>
+      <text x="99" y="24" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">按压弹性微缩 (Spring) ⇣</text>
+    </g>
+  </g>
+</svg>

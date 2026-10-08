@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bg04" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c16"/>
+      <stop offset="50%" stop-color="#070810"/>
+      <stop offset="100%" stop-color="#030408"/>
+    </linearGradient>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <style>
+      /* CSS Keyframes */
+      @keyframes swipeCardPhysics {
+        0%, 15% { transform: translateX(0) rotate(0deg); opacity: 1; }
+        35% { transform: translateX(70px) rotate(12deg); opacity: 0.9; }
+        50% { transform: translateX(180px) rotate(22deg); opacity: 0; }
+        55% { transform: translateX(0) scale(0.9); opacity: 0; }
+        70%, 100% { transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+      }
+      @keyframes timerShrink {
+        0% { width: 170px; }
+        80% { width: 0px; }
+        100% { width: 0px; }
+      }
+      @keyframes dotScatterArc {
+        0%, 20% { transform: translate(0, 0) scale(1); opacity: 1; }
+        45% { transform: translate(-14px, -10px) scale(0); opacity: 0; }
+        75% { transform: translate(0, 0) scale(0); opacity: 0; }
+        90%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+      }
+      @keyframes iconMorphPath {
+        0%, 40% { transform: rotate(0deg); }
+        50%, 90% { transform: rotate(90deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      .swipe-target {
+        animation: swipeCardPhysics 5s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+        transform-origin: bottom center;
+      }
+      .timer-bar {
+        animation: timerShrink 4s linear infinite;
+      }
+      .scatter-dot {
+        animation: dotScatterArc 4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      }
+      .morph-icon {
+        animation: iconMorphPath 4s ease-in-out infinite;
+        transform-origin: center;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="840" height="500" rx="20" fill="url(#bg04)"/>
+  <rect x="1" y="1" width="838" height="498" rx="19" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Category Title Header -->
+  <g transform="translate(40, 36)">
+    <rect width="112" height="26" rx="13" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.35"/>
+    <text x="56" y="17" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">CATEGORY 04</text>
+    
+    <text x="0" y="56" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800">触觉手势交互与高级提示 · 60fps WXS</text>
+    <text x="0" y="80" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">左右滑牌切卡阻尼 · 4秒倒计时撤销进度条 · 红点原位弧线消散 · 状态形变图标</text>
+  </g>
+
+  <!-- ================= CARD 1: Swipe Card Stack ================= -->
+  <g transform="translate(40, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad4)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="84" height="20" rx="5" fill="#10b981" fill-opacity="0.15"/>
+    <text x="58" y="30" fill="#34d399" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">WXS 60FPS</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">左右滑牌切卡</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">swipe-card-stack · 物理旋转阻尼</text>
+
+    <!-- Card Stack Graphic -->
+    <g transform="translate(30, 105)">
+      <!-- Back Card -->
+      <rect x="10" y="15" width="150" height="95" rx="14" fill="#0f172a" stroke="#1e293b"/>
+      <!-- Top Animated Card -->
+      <g class="swipe-target">
+        <rect width="170" height="110" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+        <text x="16" y="36" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="14" font-weight="800">Card Profile</text>
+        <rect x="16" y="52" width="60" height="18" rx="4" fill="#10b981" fill-opacity="0.2"/>
+        <text x="46" y="65" fill="#34d399" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">LIKE ➔</text>
+      </g>
+    </g>
+
+    <text x="115" y="235" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">左滑忽略 · 右滑喜欢</text>
+
+    <!-- Bottom Button -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="url(#emeraldGrad)"/>
+    <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">跟手切卡 ➔</text>
+  </g>
+
+  <!-- ================= CARD 2: Undo Timer Bar ================= -->
+  <g transform="translate(305, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad4)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="76" height="20" rx="5" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="54" y="30" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">UNDO 4.0s</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">倒计时撤销条</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">undo-timer-bar · 防误触后悔</text>
+
+    <!-- Undo Toast Notification Mockup -->
+    <g transform="translate(16, 125)">
+      <rect width="198" height="54" rx="12" fill="#0f172a" stroke="#334155"/>
+      <text x="16" y="32" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">已删除项目</text>
+      <rect x="130" y="14" width="56" height="26" rx="13" fill="#f59e0b"/>
+      <text x="158" y="31" fill="#451a03" font-family="-apple-system, sans-serif" font-size="10" font-weight="800" text-anchor="middle">撤销</text>
+      
+      <!-- Progress Bar Track -->
+      <rect x="14" y="46" width="170" height="3" rx="1.5" fill="#1e293b"/>
+      <!-- Animated Progress Bar -->
+      <rect class="timer-bar" x="14" y="46" width="170" height="3" rx="1.5" fill="#f59e0b"/>
+    </g>
+
+    <text x="115" y="235" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">4秒倒计时匀速递减</text>
+
+    <!-- Bottom Button -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+    <text x="115" y="276" fill="#f8fafc" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">重置倒计时 ↺</text>
+  </g>
+
+  <!-- ================= CARD 3: Dot Scatter & Morph Icon ================= -->
+  <g transform="translate(570, 150)">
+    <rect width="230" height="310" rx="20" fill="url(#cardGrad4)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="80" height="20" rx="5" fill="#ef4444" fill-opacity="0.15"/>
+    <text x="56" y="30" fill="#f87171" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">MORPH &amp; DOT</text>
+    <text x="16" y="60" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="15" font-weight="700">红点消散与形变</text>
+    <text x="16" y="78" fill="#64748b" font-family="-apple-system, sans-serif" font-size="10">dot-rebound &amp; state-morph</text>
+
+    <!-- Notification Item with Rebound Dot -->
+    <g transform="translate(20, 115)">
+      <rect width="190" height="44" rx="10" fill="#0f172a" stroke="#1e293b"/>
+      <text x="16" y="27" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12">未读消息通知</text>
+      <!-- Red Badge with Arc Dissipate Animation -->
+      <g transform="translate(160, 22)">
+        <circle class="scatter-dot" cx="0" cy="0" r="6" fill="#ef4444"/>
+      </g>
+    </g>
+
+    <!-- State Morph Icon Graphic -->
+    <g transform="translate(115, 205)">
+      <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#64748b"/>
+      <g class="morph-icon">
+        <line x1="-8" y1="-8" x2="8" y2="8" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="8" y1="-8" x2="-8" y2="8" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <text x="115" y="240" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle">汉堡 ➔ 叉号平滑变形</text>
+
+    <!-- Bottom Button -->
+    <rect x="16" y="252" width="198" height="38" rx="19" fill="#ef4444"/>
+    <text x="115" y="276" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">触发红点消除 ✕</text>
+  </g>
+</svg>
