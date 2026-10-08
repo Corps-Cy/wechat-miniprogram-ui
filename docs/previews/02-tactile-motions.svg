@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg02" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="glareGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="conicGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="20" fill="url(#bg02)"/>
+  <rect x="1" y="1" width="798" height="478" rx="19" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Category Header Badge -->
+  <rect x="40" y="36" width="104" height="26" rx="13" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-opacity="0.3"/>
+  <text x="92" y="53" fill="#06b6d4" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">CATEGORY 02</text>
+  
+  <text x="40" y="92" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="24" font-weight="800">质感微交互与核心组件 · 8款物理反馈</text>
+  <text x="40" y="116" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="13">3D 跟手倾斜与光影 · 动态弥散锥形描边 · 码表磁吸游标 · 流体水滴胶囊形变</text>
+
+  <!-- Card 1: 3D Tilt Glare Card -->
+  <g transform="translate(40, 145)">
+    <g transform="rotate(-3, 110, 140)">
+      <rect width="220" height="295" rx="18" fill="url(#cardGrad2)" stroke="#38bdf8" stroke-width="1.5"/>
+      <rect width="220" height="295" rx="18" fill="url(#glareGrad)"/>
+      <rect x="16" y="16" width="70" height="18" rx="4" fill="#38bdf8" fill-opacity="0.15"/>
+      <text x="51" y="29" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">TILT ±5.0°</text>
+      
+      <text x="16" y="56" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">3D 倾斜光影面板</text>
+      <text x="16" y="72" fill="#64748b" font-family="-apple-system, system-ui, sans-serif" font-size="10">Tilt Glare · 触摸坐标视差</text>
+
+      <!-- Snowboard Graphic -->
+      <g transform="translate(50, 95)">
+        <rect x="25" y="10" width="70" height="110" rx="35" fill="#090d16" stroke="#475569" stroke-width="2"/>
+        <line x1="25" y1="65" x2="95" y2="65" stroke="#f97316" stroke-width="4"/>
+        <circle cx="60" cy="40" r="12" fill="#1e293b"/>
+        <circle cx="60" cy="90" r="12" fill="#1e293b"/>
+      </g>
+
+      <rect x="16" y="240" width="188" height="36" rx="18" fill="#0284c7"/>
+      <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">滑动体验 3D 浮动 ❖</text>
+    </g>
+  </g>
+
+  <!-- Card 2: Conic Glow Card -->
+  <g transform="translate(290, 145)">
+    <!-- Conic Glow Border Wrap -->
+    <rect width="220" height="295" rx="18" fill="url(#conicGlow)"/>
+    <rect x="3" y="3" width="214" height="289" rx="15" fill="#0f172a"/>
+    
+    <rect x="16" y="16" width="76" height="18" rx="4" fill="#f97316" fill-opacity="0.15"/>
+    <text x="54" y="29" fill="#f97316" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">CONIC 360°</text>
+
+    <text x="16" y="56" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">动态弥散光晕边框</text>
+    <text x="16" y="72" fill="#64748b" font-family="-apple-system, system-ui, sans-serif" font-size="10">Conic Glow · GPU加速流光</text>
+
+    <text x="16" y="116" fill="#e2e8f0" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="700">AI LINE COACH</text>
+    <text x="16" y="160" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="44" font-weight="900">1.4</text>
+    <text x="85" y="145" fill="#f97316" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">min</text>
+    <text x="16" y="180" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="10">极速最佳路线匹配中 · 活跃</text>
+
+    <!-- Mini Sparkline -->
+    <path d="M 16 215 Q 60 195 100 210 T 200 200" fill="none" stroke="#f97316" stroke-width="3"/>
+    <circle cx="200" cy="200" r="4" fill="#f97316"/>
+
+    <rect x="16" y="240" width="188" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+    <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">360° 流光环绕中 ✦</text>
+  </g>
+
+  <!-- Card 3: Odometer & Magnetic Scrub -->
+  <g transform="translate(540, 145)">
+    <rect width="220" height="295" rx="18" fill="url(#cardGrad2)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="60" height="18" rx="4" fill="#10b981" fill-opacity="0.15"/>
+    <text x="46" y="29" fill="#10b981" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">SNAP P06</text>
+
+    <text x="16" y="56" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">滚动码表与磁吸游标</text>
+    <text x="16" y="72" fill="#64748b" font-family="-apple-system, system-ui, sans-serif" font-size="10">Odometer Chart · 机械翻滚</text>
+
+    <text x="16" y="125" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="38" font-weight="900">58.0</text>
+    <text x="115" y="112" fill="#10b981" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700">km/h</text>
+    <text x="16" y="142" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="10">手指滑动靠近自动吸附节点</text>
+
+    <!-- Chart Wave with Magnetic Pin -->
+    <g transform="translate(16, 175)">
+      <path d="M 0 35 L 20 30 L 45 40 L 70 20 L 95 28 L 120 5 L 145 18 L 170 12 L 188 15" fill="none" stroke="#334155" stroke-width="2"/>
+      <!-- Magnetic Cursor -->
+      <line x1="120" y1="0" x2="120" y2="45" stroke="#10b981" stroke-width="2"/>
+      <circle cx="120" cy="5" r="5" fill="#10b981"/>
+    </g>
+
+    <rect x="16" y="240" width="188" height="36" rx="18" fill="#059669"/>
+    <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">左右滑动磁吸 ⇄</text>
+  </g>
+</svg>

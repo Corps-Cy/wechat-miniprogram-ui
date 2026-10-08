@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg03" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="yellowCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="20" fill="url(#bg03)"/>
+  <rect x="1" y="1" width="798" height="478" rx="19" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Category Header Badge -->
+  <rect x="40" y="36" width="104" height="26" rx="13" fill="#eab308" fill-opacity="0.15" stroke="#eab308" stroke-opacity="0.3"/>
+  <text x="92" y="53" fill="#eab308" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">CATEGORY 03</text>
+  
+  <text x="40" y="92" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="24" font-weight="800">高级审美页面布局 · 8款前沿视觉排版</text>
+  <text x="40" y="116" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="13">便当盒 Bento Grid 网格墙 · 黑白两档主次 · 16:10 宽体大图 · 3D分层爆炸展开</text>
+
+  <!-- Card 1: Bento Grid Mockup -->
+  <g transform="translate(40, 145)">
+    <rect width="220" height="295" rx="18" fill="url(#yellowCard)"/>
+    <rect x="16" y="16" width="70" height="18" rx="4" fill="#000000" fill-opacity="0.12"/>
+    <text x="51" y="29" fill="#713f12" font-family="monospace" font-size="9" font-weight="800" text-anchor="middle">BENTO GRID</text>
+
+    <text x="16" y="56" fill="#0f172a" font-family="-apple-system, system-ui, sans-serif" font-size="15" font-weight="900">便当盒网格墙</text>
+    <text x="16" y="72" fill="#854d0e" font-family="-apple-system, system-ui, sans-serif" font-size="10">主副分明 · 环形进度</text>
+
+    <!-- Center Ring Stat -->
+    <g transform="translate(110, 140)">
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#ca8a04" stroke-width="8"/>
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#0f172a" stroke-width="8" stroke-dasharray="200" stroke-dashoffset="50" stroke-linecap="round" transform="rotate(-90)"/>
+      <text x="0" y="7" fill="#0f172a" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="900" text-anchor="middle">75%</text>
+    </g>
+
+    <!-- 4 Sub Habit Squares -->
+    <g transform="translate(16, 200)">
+      <rect x="0" y="0" width="42" height="26" rx="6" fill="#fef08a"/><text x="21" y="17" font-size="12" text-anchor="middle">💧</text>
+      <rect x="48" y="0" width="42" height="26" rx="6" fill="#fef08a"/><text x="69" y="17" font-size="12" text-anchor="middle">📖</text>
+      <rect x="96" y="0" width="42" height="26" rx="6" fill="#fef08a"/><text x="117" y="17" font-size="12" text-anchor="middle">🧘</text>
+      <rect x="144" y="0" width="42" height="26" rx="6" fill="#ca8a04"/><text x="165" y="17" font-size="12" text-anchor="middle">🚶</text>
+    </g>
+
+    <rect x="16" y="240" width="188" height="36" rx="18" fill="#0f172a"/>
+    <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">打卡联动体验 ➔</text>
+  </g>
+
+  <!-- Card 2: Black Hero Contrast Mockup -->
+  <g transform="translate(290, 145)">
+    <rect width="220" height="295" rx="18" fill="url(#darkCard)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="76" height="18" rx="4" fill="#38bdf8" fill-opacity="0.15"/>
+    <text x="54" y="29" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">BLACK HERO</text>
+
+    <text x="16" y="56" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">黑白两档主次架构</text>
+    <text x="16" y="72" fill="#64748b" font-family="-apple-system, system-ui, sans-serif" font-size="10">强弱对比 · 极简知识库</text>
+
+    <!-- Book Card Mockup -->
+    <g transform="translate(16, 95)">
+      <rect width="188" height="120" rx="14" fill="#000000" stroke="#27272a"/>
+      <!-- Book Spine / Cover -->
+      <rect x="14" y="15" width="45" height="60" rx="6" fill="#334155"/>
+      <text x="70" y="32" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="800">百年孤独</text>
+      <text x="70" y="48" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="9">加西亚·马尔克斯</text>
+      <text x="70" y="65" fill="#38bdf8" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="700">59% 已读</text>
+      <rect x="14" y="90" width="160" height="16" rx="8" fill="#18181b"/>
+      <text x="94" y="102" fill="#94a3b8" font-family="-apple-system, system-ui, sans-serif" font-size="8" text-anchor="middle">上次阅读至第 212 页</text>
+    </g>
+
+    <rect x="16" y="240" width="188" height="36" rx="18" fill="#27272a" stroke="#3f3f46"/>
+    <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">继续沉浸阅读 📖</text>
+  </g>
+
+  <!-- Card 3: Layered Exploded 3D Isometric View -->
+  <g transform="translate(540, 145)">
+    <rect width="220" height="295" rx="18" fill="url(#darkCard)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="16" width="70" height="18" rx="4" fill="#ec4899" fill-opacity="0.15"/>
+    <text x="51" y="29" fill="#ec4899" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">TILT 52.0°</text>
+
+    <text x="16" y="56" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700">分层视差抽离面板</text>
+    <text x="16" y="72" fill="#64748b" font-family="-apple-system, system-ui, sans-serif" font-size="10">Layered Exploded · 3D爆炸</text>
+
+    <!-- Isometric 4 layers diagram -->
+    <g transform="translate(40, 95)">
+      <!-- Layer 1 Base -->
+      <polygon points="10,80 70,50 130,80 70,110" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+      <!-- Layer 2 Image -->
+      <polygon points="10,60 70,30 130,60 70,90" fill="#3b82f6" fill-opacity="0.7" stroke="#60a5fa" stroke-width="1.5"/>
+      <!-- Layer 3 Text -->
+      <polygon points="10,40 70,10 130,40 70,70" fill="#8b5cf6" fill-opacity="0.8" stroke="#a78bfa" stroke-width="1.5"/>
+      <!-- Layer 4 Button -->
+      <polygon points="10,20 70,-10 130,20 70,50" fill="#ec4899" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.5"/>
+    </g>
+
+    <rect x="16" y="240" width="188" height="36" rx="18" fill="#db2777"/>
+    <text x="110" y="263" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">点击/长按爆炸展开 💥</text>
+  </g>
+</svg>

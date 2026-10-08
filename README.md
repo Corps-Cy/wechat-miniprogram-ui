@@ -4,16 +4,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![WeChat MiniProgram](https://img.shields.io/badge/Platform-WeChat%20MiniProgram-07c160?logo=wechat)](https://mp.weixin.qq.com/)
 [![Pure Native](https://img.shields.io/badge/Zero%20Dependency-Pure%20JS%20%7C%20WXS-ff69b4)]()
+[![Live Web Demo](https://img.shields.io/badge/Online%20Playground-Live%20Demo-6366f1?style=for-the-badge&logo=safari)](https://corps-cy.github.io/wechat-miniprogram-ui/)
 
 专门用于微信小程序 UI 设计、精美动效凭证组件库与页面开发的 **AI Agent Skill & 生产级开源组件库**（适配 Antigravity / Claude Code / Cursor / 微信开发者工具）。
 
 已完整收录并重构 **28 款现代工业级设计水准组件**，涵盖 4 大核心维度：**凭证流体弹层**、**质感微动效**、**高级审美页面布局**与**触觉高级手势交互**。
 
+> 💡 **无需本地安装微信模拟器！** 访问 [**🌐 在线 Web 模拟器 (Live Interactive Playground)**](https://corps-cy.github.io/wechat-miniprogram-ui/) 即可在浏览器中直接体验 3D 景深倾斜、动效弹窗、便当盒网格与撤销倒计时等组件的高保真实时交互！
+
 ---
 
 ## 📱 核心 Demo 交互体验与效果矩阵 (Live Demo Preview)
 
-本项目在 `miniprogram/pages/demo` 中内置了完整的**原生全量交互体验看板**。导入微信开发者工具后即可实时真机体验全部 28 款组件的物理动力学与微动效交互：
+本项目在 `miniprogram/pages/demo` 中内置了完整的**原生全量交互体验看板**，并在 `docs/` 提供了 **免安装模拟器的网页端在线交互 Playground**。
 
 | 模块分类 | 内置组件数 | 核心真实 Demo 效果与交互响应 | 体验路径 |
 | :--- | :---: | :--- | :--- |
@@ -21,6 +24,26 @@
 | **02. 质感微动效与核心组件** | 8 款 | • **3D 跟手倾斜面板**：触摸跟随 ±5° 视差浮动 + 径向高光反射 + 松手物理 Spring 回正<br>• **流体胶囊形变**：顶栏小胶囊点击如水滴般流畅延展为完整操作面板<br>• **共享元素无缝过渡**：列表卡片点击原地膨胀全屏，无白屏与跳变感<br>• **磁吸游标与滚动码表**：折线图拖拽自动磁吸节点 + 机械数字翻滚 + 轻量微震<br>• **阻尼弹性抽屉**：橡皮筋拉伸物理阻尼 + LOW / MID / FULL 档位吸附<br>• **动态弥散光晕边框**：GPU 加速 360° 流光锥形描边 + 呼吸式背光晕染<br>• **瀑布流弹簧交错流**：0.1s 错开交错弹性滑入 + 支持重播与点击弹性反馈<br>• **触觉微缩按钮**：按压 Scale 0.96 深度凹陷 + 松手 +1.1% 超调弹跳与微震 | 演示页 ➔ `02 质感微动效` |
 | **03. 高级审美页面布局** | 8 款 | • **宽体标题整宽大图列表**：大写宽标题 + 16:10 宽幅卡片 + 圆形操作联动<br>• **大图头块叠加与温度曲线**：1/3 屏幕大图压暗 + 曲线光晕跟踪与日期切换<br>• **黑白两档主次架构**：浅灰底色 + 纯黑卡片视觉焦点 + 快速展开章节<br>• **便当盒网格墙 (Bento Grid)**：品牌黄主视觉卡片 + 环形进度 + 四列微打卡方块<br>• **海报大字半圆转盘**：超粗海报标题 + 半圆弧形指针吸附 + 专注流切换<br>• **层叠卡片牌组 (Stacked Deck)**：3D 景深层叠，向上滑牌飞离与循环补位<br>• **分层视差抽离面板**：3D 轴测透视 + 四层硬件视差爆炸展开与阴影扩散<br>• **重叠咬合阶梯排版**：负外边距卡片咬合压住底图标签 + 错位视觉节奏 | 演示页 ➔ `03 审美页面布局` |
 | **04. 触觉高级手势与提示** | 6 款 | • **WXS 左右滑牌堆叠**：WXS 视图层 60fps 物理旋转阻尼，左滑忽略/右滑喜欢<br>• **裂变流体胶囊按钮**：悬浮胶囊一分为二平滑分裂为控制按钮，触觉震动<br>• **双向联动分类 (Scroll Spy)**：左侧锚点侧栏与右侧内容流 60fps 双向丝滑定位<br>• **4秒倒计时撤销条**：线性进度条倒计时，提供手滑后悔机制，自然平滑隐退<br>• **红点弧线回弹消散**：点击红点沿原位弧线微缩消散，错开4帧联动上级角标递减<br>• **状态形变图标**：汉堡与叉号平滑变形、播放与暂停、发送转对勾动画 | 演示页 ➔ `04 触觉高级交互` |
+
+---
+
+## 🎨 视觉成品与动效设计一览 (Design Previews)
+
+<div align="center">
+
+### 01 · 凭证与卡券流体弹层 (Fluid Voucher Sheets)
+![凭证流体弹层视觉预览](./docs/previews/01-voucher-sheets.svg)
+
+### 02 · 质感微动效与核心组件 (Tactile Motions)
+![质感微动效视觉预览](./docs/previews/02-tactile-motions.svg)
+
+### 03 · 高级审美页面布局 (Aesthetic Layouts)
+![高级审美页面布局视觉预览](./docs/previews/03-aesthetic-layouts.svg)
+
+### 04 · 触觉高级手势交互 (Advanced Gestures & Interactions)
+![触觉高级手势交互视觉预览](./docs/previews/04-advanced-interactions.svg)
+
+</div>
 
 ---
 
