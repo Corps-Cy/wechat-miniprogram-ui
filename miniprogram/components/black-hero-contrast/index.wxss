@@ -1,0 +1,249 @@
+.black-hero-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hud-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.hud-pill {
+  font-family: monospace;
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+/* 01 整页浅灰打底 (#F4F3F4) */
+.reader-shell {
+  width: 100%;
+  background: #f4f3f4;
+  border-radius: 40rpx;
+  padding: 40rpx 36rpx;
+  box-sizing: border-box;
+  color: #0f172a;
+  box-shadow: 0 20rpx 50rpx rgba(0, 0, 0, 0.25);
+}
+
+.shelf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+
+.shelf-sub {
+  display: block;
+  font-size: 20rpx;
+  color: #71717a;
+}
+
+.shelf-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 900;
+  color: #0b0708;
+  letter-spacing: -1rpx;
+}
+
+.avatar-tag {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: #0b0708;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+/* 03 选中项变黑，其余浅白弱化 */
+.category-row {
+  display: flex;
+  gap: 14rpx;
+  margin-bottom: 32rpx;
+  overflow-x: auto;
+}
+
+.cat-chip {
+  padding: 12rpx 28rpx;
+  border-radius: 100rpx;
+  background: #ffffff;
+  border: 1rpx solid #e4e4e7;
+  transition: all 0.25s ease;
+}
+
+.cat-chip.active-black {
+  background: #0b0708;
+  border-color: #0b0708;
+}
+
+.cat-chip-text {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #71717a;
+}
+
+.cat-chip.active-black .cat-chip-text {
+  color: #ffffff;
+}
+
+/* 02 主角一块做成纯黑深色 (#0B0708)，白字压在上面 */
+.black-hero-card {
+  width: 100%;
+  background: #0b0708;
+  color: #ffffff;
+  border-radius: 36rpx;
+  padding: 36rpx 36rpx;
+  box-sizing: border-box;
+  box-shadow: 0 16rpx 40rpx rgba(11, 7, 8, 0.35);
+  margin-bottom: 28rpx;
+  transition: transform 0.2s ease;
+}
+
+.card-hover {
+  transform: scale(0.985);
+}
+
+.hero-top-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+
+.read-status {
+  font-size: 20rpx;
+  color: #a1a1aa;
+}
+
+.read-percent {
+  font-size: 22rpx;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.hero-book-body {
+  display: flex;
+  gap: 28rpx;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.book-cover {
+  width: 130rpx;
+  height: 180rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.book-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.book-author {
+  font-size: 22rpx;
+  color: #a1a1aa;
+  margin-top: 8rpx;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100rpx;
+  margin: 20rpx 0 10rpx;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #38bdf8;
+  border-radius: 100rpx;
+}
+
+.page-meta {
+  font-size: 20rpx;
+  color: #71717a;
+}
+
+.hero-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.1);
+  padding-top: 24rpx;
+}
+
+.action-hint {
+  font-size: 22rpx;
+  color: #71717a;
+}
+
+.white-cta-btn {
+  background: #ffffff;
+  color: #0b0708;
+  padding: 14rpx 32rpx;
+  border-radius: 100rpx;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+/* 下方次要卡片：浅灰色弱化 */
+.secondary-panel {
+  display: flex;
+  background: #ffffff;
+  border: 1rpx solid #e4e4e7;
+  border-radius: 28rpx;
+  padding: 28rpx 0;
+  align-items: center;
+}
+
+.stat-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 36rpx;
+  font-weight: 900;
+  color: #0b0708;
+}
+
+.stat-sub {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #71717a;
+}
+
+.stat-lbl {
+  font-size: 20rpx;
+  color: #71717a;
+  margin-top: 4rpx;
+}
+
+.stat-divider {
+  width: 2rpx;
+  height: 48rpx;
+  background: #e4e4e7;
+}

@@ -1,0 +1,249 @@
+.wide-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hud-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.hud-pill {
+  font-family: monospace;
+  font-size: 18rpx;
+  font-weight: 700;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+.wide-card {
+  width: 100%;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 40rpx;
+  padding: 40rpx 36rpx;
+  box-sizing: border-box;
+  box-shadow: 0 20rpx 50rpx rgba(0, 0, 0, 0.25);
+}
+
+.header-section {
+  margin-bottom: 32rpx;
+}
+
+.brand-tag {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 800;
+  letter-spacing: 3rpx;
+  color: #64748b;
+  margin-bottom: 8rpx;
+}
+
+.headline-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 900;
+  letter-spacing: -1rpx;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+/* 搜索栏与过滤按钮 */
+.search-bar-wrap {
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+
+.search-input-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: #f1f5f9;
+  border-radius: 100rpx;
+  padding: 18rpx 28rpx;
+}
+
+.search-icon {
+  font-size: 26rpx;
+}
+
+.search-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-location {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.search-dates {
+  font-size: 20rpx;
+  color: #64748b;
+}
+
+.filter-round-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.filter-icon {
+  font-size: 32rpx;
+}
+
+/* 分类胶囊 */
+.category-scroll {
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 32rpx;
+}
+
+.category-row {
+  display: inline-flex;
+  gap: 14rpx;
+}
+
+.cat-chip {
+  padding: 14rpx 28rpx;
+  border-radius: 100rpx;
+  background: #f1f5f9;
+  transition: all 0.25s ease;
+}
+
+.cat-chip.active {
+  background: #0f172a;
+}
+
+.cat-chip-text {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.cat-chip.active .cat-chip-text {
+  color: #ffffff;
+}
+
+/* 16:10 整宽大图列表 */
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36rpx;
+}
+
+.van-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 32rpx;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.van-card-hover {
+  transform: scale(0.985);
+}
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380rpx; /* 约 16:10 比例 */
+  border-radius: 32rpx;
+  overflow: hidden;
+}
+
+.van-img {
+  width: 100%;
+  height: 100%;
+}
+
+.badge-pill {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  padding: 8rpx 20rpx;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 100rpx;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* 图下一行信息排布 */
+.van-foot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 4rpx 8rpx;
+}
+
+.van-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.van-title {
+  font-size: 30rpx;
+  font-weight: 800;
+  letter-spacing: 0.5rpx;
+  color: #0f172a;
+}
+
+.van-specs {
+  font-size: 22rpx;
+  color: #64748b;
+  margin-top: 6rpx;
+}
+
+.van-action-col {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.solar-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.solar-lbl {
+  font-size: 18rpx;
+  color: #94a3b8;
+}
+
+.solar-val {
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.circle-arrow-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 700;
+}

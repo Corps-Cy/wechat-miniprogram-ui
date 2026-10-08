@@ -1,0 +1,69 @@
+<view class="black-hero-container">
+  <view class="hud-bar">
+    <text class="hud-pill">BASE: #F4F3F4 LIGHT GREY</text>
+    <text class="hud-pill">HERO: #0B0708 BLACK FOCUS</text>
+    <text class="hud-pill">CONTRAST: 2-TIER HIERARCHY</text>
+  </view>
+
+  <!-- 01 整页浅灰打底 (#F4F3F4) -->
+  <view class="reader-shell">
+    <view class="shelf-header">
+      <view>
+        <text class="shelf-sub">阅读 · 第38周</text>
+        <text class="shelf-title">我的书房</text>
+      </view>
+      <view class="avatar-tag">米</view>
+    </view>
+
+    <!-- 03 选中项同样变黑，其余浅灰弱化 -->
+    <view class="category-row">
+      <block wx:for="{{categories}}" wx:key="*this">
+        <view 
+          class="cat-chip {{activeCategory === item ? 'active-black' : ''}}"
+          bindtap="selectCategory" 
+          data-cat="{{item}}"
+        >
+          <text class="cat-chip-text">{{item}}</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 02 主角一块做成纯黑深色 (#0B0708) -->
+    <view class="black-hero-card" bindtap="onReadContinue" hover-class="card-hover">
+      <view class="hero-top-meta">
+        <text class="read-status">{{currentBook.status}}</text>
+        <text class="read-percent">{{currentBook.percent}}</text>
+      </view>
+
+      <view class="hero-book-body">
+        <image class="book-cover" src="{{currentBook.coverUrl}}" mode="aspectFill" />
+        <view class="book-details">
+          <text class="book-title">{{currentBook.title}}</text>
+          <text class="book-author">{{currentBook.author}}</text>
+          <view class="progress-bar-bg">
+            <view class="progress-bar-fill" style="width: {{progress}}%;"></view>
+          </view>
+          <text class="page-meta">{{currentBook.page}}</text>
+        </view>
+      </view>
+
+      <view class="hero-action-row">
+        <text class="action-hint">已读至第 8 章</text>
+        <view class="white-cta-btn">读 25 分钟</view>
+      </view>
+    </view>
+
+    <!-- 下方次要卡片：浅灰色弱化打底，主次强烈分明 -->
+    <view class="secondary-panel">
+      <view class="stat-col">
+        <text class="stat-num">18<text class="stat-sub">/30分</text></text>
+        <text class="stat-lbl">今日阅读</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-col">
+        <text class="stat-num">9<text class="stat-sub">天</text></text>
+        <text class="stat-lbl">连续打卡</text>
+      </view>
+    </view>
+  </view>
+</view>

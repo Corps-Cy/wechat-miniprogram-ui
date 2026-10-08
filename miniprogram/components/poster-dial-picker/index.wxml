@@ -1,0 +1,79 @@
+<view class="dial-container">
+  <view class="hud-bar">
+    <text class="hud-pill">TYPE: POSTER LARGE FONT</text>
+    <text class="hud-pill">DIAL: SEMICIRCLE ARC</text>
+    <text class="hud-pill">SNAP: TOP POINTER ALIGN</text>
+  </view>
+
+  <!-- 紫色海报风格卡片主体 -->
+  <view class="poster-card">
+    <view class="poster-header">
+      <view class="tag-row">
+        <view class="avatar-badge">🟣</view>
+        <text class="room-sub">专注房 · 今天的清单</text>
+      </view>
+
+      <!-- 海报大字标题 -->
+      <view class="poster-title-block">
+        <text class="poster-title">FOCUS</text>
+        <text class="poster-title">ROOM</text>
+      </view>
+    </view>
+
+    <!-- 半圆弧形转盘与指针舞台 -->
+    <view class="dial-stage">
+      <!-- 顶部固定指针 (选中的那一项停在指针正上方) -->
+      <view class="top-pointer">▼</view>
+
+      <!-- 半圆弧形轨道 -->
+      <view class="arc-track-container">
+        <!-- 旋转主体：根据选中项旋转角度 -->
+        <view class="rotating-dial" style="transform: rotate({{dialAngle}}deg);">
+          <block wx:for="{{items}}" wx:key="id">
+            <view 
+              class="dial-item-node {{selectedIndex === index ? 'active-node' : ''}}"
+              style="transform: rotate({{(index - 2) * 25}}deg) translateY(-170rpx);"
+              bindtap="selectDialItem"
+              data-index="{{index}}"
+            >
+              <view class="node-bubble">
+                <text class="node-icon">{{item.icon}}</text>
+                <text class="node-name">{{item.name}}</text>
+                <text class="node-quota">{{item.quota}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <!-- 中间大倒计时与控制按钮 -->
+      <view class="dial-center-content">
+        <text class="round-status">ROUND 4 · READY</text>
+        <text class="big-timer">25:00</text>
+
+        <view class="dial-action-bar">
+          <view class="step-btn" bindtap="onPrev">‹</view>
+          <view class="start-btn" bindtap="onStartFocus">
+            <text class="start-lbl">开始</text>
+            <text class="task-active-tag">{{items[selectedIndex].name}}</text>
+          </view>
+          <view class="step-btn" bindtap="onNext">›</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部打卡数据统计 -->
+    <view class="streak-footer">
+      <view class="streak-col">
+        <text class="streak-lbl">DAY STREAK</text>
+        <text class="streak-val">07</text>
+        <text class="streak-sub">连续7天 · 今天75分钟</text>
+      </view>
+      <view class="streak-bars">
+        <view class="bar-pill bar-1"></view>
+        <view class="bar-pill bar-2"></view>
+        <view class="bar-pill bar-3 active-bar"></view>
+      </view>
+    </view>
+  </view>
+</view>

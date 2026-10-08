@@ -1,0 +1,72 @@
+<view class="wide-list-container">
+  <view class="hud-bar">
+    <text class="hud-pill">TYPE: WIDE CAPS</text>
+    <text class="hud-pill">IMAGE: 16:10 FULL-WIDTH</text>
+    <text class="hud-pill">ROW: META + CIRCLE BTN</text>
+  </view>
+
+  <view class="wide-card">
+    <!-- 顶部两行宽体大写无衬线标题 -->
+    <view class="header-section">
+      <text class="brand-tag">NOMAD CAMPERS</text>
+      <text class="headline-title">FIND THE VAN</text>
+      <text class="headline-title">FOR YOUR NEXT ROAD</text>
+    </view>
+
+    <!-- 搜索条与筛选按钮 -->
+    <view class="search-bar-wrap">
+      <view class="search-input-box">
+        <text class="search-icon">🔍</text>
+        <view class="search-text-col">
+          <text class="search-location">Joshua Tree, California</text>
+          <text class="search-dates">Any dates · 2 travellers</text>
+        </view>
+      </view>
+      <view class="filter-round-btn">
+        <text class="filter-icon">⚙</text>
+      </view>
+    </view>
+
+    <!-- 分类标签栏 -->
+    <scroll-view class="category-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+      <view class="category-row">
+        <block wx:for="{{categories}}" wx:key="*this">
+          <view 
+            class="cat-chip {{activeCategory === item ? 'active' : ''}}"
+            bindtap="selectCategory" 
+            data-cat="{{item}}"
+          >
+            <text class="cat-chip-text">{{item}}</text>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+
+    <!-- 16:10 整宽大图列表 -->
+    <view class="list-section">
+      <block wx:for="{{items}}" wx:key="id">
+        <view class="van-card" bindtap="onItemTap" data-id="{{item.id}}" hover-class="van-card-hover">
+          <view class="img-wrapper">
+            <image class="van-img" src="{{item.imgUrl}}" mode="aspectFill" />
+            <view class="badge-pill">{{item.badge}}</view>
+          </view>
+
+          <!-- 图下一行排名称、参数与圆形箭头按钮 -->
+          <view class="van-foot-row">
+            <view class="van-info-col">
+              <text class="van-title">{{item.title}}</text>
+              <text class="van-specs">{{item.specs}}</text>
+            </view>
+            <view class="van-action-col">
+              <view class="solar-meta">
+                <text class="solar-lbl">Solar</text>
+                <text class="solar-val">{{item.solar}}</text>
+              </view>
+              <view class="circle-arrow-btn">→</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+<view class="hero-overlay-container">
+  <view class="hud-bar">
+    <text class="hud-pill">HERO: 1/3 SCREEN HEIGHT</text>
+    <text class="hud-pill">OVERLAY: TEXT + PACK BTN</text>
+    <text class="hud-pill">ACTIVE: #151213 BLACK</text>
+  </view>
+
+  <view class="city-card">
+    <!-- 顶部状态栏与地点切换 -->
+    <view class="top-nav-bar">
+      <view class="nav-left">
+        <text class="sub-location">从上海出发 · 下一站</text>
+        <view class="loc-dropdown">
+          <text class="loc-title">里斯本</text>
+          <text class="loc-arrow">▾</text>
+        </view>
+      </view>
+      <view class="avatar-circle">林</view>
+    </view>
+
+    <!-- 01 大图头块占三分之一 (约 380rpx) -->
+    <view class="hero-cover-block">
+      <image 
+        class="hero-img" 
+        src="https://images.unsplash.com/photo-1513688275127-1be5a83794d4?auto=format&fit=crop&w=800&q=80" 
+        mode="aspectFill" 
+      />
+      <!-- 渐变暗角压住大图 -->
+      <view class="gradient-scrim"></view>
+
+      <!-- 02 信息直接压在图上 -->
+      <view class="hero-overlay-content">
+        <view class="hero-meta-top">
+          <text class="depart-timer">下一次出发 · 当地 03:38</text>
+          <view class="countdown-tag">
+            <text class="countdown-num">0</text>
+            <text class="countdown-unit">天后出发</text>
+          </view>
+        </view>
+
+        <view class="hero-main-info">
+          <view class="city-name-box">
+            <text class="city-big-title">里斯本</text>
+            <view class="flight-flight">
+              <text class="flight-code">PVG</text>
+              <text class="flight-divider">→</text>
+              <text class="flight-code">LIS</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="hero-bottom-actions">
+          <text class="pack-status">还没开始打包</text>
+          <!-- 主按钮直接压在图上 -->
+          <view class="pack-btn" bindtap="onPackTap">去打包</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 下方白底信息块：未来 5 天等宽日期块 -->
+    <view class="weather-section">
+      <view class="weather-head">
+        <text class="sec-label">里斯本 · 未来5天</text>
+        <text class="time-diff">比北京时间慢 7 小时</text>
+      </view>
+
+      <!-- 03 当天用深色顶出来 (#151213) -->
+      <view class="days-row">
+        <block wx:for="{{days}}" wx:key="name">
+          <view 
+            class="day-col {{activeDayIndex === index ? 'active-black' : ''}}"
+            bindtap="selectDay"
+            data-index="{{index}}"
+          >
+            <text class="day-name">{{item.name}}</text>
+            <text class="day-icon">{{item.weather}}</text>
+            <text class="day-temp">{{item.temp}}</text>
+          </view>
+        </block>
+      </view>
+
+      <!-- 04 底部一条平滑曲线串联每天数值 + 游标圆点跟随移动 -->
+      <view class="curve-track-wrap">
+        <view class="smooth-wave-line"></view>
+        <view class="curve-tracker-dot" style="left: {{dotLeftPercent}}%;"></view>
+      </view>
+
+      <view class="weather-tip">
+        <text class="tip-dot">•</text>
+        <text class="tip-text">{{days[activeDayIndex].name}}预测 {{days[activeDayIndex].temp}}，点击查看行李清单建议</text>
+      </view>
+    </view>
+  </view>
+</view>

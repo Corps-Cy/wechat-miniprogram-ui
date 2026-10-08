@@ -4,12 +4,12 @@ description: >-
   Expert guide and generator for WeChat Mini Program (微信小程序) UI design, custom components, and pages.
   Use this skill whenever creating, designing, refactoring, or optimizing WeChat Mini Program UI components,
   voucher sheets, motion curves, layouts (WXML, WXSS, rpx responsive units), styling systems, interactive WXS animations,
-  tactile feedback, micro-toasts, or page architectures.
+  tactile feedback, micro-toasts, aesthetic page layouts, or page architectures.
 ---
 
 # WeChat Mini Program UI & Component Design Skill (微信小程序 UI/组件技能)
 
-A specialized skill for building high-quality, performant, and tactile WeChat Mini Program UI components, vouchers, micro-toasts, and page architectures.
+A specialized skill for building high-quality, performant, and tactile WeChat Mini Program UI components, vouchers, micro-toasts, aesthetic page layouts, and page architectures.
 
 ---
 
@@ -20,7 +20,7 @@ A specialized skill for building high-quality, performant, and tactile WeChat Mi
   - 核心贝塞尔曲线：`cubic-bezier(0.2, 0.7, 0.2, 1)`（类 iOS 柔和流体减速曲线）。
   - 弹性阻尼回弹：`cubic-bezier(0.175, 0.885, 0.32, 1.25)`。
   - 错帧动效（Stagger）：子元素（网格、刻度、瀑布流、红点联动）逐帧延迟进场（如 16ms ~ 70ms/帧）。
-- **触觉物理反馈（Haptics）**：在关键帧（圆环闭合、刻度卡位、手势吸附、按钮超调、撤销操作）注入 `wx.vibrateShort({ type: 'light' | 'medium' })`。
+- **触觉物理反馈（Haptics）**：在关键帧（圆环闭合、刻度卡位、手势吸附、按钮超调、撤销操作、转盘切换）注入 `wx.vibrateShort({ type: 'light' | 'medium' })`。
 - **全机型自适应与无横向溢出**：
   - 视口严格锁定 `100vw`，杜绝任何容器绝对定宽导致的横向滚动或白边暴露；
   - 底部必须适配全面屏安全区 `env(safe-area-inset-bottom)`。
@@ -29,7 +29,7 @@ A specialized skill for building high-quality, performant, and tactile WeChat Mi
 
 ---
 
-## 2. 全景组件与微动效矩阵 (Component Matrix)
+## 2. 全景组件与微动效矩阵 (28 款组件)
 
 ### 分类 01：凭证与卡券流体弹层 (01~06 Popup Panels)
 - `miniprogram/components/frosted-glass-sheet`: **01 玻璃面板浮起**（26px 模糊，12 月份胶囊错帧 4f 填充）
@@ -49,19 +49,23 @@ A specialized skill for building high-quality, performant, and tactile WeChat Mi
 - `miniprogram/components/stagger-cascade-grid`: **13 物理弹簧交错流**（瀑布流卡片错开 0.1s 弹性交错滑入，支持重播与点击弹性）
 - `miniprogram/components/press-scale-button`: **14 弹性微缩触觉反馈**（Scale 0.96 物理压缩与深度内阴影，松手超调 +1.1% 弹跳）
 
-### 分类 03：高级审美页面布局 (15~18 Aesthetic Layouts)
-- `miniprogram/components/bento-grid-wall`: **15 便当盒网格墙 (Bento Grid)**（高饱和度色块、微质感渐变、多比例信息自适应）
-- `miniprogram/components/stacked-deck-view`: **16 层叠卡片牌组 (Stacked Deck)**（景深视差透视，向上滑牌飞离与自动换牌）
-- `miniprogram/components/layered-exploded-panel`: **17 分层视差抽离面板 (Layered Exploded)**（3D 轴测透视，软硬件分层抽离爆炸展示）
-- `miniprogram/components/overlap-stagger-card`: **18 重叠咬合与阶梯错位排版 (Overlap & Stagger)**（负外边距卡片层叠与不对称阶梯，突破模板平铺）
+### 分类 03：高级审美页面布局 (15~22 Aesthetic Layouts - 8款)
+- `miniprogram/components/wide-list-view`: **15 宽体标题整宽大图列表 (Wide List)**（两行宽体大写、16:10 整宽圆角大图、图下信息与圆形箭头）
+- `miniprogram/components/hero-overlay-card`: **16 大图头块叠信息与温度曲线 (Hero Overlay)**（大图占 1/3 屏幕、倒计时压图、黑色突显当天与曲线跟踪）
+- `miniprogram/components/black-hero-contrast`: **17 黑白两档主次架构 (Black Hero)**（整页浅灰底、核心卡片与选中项做成深黑、强弱对比分明）
+- `miniprogram/components/bento-grid-wall`: **18 便当盒网格墙 (Bento Grid)**（品牌亮黄大卡片当主角、环形进度、四列等宽小方块）
+- `miniprogram/components/poster-dial-picker`: **19 海报大字半圆转盘选择器 (Poster Dial)**（海报级超粗标题、半圆弧形转盘、选中项吸附于正上方指针）
+- `miniprogram/components/stacked-deck-view`: **20 层叠卡片牌组 (Stacked Deck)**（景深视差透视，向上滑牌飞离与自动换牌）
+- `miniprogram/components/layered-exploded-panel`: **21 分层视差抽离面板 (Layered Exploded)**（3D 轴测透视，软硬件分层抽离爆炸展示）
+- `miniprogram/components/overlap-stagger-card`: **22 重叠咬合与阶梯错位排版 (Overlap & Stagger)**（负外边距卡片咬合压住底图标签与左右不对称阶梯，制造设计秩序感）
 
-### 分类 04：触觉高级手势与提示动效 (19~24 Advanced Interactions & Micro-Toasts)
-- `miniprogram/components/swipe-card-stack`: **19 左右滑动卡片堆叠 (Swipe Stack)**（WXS 物理阻尼旋转跟随，左滑忽视/右滑心动）
-- `miniprogram/components/split-button-morph`: **20 裂变流体胶囊 (Split Button)**（一分为二弹性展开，微缩回弹与触觉震动）
-- `miniprogram/components/scroll-spy-category`: **21 滚动联动分类 (Scroll Spy)**（左侧粘性侧栏与右侧商品流 60fps 双向丝滑联动）
-- `miniprogram/components/undo-timer-bar`: **22 倒计时进度撤销条 (Undo Timer Bar)**（4秒线性倒计时进度，删除可悔、走完才自然隐退）
-- `miniprogram/components/dot-rebound-scatter`: **23 红点弧线回缩与三级联动消散 (Dot Rebound)**（沿原位弧线微缩消散，错开4帧联动上级角标递减）
-- `miniprogram/components/state-morph-icon`: **24 状态形变图标与动作即反馈 (State Morph Icon)**（汉堡/叉号形变、播放/暂停、发送变为完成反馈）
+### 分类 04：触觉高级手势与提示动效 (23~28 Advanced Interactions & Micro-Toasts - 6款)
+- `miniprogram/components/swipe-card-stack`: **23 左右滑动卡片堆叠 (Swipe Stack)**（WXS 物理阻尼旋转跟随，左滑忽视/右滑心动）
+- `miniprogram/components/split-button-morph`: **24 裂变流体胶囊 (Split Button)**（一分为二弹性展开，微缩回弹与触觉震动）
+- `miniprogram/components/scroll-spy-category`: **25 滚动联动分类 (Scroll Spy)**（左侧粘性侧栏与右侧商品流 60fps 双向丝滑联动）
+- `miniprogram/components/undo-timer-bar`: **26 倒计时进度撤销条 (Undo Timer Bar)**（4秒线性倒计时进度，删除可悔、走完才自然隐退）
+- `miniprogram/components/dot-rebound-scatter`: **27 红点弧线回缩与三级联动消散 (Dot Rebound)**（沿原位弧线微缩消散，错开4帧联动上级角标递减）
+- `miniprogram/components/state-morph-icon`: **28 状态形变图标与动作即反馈 (State Morph Icon)**（汉堡/叉号形变、播放/暂停、发送变为完成反馈）
 
 ---
 

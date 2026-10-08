@@ -2,11 +2,11 @@
   <!-- 顶部分类导航 -->
   <view class="demo-header">
     <view class="header-badge">
-      <text class="badge-num">24</text>
-      <text class="badge-sub">微信小程序 · 精品交互与高阶质感库</text>
+      <text class="badge-num">28</text>
+      <text class="badge-sub">微信小程序 · 精品交互与高阶审美库</text>
     </view>
     <text class="page-title">Vibe Coding UI</text>
-    <text class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互 · 高级提示动效</text>
+    <text class="page-desc">物理流体曲线 · 3D 光影质感 · WXS 丝滑手势交互 · 高级排版审美</text>
 
     <!-- 分类 Segment 切换 -->
     <scroll-view class="tab-segment-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
@@ -33,7 +33,7 @@
           data-tab="layouts"
         >
           <text class="tab-label">03 审美页面布局</text>
-          <text class="tab-badge">4款</text>
+          <text class="tab-badge">8款</text>
         </view>
         <view 
           class="tab-item {{currentTab === 'interactions' ? 'active' : ''}}" 
@@ -167,34 +167,58 @@
     </view>
   </view>
 
-  <!-- ==================== 分类 3：审美页面布局 ==================== -->
+  <!-- ==================== 分类 3：审美页面布局 (8 款) ==================== -->
   <view class="section-container" wx:if="{{currentTab === 'layouts'}}">
     <view class="section-title-wrap">
-      <text class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS</text>
-      <text class="section-desc">源自前沿 App 视觉语言，打破模板化平铺陈列</text>
+      <text class="section-title">高级审美页面布局 · AESTHETIC LAYOUTS (8款)</text>
+      <text class="section-desc">源自前沿 App 视觉语言，打破模板化平铺陈列，主次分明</text>
     </view>
 
-    <!-- 便当盒网格墙 BENTO GRID -->
+    <!-- 01 大字标题加整宽大图列表 WIDE LIST -->
     <view class="motion-block">
-      <text class="block-label">01 便当盒网格墙 (BENTO GRID WALL)</text>
+      <text class="block-label">01 宽体标题整宽大图列表 (WIDE CAPS LIST)</text>
+      <wide-list-view />
+    </view>
+
+    <!-- 02 大图头块叠信息 HERO OVERLAY -->
+    <view class="motion-block">
+      <text class="block-label">02 大图头块叠信息与温度曲线 (HERO OVERLAY)</text>
+      <hero-overlay-card />
+    </view>
+
+    <!-- 03 黑白两档主次 BLACK HERO -->
+    <view class="motion-block">
+      <text class="block-label">03 黑白两档主次架构 (BLACK HERO CONTRAST)</text>
+      <black-hero-contrast />
+    </view>
+
+    <!-- 04 便当盒网格墙 BENTO GRID -->
+    <view class="motion-block">
+      <text class="block-label">04 便当盒网格墙 (BENTO GRID WALL)</text>
       <bento-grid-wall />
     </view>
 
-    <!-- 层叠卡片牌组 STACKED DECK -->
+    <!-- 05 海报大字加半圆转盘 POSTER DIAL -->
     <view class="motion-block">
-      <text class="block-label">02 层叠卡片牌组 (STACKED DECK)</text>
+      <text class="block-label">05 海报大字半圆转盘选择器 (POSTER DIAL)</text>
+      <poster-dial-picker />
+    </view>
+
+    <!-- 06 层叠卡片牌组 STACKED DECK -->
+    <view class="motion-block">
+      <text class="block-label">06 层叠卡片牌组 (STACKED DECK)</text>
       <stacked-deck-view />
     </view>
 
-    <!-- 分层视差抽离面板 LAYERED EXPLODED -->
+    <!-- 07 分层视差抽离面板 LAYERED EXPLODED -->
     <view class="motion-block">
-      <text class="block-label">03 分层视差抽离面板 (LAYERED EXPLODED)</text>
+      <text class="block-label">07 分层视差抽离面板 (LAYERED EXPLODED)</text>
       <layered-exploded-panel />
     </view>
 
-    <!-- 高级排版：重叠咬合与阶梯错位 OVERLAP & STAGGER -->
+    <!-- 08 高级排版：重叠咬合与阶梯错位 OVERLAP & STAGGER -->
     <view class="motion-block">
-      <text class="block-label">04 重叠咬合与阶梯错位排版 (OVERLAP & STAGGER)</text>
+      <text class="block-label">08 重叠咬合与阶梯错位排版 (OVERLAP & STAGGER)</text>
       <overlap-stagger-card />
     </view>
   </view>
@@ -202,7 +226,7 @@
   <!-- ==================== 分类 4：触觉高级交互 ==================== -->
   <view class="section-container" wx:if="{{currentTab === 'interactions'}}">
     <view class="section-title-wrap">
-      <text class="section-title">触觉高级交互 · ADVANCED INTERACTIONS</text>
+      <text class="section-title">触觉高级交互 · ADVANCED INTERACTIONS (6款)</text>
       <text class="section-desc">手一碰就有回应，基于 WXS 60fps 手势、提示动效与流体形变</text>
     </view>
 
