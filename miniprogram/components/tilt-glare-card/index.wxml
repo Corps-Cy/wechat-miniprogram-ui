@@ -1,7 +1,7 @@
 <wxs module="tiltHandler" src="./tilt.wxs"></wxs>
 
 <view class="tilt-container">
-  <!-- 顶部 HUD 读数标牌 (与视频一致) -->
+  <!-- 顶部 HUD 读数标牌 -->
   <view class="hud-readout">
     <view class="hud-item">
       <text class="hud-label">TILT_X</text>

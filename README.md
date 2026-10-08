@@ -11,34 +11,16 @@
 
 ---
 
-## 📱 动效与交互效果演示 (Live Previews)
+## 📱 核心 Demo 交互体验与效果矩阵 (Live Demo Preview)
 
-<table width="100%">
-  <tr>
-    <td width="50%" align="center">
-      <b>01. 凭证与卡券流体弹层 (Popup Panels)</b><br/><br/>
-      <img src="./assets/previews/01-voucher-sheets.gif" width="300" alt="凭证卡券弹层" /><br/>
-      <sub>26px 磨砂毛玻璃浮起 · 12月格子错帧4f填充 · 1.2s 顺时针圆环 · 180° 原地翻转</sub>
-    </td>
-    <td width="50%" align="center">
-      <b>02. 质感微动效核心组件 (Tactile Motions)</b><br/><br/>
-      <img src="./assets/previews/02-micro-motion.gif" width="300" alt="质感微动效" /><br/>
-      <sub>3D 跟手倾斜与光影 · 动态弥散光晕边框 · 码表滚动 · 物理弹簧交错流</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <b>03. 高级审美页面布局 (Aesthetic Layouts)</b><br/><br/>
-      <img src="./assets/previews/03-aesthetic-layouts.gif" width="300" alt="高级审美页面布局" /><br/>
-      <sub>便当盒 Bento Grid · 3D 轴测透视爆炸展开 · 层叠滑卡 · 海报半圆拨盘</sub>
-    </td>
-    <td width="50%" align="center">
-      <b>04. 触觉高级手势与提示 (Advanced Interactions)</b><br/><br/>
-      <img src="./assets/previews/04-tactile-feedback.gif" width="300" alt="触觉高级交互" /><br/>
-      <sub>WXS 60fps 左右滑牌 · 裂变流体胶囊按钮 · 4秒倒计时撤销条 · 红点弧线回弹消散</sub>
-    </td>
-  </tr>
-</table>
+本项目在 `miniprogram/pages/demo` 中内置了完整的**原生全量交互体验看板**。导入微信开发者工具后即可实时真机体验全部 28 款组件的物理动力学与微动效交互：
+
+| 模块分类 | 内置组件数 | 核心真实 Demo 效果与交互响应 | 体验路径 |
+| :--- | :---: | :--- | :--- |
+| **01. 凭证与卡券流体弹层** | 6 款 | • **毛玻璃浮起**：26px 高斯模糊遮罩 + 12月格子错帧梯次自底向上平滑填充<br>• **圆环计数**：背景平滑压暗 + 1.2s 顺时针环形进度绘制与数字线性递增<br>• **刻度尺扫动**：53 根周刻度逐帧扫描至“今天”+ 原地等宽无抖动防伪编号展开<br>• **照片抽屉咬合**：海报 1.08→1.0 铺满 + `-44rpx` 负边距抽屉紧密推入贴合<br>• **180° 原地翻面**：1200px 3D 空间景深，绕 Y 轴原地翻转出示核销二维码<br>• **下拉展开小票**：虚线齿孔与阻尼手柄，下拉超 40% 自动吸附展开就餐单据 | 演示页 ➔ `01 凭证弹窗` |
+| **02. 质感微动效与核心组件** | 8 款 | • **3D 跟手倾斜面板**：触摸跟随 ±5° 视差浮动 + 径向高光反射 + 松手物理 Spring 回正<br>• **流体胶囊形变**：顶栏小胶囊点击如水滴般流畅延展为完整操作面板<br>• **共享元素无缝过渡**：列表卡片点击原地膨胀全屏，无白屏与跳变感<br>• **磁吸游标与滚动码表**：折线图拖拽自动磁吸节点 + 机械数字翻滚 + 轻量微震<br>• **阻尼弹性抽屉**：橡皮筋拉伸物理阻尼 + LOW / MID / FULL 档位吸附<br>• **动态弥散光晕边框**：GPU 加速 360° 流光锥形描边 + 呼吸式背光晕染<br>• **瀑布流弹簧交错流**：0.1s 错开交错弹性滑入 + 支持重播与点击弹性反馈<br>• **触觉微缩按钮**：按压 Scale 0.96 深度凹陷 + 松手 +1.1% 超调弹跳与微震 | 演示页 ➔ `02 质感微动效` |
+| **03. 高级审美页面布局** | 8 款 | • **宽体标题整宽大图列表**：大写宽标题 + 16:10 宽幅卡片 + 圆形操作联动<br>• **大图头块叠加与温度曲线**：1/3 屏幕大图压暗 + 曲线光晕跟踪与日期切换<br>• **黑白两档主次架构**：浅灰底色 + 纯黑卡片视觉焦点 + 快速展开章节<br>• **便当盒网格墙 (Bento Grid)**：品牌黄主视觉卡片 + 环形进度 + 四列微打卡方块<br>• **海报大字半圆转盘**：超粗海报标题 + 半圆弧形指针吸附 + 专注流切换<br>• **层叠卡片牌组 (Stacked Deck)**：3D 景深层叠，向上滑牌飞离与循环补位<br>• **分层视差抽离面板**：3D 轴测透视 + 四层硬件视差爆炸展开与阴影扩散<br>• **重叠咬合阶梯排版**：负外边距卡片咬合压住底图标签 + 错位视觉节奏 | 演示页 ➔ `03 审美页面布局` |
+| **04. 触觉高级手势与提示** | 6 款 | • **WXS 左右滑牌堆叠**：WXS 视图层 60fps 物理旋转阻尼，左滑忽略/右滑喜欢<br>• **裂变流体胶囊按钮**：悬浮胶囊一分为二平滑分裂为控制按钮，触觉震动<br>• **双向联动分类 (Scroll Spy)**：左侧锚点侧栏与右侧内容流 60fps 双向丝滑定位<br>• **4秒倒计时撤销条**：线性进度条倒计时，提供手滑后悔机制，自然平滑隐退<br>• **红点弧线回弹消散**：点击红点沿原位弧线微缩消散，错开4帧联动上级角标递减<br>• **状态形变图标**：汉堡与叉号平滑变形、播放与暂停、发送转对勾动画 | 演示页 ➔ `04 触觉高级交互` |
 
 ---
 
@@ -119,12 +101,13 @@
 
 ## 🛠️ 快速接入与体验 (Quick Start)
 
-### 1. 微信开发者工具直接打开
+### 1. 微信开发者工具中预览 Demo
 1. 打开 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)；
-2. 点击 **导入项目**，选择本项目目录：[`wechat-miniprogram-ui`](file:///Users/kechangchang/wechat-miniprogram-ui)；
-3. AppID 填入您的小程序 AppID 或测试号，即可在模拟器中体验全部 28 款组件的交互 Demo。
+2. 点击 **导入项目**，选择本项目根目录（包含 `project.config.json`）；
+3. AppID 填入您的小程序 AppID 或使用测试号；
+4. 编译后即可在模拟器中体验全部 28 款组件的交互 Demo（支持 4 大分类 Segment 切换）。
 
-### 2. 在业务页面中引入组件
+### 2. 在业务项目中引入组件
 例如使用便当盒网格布局 [`bento-grid-wall`](miniprogram/components/bento-grid-wall/)：
 
 **在页面 `page.json` 中注册：**
@@ -141,12 +124,39 @@
 <bento-grid-wall bind:itemtap="onBentoItemTap" />
 ```
 
-### 3. 作为 AI 编程助手 Skill 运行
-本项目原生遵循 Antigravity / Claude Code Skill 规范。项目根目录已通过软链接注入至全局 Skill 目录：
+### 3. 作为 AI 编程助手 Skill 安装与使用
+本项目遵循标准的 AI Agent Skill 架构规范（含 `SKILL.md` 与技术指引），支持在 Antigravity、Claude Code、Cursor 等 AI 开发环境中一键作为专业 Skill 调用。
+
+#### 方式 A：运行一键安装脚本（推荐）
 ```bash
-~/.gemini/config/skills/wechat-miniprogram-ui -> /Users/kechangchang/wechat-miniprogram-ui
+# 默认完整安装至 Antigravity 全局技能目录 (~/.gemini/config/skills)
+./install.sh
+
+# 或者指定安装到当前小程序项目专属的技能目录
+./install.sh /path/to/your-project/.agents/skills
 ```
-在与 AI 助手沟通时，直接提问“*帮我用这个 skill 做一个带 3D 光影的会员卡页面*”或“*设计一个带 4 秒撤销条的删除反馈*”，AI 将自动检索规范并输出高质量生产代码。
+
+#### 方式 B：手动克隆或复制到技能目录
+- **全局生效（对本机所有项目生效）**：
+  ```bash
+  mkdir -p ~/.gemini/config/skills
+  git clone git@github.com:Corps-Cy/wechat-miniprogram-ui.git ~/.gemini/config/skills/wechat-miniprogram-ui
+  ```
+
+- **项目内独立生效（随代码仓库协同）**：
+  在目标小程序项目根目录下执行：
+  ```bash
+  mkdir -p .agents/skills
+  git clone git@github.com:Corps-Cy/wechat-miniprogram-ui.git .agents/skills/wechat-miniprogram-ui
+  ```
+
+#### 方式 C：在 AI 对话中直接调用
+安装后，AI 助手将自动载入 `wechat-miniprogram-ui` 知识库。您可以直接向 AI 提出需求：
+- *“帮我设计一个带 3D 倾斜光影的会员卡片”*
+- *“做一个 4 秒撤销倒计时的高级删除提示”*
+- *“采用便当盒 Bento Grid 风格重构我的首页”*
+
+AI 将自动检索规范并输出符合 60fps WXS 与原生微信小程序标准的组件与页面代码。
 
 ---
 
